@@ -1,0 +1,59 @@
+#---------------------------------------------------------
+# Hurricanes of the  sistema
+#---------------------------------------------------------
+
+total.hurricanes = 9
+
+hurricane1.name = 1
+hurricane1.category = 1
+hurricane1.velocity = 1
+hurricane1.damageCosts = 1
+hurricane1.image = 1
+
+hurricane2.name = 2
+hurricane2.category = 2
+hurricane2.velocity = 2
+hurricane2.damageCosts = 2
+hurricane2.image = 2
+
+hurricane3.name = 3
+hurricane3.category = 3
+hurricane3.velocity = 3
+hurricane3.damageCosts = 3
+hurricane3.image = 3
+
+hurricane4.name = 4
+hurricane4.category = 4
+hurricane4.velocity = 4
+hurricane4.damageCosts = 4
+hurricane4.image = 4
+
+hurricane5.name = 5
+hurricane5.category = 5
+hurricane5.velocity = 5
+hurricane5.damageCosts = 5
+hurricane5.image = 5
+
+hurricane6.name = 6
+hurricane6.category = 6
+hurricane6.velocity = 6
+hurricane6.damageCosts = 6
+hurricane6.image = 6
+
+hurricane7.name = 7
+hurricane7.category = 7
+hurricane7.velocity = 7
+hurricane7.damageCosts = 7
+hurricane7.image = 7
+
+hurricane8.name = 8
+hurricane8.category = 8
+hurricane8.velocity = 8
+hurricane8.damageCosts = 8
+hurricane8.image = 8
+
+hurricane9.name = 9
+hurricane9.category = 9
+hurricane9.velocity = 9
+hurricane9.damageCosts = 9
+hurricane9.image = 9

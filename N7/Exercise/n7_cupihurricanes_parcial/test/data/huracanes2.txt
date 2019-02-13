@@ -1,0 +1,59 @@
+#---------------------------------------------------------
+# Hurricanes of the  sistema
+#---------------------------------------------------------
+
+total.hurricanes = 9
+
+hurricane1.name = Bill
+hurricane1.category = 2
+hurricane1.velocity = 95
+hurricane1.damageCosts = 50
+hurricane1.image = .//data//bill.png
+
+hurricane2.name = Charley
+hurricane2.category = 4
+hurricane2.velocity = 240
+hurricane2.damageCosts = 18000
+hurricane2.image = .//data//bill.png
+
+hurricane3.name = Dean
+hurricane3.category = 5
+hurricane3.velocity = 280
+hurricane3.damageCosts = 2200
+hurricane3.image = .//data//dean.png
+
+hurricane4.name = Dolly
+hurricane4.category = 3
+hurricane4.velocity = 155
+hurricane4.damageCosts = 1500
+hurricane4.image = .//data//dolly.png
+
+hurricane5.name = Emily
+hurricane5.category = 4
+hurricane5.velocity = 260
+hurricane5.damageCosts = 550
+hurricane5.image = .//data//emily.png
+
+hurricane6.name = Isabel
+hurricane6.category = 5
+hurricane6.velocity = 270
+hurricane6.damageCosts = 4220
+hurricane6.image = .//data//isabel.png
+
+hurricane7.name = Katrina
+hurricane7.category = 5
+hurricane7.velocity = 280
+hurricane7.damageCosts = 89000
+hurricane7.image = .//data//katrina.png
+
+hurricane8.name = Rita
+hurricane8.category = 5
+hurricane8.velocity = 285
+hurricane8.damageCosts = 12470
+hurricane8.image = .//data/rita.png
+
+hurricane9.name = Wilma
+hurricane9.category = 5
+hurricane9.velocity = 295
+hurricane9.damageCosts = 32000
+hurricane9.image = .//data/wilma.png

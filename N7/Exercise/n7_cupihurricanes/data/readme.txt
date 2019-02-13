@@ -1,0 +1,9 @@
+La image bill.png fue extra�da de: www.lesjones.com
+La image charley.png fue extra�da de: www.theage.com.au
+La image dean.png fue extra�da de: www.accuweather.com
+La image dolly.png fue extra�da de: www.daylife.com
+La image emily.png fue extra�da de: abcnews.go.com
+La image isabel.png fue extra�da de: www.ussplymouthrock.com
+La image katrina.png fue extra�da de: www.cubahurricanes.org
+La image rita.png fue extra�da de: pro.wanadoo.fr
+La image wilma.png fue extra�da de: www.waynebesen.com

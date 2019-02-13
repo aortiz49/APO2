@@ -1,0 +1,59 @@
+#---------------------------------------------------------
+# Hurricanes in the system
+#---------------------------------------------------------
+
+total.hurricanes = 9
+
+hurricane1.name = Arthur
+hurricane1.category = 2
+hurricane1.velocity = 155
+hurricane1.damageCost = 52.5
+hurricane1.image = .//data//images//arthur.jpg
+
+hurricane2.name = Gonzalo
+hurricane2.category = 4
+hurricane2.velocity = 230
+hurricane2.damageCost = 250
+hurricane2.image = .//data//images//gonzalo.jpg
+
+hurricane3.name = Fay
+hurricane3.category = 1
+hurricane3.velocity = 120
+hurricane3.damageCost = 3.8
+hurricane3.image = .//data//images//fay.jpg
+
+hurricane4.name = Genevieve
+hurricane4.category = 5
+hurricane4.velocity = 260
+hurricane4.damageCost = 0
+hurricane4.image = .//data//images//genevieve.jpg
+
+hurricane5.name = Bertha
+hurricane5.category = 1
+hurricane5.velocity = 130
+hurricane5.damageCost = 0.1
+hurricane5.image = .//data//images//bertha.jpg
+
+hurricane6.name = Ingrid
+hurricane6.category = 1
+hurricane6.velocity = 140
+hurricane6.damageCost = 1500
+hurricane6.image = .//data//images//ingrid.jpg
+
+hurricane7.name = Norbert
+hurricane7.category = 3
+hurricane7.velocity = 205
+hurricane7.damageCost = 100
+hurricane7.image = .//data//images//norbert.jpg
+
+hurricane8.name = Iselle
+hurricane8.category = 4
+hurricane8.velocity = 220
+hurricane8.damageCost = 66
+hurricane8.image = .//data//images//iselle.jpg
+
+hurricane9.name = Odille
+hurricane9.category = 4
+hurricane9.velocity = 215
+hurricane9.damageCost = 1050
+hurricane9.image = .//data//images//odille.jpg
