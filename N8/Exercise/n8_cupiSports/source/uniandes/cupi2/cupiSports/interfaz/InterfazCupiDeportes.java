@@ -1,16 +1,16 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
+ * Ejercicio: n8_cupiSports
  * Autor: Equipo Cupi2
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.interfaz;
+package uniandes.cupi2.cupiSports.interfaz;
 
 import java.awt.BorderLayout;
 import java.io.File;
@@ -22,38 +22,38 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import uniandes.cupi2.cupiDeportes.mundo.Deporte;
-import uniandes.cupi2.cupiDeportes.mundo.ElementoExisteException;
-import uniandes.cupi2.cupiDeportes.mundo.FormatoArchivoException;
-import uniandes.cupi2.cupiDeportes.mundo.CupiDeportes;
-import uniandes.cupi2.cupiDeportes.mundo.Deportista;
-import uniandes.cupi2.cupiDeportes.mundo.PersistenciaException;
+import uniandes.cupi2.cupiSports.world.Sport;
+import uniandes.cupi2.cupiSports.mundo.ElementExistsException;
+import uniandes.cupi2.cupiSports.mundo.FormatoArchivoException;
+import uniandes.cupi2.cupiSports.world.CupiSports;
+import uniandes.cupi2.cupiSports.world.Athlete;
+import uniandes.cupi2.cupiSports.mundo.PersistenciaException;
 
 /**
- * Ventana principal de la aplicación.
+ * Ventana principal de la aplicaciï¿½n.
  */
-public class InterfazCupiDeportes extends JFrame
+public class InterfazCupiSports extends JFrame
 {
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
-     * Ruta al archivo donde se guarda la información.
+     * Ruta al archivo donde se guarda la informaciï¿½n.
      */
-    private final static String DATA = "./data/cupiDeportes.data";
+    private final static String DATA = "./data/cupiSports.data";
 
     // -----------------------------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Clase principal del mundo.
+     * Clase principal del world.
      */
-    private CupiDeportes cupiDeportes;
+    private CupiSports cupiSports;
 
     // -----------------------------------------------------------------
-    // Atributos de la interfaz
+    // Attributes de la interfaz
     // -----------------------------------------------------------------
 
     /**
@@ -69,7 +69,7 @@ public class InterfazCupiDeportes extends JFrame
     /**
      * Panel con los deportes.
      */
-    private PanelDeportes panelDeportes;
+    private PanelSports panelSports;
 
     /**
      * Panel con las opciones.
@@ -77,46 +77,46 @@ public class InterfazCupiDeportes extends JFrame
     private PanelOpciones panelOpciones;
 
     /**
-     * Panel con la información del deporte seleccionado.
+     * Panel con la informaciï¿½n del deporte seleccionado.
      */
-    private PanelInfoDeporte panelInfoDeporte;
+    private PanelInfoSport panelInfoSport;
 
     /**
-     * Panel con la información del deportista seleccionado.
+     * Panel con la informaciï¿½n of the athlete seleccionado.
      */
-    private PanelInfoDeportista panelInfoDeportista;
+    private PanelInfoAthlete panelInfoAthlete;
 
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructors
     // -----------------------------------------------------------------
 
     /**
-     * Constructor de la ventana principal de la aplicación.
+     * Constructor de la ventana principal de la aplicaciï¿½n.
      */
-    public InterfazCupiDeportes( )
+    public InterfazCupiSports( )
     {
         try
         {
-            cupiDeportes = new CupiDeportes( DATA );
+            cupiSports = new CupiSports( DATA );
 
             getContentPane( ).setLayout( new BorderLayout( ) );
             setSize( 800, 700 );
             setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
-            setTitle( "CupiDeportes" );
+            setTitle( "CupiSports" );
 
-            // Creación de los paneles aquí
+            // Creaciï¿½n de los paneles aquï¿½
             JPanel panelNorte = new JPanel( new BorderLayout( ) );
             panelImagen = new PanelImagen( );
             panelNorte.add( panelImagen, BorderLayout.NORTH );
             add( panelNorte, BorderLayout.NORTH );
 
             JPanel panelCentral = new JPanel( new BorderLayout( ) );
-            panelDeportes = new PanelDeportes( this );
-            panelCentral.add( panelDeportes, BorderLayout.NORTH );
-            panelInfoDeporte = new PanelInfoDeporte( this );
-            panelCentral.add( panelInfoDeporte, BorderLayout.CENTER );
-            panelInfoDeportista = new PanelInfoDeportista( );
-            panelCentral.add( panelInfoDeportista, BorderLayout.EAST );
+            panelSports = new PanelSports( this );
+            panelCentral.add( panelSports, BorderLayout.NORTH );
+            panelInfoSport = new PanelInfoSport( this );
+            panelCentral.add( panelInfoSport, BorderLayout.CENTER );
+            panelInfoAthlete = new PanelInfoAthlete( );
+            panelCentral.add( panelInfoAthlete, BorderLayout.EAST );
             add( panelCentral, BorderLayout.CENTER );
 
             panelExtension = new PanelExtension( this );
@@ -127,81 +127,81 @@ public class InterfazCupiDeportes extends JFrame
 
             setLocationRelativeTo( null );
 
-            actualizarListaDeportes( );
+            actualizarListaSports( );
         }
         catch( PersistenciaException e )
         {
-            JOptionPane.showMessageDialog( this, e.getMessage( ), "CupiDeportes", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, e.getMessage( ), "CupiSports", JOptionPane.ERROR_MESSAGE );
         }
 
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     /**
-     * Actualiza el panel panelDeportes con los deportes disponibles.
+     * Actualiza el panel panelSports con los deportes disponibles.
      */
-    public void actualizarListaDeportes( )
+    public void actualizarListaSports( )
     {
-        panelDeportes.actualizarDeportes( cupiDeportes.darDeportes( ) );
+        panelSports.actualizarSports( cupiSports.getSports( ) );
     }
 
     /**
-     * Actualiza la información que se visualiza de un deporte.
-     * @param pDeporte Deporte del cual se va a mostrar la información.pDeporte != null.
+     * Actualiza la informaciï¿½n que se visualiza de un deporte.
+     * @param pSport Sport del cual se va a mostrar la informaciï¿½n.pSport != null.
      */
-    public void actualizarInfoDeporte( Deporte pDeporte )
+    public void actualizarInfoSport( Sport pSport )
     {
-        panelInfoDeporte.actualizarInfo( pDeporte );
+        panelInfoSport.actualizarInfo( pSport );
     }
 
     /**
-     * Actualiza la información que se visualiza del deportista.
-     * @param pDeportista Deportista del cual se va a mostrar la información. pDeportista != null.
+     * Actualiza la informaciï¿½n que se visualiza of the athlete.
+     * @param pAthlete Athlete del cual se va a mostrar la informaciï¿½n. pAthlete != null.
      */
-    public void actualizarInfoDeportista( Deportista pDeportista )
+    public void actualizarInfoAthlete( Athlete pAthlete )
     {
-        panelInfoDeportista.actualizarInfo( pDeportista );
+        panelInfoAthlete.actualizarInfo( pAthlete );
     }
 
     /**
      * Muestra el dialogo para ingresar un deporte.
      */
-    public void mostrarDialogoAgregarDeporte( )
+    public void mostrarDialogoAgregarSport( )
     {
-        DialogoAgregarDeporte dialogo = new DialogoAgregarDeporte( this );
+        DialogoAgregarSport dialogo = new DialogoAgregarSport( this );
         dialogo.setLocationRelativeTo( this );
         dialogo.setVisible( true );
     }
 
     /**
      * Agrega un deporte.
-     * @param pNombreDeporte Nombre del deporte. pNombreDeporte != null && pNombreDeporte!= "".
-     * @param pEnteRegulador Ente regulador del deporte. pEnteRegulador != null && pEnteRegulador != "".
-     * @param pCantidadDeportistasRegistrados Cantidad de deportistas registrados. pCantidadDeportistasRegistrados > 0.
-     * @param pRutaImagen Ruta a la imagen del deporte. pRutaImagen != null && pRutasImagen != "".
-     * @throws ElementoExisteException Si ya existe un deporte con el nombre dado.
+     * @param pNameSport Name of the sport. pNameSport != null && pNameSport!= "".
+     * @param pRegulatoryEntity Regulatory entity of the sport. pRegulatoryEntity != null && pRegulatoryEntity != "".
+     * @param pNumberOfRegisteredAthletes Cantidad de deportistas registrados. pNumberOfRegisteredAthletes > 0.
+     * @param pImagePath Image path of the sport. pImagePath != null && pRutasImagen != "".
+     * @throws ElementExistsException Si ya exists un deporte con el name dado.
      */
-    public void agregarDeporte( String pNombreDeporte, String pEnteRegulador, int pCantidadDeportistasRegistrados, String pRutaImagen ) throws ElementoExisteException
+    public void agregarSport( String pNameSport, String pRegulatoryEntity, int pNumberOfRegisteredAthletes, String pImagePath ) throws ElementExistsException
     {
-        cupiDeportes.agregarDeporte( pNombreDeporte, pEnteRegulador, pCantidadDeportistasRegistrados, pRutaImagen );
-        actualizarListaDeportes( );
+        cupiSports.agregarSport( pNameSport, pRegulatoryEntity, pNumberOfRegisteredAthletes, pImagePath );
+        actualizarListaSports( );
     }
 
     /**
      * Muestra el dialogo para agregar un deportista sobresaliente.
      */
-    public void mostrarDialogoAgregarDeportista( )
+    public void mostrarDialogoAgregarAthlete( )
     {
-        if( panelDeportes.darDeporteSeleccionado( ) == null )
+        if( panelSports.getSportSeleccionado( ) == null )
         {
-            JOptionPane.showMessageDialog( this, "No ha seleccionado ningún deporte.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "No ha seleccionado ningï¿½n deporte.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
         }
         else
         {
-            DialogoAgregarDeportista dialogo = new DialogoAgregarDeportista( this );
+            DialogoAgregarAthlete dialogo = new DialogoAgregarAthlete( this );
             dialogo.setLocationRelativeTo( this );
             dialogo.setVisible( true );
         }
@@ -209,36 +209,36 @@ public class InterfazCupiDeportes extends JFrame
 
     /**
      * Agrega un deportista al deporte seleccionado.
-     * @param pNombreDeportista Nombre del deportista sobresaliente. pNombreDeportista != null && pNombreDeportista != "".
-     * @param pEdad Edad del deportista. pEdad > 0.
-     * @param pLugarResidencia Lugar de residencia del deportista. pLugarResidencia != null && pLugarResidencia != "".
-     * @param pCantidadTrofeos Cantidad de trofeos ganados del deportista. pCantidadTrofeos >= 0.
-     * @param pRutaImagenDeportista Ruta a la imagen del deportista. pRutaImagenDeportista != null && pRutaImagenDeportista != "".
-     * @throws ElementoExisteException Si en el deporte ya existe un deportista con el nombre del que se quiere agregar.
+     * @param pNameAthlete Name of the athlete sobresaliente. pNameAthlete != null && pNameAthlete != "".
+     * @param pAge Age of the athlete. pAge > 0.
+     * @param pPlaceOfResidency Athlete's place of residence.  pPlaceOfResidency != null && pPlaceOfResidency != "".
+     * @param pAmountOfTrophies Cantidad de trofeos ganados of the athlete. pAmountOfTrophies >= 0.
+     * @param pImagePathAthlete Image path of the athlete. pImagePathAthlete != null && pImagePathAthlete != "".
+     * @throws ElementExistsException Si en el deporte ya exists un deportista con el name del que se quiere agregar.
      */
-    public void agregarDeportistaSobresaliente( String pNombreDeportista, int pEdad, String pLugarResidencia, int pCantidadTrofeos, String pRutaImagenDeportista ) throws ElementoExisteException
+    public void addOutstandingAthlete( String pNameAthlete, int pAge, String pPlaceOfResidency, int pAmountOfTrophies, String pImagePathAthlete ) throws ElementExistsException
     {
-        String nombreDeporte = panelDeportes.darDeporteSeleccionado( ).darNombre( );
-        cupiDeportes.agregarDeportistaSobresaliente( nombreDeporte, pNombreDeportista, pEdad, pLugarResidencia, pCantidadTrofeos, pRutaImagenDeportista );
-        actualizarInfoDeporte( panelDeportes.darDeporteSeleccionado( ) );
+        String nameSport = panelSports.getSportSeleccionado( ).getName( );
+        cupiSports.addOutstandingAthlete( nameSport, pNameAthlete, pAge, pPlaceOfResidency, pAmountOfTrophies, pImagePathAthlete );
+        actualizarInfoSport( panelSports.getSportSeleccionado( ) );
     }
 
     /**
      * Elimina el deporte seleccionado.
      */
-    public void eliminarDeporte( )
+    public void eliminarSport( )
     {
-        if( panelDeportes.darDeporteSeleccionado( ) == null )
+        if( panelSports.getSportSeleccionado( ) == null )
         {
-            JOptionPane.showMessageDialog( this, "No ha seleccionado ningún deporte.", "Eliminar deporte", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "No ha seleccionado ningï¿½n deporte.", "Eliminar deporte", JOptionPane.ERROR_MESSAGE );
         }
         else
         {
-            int confirmacion = JOptionPane.showConfirmDialog( this, "¿Confirma que desea eliminar " + panelDeportes.darDeporteSeleccionado( ).toString( ) + "?", "Eliminar deporte", JOptionPane.YES_NO_OPTION );
+            int confirmacion = JOptionPane.showConfirmDialog( this, "ï¿½Confirma que desea eliminar " + panelSports.getSportSeleccionado( ).toString( ) + "?", "Eliminar deporte", JOptionPane.YES_NO_OPTION );
             if( confirmacion == JOptionPane.YES_OPTION )
             {
-                cupiDeportes.eliminarDeporte( panelDeportes.darDeporteSeleccionado( ).darNombre( ) );
-                actualizarListaDeportes( );
+                cupiSports.eliminarSport( panelSports.getSportSeleccionado( ).getName( ) );
+                actualizarListaSports( );
             }
         }
 
@@ -247,35 +247,35 @@ public class InterfazCupiDeportes extends JFrame
     /**
      * Elimina el deportista seleccionado.
      */
-    public void eliminarDeportista( )
+    public void eliminarAthlete( )
     {
-        if( panelDeportes.darDeporteSeleccionado( ) == null )
+        if( panelSports.getSportSeleccionado( ) == null )
         {
-            JOptionPane.showMessageDialog( this, "No ha seleccionado ningún deporte.", "Eliminar deportista", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "No ha seleccionado ningï¿½n deporte.", "Eliminar deportista", JOptionPane.ERROR_MESSAGE );
         }
-        else if( panelInfoDeporte.darDeportistaSeleccionado( ) == null )
+        else if( panelInfoSport.getAthleteSeleccionado( ) == null )
         {
-            JOptionPane.showMessageDialog( this, "No ha seleccionado ningún deportista sobresaliente del deporte.", "Eliminar deportista", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "No ha seleccionado ningï¿½n deportista sobresaliente del deporte.", "Eliminar deportista", JOptionPane.ERROR_MESSAGE );
         }
         else
         {
-            int confirmacion = JOptionPane.showConfirmDialog( this, "¿Confirma que desea eliminar el deportista " + panelInfoDeporte.darDeportistaSeleccionado( ).toString( ) + "?", "Eliminar deportista", JOptionPane.YES_NO_OPTION );
+            int confirmacion = JOptionPane.showConfirmDialog( this, "ï¿½Confirma que desea eliminar el deportista " + panelInfoSport.getAthleteSeleccionado( ).toString( ) + "?", "Eliminar deportista", JOptionPane.YES_NO_OPTION );
             if( confirmacion == JOptionPane.YES_OPTION )
             {
-                cupiDeportes.eliminarDeportistaSobresaliente( panelDeportes.darDeporteSeleccionado( ).darNombre( ), panelInfoDeporte.darDeportistaSeleccionado( ).darNombre( ) );
-                actualizarInfoDeporte( panelDeportes.darDeporteSeleccionado( ) );
+                cupiSports.eliminateOutstandingAthlete( panelSports.getSportSeleccionado( ).getName( ), panelInfoSport.getAthleteSeleccionado( ).getName( ) );
+                actualizarInfoSport( panelSports.getSportSeleccionado( ) );
             }
         }
 
     }
 
     /**
-     * Actualiza la información de los deportistas a partir de un archivo.
+     * Actualiza la informaciï¿½n de los deportistas a partir de un archivo.
      */
-    public void actualizarInformacionDeportistas( )
+    public void actualizarInformacionAthletes( )
     {
         JFileChooser fc = new JFileChooser( "./data/actualizacionInformacion" );
-        fc.setDialogTitle( "Actualizar información deportistas" );
+        fc.setDialogTitle( "Actualizar informaciï¿½n deportistas" );
         int resultado = fc.showOpenDialog( this );
         if( resultado == JFileChooser.APPROVE_OPTION )
         {
@@ -284,20 +284,20 @@ public class InterfazCupiDeportes extends JFrame
             {
                 try
                 {
-                    cupiDeportes.actualizarInformacionDeportistas( archivo );
-                    JOptionPane.showMessageDialog( this, "La información de los deportistas fue actualizada.", "Actualizar información", JOptionPane.INFORMATION_MESSAGE );
+                    cupiSports.actualizarInformacionAthletes( archivo );
+                    JOptionPane.showMessageDialog( this, "La informaciï¿½n de los deportistas fue actualizada.", "Actualizar informaciï¿½n", JOptionPane.INFORMATION_MESSAGE );
                 }
                 catch( FileNotFoundException e )
                 {
-                    JOptionPane.showMessageDialog( this, "Se presentó un problema leyendo el archivo:\n" + e.getMessage( ) + ".", "Error", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "Se presentï¿½ un problema leyendo el archivo:\n" + e.getMessage( ) + ".", "Error", JOptionPane.ERROR_MESSAGE );
                 }
                 catch( IOException e )
                 {
-                    JOptionPane.showMessageDialog( this, "Se presentó un problema leyendo el archivo:\n" + e.getMessage( ) + ".", "Error", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "Se presentï¿½ un problema leyendo el archivo:\n" + e.getMessage( ) + ".", "Error", JOptionPane.ERROR_MESSAGE );
                 }
                 catch( FormatoArchivoException e )
                 {
-                    JOptionPane.showMessageDialog( this, "Se presentó un problema debido al formato del archivo:\n" + e.getMessage( ), "Error", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "Se presentï¿½ un problema debido al formato del archivo:\n" + e.getMessage( ), "Error", JOptionPane.ERROR_MESSAGE );
                 }
             }
 
@@ -309,12 +309,12 @@ public class InterfazCupiDeportes extends JFrame
      * Escribe el reporte de los trofeos de los deportistas detscados.
      * @param pRutaArchivo Ruta al archivo. pRutaArchivo != null && pRutaArchivo != "".
      */
-    public void generarReporteTrofeos( String pRutaArchivo )
+    public void generarReporteTrophies( String pRutaArchivo )
     {
         try
         {
-            cupiDeportes.generarReporteTrofeos( pRutaArchivo );
-            JOptionPane.showMessageDialog( this, "El reporte se generó correctamente.", "Generar reporte", JOptionPane.INFORMATION_MESSAGE );
+            cupiSports.generarReporteTrophies( pRutaArchivo );
+            JOptionPane.showMessageDialog( this, "El reporte se generï¿½ correctamente.", "Generar reporte", JOptionPane.INFORMATION_MESSAGE );
         }
         catch( IOException e )
         {
@@ -324,33 +324,33 @@ public class InterfazCupiDeportes extends JFrame
     }
 
     /**
-     * Este método se encarga de salvar la información justo antes de cerrar la aplicación.
-     * Si se presenta una excepción en el proceso de serialización del estado del mundo, este método debe informar al usuario que ha ocurrido un error y preguntarle si desea salir de la aplicación sin salvar la información. 
+     * Este mï¿½todo se encarga de salvar la informaciï¿½n justo antes de cerrar la aplicaciï¿½n.
+     * Si se presenta una excepciï¿½n en el proceso de serializaciï¿½n del estado del world, este mï¿½todo debe informar al usuario que ha ocurrido un error y preguntarle si desea salir de la aplicaciï¿½n sin salvar la informaciï¿½n.
      */
     public void dispose( )
     {
-    	// TODO Parte 3 punto B: Implemente el método según la documentación.
+    	// TODO Parte 3 punto B: Implemente el mï¿½todo segï¿½n la documentaciï¿½n.
     }
 
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Puntos de Extensiï¿½n
     // -----------------------------------------------------------------
 
     /**
-     * Método para la extensión 1.
+     * Mï¿½todo para la extensiï¿½n 1.
      */
     public void reqFuncOpcion1( )
     {
-        String resultado = cupiDeportes.metodo1( );
+        String resultado = cupiSports.metodo1( );
         JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**
-     * Método para la extensión 2.
+     * Mï¿½todo para la extensiï¿½n 2.
      */
     public void reqFuncOpcion2( )
     {
-        String resultado = cupiDeportes.metodo2( );
+        String resultado = cupiSports.metodo2( );
         JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
@@ -359,12 +359,12 @@ public class InterfazCupiDeportes extends JFrame
     // -----------------------------------------------------------------
 
     /**
-     * Este método ejecuta la aplicación, creando una nueva interfaz.
+     * Este mï¿½todo ejecuta la aplicaciï¿½n, creando una nueva interfaz.
      * @param args No se utilizan.
      */
     public static void main( String[] args )
     {
-        InterfazCupiDeportes interfaz = new InterfazCupiDeportes( );
+        InterfazCupiSports interfaz = new InterfazCupiSports( );
         interfaz.setVisible( true );
     }
 

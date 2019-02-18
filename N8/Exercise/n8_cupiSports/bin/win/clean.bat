@@ -1,11 +1,11 @@
 @echo off
 REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-REM Universidad de los Andes (Bogotá - Colombia)
-REM Departamento de Ingeniería de Sistemas y Computación 
+REM Universidad de los Andes (Bogotï¿½ - Colombia)
+REM Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
 REM Licenciado bajo el esquema Academic Free License version 2.1 
 REM
 REM Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
-REM Ejercicio: n8_cupiDeportes
+REM Ejercicio: n8_cupiSports
 REM Autor: Equipo Cupi2 2015
 REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -17,7 +17,7 @@ REM ---------------------------------------------------------
 
 cd ../..
 del classes\* /s /q 
-del lib\cupiDeportes.jar /s /q
+del lib\cupiSports.jar /s /q
 
 cd bin
 

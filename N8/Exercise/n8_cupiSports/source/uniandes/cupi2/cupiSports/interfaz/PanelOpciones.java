@@ -1,16 +1,16 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
+ * Ejercicio: n8_cupiSports
  * Autor: Equipo Cupi2
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.interfaz;
+package uniandes.cupi2.cupiSports.interfaz;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -28,7 +28,7 @@ import javax.swing.border.TitledBorder;
 public class PanelOpciones extends JPanel implements ActionListener
 {
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
@@ -47,64 +47,64 @@ public class PanelOpciones extends JPanel implements ActionListener
     public static final String NUEVO_DEPORTISTA = "Agregar deportista";
 
     /**
-     * Constante para el botón de eliminar deportista.
+     * Constante para el botï¿½n de eliminar deportista.
      */
     public static final String ELIMINAR_DEPORTISTA = "Eliminar deportista";
 
     /**
-     * Constante para el botón de generar reporte.
+     * Constante para el botï¿½n de generar reporte.
      */
     public static final String GENERAR_REPORTE = "Generar reporte";
 
     /**
-     * Constante para el botón de importar datos.
+     * Constante para el botï¿½n de importar datos.
      */
     public static final String IMPORTAR_DATOS = "Importar datos";
 
     /**
-     * Constante para definir el directo donde están las imágenes de los elementos.
+     * Constante para definir el directo donde estï¿½n las imï¿½genes de los elementos.
      */
     public static final String DIRECTORIO = "data/imagenes/";
 
     // -----------------------------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------------------------
     /**
-     * Interfaz principal de la aplicación.
+     * Interfaz principal de la aplicaciï¿½n.
      */
-    private InterfazCupiDeportes principal;
+    private InterfazCupiSports principal;
 
     // -----------------------------------------------------------------
-    // Atributos de la interfaz
+    // Attributes de la interfaz
     // -----------------------------------------------------------------
 
     /**
-     * Botón para agregar un nuevo deporte.
+     * Botï¿½n para agregar un nuevo deporte.
      */
-    private JButton btnNuevoDeporte;
+    private JButton btnNuevoSport;
 
     /**
-     * Botón para eliminar un deporte.
+     * Botï¿½n para eliminar un deporte.
      */
-    private JButton btnEliminarDeporte;
+    private JButton btnEliminarSport;
 
     /**
-     * Botón para agregar un nuevo deportista.
+     * Botï¿½n para agregar un nuevo deportista.
      */
-    private JButton btnNuevoDeportista;
+    private JButton btnNuevoAthlete;
 
     /**
-     * Botón para eliminar un deportista.
+     * Botï¿½n para eliminar un deportista.
      */
-    private JButton btnEliminarDeportista;
+    private JButton btnEliminarAthlete;
 
     /**
-     * Botón para generar reporte.
+     * Botï¿½n para generar reporte.
      */
     private JButton btnGenerarReporte;
 
     /**
-     * Botón para leer un archivo.
+     * Botï¿½n para leer un archivo.
      */
     private JButton btnLeerArchivo;
 
@@ -114,42 +114,42 @@ public class PanelOpciones extends JPanel implements ActionListener
 
     /**
      * Constructor del panel.
-     * @param pPrincipal Interfaz principal de la aplicación. pPrincipal != null.
+     * @param pPrincipal Interfaz principal de la aplicaciï¿½n. pPrincipal != null.
      */
-    public PanelOpciones( InterfazCupiDeportes pPrincipal )
+    public PanelOpciones( InterfazCupiSports pPrincipal )
     {
         principal = pPrincipal;
         setLayout( new FlowLayout( FlowLayout.CENTER, 0, 4 ) );
         setBorder( new TitledBorder( "Opciones" ) );
         setPreferredSize( new Dimension( 80, 600 ) );
 
-        btnNuevoDeporte = new JButton( new ImageIcon( DIRECTORIO + "agregarDeporte.png" ) );
-        add( btnNuevoDeporte );
-        btnNuevoDeporte.addActionListener( this );
-        btnNuevoDeporte.setActionCommand( NUEVO_DEPORTE );
-        btnNuevoDeporte.setToolTipText( NUEVO_DEPORTE );
-        btnNuevoDeporte.setPreferredSize( new Dimension( 60, 60 ) );
+        btnNuevoSport = new JButton( new ImageIcon( DIRECTORIO + "agregarSport.png" ) );
+        add( btnNuevoSport );
+        btnNuevoSport.addActionListener( this );
+        btnNuevoSport.setActionCommand( NUEVO_DEPORTE );
+        btnNuevoSport.setToolTipText( NUEVO_DEPORTE );
+        btnNuevoSport.setPreferredSize( new Dimension( 60, 60 ) );
 
-        btnEliminarDeporte = new JButton( new ImageIcon( DIRECTORIO + "eliminarDeporte.png" ) );
-        add( btnEliminarDeporte );
-        btnEliminarDeporte.addActionListener( this );
-        btnEliminarDeporte.setActionCommand( ELIMINAR_DEPORTE );
-        btnEliminarDeporte.setToolTipText( ELIMINAR_DEPORTE );
-        btnEliminarDeporte.setPreferredSize( new Dimension( 60, 60 ) );
+        btnEliminarSport = new JButton( new ImageIcon( DIRECTORIO + "eliminarSport.png" ) );
+        add( btnEliminarSport );
+        btnEliminarSport.addActionListener( this );
+        btnEliminarSport.setActionCommand( ELIMINAR_DEPORTE );
+        btnEliminarSport.setToolTipText( ELIMINAR_DEPORTE );
+        btnEliminarSport.setPreferredSize( new Dimension( 60, 60 ) );
 
-        btnNuevoDeportista = new JButton( new ImageIcon( DIRECTORIO + "agregarDeportista.png" ) );
-        add( btnNuevoDeportista );
-        btnNuevoDeportista.addActionListener( this );
-        btnNuevoDeportista.setActionCommand( NUEVO_DEPORTISTA );
-        btnNuevoDeportista.setToolTipText( NUEVO_DEPORTISTA );
-        btnNuevoDeportista.setPreferredSize( new Dimension( 60, 60 ) );
+        btnNuevoAthlete = new JButton( new ImageIcon( DIRECTORIO + "agregarAthlete.png" ) );
+        add( btnNuevoAthlete );
+        btnNuevoAthlete.addActionListener( this );
+        btnNuevoAthlete.setActionCommand( NUEVO_DEPORTISTA );
+        btnNuevoAthlete.setToolTipText( NUEVO_DEPORTISTA );
+        btnNuevoAthlete.setPreferredSize( new Dimension( 60, 60 ) );
 
-        btnEliminarDeportista = new JButton( new ImageIcon( DIRECTORIO + "eliminarDeportista.png" ) );
-        add( btnEliminarDeportista );
-        btnEliminarDeportista.addActionListener( this );
-        btnEliminarDeportista.setActionCommand( ELIMINAR_DEPORTISTA );
-        btnEliminarDeportista.setToolTipText( ELIMINAR_DEPORTISTA );
-        btnEliminarDeportista.setPreferredSize( new Dimension( 60, 60 ) );
+        btnEliminarAthlete = new JButton( new ImageIcon( DIRECTORIO + "eliminarAthlete.png" ) );
+        add( btnEliminarAthlete );
+        btnEliminarAthlete.addActionListener( this );
+        btnEliminarAthlete.setActionCommand( ELIMINAR_DEPORTISTA );
+        btnEliminarAthlete.setToolTipText( ELIMINAR_DEPORTISTA );
+        btnEliminarAthlete.setPreferredSize( new Dimension( 60, 60 ) );
 
         btnGenerarReporte = new JButton( new ImageIcon( DIRECTORIO + "Reporte.png" ) );
         add( btnGenerarReporte );
@@ -166,38 +166,38 @@ public class PanelOpciones extends JPanel implements ActionListener
         btnLeerArchivo.setPreferredSize( new Dimension( 60, 60 ) );
     }
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     /**
-     * Método que se encarga de tomar el control cuando se hace click en alguno de los botones.
-     * @param event Evento asociado al click del botón.
+     * Mï¿½todo que se encarga de tomar el control cuando se hace click en alguno de los botones.
+     * @param event Evento asociado al click del botï¿½n.
      */
     public void actionPerformed( ActionEvent event )
     {
         if( event.getActionCommand( ).equals( NUEVO_DEPORTE ) )
         {
-            principal.mostrarDialogoAgregarDeporte( );
+            principal.mostrarDialogoAgregarSport( );
         }
         else if( event.getActionCommand( ).equals( ELIMINAR_DEPORTE ) )
         {
-            principal.eliminarDeporte( );
+            principal.eliminarSport( );
         }
         else if( event.getActionCommand( ).equals( NUEVO_DEPORTISTA ) )
         {
-            principal.mostrarDialogoAgregarDeportista( );
+            principal.mostrarDialogoAgregarAthlete( );
         }
         else if( event.getActionCommand( ).equals( ELIMINAR_DEPORTISTA ) )
         {
-            principal.eliminarDeportista( );
+            principal.eliminarAthlete( );
         }
         else if( event.getActionCommand( ).equals( GENERAR_REPORTE ) )
         {
-            principal.generarReporteTrofeos( "./data/reporte.txt" );
+            principal.generarReporteTrophies( "./data/reporte.txt" );
         }
         else if( event.getActionCommand( ).equals( IMPORTAR_DATOS ) )
         {
-            principal.actualizarInformacionDeportistas( );
+            principal.actualizarInformacionAthletes( );
         }
     }
 }

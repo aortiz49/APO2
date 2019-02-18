@@ -1,16 +1,16 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
+ * Ejercicio: n8_cupiSports
  * Autor: Equipo Cupi2
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.interfaz;
+package uniandes.cupi2.cupiSports.interfaz;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -27,77 +27,77 @@ public class PanelExtension extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
-     * Comando Opción 1.
+     * Comando Opciï¿½n 1.
      */
     private static final String OPCION_1 = "OPCION_1";
 
     /**
-     * Comando Opción 2.
+     * Comando Opciï¿½n 2.
      */
     private static final String OPCION_2 = "OPCION_2";
 
     // -----------------------------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicación.
+     * Ventana principal de la aplicaciï¿½n.
      */
-    private InterfazCupiDeportes principal;
+    private InterfazCupiSports principal;
 
     // -----------------------------------------------------------------
-    // Atributos de interfaz
+    // Attributes de interfaz
     // -----------------------------------------------------------------
 
     /**
-     * Botón Opción 1.
+     * Botï¿½n Opciï¿½n 1.
      */
     private JButton btnOpcion1;
 
     /**
-     * Botón Opción 2.
+     * Botï¿½n Opciï¿½n 2.
      */
     private JButton btnOpcion2;
 
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructors
     // -----------------------------------------------------------------
 
     /**
      * Constructor del panel.
-     * @param pPrincipal Ventana principal de la aplicación. pPrincipal != null.
+     * @param pPrincipal Ventana principal de la aplicaciï¿½n. pPrincipal != null.
      */
-    public PanelExtension( InterfazCupiDeportes pPrincipal )
+    public PanelExtension( InterfazCupiSports pPrincipal )
     {
         principal = pPrincipal;
 
         setBorder( new TitledBorder( "Opciones" ) );
         setLayout( new GridLayout( 1, 2 ) );
 
-        // Botón opción 1
-        btnOpcion1 = new JButton( "Opción 1" );
+        // Botï¿½n opciï¿½n 1
+        btnOpcion1 = new JButton( "Opciï¿½n 1" );
         btnOpcion1.setActionCommand( OPCION_1 );
         btnOpcion1.addActionListener( this );
         add( btnOpcion1 );
 
-        // Botón opción 2
-        btnOpcion2 = new JButton( "Opción 2" );
+        // Botï¿½n opciï¿½n 2
+        btnOpcion2 = new JButton( "Opciï¿½n 2" );
         btnOpcion2.setActionCommand( OPCION_2 );
         btnOpcion2.addActionListener( this );
         add( btnOpcion2 );
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     /**
      * Manejo de los eventos de los botones.
-     * @param e Acción que generó el evento.
+     * @param e Acciï¿½n que generï¿½ el evento.
      */
     public void actionPerformed( ActionEvent e )
     {

@@ -1,18 +1,18 @@
 #!/bin/sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Universidad de los Andes (Bogotá - Colombia)
-# Departamento de Ingeniería de Sistemas y Computación
+# Universidad de los Andes (Bogotï¿½ - Colombia)
+# Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n
 # Licenciado bajo el esquema Academic Free License version 2.1
 #
 # Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
-# Ejercicio: n8_cupiDeportes
+# Ejercicio: n8_cupiSports
 # Autor: Equipo Cupi2 2015
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 stty -echo
 
 # ---------------------------------------------------------
-# Asegura la creación de los directorios classes y lib
+# Asegura la creaciï¿½n de los directorios classes y lib
 # ---------------------------------------------------------
 
 cd ../..
@@ -24,15 +24,15 @@ mkdir lib
 # ---------------------------------------------------------
 
 cd source
-javac -nowarn -classpath  -d ../classes/ uniandes/cupi2/cupiDeportes/mundo/*.java
-javac -nowarn -classpath  -d ../classes/ uniandes/cupi2/cupiDeportes/interfaz/*.java
+javac -nowarn -classpath  -d ../classes/ uniandes/cupi2/cupiSports/mundo/*.java
+javac -nowarn -classpath  -d ../classes/ uniandes/cupi2/cupiSports/interfaz/*.java
 
 # ---------------------------------------------------------
 # Crea el archivo jar a partir de los archivos compilados
 # ---------------------------------------------------------
 
 cd ../classes
-jar cf ../lib/cupiDeportes.jar uniandes/*
+jar cf ../lib/cupiSports.jar uniandes/*
 
 cd ../bin/mac
 

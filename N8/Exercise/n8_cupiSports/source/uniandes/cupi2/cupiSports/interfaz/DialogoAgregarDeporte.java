@@ -1,16 +1,16 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
+ * Ejercicio: n8_cupiSports
  * Autor: Equipo Cupi2
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.interfaz;
+package uniandes.cupi2.cupiSports.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -31,15 +31,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import uniandes.cupi2.cupiDeportes.mundo.ElementoExisteException;
+import uniandes.cupi2.cupiSports.mundo.ElementExistsException;
 
 /**
  * Dialogo para agregar un deporte.
  */
-public class DialogoAgregarDeporte extends JDialog implements ActionListener
+public class DialogoAgregarSport extends JDialog implements ActionListener
 {
     // -----------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------
 
     /**
@@ -53,23 +53,23 @@ public class DialogoAgregarDeporte extends JDialog implements ActionListener
     private final static String EXAMINAR = "Examinar";
 
     // -----------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------
 
     /**
-     * Etiqueta nombre.
+     * Etiqueta name.
      */
-    private JLabel lblNombre;
+    private JLabel lblName;
 
     /**
      * Etiqueta ente regulaor.
      */
-    private JLabel lblEnteRegulador;
+    private JLabel lblRegulatoryEntity;
 
     /**
      * Etiqueta deportistas registrados.
      */
-    private JLabel lblDeportistasRegistrados;
+    private JLabel lblAthletesRegistrados;
 
     /**
      * Etiqueta Imagen.
@@ -77,19 +77,19 @@ public class DialogoAgregarDeporte extends JDialog implements ActionListener
     private JLabel lblImagen;
 
     /**
-     * Campo de texto Nombre.
+     * Campo de texto Name.
      */
-    private JTextField txtNombre;
+    private JTextField txtName;
 
     /**
      * Campo de texto ente regulador.
      */
-    private JTextField txtEnteRegulador;
+    private JTextField txtRegulatoryEntity;
 
     /**
      * Campo de texto deportistas registrados.
      */
-    private JTextField txtDeportistasRegistrados;
+    private JTextField txtAthletesRegistrados;
 
     /**
      * Texto con la ruta de la imagen.
@@ -97,34 +97,34 @@ public class DialogoAgregarDeporte extends JDialog implements ActionListener
     private JTextField txtImagen;
 
     /**
-     * Panel con la información del deporte.
+     * Panel con la informaciï¿½n del deporte.
      */
     private JPanel panelInfo;
 
     /**
-     * Botón para agregar el deporte.
+     * Botï¿½n para agregar el deporte.
      */
     private JButton btnAgregar;
 
     /**
-     * Botón para ingresar la ruta de la imagen.
+     * Botï¿½n para ingresar la ruta de la imagen.
      */
     private JButton btnExaminar;
 
     /**
-     * Ventana principal de la aplicación.
+     * Ventana principal de la aplicaciï¿½n.
      */
-    private InterfazCupiDeportes principal;
+    private InterfazCupiSports principal;
 
     // -----------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------
 
     /**
      * Crea el dialogo para ingresar un deporte.
-     * @param pPrincipal Ventana principal de la aplicación. pPrincipal != null.
+     * @param pPrincipal Ventana principal de la aplicaciï¿½n. pPrincipal != null.
      */
-    public DialogoAgregarDeporte( InterfazCupiDeportes pPrincipal )
+    public DialogoAgregarSport( InterfazCupiSports pPrincipal )
     {
         super( pPrincipal, true );
 
@@ -135,25 +135,25 @@ public class DialogoAgregarDeporte extends JDialog implements ActionListener
         panelInfo = new JPanel( );
         panelInfo.setPreferredSize( new Dimension( 500, 180 ) );
 
-        panelInfo.setBorder( new TitledBorder( "Información" ) );
+        panelInfo.setBorder( new TitledBorder( "Informaciï¿½n" ) );
         GridLayout layout = new GridLayout( 4, 2, -175, 30 );
         layout.setVgap( 10 );
         panelInfo.setLayout( layout );
 
-        lblNombre = new JLabel( "Nombre: " );
-        panelInfo.add( lblNombre );
-        txtNombre = new JTextField( );
-        panelInfo.add( txtNombre );
+        lblName = new JLabel( "Name: " );
+        panelInfo.add( lblName );
+        txtName = new JTextField( );
+        panelInfo.add( txtName );
 
-        lblEnteRegulador = new JLabel( "Ente regulador: " );
-        panelInfo.add( lblEnteRegulador );
-        txtEnteRegulador = new JTextField( );
-        panelInfo.add( txtEnteRegulador );
+        lblRegulatoryEntity = new JLabel( "Ente regulador: " );
+        panelInfo.add( lblRegulatoryEntity );
+        txtRegulatoryEntity = new JTextField( );
+        panelInfo.add( txtRegulatoryEntity );
 
-        lblDeportistasRegistrados = new JLabel( "Deportistas registrados: " );
-        panelInfo.add( lblDeportistasRegistrados );
-        txtDeportistasRegistrados = new JTextField( );
-        panelInfo.add( txtDeportistasRegistrados );
+        lblAthletesRegistrados = new JLabel( "Athletes registrados: " );
+        panelInfo.add( lblAthletesRegistrados );
+        txtAthletesRegistrados = new JTextField( );
+        panelInfo.add( txtAthletesRegistrados );
 
         lblImagen = new JLabel( "Imagen: " );
         panelInfo.add( lblImagen );
@@ -162,16 +162,16 @@ public class DialogoAgregarDeporte extends JDialog implements ActionListener
         border.setHgap( 5 );
         border.setVgap( 5 );
 
-        JPanel panelRutaImagen = new JPanel( border );
+        JPanel panelImagePath = new JPanel( border );
         txtImagen = new JTextField( );
-        panelRutaImagen.add( txtImagen, BorderLayout.CENTER );
+        panelImagePath.add( txtImagen, BorderLayout.CENTER );
 
         btnExaminar = new JButton( EXAMINAR );
         btnExaminar.setActionCommand( EXAMINAR );
         btnExaminar.addActionListener( this );
-        panelRutaImagen.add( btnExaminar, BorderLayout.EAST );
+        panelImagePath.add( btnExaminar, BorderLayout.EAST );
 
-        panelInfo.add( panelRutaImagen );
+        panelInfo.add( panelImagePath );
 
         add( panelInfo, BorderLayout.NORTH );
 
@@ -186,20 +186,20 @@ public class DialogoAgregarDeporte extends JDialog implements ActionListener
     }
 
     /**
-     * Método que recoge las acciones sobre los objetos que está escuchando.
-     * @param e Evento que se realizó.
+     * Mï¿½todo que recoge las acciones sobre los objetos que estï¿½ escuchando.
+     * @param e Evento que se realizï¿½.
      */
     public void actionPerformed( ActionEvent e )
     {
 
         if( e.getActionCommand( ).equals( AGREGAR ) )
         {
-            String nombre = txtNombre.getText( );
-            String enteRegulador = txtEnteRegulador.getText( );
+            String name = txtName.getText( );
+            String regulatoryEntity = txtRegulatoryEntity.getText( );
             String imagen = txtImagen.getText( );
-            String deportistasRegistradosStr = txtDeportistasRegistrados.getText( );
+            String deportistasRegistradosStr = txtAthletesRegistrados.getText( );
 
-            if( nombre.equals( "" ) || enteRegulador.equals( "" ) || deportistasRegistradosStr.equals( "" ) || imagen.equals( "" ) )
+            if( name.equals( "" ) || regulatoryEntity.equals( "" ) || deportistasRegistradosStr.equals( "" ) || imagen.equals( "" ) )
             {
                 JOptionPane.showMessageDialog( this, "Datos incompletos.", "Agregar deporte", JOptionPane.ERROR_MESSAGE );
                 return;
@@ -210,22 +210,22 @@ public class DialogoAgregarDeporte extends JDialog implements ActionListener
                 int deportistasRegistrados = Integer.parseInt( deportistasRegistradosStr );
                 if( deportistasRegistrados <= 0 )
                 {
-                    JOptionPane.showMessageDialog( this, "Deportistas registrados deber ser un número positivo.", "Agregar deporte", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "Athletes registrados deber ser un nï¿½mero positivo.", "Agregar deporte", JOptionPane.ERROR_MESSAGE );
                 }
                 else
                 {
-                    principal.agregarDeporte( nombre, enteRegulador, deportistasRegistrados, imagen );
+                    principal.agregarSport( name, regulatoryEntity, deportistasRegistrados, imagen );
                     dispose( );
                 }
             }
-            catch( ElementoExisteException e1 )
+            catch( ElementExistsException e1 )
             {
-                JOptionPane.showMessageDialog( this, "Ya existe un deporte con el nombre " + nombre, "Agregar deporte", JOptionPane.ERROR_MESSAGE );
+                JOptionPane.showMessageDialog( this, "Ya exists un deporte con el name " + name, "Agregar deporte", JOptionPane.ERROR_MESSAGE );
 
             }
             catch( NumberFormatException e2 )
             {
-                JOptionPane.showMessageDialog( this, "Deportistas registrados deber ser un número.", "Agregar deporte", JOptionPane.ERROR_MESSAGE );
+                JOptionPane.showMessageDialog( this, "Athletes registrados deber ser un nï¿½mero.", "Agregar deporte", JOptionPane.ERROR_MESSAGE );
             }
 
         }
@@ -249,7 +249,7 @@ public class DialogoAgregarDeporte extends JDialog implements ActionListener
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog( this, "El archivo seleccionado no es una imagen válida.", "Agregar deporte", JOptionPane.ERROR_MESSAGE );
+                        JOptionPane.showMessageDialog( this, "El archivo seleccionado no es una imagen vï¿½lida.", "Agregar deporte", JOptionPane.ERROR_MESSAGE );
                     }
                     
                 }

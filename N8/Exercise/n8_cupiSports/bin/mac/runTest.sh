@@ -1,25 +1,25 @@
 #!/bin/sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Universidad de los Andes (Bogotá - Colombia)
-# Departamento de Ingeniería de Sistemas y Computación
+# Universidad de los Andes (Bogotï¿½ - Colombia)
+# Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n
 # Licenciado bajo el esquema Academic Free License version 2.1
 #
 # Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
-# Ejercicio: n8_cupiDeportes
+# Ejercicio: n8_cupiSports
 # Autor: Equipo Cupi2 2015
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 stty -echo
 
 # ---------------------------------------------------------
-# Ejecución de las pruebas
+# Ejecuciï¿½n de las pruebas
 # ---------------------------------------------------------
 
 cd ../..
 	
-java -ea -classpath ./lib/cupiDeportes.jar:./test/lib/cupiDeportesTest.jar:./test/lib/junit.jar junit.swingui.TestRunner uniandes.cupi2.cupiDeportes.test.DeportistaTest
-java -ea -classpath ./lib/cupiDeportes.jar:./test/lib/cupiDeportesTest.jar:./test/lib/junit.jar junit.swingui.TestRunner uniandes.cupi2.cupiDeportes.test.DeporteTest
-java -ea -classpath ./lib/cupiDeportes.jar:./test/lib/cupiDeportesTest.jar:./test/lib/junit.jar junit.swingui.TestRunner uniandes.cupi2.cupiDeportes.test.CupiDeportesTest
+java -ea -classpath ./lib/cupiSports.jar:./test/lib/cupiSportsTest.jar:./test/lib/junit.jar junit.swingui.TestRunner AthleteTest
+java -ea -classpath ./lib/cupiSports.jar:./test/lib/cupiSportsTest.jar:./test/lib/junit.jar junit.swingui.TestRunner SportTest
+java -ea -classpath ./lib/cupiSports.jar:./test/lib/cupiSportsTest.jar:./test/lib/junit.jar junit.swingui.TestRunner CupiSportsTest
 cd bin/mac
 
 stty echo

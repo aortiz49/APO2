@@ -1,237 +1,268 @@
-/**
+/*
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
- * Autor: Equipo Cupi2
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: n8_Sports
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
+
 
 package uniandes.cupi2.cupiSports.world;
 
 import java.util.ArrayList;
 
 /**
- * Clase que representa un deporte.<br>
- * TODO Parte 1 punto A: Defina el invariante
+ * Class that represents a sport. <br>
+ * <b>inv: </b> <br>
+ * name != null && name != "" <br>
+ * regulatoryEntity != null && regulatoryEntity != "" <br>
+ * numberOfRegisteredAthletes >= 0 <br>
+ * imagePath != null && imagePath != "" <br>
  */
-public class Deporte
-{
-    
+public class Sport {
+
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
-     * Constante para la serializaci�n.
+     * Serialization constant.
      */
     private static final long serialVersionUID = -8659162802685356289L;
 
     // -----------------------------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Nombre del deporte.
+     * Name of the sport.
      */
-    private String nombre;
+    private String name;
 
     /**
-     * Ente regulador del deporte.
+     * Regulatory entity of the sport.
      */
-    private String enteRegulador;
+    private String regulatoryEntity;
 
     /**
-     * Cantidad de deportistas registrados en el deporte.
+     * Number of athletes registered in the sport.
      */
-    private int cantidadDeportistasRegistrados;
+    private int numberOfRegisteredAthletes;
 
     /**
-     * Ruta a la imagen del deporte.
+     * Image path of the sport.
      */
-    private String rutaImagen;
+    private String imagePath;
 
     /**
-     * Lista con los deportistas sobresalientes.
+     * List containing outstanding athletes.
      */
-    private ArrayList<Deportista> deportistasSobresalientes;
+    private ArrayList<Athlete> outstandingAthletes;
 
     // -----------------------------------------------------------------
-    // Constructores
-    // -----------------------------------------------------------------
-
-    /**
-     * Construye un deporte con los valores dados por par�metro. <br>
-     * <b>post: </b> Se inicializaron los atributos con los datos dados por par�metro. Se crea una lista de deportistas vac�a. <br>
-     * @param pNombre Nombre del deporte. pNombre != null && pNombre != "".
-     * @param pEnteRegulador Ente regulador del deporte. pEnteRegulador != null && pEnteRegulador != "".
-     * @param pCantidadDeportistasRegistrados Cantidad de deportistas registrados en el deporte. pCantidadDeportistasRegistrados > 0.
-     * @param pRutaImagen Ruta a la imagen del deporte. pRutaImagen != null && pRutaImagen != "".
-     */
-    public Deporte( String pNombre, String pEnteRegulador, int pCantidadDeportistasRegistrados, String pRutaImagen )
-    {
-        nombre = pNombre;
-        enteRegulador = pEnteRegulador;
-        cantidadDeportistasRegistrados = pCantidadDeportistasRegistrados;
-        rutaImagen = pRutaImagen;
-        deportistasSobresalientes = new ArrayList<Deportista>( );
-    }
-
-    // -----------------------------------------------------------------
-    // M�todos
+    // Constructors
     // -----------------------------------------------------------------
 
     /**
-     * Retorna el nombre del deporte.
-     * @return Nombre del deporte.
+     * Constructs a new sport with the values given by the parameters.  <br>
+     * <b>post: </b> The attributes were initialized with the values given by the parameters. An
+     * empty list of athletes is created.  <br>
+     *
+     * @param pName                       Name of the sport.
+     *                                    pName != null && pName != "".
+     * @param pRegulatoryEntity           Regulatory entity of the sport.
+     *                                    pRegulatoryEntity != null && pRegulatoryEntity != "".
+     * @param pNumberOfRegisteredAthletes Number of athletes registered in the sport.
+     *                                    pNumberOfRegisteredAthletes >= 0.
+     * @param pImagePath                  Image path of the sport.
+     *                                    pImagePath != null && pImagePath != "".
      */
-    public String darNombre( )
-    {
-        return nombre;
+    public Sport(String pName, String pRegulatoryEntity, int pNumberOfRegisteredAthletes,
+                 String pImagePath) {
+        name = pName;
+        regulatoryEntity = pRegulatoryEntity;
+        numberOfRegisteredAthletes = pNumberOfRegisteredAthletes;
+        imagePath = pImagePath;
+        outstandingAthletes = new ArrayList<>();
+
+        verifyInvariants();
+    }
+
+    // -----------------------------------------------------------------
+    // Methods
+    // -----------------------------------------------------------------
+
+    /**
+     * Returns the name of the sport.
+     *
+     * @return Name of the sport.
+     */
+    public String getName() {
+        return name;
     }
 
     /**
-     * Retorna el ente regulador del deporte.
-     * @return Ente regulador del deporte.
+     * Returns the sport's regulatory entity.
+     *
+     * @return Regulatory entity of the sport.
      */
-    public String darEnteRegulador( )
-    {
-        return enteRegulador;
+    public String getRegulatoryEntity() {
+        return regulatoryEntity;
     }
 
     /**
-     * Retorna la cantidad de deportistas registrados.
-     * @return Cantidad de deportistas registrados.
+     * Returns the number of athletes registered in the sport.
+     *
+     * @return Number of registered athletes.
      */
-    public int darCantidadDeportistasRegistrados( )
-    {
-        return cantidadDeportistasRegistrados;
+    public int getNumberOfRegisteredAthletes() {
+        return numberOfRegisteredAthletes;
     }
 
     /**
-     * Retorna la ruta a la imagen del deporte.
-     * @return Ruta a la imagen del deporte.
+     * Returns the image path of the sport.
+     *
+     * @return Image path of the sport.
      */
-    public String darRutaImagen( )
-    {
-        return rutaImagen;
+    public String getImagePath() {
+        return imagePath;
     }
 
     /**
-     * Retorna una lista con los deportistas sobresalientes.
-     * @return Deportistas sobresalientes del deporte.
+     * Returns a list with outstanding athletes.
+     *
+     * @return Outstanding athletes in the sport.
      */
-    public ArrayList<Deportista> darDeportistasSobresalientes( )
-    {
-        return deportistasSobresalientes;
+    public ArrayList<Athlete> getOutstandingAthletes() {
+        return outstandingAthletes;
     }
 
     /**
-     * Agrega un deportista sobresaliente.
-     * @param pDeportista Deportista a agregar a la lista de deportistas sobresalientes. pDeportista != null.<br>
-     *        <b>post: </b> Se agreg� el deportista sobresaliente a la lista.
-     * @throws ElementoExisteException Lanza una excepci�n si ya existe un deportista sobresaliente con el nombre del que se quiere agregar.
+     * Adds an outstanding athlete.
+     *
+     * @param pAthlete Athlete to be added to the list of a outstanding athletes.
+     *                 pAthlete != null.<br>
+     *                 <b>post: </b> The outstanding athlete was added to the list.
+     * @throws ElementExistsException Throws an exception if the outstanding player to be added
+     *                                to the list already exists in the list.
      */
-    public void agregarDeportistaSobresaliente( Deportista pDeportista ) throws ElementoExisteException
-    {
-    	//TODO Parte 4 punto A: Implemente el m�todo seg�n la documentaci�n.
+    public void addOutstandingAthlete(Athlete pAthlete) throws ElementExistsException {
+
+        // Checks to see if the athlete already exists in the list.
+        if (outstandingAthleteExists(pAthlete.getName()))
+            throw new ElementExistsException(
+                    "The outstanding athlete " + pAthlete.getName() + "is already in the list");
+        else {
+            // If the athlete isn't in the list, add him.
+            outstandingAthletes.add(pAthlete);
+        }
     }
 
     /**
-     * Elimina el deportista sobresaliente con el nombre dado. <br>
-     * <b>post: </b> Se elimin� el deportista sobresaliente de la lista.
-     * @param pNombreDeportista Nombre del deportista a eliminar. pNombreDeportista != null && pNombreDeportista != "".
+     * Eliminates the outstanding athlete with the given name. <br>
+     * <b>post: </b> The outstanding athlete was eliminated from the list.
+     *
+     * @param pNameAthlete Name of the athlete to eliminate.
+     *                     pNameAthlete != null && pNameAthlete != "".
      */
-    public void eliminarDeportistaSobresaliente( String pNombreDeportista )
-    {
-        boolean termino = false;
-        for( int i = 0; i < deportistasSobresalientes.size( ) && !termino; i++ )
-        {
-            Deportista deportistaActual = deportistasSobresalientes.get( i );
-            if( deportistaActual.darNombre( ).equals( pNombreDeportista ) )
-            {
-                deportistasSobresalientes.remove( i );
-                termino = true;
+    public void eliminateOutstandingAthlete(String pNameAthlete) {
+        boolean finished = false;
+        for (int i = 0; i < outstandingAthletes.size() && !finished; i++) {
+            Athlete currentAthlete = outstandingAthletes.get(i);
+            if (currentAthlete.getName().equals(pNameAthlete)) {
+                outstandingAthletes.remove(i);
+                finished = true;
             }
         }
-
     }
 
     /**
-     * Verifica si existe o no un deportista sobresaliente con el nombre dado.
-     * @param pNombreDeportista Nombre del deportista. pNombreDeportista != null && pNombreDeportista != "".
-     * @return True si existe un deportista sobresaliente con el nombre dado por par�metro. False de lo contrario.
+     * Verifies if an athlete of a given name is an outstanding athlete. <br>
+     *
+     * @param pNameAthlete Name of the athlete.
+     *                     pNameAthlete != null && pNameAthlete != "".
+     * @return True if there exists an outstanding athlete with the name given by the parameter.
+     * False if otherwise.
      */
-    public boolean existeDeportistaSobresaliente( String pNombreDeportista )
-    {
-        boolean existe = false;
+    public boolean outstandingAthleteExists(String pNameAthlete) {
+        boolean exists = false;
 
-        for( int i = 0; i < deportistasSobresalientes.size( ) && !existe; i++ )
-        {
-            Deportista deportistaActual = ( Deportista )deportistasSobresalientes.get( i );
-            if( deportistaActual.darNombre( ).equals( pNombreDeportista ) )
-            {
-                existe = true;
-            }
-        }
-        return existe;
-    }
-
-    /**
-     * Retorna el deportista que tiene el mayor n�mero de trofeos ganados. Si hay dos o m�s deportistas con el mismo n�mero de trofeos y son m�ximos, retorna cualquiera.
-     * @return El deportista con mayor n�mero de trofeos. Si no hay deportistas retorna null.
-     */
-    public Deportista darDeportistaMasTrofeos( )
-    {
-        Deportista masTrofeos = null;
-        int cantidadMaxima = 0;
-        for( int i = 0; i < deportistasSobresalientes.size( ); i++ )
-        {
-            Deportista deportistaActual = deportistasSobresalientes.get( i );
-            if( deportistaActual.darCantidadTrofeos( ) > cantidadMaxima )
-            {
-                cantidadMaxima = deportistaActual.darCantidadTrofeos( );
-                masTrofeos = deportistaActual;
-            }
+        for (int i = 0; i < outstandingAthletes.size() && !exists; i++) {
+            Athlete currentAthlete = outstandingAthletes.get(i);
+            if (currentAthlete.getName().equals(pNameAthlete))
+                exists = true;
 
         }
-        return masTrofeos;
+        return exists;
     }
 
     /**
-     * Retorna el total de trofeos de los deportistas sobresalientes.
-     * @return total de trofeos.
+     * Returns the athlete who has won the most trophies. If there are two or more athletes with
+     * the same amount of trophies, return any of those athletes. <br>
+     *
+     * @return The athlete with the highest amount of trophies. If there are none with trophies,
+     * return null.
      */
-    public int darTotalTrofeos( )
-    {
+    public Athlete getAthleteMostTrophies() {
+        Athlete mostTrophies = null;
+        int maxQuantity = 0;
+        for (Athlete currentAthlete : outstandingAthletes) {
+            if (currentAthlete.getAmountOfTrophies() > maxQuantity) {
+                maxQuantity = currentAthlete.getAmountOfTrophies();
+                mostTrophies = currentAthlete;
+            }
+        }
+        return mostTrophies;
+    }
+
+    /**
+     * Returns the total amount of trophies won by outstanding athletes. <br>
+     *
+     * @return Total amount of trophies.
+     */
+    public int getTotalTrophies() {
         int total = 0;
 
-        for( int i = 0; i < deportistasSobresalientes.size( ); i++ )
-        {
-            Deportista deportistaActual = deportistasSobresalientes.get( i );
-            total += deportistaActual.darCantidadTrofeos( );
+        for (Athlete currentAthlete : outstandingAthletes) {
+            total += currentAthlete.getAmountOfTrophies();
         }
 
         return total;
     }
 
     /**
-     * Retorna el nombre del deporte.
-     * @return Nombre del deporte.
+     * Returns the name of the sport.
+     *
+     * @return Name of the sport.
      */
-    public String toString( )
-    {
-        return nombre;
+    public String toString() {
+        return name;
     }
 
     // -----------------------------------------------------------------
-    // Invariante
+    // Invariants
     // -----------------------------------------------------------------
 
-    //TODO Parte 1 punto B: Documente e implemente el m�todo verificarInvariante().
-    //De ser necesario implemente m�todos auxiliares.
+    /**
+     * Verifies the invariants of the class: <br>
+     * name != null && name != "" <br>
+     * regulatoryEntity != null && regulatoryEntity != "" <br>
+     * numberOfRegisteredAthletes >= 0 <br>
+     * imagePath != null && imagePath != "" <br>
+     */
+    private void verifyInvariants() {
+        assert name != null : "The name is null";
+        assert name.equals("") : "The name is empty";
+        assert regulatoryEntity != null : "The regulatory entity is null";
+        assert regulatoryEntity.equals("") : "The regulatory entity is empty";
+        assert numberOfRegisteredAthletes < 0 : "The number of registered athletes is negative";
+        assert imagePath != null : "The name is null";
+        assert imagePath.equals("") : "The name is empty";
+
+    }
+
 
 }

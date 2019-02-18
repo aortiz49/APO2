@@ -1,16 +1,16 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
+ * Ejercicio: n8_cupiSports
  * Autor: Equipo Cupi2
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.interfaz;
+package uniandes.cupi2.cupiSports.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -31,15 +31,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import uniandes.cupi2.cupiDeportes.mundo.ElementoExisteException;
+import uniandes.cupi2.cupiSports.mundo.ElementExistsException;
 
 /**
  * Dialogo para agregar un deportista.
  */
-public class DialogoAgregarDeportista extends JDialog implements ActionListener
+public class DialogoAgregarAthlete extends JDialog implements ActionListener
 {
     // -----------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------
 
     /**
@@ -53,28 +53,28 @@ public class DialogoAgregarDeportista extends JDialog implements ActionListener
     private final static String EXAMINAR = "Examinar";
 
     // -----------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------
 
     /**
-     * Etiqueta nombre.
+     * Etiqueta name.
      */
-    private JLabel lblNombre;
+    private JLabel lblName;
 
     /**
-     * Etiqueta edad.
+     * Etiqueta age.
      */
-    private JLabel lblEdad;
+    private JLabel lblAge;
 
     /**
      * Etiqueta lugar de residencia.
      */
-    private JLabel lblLugarResidencia;
+    private JLabel lblPlaceOfResidency;
 
     /**
      * Etiqueta trofeos ganados.
      */
-    private JLabel lblTrofeosGanados;
+    private JLabel lblTrophiesGanados;
 
     /**
      * Etiqueta Imagen.
@@ -82,24 +82,24 @@ public class DialogoAgregarDeportista extends JDialog implements ActionListener
     private JLabel labelImagen;
 
     /**
-     * Campo de texto nombre.
+     * Campo de texto name.
      */
-    private JTextField txtNombre;
+    private JTextField txtName;
 
     /**
-     * Campo de texto edad.
+     * Campo de texto age.
      */
-    private JTextField txtEdad;
+    private JTextField txtAge;
 
     /**
      * Campo de texto lugar de residencia.
      */
-    private JTextField txtLugarResidencia;
+    private JTextField txtPlaceOfResidency;
 
     /**
      * Campo de texto trofeos ganados.
      */
-    private JTextField txtTrofeosGanados;
+    private JTextField txtTrophiesGanados;
 
     /**
      * Texto con la ruta de la imagen.
@@ -107,34 +107,34 @@ public class DialogoAgregarDeportista extends JDialog implements ActionListener
     private JTextField txtImagen;
 
     /**
-     * Panel con la información del deportista.
+     * Panel con la informaciï¿½n of the athlete.
      */
     private JPanel panelInfo;
 
     /**
-     * Botón para agregar deportista.
+     * Botï¿½n para agregar deportista.
      */
     private JButton btnAgregar;
 
     /**
-     * Botón para ingresar la ruta de la imagen.
+     * Botï¿½n para ingresar la ruta de la imagen.
      */
     private JButton btnExaminar;
 
     /**
-     * Ventana principal de la aplicación.
+     * Ventana principal de la aplicaciï¿½n.
      */
-    private InterfazCupiDeportes principal;
+    private InterfazCupiSports principal;
 
     // -----------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------
 
     /**
      * Crea el dialogo para agregar un deportista.
-     * @param pPrincipal Ventana principal de la aplicación. pPrincipal != null.
+     * @param pPrincipal Ventana principal de la aplicaciï¿½n. pPrincipal != null.
      */
-    public DialogoAgregarDeportista( InterfazCupiDeportes pPrincipal )
+    public DialogoAgregarAthlete( InterfazCupiSports pPrincipal )
     {
         super( pPrincipal, true );
 
@@ -145,30 +145,30 @@ public class DialogoAgregarDeportista extends JDialog implements ActionListener
         panelInfo = new JPanel( );
         panelInfo.setPreferredSize( new Dimension( 450, 200 ) );
 
-        panelInfo.setBorder( new TitledBorder( "Información" ) );
+        panelInfo.setBorder( new TitledBorder( "Informaciï¿½n" ) );
         GridLayout layout = new GridLayout( 5, 2, -175, 30 );
         layout.setVgap( 10 );
         panelInfo.setLayout( layout );
 
-        lblNombre = new JLabel( "Nombre: " );
-        panelInfo.add( lblNombre );
-        txtNombre = new JTextField( );
-        panelInfo.add( txtNombre );
+        lblName = new JLabel( "Name: " );
+        panelInfo.add( lblName );
+        txtName = new JTextField( );
+        panelInfo.add( txtName );
 
-        lblEdad = new JLabel( "Edad: " );
-        panelInfo.add( lblEdad );
-        txtEdad = new JTextField( );
-        panelInfo.add( txtEdad );
+        lblAge = new JLabel( "Age: " );
+        panelInfo.add( lblAge );
+        txtAge = new JTextField( );
+        panelInfo.add( txtAge );
 
-        lblLugarResidencia = new JLabel( "Lugar de residencia: " );
-        panelInfo.add( lblLugarResidencia );
-        txtLugarResidencia = new JTextField( );
-        panelInfo.add( txtLugarResidencia );
+        lblPlaceOfResidency = new JLabel( "Lugar de residencia: " );
+        panelInfo.add( lblPlaceOfResidency );
+        txtPlaceOfResidency = new JTextField( );
+        panelInfo.add( txtPlaceOfResidency );
 
-        lblTrofeosGanados = new JLabel( "Trofeos ganados: " );
-        panelInfo.add( lblTrofeosGanados );
-        txtTrofeosGanados = new JTextField( );
-        panelInfo.add( txtTrofeosGanados );
+        lblTrophiesGanados = new JLabel( "Trophies ganados: " );
+        panelInfo.add( lblTrophiesGanados );
+        txtTrophiesGanados = new JTextField( );
+        panelInfo.add( txtTrophiesGanados );
 
         labelImagen = new JLabel( "Imagen: " );
         panelInfo.add( labelImagen );
@@ -177,16 +177,16 @@ public class DialogoAgregarDeportista extends JDialog implements ActionListener
         border.setHgap( 5 );
         border.setVgap( 5 );
 
-        JPanel panelRutaImagen = new JPanel( border );
+        JPanel panelImagePath = new JPanel( border );
         txtImagen = new JTextField( );
-        panelRutaImagen.add( txtImagen, BorderLayout.CENTER );
+        panelImagePath.add( txtImagen, BorderLayout.CENTER );
 
         btnExaminar = new JButton( EXAMINAR );
         btnExaminar.setActionCommand( EXAMINAR );
         btnExaminar.addActionListener( this );
-        panelRutaImagen.add( btnExaminar, BorderLayout.EAST );
+        panelImagePath.add( btnExaminar, BorderLayout.EAST );
 
-        panelInfo.add( panelRutaImagen );
+        panelInfo.add( panelImagePath );
 
         add( panelInfo, BorderLayout.NORTH );
 
@@ -201,20 +201,20 @@ public class DialogoAgregarDeportista extends JDialog implements ActionListener
     }
 
     /**
-     * Método que recoge las acciones sobre los objetos que está escuchando.
-     * @param e Evento que se realizó.
+     * Mï¿½todo que recoge las acciones sobre los objetos que estï¿½ escuchando.
+     * @param e Evento que se realizï¿½.
      */
     public void actionPerformed( ActionEvent e )
     {
         if( e.getActionCommand( ).equals( AGREGAR ) )
         {
-            String nombre = txtNombre.getText( );
-            String edadSt = txtEdad.getText( );
+            String name = txtName.getText( );
+            String ageSt = txtAge.getText( );
             String imagen = txtImagen.getText( );
-            String lugarResidencia = txtLugarResidencia.getText( );
-            String trofeosSt = txtTrofeosGanados.getText( );
+            String placeOfResidence = txtPlaceOfResidency.getText( );
+            String trofeosSt = txtTrophiesGanados.getText( );
 
-            if( nombre.equals( "" ) || edadSt.equals( "" ) || lugarResidencia.equals( "" ) || imagen.equals( "" ) || trofeosSt.equals( "" ) )
+            if( name.equals( "" ) || ageSt.equals( "" ) || placeOfResidence.equals( "" ) || imagen.equals( "" ) || trofeosSt.equals( "" ) )
             {
                 JOptionPane.showMessageDialog( this, "Datos incompletos", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
             }
@@ -222,26 +222,26 @@ public class DialogoAgregarDeportista extends JDialog implements ActionListener
             {
                 try
                 {
-                    int edad = Integer.parseInt( edadSt );
+                    int age = Integer.parseInt( ageSt );
                     int trofeos = Integer.parseInt( trofeosSt );
-                    if( edad <= 0 || trofeos < 0 )
+                    if( age <= 0 || trofeos < 0 )
                     {
-                        JOptionPane.showMessageDialog( this, "Edad y trofeos ganados deben ser números positivos.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
+                        JOptionPane.showMessageDialog( this, "Age y trofeos ganados deben ser nï¿½meros positivos.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
                     }
                     else 
                     {
-                    	principal.agregarDeportistaSobresaliente( nombre, edad, lugarResidencia, trofeos, imagen );
+                    	principal.addOutstandingAthlete( name, age, placeOfResidence, trofeos, imagen );
                     	dispose( );
                     } 
                   
                 }
                 catch( NumberFormatException e2 )
                 {
-                    JOptionPane.showMessageDialog( this, "Edad y trofeos ganados deben ser números.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "Age y trofeos ganados deben ser nï¿½meros.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
                 }
-                catch( ElementoExisteException e3 )
+                catch( ElementExistsException e3 )
                 {
-                    JOptionPane.showMessageDialog( this, "El deportista " + nombre + " ya existe.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "El deportista " + name + " ya exists.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
                     return;
                 }
             }
@@ -266,7 +266,7 @@ public class DialogoAgregarDeportista extends JDialog implements ActionListener
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog( this, "El archivo seleccionado no es una imagen válida.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
+                        JOptionPane.showMessageDialog( this, "El archivo seleccionado no es una imagen vï¿½lida.", "Agregar deportista", JOptionPane.ERROR_MESSAGE );
                     }
                     
                 }

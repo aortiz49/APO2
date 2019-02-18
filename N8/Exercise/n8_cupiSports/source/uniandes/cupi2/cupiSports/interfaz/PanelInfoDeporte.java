@@ -1,16 +1,16 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
+ * Ejercicio: n8_cupiSports
  * Autor: Equipo Cupi2
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.interfaz;
+package uniandes.cupi2.cupiSports.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -25,17 +25,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import uniandes.cupi2.cupiDeportes.mundo.Deporte;
-import uniandes.cupi2.cupiDeportes.mundo.Deportista;
+import uniandes.cupi2.cupiSports.world.Sport;
+import uniandes.cupi2.cupiSports.world.Athlete;
 
 /**
- * Panel para para visualizar la información de un deporte.
+ * Panel para para visualizar la informaciï¿½n de un deporte.
  */
-public class PanelInfoDeporte extends JPanel implements ActionListener
+public class PanelInfoSport extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
@@ -44,48 +44,48 @@ public class PanelInfoDeporte extends JPanel implements ActionListener
     private static final String COMBO_DEPORTISTAS = "Combo deportistas";
 
     // -----------------------------------------------------------------
-    // Atributos de interfaz
+    // Attributes de interfaz
     // -----------------------------------------------------------------
 
     /**
-     * Label con el nombre del deporte.
+     * Label con el name del deporte.
      */
-    private JLabel lblNombreDeporte;
+    private JLabel lblNameSport;
 
     /**
      * Label con el ente regulador.
      */
-    private JLabel lblEnteRegulador;
+    private JLabel lblRegulatoryEntity;
 
     /**
-     * Label con el número de deportistas registrados.
+     * Label con el nï¿½mero de deportistas registrados.
      */
-    private JLabel lblDeportistasRegistrados;
+    private JLabel lblAthletesRegistrados;
 
     /**
-     * Campo de texto con el nombre del deporte.
+     * Campo de texto con el name del deporte.
      */
-    private JTextField txtNombreDeporte;
+    private JTextField txtNameSport;
 
     /**
      * Campo de texto con el ente regulador.
      */
-    private JTextField txtEnteRegulador;
+    private JTextField txtRegulatoryEntity;
 
     /**
-     * Campo de texto con el número de deportistas registrados.
+     * Campo de texto con el nï¿½mero de deportistas registrados.
      */
-    private JTextField txtDeportistasRegistrados;
+    private JTextField txtAthletesRegistrados;
 
     /**
      * Label deportistas.
      */
-    private JLabel lblDeportistas;
+    private JLabel lblAthletes;
 
     /**
      * Combo con los deportistas sobresalientes.
      */
-    private JComboBox comboDeportistasSobresalientes;
+    private JComboBox comboOutstandingAthletes;
 
     /**
      * Panel con la imagen del deporte.
@@ -98,22 +98,22 @@ public class PanelInfoDeporte extends JPanel implements ActionListener
     private JLabel lblImagen;
 
     /**
-     * Ventana principal de la aplicación.
+     * Ventana principal de la aplicaciï¿½n.
      */
-    private InterfazCupiDeportes principal;
+    private InterfazCupiSports principal;
 
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructors
     // -----------------------------------------------------------------
     /**
      * Constructor del panel.
-     * @param pPrincipal Ventana principal de la aplicación. pPrincipal != null.
+     * @param pPrincipal Ventana principal de la aplicaciï¿½n. pPrincipal != null.
      */
-    public PanelInfoDeporte( InterfazCupiDeportes pPrincipal )
+    public PanelInfoSport( InterfazCupiSports pPrincipal )
     {
         principal = pPrincipal;
         setLayout( new java.awt.BorderLayout( ) );
-        setBorder( new TitledBorder( "Deporte" ) );
+        setBorder( new TitledBorder( "Sport" ) );
 
         setPreferredSize( new Dimension( 320, 150 ) );
         // Panel Imagen
@@ -137,84 +137,84 @@ public class PanelInfoDeporte extends JPanel implements ActionListener
         layout.setHgap( 8 );
         panelInformacion.setLayout( layout );
 
-        lblNombreDeporte = new JLabel( "Nombre:" );
-        panelInformacion.add( lblNombreDeporte );
+        lblNameSport = new JLabel( "Name:" );
+        panelInformacion.add( lblNameSport );
 
-        txtNombreDeporte = new JTextField( );
-        txtNombreDeporte.setEditable( false );
-        panelInformacion.add( txtNombreDeporte );
+        txtNameSport = new JTextField( );
+        txtNameSport.setEditable( false );
+        panelInformacion.add( txtNameSport );
 
-        lblEnteRegulador = new JLabel( "Ente regulador:" );
-        panelInformacion.add( lblEnteRegulador );
+        lblRegulatoryEntity = new JLabel( "Ente regulador:" );
+        panelInformacion.add( lblRegulatoryEntity );
 
-        txtEnteRegulador = new JTextField( );
-        txtEnteRegulador.setEditable( false );
-        panelInformacion.add( txtEnteRegulador );
+        txtRegulatoryEntity = new JTextField( );
+        txtRegulatoryEntity.setEditable( false );
+        panelInformacion.add( txtRegulatoryEntity );
 
-        lblDeportistasRegistrados = new JLabel( "Deportistas registrados:" );
-        panelInformacion.add( lblDeportistasRegistrados );
+        lblAthletesRegistrados = new JLabel( "Athletes registrados:" );
+        panelInformacion.add( lblAthletesRegistrados );
 
-        txtDeportistasRegistrados = new JTextField( );
-        txtDeportistasRegistrados.setEditable( false );
-        panelInformacion.add( txtDeportistasRegistrados );
+        txtAthletesRegistrados = new JTextField( );
+        txtAthletesRegistrados.setEditable( false );
+        panelInformacion.add( txtAthletesRegistrados );
 
-        lblDeportistas = new JLabel( "Deportistas sobresalientes:" );
-        panelInformacion.add( lblDeportistas );
-        comboDeportistasSobresalientes = new JComboBox( );
-        comboDeportistasSobresalientes.addActionListener( this );
-        comboDeportistasSobresalientes.setActionCommand( COMBO_DEPORTISTAS );
-        panelInformacion.add( comboDeportistasSobresalientes );
+        lblAthletes = new JLabel( "Athletes sobresalientes:" );
+        panelInformacion.add( lblAthletes );
+        comboOutstandingAthletes = new JComboBox( );
+        comboOutstandingAthletes.addActionListener( this );
+        comboOutstandingAthletes.setActionCommand( COMBO_DEPORTISTAS );
+        panelInformacion.add( comboOutstandingAthletes );
 
         granPanel.add( panelInformacion, java.awt.BorderLayout.NORTH );
 
     }
 
     /**
-     * Actualiza la información presentada por el panel.
-     * @param pDeporte Deporte del cual se va a obtener la información. pDeporte != null.
+     * Actualiza la informaciï¿½n presentada por el panel.
+     * @param pSport Sport del cual se va a obtener la informaciï¿½n. pSport != null.
      */
-    public void actualizarInfo( Deporte pDeporte )
+    public void actualizarInfo( Sport pSport )
     {
-        if( pDeporte != null )
+        if( pSport != null )
         {
-            lblImagen.setIcon( new ImageIcon( pDeporte.darRutaImagen( ) ) );
-            txtNombreDeporte.setText( pDeporte.darNombre( ) );
-            txtEnteRegulador.setText( pDeporte.darEnteRegulador( ) );
-            txtDeportistasRegistrados.setText( pDeporte.darCantidadDeportistasRegistrados( ) + "" );
-            comboDeportistasSobresalientes.removeAllItems( );
-            for( int i = 0; i < pDeporte.darDeportistasSobresalientes( ).size( ); i++ )
+            lblImagen.setIcon( new ImageIcon( pSport.getImagePath( ) ) );
+            txtNameSport.setText( pSport.getName( ) );
+            txtRegulatoryEntity.setText( pSport.getRegulatoryEntity( ) );
+            txtAthletesRegistrados.setText( pSport.getNumberOfRegisteredAthletes( ) + "" );
+            comboOutstandingAthletes.removeAllItems( );
+            for( int i = 0; i < pSport.getOutstandingAthletes( ).size( ); i++ )
             {
-                comboDeportistasSobresalientes.addItem( pDeporte.darDeportistasSobresalientes( ).get( i ) );
+                comboOutstandingAthletes.addItem( pSport.getOutstandingAthletes( ).get( i ) );
             }
         }
         else
         {
             lblImagen.setIcon( new ImageIcon( "" ) );
-            txtNombreDeporte.setText( "" );
-            txtEnteRegulador.setText( "" );
-            txtDeportistasRegistrados.setText( "" );
-            comboDeportistasSobresalientes.removeAllItems( );
+            txtNameSport.setText( "" );
+            txtRegulatoryEntity.setText( "" );
+            txtAthletesRegistrados.setText( "" );
+            comboOutstandingAthletes.removeAllItems( );
         }
     }
 
     /**
      * Devuelve El deportista seleccionado.
-     * @return Deportista seleccionado.
+     * @return Athlete seleccionado.
      */
-    public Deportista darDeportistaSeleccionado( )
+    public Athlete getAthleteSeleccionado( )
     {
-        return ( Deportista )comboDeportistasSobresalientes.getSelectedItem( );
+        return ( Athlete )comboOutstandingAthletes.getSelectedItem( );
     }
 
     /**
-     * Método en el que se tratan los eventos del diálogo.
-     * @param e Parámetro que tiene encapsulado las características del elemento.
+     * Mï¿½todo en el que se tratan los eventos del diï¿½logo.
+     * @param e Parï¿½metro que tiene encapsulado las caracterï¿½sticas del elemento.
      */
     public void actionPerformed( ActionEvent e )
     {
         if( e.getActionCommand( ).equals( COMBO_DEPORTISTAS ) )
         {
-            principal.actualizarInfoDeportista( darDeportistaSeleccionado( ) );
+            principal.actualizarInfoAthlete( getAthleteSeleccionado( ) );
         }
     }
 

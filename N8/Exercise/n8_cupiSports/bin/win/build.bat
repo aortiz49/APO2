@@ -1,18 +1,18 @@
 @echo off
 REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-REM Universidad de los Andes (Bogotá - Colombia)
-REM Departamento de Ingeniería de Sistemas y Computación 
+REM Universidad de los Andes (Bogotï¿½ - Colombia)
+REM Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
 REM Licenciado bajo el esquema Academic Free License version 2.1 
 REM
 REM Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
-REM Ejercicio: n8_cupiDeportes
+REM Ejercicio: n8_cupiSports
 REM Autor: Equipo Cupi2 2015
 REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SET CLASSPATH=
 
 REM ---------------------------------------------------------
-REM Asegura la creación de los directorios classes y lib
+REM Asegura la creaciï¿½n de los directorios classes y lib
 REM ---------------------------------------------------------
 
 cd ../..
@@ -23,8 +23,8 @@ REM ---------------------------------------------------------
 REM Compila las clases del directorio source
 REM ---------------------------------------------------------
 cd source
-javac -nowarn -classpath -d ../classes/ uniandes/cupi2/cupiDeportes/mundo/*.java
-javac -nowarn -classpath -d ../classes/ uniandes/cupi2/cupiDeportes/interfaz/*.java
+javac -nowarn -classpath -d ../classes/ uniandes/cupi2/cupiSports/mundo/*.java
+javac -nowarn -classpath -d ../classes/ uniandes/cupi2/cupiSports/interfaz/*.java
 
 REM ---------------------------------------------------------
 REM Crea el archivo jar a partir de los archivos compilados
@@ -32,7 +32,7 @@ REM ---------------------------------------------------------
 
 cd ..
 cd classes
-jar cf ../lib/cupiDeportes.jar uniandes/*
+jar cf ../lib/cupiSports.jar uniandes/*
 
 cd ../bin
 

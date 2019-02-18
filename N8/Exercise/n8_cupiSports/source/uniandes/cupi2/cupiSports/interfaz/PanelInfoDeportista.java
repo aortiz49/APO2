@@ -1,16 +1,16 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
+ * Ejercicio: n8_cupiSports
  * Autor: Equipo Cupi2
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.interfaz;
+package uniandes.cupi2.cupiSports.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -22,77 +22,77 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import uniandes.cupi2.cupiDeportes.mundo.Deportista;
+import uniandes.cupi2.cupiSports.world.Athlete;
 
 /**
- * Panel para para visualizar la información de un deportista.
+ * Panel para para visualizar la informaciï¿½n de un deportista.
  */
-public class PanelInfoDeportista extends JPanel
+public class PanelInfoAthlete extends JPanel
 {
     // -----------------------------------------------------------------
-    // Atributos de interfaz
+    // Attributes de interfaz
     // -----------------------------------------------------------------
 
     /**
-     * Label con el nombre del deportista.
+     * Label con el name of the athlete.
      */
-    private JLabel lblNombreDeportista;
+    private JLabel lblNameAthlete;
 
     /**
-     * Campo de texto para el nombre del deportista.
+     * Campo de texto para el name of the athlete.
      */
-    private JTextField txtNombreDeportista;
+    private JTextField txtNameAthlete;
 
     /**
-     * Label con la edad del deportista.
+     * Label con la age of the athlete.
      */
-    private JLabel lblEdad;
+    private JLabel lblAge;
 
     /**
-     * Campo de texto con la edad del deportista.
+     * Campo de texto con la age of the athlete.
      */
-    private JTextField txtEdad;
+    private JTextField txtAge;
 
     /**
-     * Label con el lugar de residencia del deportista.
+     * Label con el lugar de residencia of the athlete.
      */
-    private JLabel lblLugarResidencia;
+    private JLabel lblPlaceOfResidency;
 
     /**
-     * Campo de texto para el lugar de residencia del deportista.
+     * Campo de texto para el lugar de residencia of the athlete.
      */
-    private JTextField txtLugarResidencia;
+    private JTextField txtPlaceOfResidency;
 
     /**
      * Label Para la cantidad de trofeos ganados.
      */
-    private JLabel lblTrofeosGanados;
+    private JLabel lblTrophiesGanados;
 
     /**
      * Campo de texto con los trofeos ganados.
      */
-    private JTextField txtTrofeosGanados;
+    private JTextField txtTrophiesGanados;
 
     /**
-     * Panel con la imagen del deportista.
+     * Panel con la imagen of the athlete.
      */
     private JPanel panelImagen;
 
     /**
-     * Label con la imagen del deportista.
+     * Label con la imagen of the athlete.
      */
     private JLabel lblImagen;
 
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructors
     // -----------------------------------------------------------------
     /**
      * Constructor del panel.
      */
-    public PanelInfoDeportista( )
+    public PanelInfoAthlete( )
     {
         setLayout( new java.awt.BorderLayout( ) );
-        setBorder( new TitledBorder( "Deportista" ) );
+        setBorder( new TitledBorder( "Athlete" ) );
 
         setPreferredSize( new Dimension( 350, 150 ) );
         // Panel Imagen
@@ -116,60 +116,60 @@ public class PanelInfoDeportista extends JPanel
         layout.setHgap( 8 );
         panelInformacion.setLayout( layout );
 
-        lblNombreDeportista = new JLabel( "Nombre:" );
-        panelInformacion.add( lblNombreDeportista );
+        lblNameAthlete = new JLabel( "Name:" );
+        panelInformacion.add( lblNameAthlete );
 
-        txtNombreDeportista = new JTextField( );
-        txtNombreDeportista.setEditable( false );
-        panelInformacion.add( txtNombreDeportista );
+        txtNameAthlete = new JTextField( );
+        txtNameAthlete.setEditable( false );
+        panelInformacion.add( txtNameAthlete );
 
-        lblEdad = new JLabel( "Edad:" );
-        panelInformacion.add( lblEdad );
+        lblAge = new JLabel( "Age:" );
+        panelInformacion.add( lblAge );
 
-        txtEdad = new JTextField( );
-        txtEdad.setEditable( false );
-        panelInformacion.add( txtEdad );
+        txtAge = new JTextField( );
+        txtAge.setEditable( false );
+        panelInformacion.add( txtAge );
 
-        lblLugarResidencia = new JLabel( "Lugar de residencia:" );
-        panelInformacion.add( lblLugarResidencia );
+        lblPlaceOfResidency = new JLabel( "Lugar de residencia:" );
+        panelInformacion.add( lblPlaceOfResidency );
 
-        txtLugarResidencia = new JTextField( );
-        txtLugarResidencia.setEditable( false );
-        panelInformacion.add( txtLugarResidencia );
+        txtPlaceOfResidency = new JTextField( );
+        txtPlaceOfResidency.setEditable( false );
+        panelInformacion.add( txtPlaceOfResidency );
 
-        lblTrofeosGanados = new JLabel( "Trofeos ganados:" );
-        panelInformacion.add( lblTrofeosGanados );
+        lblTrophiesGanados = new JLabel( "Trophies ganados:" );
+        panelInformacion.add( lblTrophiesGanados );
 
-        txtTrofeosGanados = new JTextField( );
-        txtTrofeosGanados.setEditable( false );
-        panelInformacion.add( txtTrofeosGanados );
+        txtTrophiesGanados = new JTextField( );
+        txtTrophiesGanados.setEditable( false );
+        panelInformacion.add( txtTrophiesGanados );
 
         granPanel.add( panelInformacion, BorderLayout.NORTH );
 
     }
 
     /**
-     * Actualiza la información presentada por el panel.
-     * @param pDeportista Deportista del cual se va a obtener la información. pDeportista != null.
+     * Actualiza la informaciï¿½n presentada por el panel.
+     * @param pAthlete Athlete del cual se va a obtener la informaciï¿½n. pAthlete != null.
      */
-    public void actualizarInfo( Deportista pDeportista )
+    public void actualizarInfo( Athlete pAthlete )
     {
-        if( pDeportista != null )
+        if( pAthlete != null )
         {
-            lblImagen.setIcon( new ImageIcon( pDeportista.darRutaImagen( ) ) );
-            txtNombreDeportista.setText( pDeportista.darNombre( ) );
-            txtEdad.setText( String.valueOf( pDeportista.darEdad( ) ) );
-            txtTrofeosGanados.setText( String.valueOf( pDeportista.darCantidadTrofeos( ) ) );
-            txtLugarResidencia.setText( pDeportista.darLugarResidencia( ) );
+            lblImagen.setIcon( new ImageIcon( pAthlete.getImagePath( ) ) );
+            txtNameAthlete.setText( pAthlete.getName( ) );
+            txtAge.setText( String.valueOf( pAthlete.getAge( ) ) );
+            txtTrophiesGanados.setText( String.valueOf( pAthlete.getAmountOfTrophies( ) ) );
+            txtPlaceOfResidency.setText( pAthlete.getPlaceOfResidency( ) );
 
         }
         else
         {
             lblImagen.setIcon( new ImageIcon( "" ) );
-            txtNombreDeportista.setText( "" );
-            txtEdad.setText( "" );
-            txtTrofeosGanados.setText( "" );
-            txtLugarResidencia.setText( "" );
+            txtNameAthlete.setText( "" );
+            txtAge.setText( "" );
+            txtTrophiesGanados.setText( "" );
+            txtPlaceOfResidency.setText( "" );
         }
 
     }

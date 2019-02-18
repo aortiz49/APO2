@@ -1,22 +1,22 @@
 #!/bin/sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Universidad de los Andes (Bogotá - Colombia)
-# Departamento de Ingeniería de Sistemas y Computación
+# Universidad de los Andes (Bogotï¿½ - Colombia)
+# Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n
 # Licenciado bajo el esquema Academic Free License version 2.1
 #
 # Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
-# Ejercicio: n8_cupiDeportes
+# Ejercicio: n8_cupiSports
 # Autor: Equipo Cupi2 2015
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 stty -echo
 
 # ---------------------------------------------------------
-# Ejecución del programa
+# Ejecuciï¿½n del programa
 # ---------------------------------------------------------
 
 cd ../..
-java -classpath ./lib/cupiDeportes.jar uniandes.cupi2.cupiDeportes.interfaz.InterfazCupiDeportes
+java -classpath ./lib/cupiSports.jar uniandes.cupi2.cupiSports.interfaz.InterfazCupiSports
 cd bin/mac
 
 stty echo

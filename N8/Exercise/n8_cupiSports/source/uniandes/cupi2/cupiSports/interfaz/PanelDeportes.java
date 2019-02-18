@@ -1,35 +1,34 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiDeportes
+ * Ejercicio: n8_cupiSports
  * Autor: Equipo Cupi2
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.interfaz;
+package uniandes.cupi2.cupiSports.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import uniandes.cupi2.cupiDeportes.mundo.Deporte;
+import uniandes.cupi2.cupiSports.world.Sport;
 
 /**
  * Panel para el manejo de los deportes.
  */
-public class PanelDeportes extends JPanel implements ActionListener
+public class PanelSports extends JPanel implements ActionListener
 {
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
@@ -37,86 +36,86 @@ public class PanelDeportes extends JPanel implements ActionListener
      */
     private static final String COMBO_DEPORTES = "Combo deportes";
     // -----------------------------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Interfaz principal de la aplicación.
+     * Interfaz principal de la aplicaciï¿½n.
      */
-    private InterfazCupiDeportes principal;
+    private InterfazCupiSports principal;
 
     // -----------------------------------------------------------------
-    // Atributos de la interfaz
+    // Attributes de la interfaz
     // -----------------------------------------------------------------
 
     /**
-     * Combo Box donde están los deportes.
+     * Combo Box donde estï¿½n los deportes.
      */
-    // TODO Parte 6 punto A: Declare el atributo comboDeportes.
+    // TODO Parte 6 punto A: Declare el atributo comboSports.
 
     // -----------------------------------------------------------------
     // Constructor
     // -----------------------------------------------------------------
     /**
      * Constructor del panel donde se encuentra un combo con los deportes.
-     * @param pPrincipal Interfaz principal de la aplicación. pPrincipal != null.
+     * @param pPrincipal Interfaz principal de la aplicaciï¿½n. pPrincipal != null.
      */
-    public PanelDeportes( InterfazCupiDeportes pPrincipal )
+    public PanelSports( InterfazCupiSports pPrincipal )
     {
         principal = pPrincipal;
-        setBorder( new TitledBorder( "Deportes" ) );
+        setBorder( new TitledBorder( "Sports" ) );
         BorderLayout layout = new BorderLayout( );
         layout.setVgap( 5 );
         layout.setHgap( 5 );
         setLayout( layout );
 
-        // TODO Parte 6 punto B: Inicialice y agregue al panel el comboDeportes.
+        // TODO Parte 6 punto B: Inicialice y agregue al panel el comboSports.
 
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     /**
      * Actualiza el combo box con la lista de deportes.
-     * @param pDeportes Lista de deportes que estarán en el comboBox. pDeportes != null.
+     * @param pSports Lista de deportes que estarï¿½n en el comboBox. pSports != null.
      */
-    public void actualizarDeportes( ArrayList<Deporte> pDeportes )
+    public void actualizarSports( ArrayList<Sport> pSports )
     {
-        comboDeportes.removeAllItems( );
-        for( int i = 0; i < pDeportes.size( ); i++ )
+        comboSports.removeAllItems( );
+        for( int i = 0; i < pSports.size( ); i++ )
         {
-            comboDeportes.addItem( pDeportes.get( i ) );
+            comboSports.addItem( pSports.get( i ) );
         }
     }
 
     /**
      * Devuelve el deporte seleccionado.
-     * @return Deporte seleccionado.
+     * @return Sport seleccionado.
      */
-    public Deporte darDeporteSeleccionado( )
+    public Sport getSportSeleccionado( )
     {
-        return ( Deporte )comboDeportes.getSelectedItem( );
+        return ( Sport )comboSports.getSelectedItem( );
     }
 
     /**
      * Selecciona el deporte.
-     * @param pIndice Índice del deporte a seleccionar.
+     * @param pIndice ï¿½ndice del deporte a seleccionar.
      */
-    public void seleccionarDeporte( int pIndice )
+    public void seleccionarSport( int pIndice )
     {
-        comboDeportes.setSelectedIndex( pIndice );
+        comboSports.setSelectedIndex( pIndice );
     }
 
     /**
-     * Método en el que se tratan los eventos del diálogo. <br>
-     * <b>post:</b> Cambia la información del deportista que se está mostrando de acuerdo al nuevo deportista seleccionado. 
-     * @param e Parámetro que tiene encapsulado las características del elemento.
+     * Mï¿½todo en el que se tratan los eventos del diï¿½logo. <br>
+     * <b>post:</b> Cambia la informaciï¿½n of the athlete que se estï¿½ mostrando de acuerdo al nuevo deportista seleccionado.
+     * @param e Parï¿½metro que tiene encapsulado las caracterï¿½sticas del elemento.
      */
     public void actionPerformed( ActionEvent e )
     {
-        // TODO Parte 6 punto C: Implemente el manejo del evento con comando COMBO_DEPORTES proveniente de comboDeportes.
+        // TODO Parte 6 punto C: Implemente el manejo del evento con comando COMBO_DEPORTES proveniente de comboSports.
     }
 
 }
