@@ -1,7 +1,7 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -10,9 +10,8 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.cupiDeportes.mundo;
+package uniandes.cupi2.cupiSports.world;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -27,7 +26,7 @@ public class Deporte
     // -----------------------------------------------------------------
 
     /**
-     * Constante para la serialización.
+     * Constante para la serializaciï¿½n.
      */
     private static final long serialVersionUID = -8659162802685356289L;
 
@@ -65,8 +64,8 @@ public class Deporte
     // -----------------------------------------------------------------
 
     /**
-     * Construye un deporte con los valores dados por parámetro. <br>
-     * <b>post: </b> Se inicializaron los atributos con los datos dados por parámetro. Se crea una lista de deportistas vacía. <br>
+     * Construye un deporte con los valores dados por parï¿½metro. <br>
+     * <b>post: </b> Se inicializaron los atributos con los datos dados por parï¿½metro. Se crea una lista de deportistas vacï¿½a. <br>
      * @param pNombre Nombre del deporte. pNombre != null && pNombre != "".
      * @param pEnteRegulador Ente regulador del deporte. pEnteRegulador != null && pEnteRegulador != "".
      * @param pCantidadDeportistasRegistrados Cantidad de deportistas registrados en el deporte. pCantidadDeportistasRegistrados > 0.
@@ -82,7 +81,7 @@ public class Deporte
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
@@ -133,17 +132,17 @@ public class Deporte
     /**
      * Agrega un deportista sobresaliente.
      * @param pDeportista Deportista a agregar a la lista de deportistas sobresalientes. pDeportista != null.<br>
-     *        <b>post: </b> Se agregó el deportista sobresaliente a la lista.
-     * @throws ElementoExisteException Lanza una excepción si ya existe un deportista sobresaliente con el nombre del que se quiere agregar.
+     *        <b>post: </b> Se agregï¿½ el deportista sobresaliente a la lista.
+     * @throws ElementoExisteException Lanza una excepciï¿½n si ya existe un deportista sobresaliente con el nombre del que se quiere agregar.
      */
     public void agregarDeportistaSobresaliente( Deportista pDeportista ) throws ElementoExisteException
     {
-    	//TODO Parte 4 punto A: Implemente el método según la documentación.
+    	//TODO Parte 4 punto A: Implemente el mï¿½todo segï¿½n la documentaciï¿½n.
     }
 
     /**
      * Elimina el deportista sobresaliente con el nombre dado. <br>
-     * <b>post: </b> Se eliminó el deportista sobresaliente de la lista.
+     * <b>post: </b> Se eliminï¿½ el deportista sobresaliente de la lista.
      * @param pNombreDeportista Nombre del deportista a eliminar. pNombreDeportista != null && pNombreDeportista != "".
      */
     public void eliminarDeportistaSobresaliente( String pNombreDeportista )
@@ -164,7 +163,7 @@ public class Deporte
     /**
      * Verifica si existe o no un deportista sobresaliente con el nombre dado.
      * @param pNombreDeportista Nombre del deportista. pNombreDeportista != null && pNombreDeportista != "".
-     * @return True si existe un deportista sobresaliente con el nombre dado por parámetro. False de lo contrario.
+     * @return True si existe un deportista sobresaliente con el nombre dado por parï¿½metro. False de lo contrario.
      */
     public boolean existeDeportistaSobresaliente( String pNombreDeportista )
     {
@@ -182,8 +181,8 @@ public class Deporte
     }
 
     /**
-     * Retorna el deportista que tiene el mayor número de trofeos ganados. Si hay dos o más deportistas con el mismo número de trofeos y son máximos, retorna cualquiera.
-     * @return El deportista con mayor número de trofeos. Si no hay deportistas retorna null.
+     * Retorna el deportista que tiene el mayor nï¿½mero de trofeos ganados. Si hay dos o mï¿½s deportistas con el mismo nï¿½mero de trofeos y son mï¿½ximos, retorna cualquiera.
+     * @return El deportista con mayor nï¿½mero de trofeos. Si no hay deportistas retorna null.
      */
     public Deportista darDeportistaMasTrofeos( )
     {
@@ -232,7 +231,7 @@ public class Deporte
     // Invariante
     // -----------------------------------------------------------------
 
-    //TODO Parte 1 punto B: Documente e implemente el método verificarInvariante().
-    //De ser necesario implemente métodos auxiliares.
+    //TODO Parte 1 punto B: Documente e implemente el mï¿½todo verificarInvariante().
+    //De ser necesario implemente mï¿½todos auxiliares.
 
 }
