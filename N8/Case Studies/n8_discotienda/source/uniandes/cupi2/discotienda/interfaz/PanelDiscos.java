@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelDiscos.java,v 1.4 2006/08/10 20:04:35 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n
+ * Licenciado bajo el esquema Academic Free License version 2.1
+ * <p>
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
+ * Ejercicio: n8_discotienda
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.interfaz;
@@ -35,8 +35,7 @@ import uniandes.cupi2.discotienda.mundo.Disco;
 /**
  * Es el panel con los detalles de un disco
  */
-public class PanelDiscos extends JPanel implements ActionListener
-{
+public class PanelDiscos extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
     // Constantes
     // -----------------------------------------------------------------
@@ -47,7 +46,7 @@ public class PanelDiscos extends JPanel implements ActionListener
     private static final String CAMBIAR_DISCO = "CambiarDisco";
 
     /**
-     * Comando para el botón para agregar un disco
+     * Comando para el botï¿½n para agregar un disco
      */
     private static final String AGREGAR_DISCO = "AgregarDisco";
 
@@ -90,7 +89,7 @@ public class PanelDiscos extends JPanel implements ActionListener
     private JLabel etiquetaTituloGenero;
 
     /**
-     * Es el campo con el género del disco
+     * Es el campo con el gï¿½nero del disco
      */
     private JTextField txtGenero;
 
@@ -105,12 +104,12 @@ public class PanelDiscos extends JPanel implements ActionListener
     private JTextField txtPrecio;
 
     /**
-     * Es el botón para mostrar el diálogo para agregar un nuevo disco
+     * Es el botï¿½n para mostrar el diï¿½logo para agregar un nuevo disco
      */
     private JButton botonAgregarDisco;
 
     /**
-     * Es el campo que muestra la imágen del disco
+     * Es el campo que muestra la imï¿½gen del disco
      */
     private JLabel etiquetaImagen;
 
@@ -119,119 +118,112 @@ public class PanelDiscos extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Construye el panel para la información de un disco de la discotienda
+     * Construye el panel para la informaciï¿½n de un disco de la discotienda
      * @param ventanaPrincipal es una referencia a la clase principal de la interfaz
      * @param discos unna lista con los nombres de los discos que se tienen en la discotienda
      */
-    public PanelDiscos( InterfazDiscotienda ventanaPrincipal, ArrayList discos )
-    {
+    public PanelDiscos(InterfazDiscotienda ventanaPrincipal, ArrayList discos) {
         principal = ventanaPrincipal;
 
-        setLayout( new BorderLayout( ) );
+        setLayout(new BorderLayout());
 
-        comboDiscos = new JComboBox( discos.toArray( ) );
-        comboDiscos.setEditable( false );
-        comboDiscos.addActionListener( this );
-        comboDiscos.setActionCommand( CAMBIAR_DISCO );
-        add( comboDiscos, BorderLayout.NORTH );
+        comboDiscos = new JComboBox(discos.toArray());
+        comboDiscos.setEditable(false);
+        comboDiscos.addActionListener(this);
+        comboDiscos.setActionCommand(CAMBIAR_DISCO);
+        add(comboDiscos, BorderLayout.NORTH);
 
-        JPanel panelDatosDisco = new JPanel( );
-        add( panelDatosDisco, BorderLayout.CENTER );
+        JPanel panelDatosDisco = new JPanel();
+        add(panelDatosDisco, BorderLayout.CENTER);
 
-        panelDatosDisco.setLayout( new GridLayout( 6, 1, 0, 5 ) );
+        panelDatosDisco.setLayout(new GridLayout(6, 1, 0, 5));
 
-        etiquetaTituloArtista = new JLabel( "Artista: " );
-        txtArtista = new JTextField( 10 );
-        txtArtista.setEditable( false );
-        txtArtista.setFont( txtArtista.getFont( ).deriveFont( Font.PLAIN ) );
-        panelDatosDisco.add( etiquetaTituloArtista );
-        panelDatosDisco.add( txtArtista );
+        etiquetaTituloArtista = new JLabel("Artista: ");
+        txtArtista = new JTextField(10);
+        txtArtista.setEditable(false);
+        txtArtista.setFont(txtArtista.getFont().deriveFont(Font.PLAIN));
+        panelDatosDisco.add(etiquetaTituloArtista);
+        panelDatosDisco.add(txtArtista);
 
-        etiquetaTituloGenero = new JLabel( "Género: " );
-        txtGenero = new JTextField( 10 );
-        txtGenero.setEditable( false );
-        txtGenero.setFont( txtGenero.getFont( ).deriveFont( Font.PLAIN ) );
-        panelDatosDisco.add( etiquetaTituloGenero );
-        panelDatosDisco.add( txtGenero );
+        etiquetaTituloGenero = new JLabel("Gï¿½nero: ");
+        txtGenero = new JTextField(10);
+        txtGenero.setEditable(false);
+        txtGenero.setFont(txtGenero.getFont().deriveFont(Font.PLAIN));
+        panelDatosDisco.add(etiquetaTituloGenero);
+        panelDatosDisco.add(txtGenero);
 
-        etiquetaTituloPrecio = new JLabel( "Precio: " );
-        txtPrecio = new JTextField( 10 );
-        txtPrecio.setEditable( false );
-        txtPrecio.setFont( txtPrecio.getFont( ).deriveFont( Font.PLAIN ) );
-        panelDatosDisco.add( etiquetaTituloPrecio );
-        panelDatosDisco.add( txtPrecio );
+        etiquetaTituloPrecio = new JLabel("Precio: ");
+        txtPrecio = new JTextField(10);
+        txtPrecio.setEditable(false);
+        txtPrecio.setFont(txtPrecio.getFont().deriveFont(Font.PLAIN));
+        panelDatosDisco.add(etiquetaTituloPrecio);
+        panelDatosDisco.add(txtPrecio);
 
-        panelDatosDisco.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
+        panelDatosDisco.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-        etiquetaImagen = new JLabel( );
-        etiquetaImagen.setPreferredSize( new Dimension( 200, 200 ) );
-        etiquetaImagen.setBorder( new CompoundBorder( new EmptyBorder( 5, 5, 5, 5 ), new TitledBorder( "" ) ) );
-        add( etiquetaImagen, BorderLayout.EAST );
+        etiquetaImagen = new JLabel();
+        etiquetaImagen.setPreferredSize(new Dimension(200, 200));
+        etiquetaImagen
+                .setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), new TitledBorder("")));
+        add(etiquetaImagen, BorderLayout.EAST);
 
-        botonAgregarDisco = new JButton( "Agregar Disco" );
-        botonAgregarDisco.setActionCommand( AGREGAR_DISCO );
-        botonAgregarDisco.addActionListener( this );
-        add( botonAgregarDisco, BorderLayout.SOUTH );
+        botonAgregarDisco = new JButton("Agregar Disco");
+        botonAgregarDisco.setActionCommand(AGREGAR_DISCO);
+        botonAgregarDisco.addActionListener(this);
+        add(botonAgregarDisco, BorderLayout.SOUTH);
 
-        setBorder( new CompoundBorder( new EmptyBorder( 5, 5, 5, 5 ), new TitledBorder( "Discos" ) ) );
+        setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), new TitledBorder("Discos")));
 
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Cambia el disco que se muestra en el panel
      * @param d el nuevo disco a mostrar en el panel
      */
-    public void cambiarDisco( Disco d )
-    {
+    public void cambiarDisco(Disco d) {
         disco = d;
-        if( disco != null )
-        {
-            etiquetaImagen.setIcon( new ImageIcon( disco.darImagen( ) ) );
+        if (disco != null) {
+            etiquetaImagen.setIcon(new ImageIcon(disco.darImagen()));
 
-            txtArtista.setText( disco.darArtista( ) );
-            txtGenero.setText( disco.darGenero( ) );
-            txtPrecio.setText( Double.toString( disco.darPrecioDisco( ) ) );
+            txtArtista.setText(disco.darArtista());
+            txtGenero.setText(disco.darGenero());
+            txtPrecio.setText(Double.toString(disco.darPrecioDisco()));
         }
-        else
-        {
-            setBorder( new CompoundBorder( new EmptyBorder( 5, 5, 5, 5 ), new TitledBorder( "Detalles del Disco" ) ) );
+        else {
+            setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5),
+                                         new TitledBorder("Detalles del Disco")));
         }
     }
 
     /**
-     * Actualiza la información en el panel con la lista de discos
+     * Actualiza la informaciï¿½n en el panel con la lista de discos
      * @param discos la lista de discos a desplegar
      */
-    public void refrescarDiscos( ArrayList discos )
-    {
-        comboDiscos.removeAllItems( );
+    public void refrescarDiscos(ArrayList discos) {
+        comboDiscos.removeAllItems();
 
-        for( int i = 0; i < discos.size( ); i++ )
-        {
-            comboDiscos.addItem( discos.get( i ) );
+        for (int i = 0; i < discos.size(); i++) {
+            comboDiscos.addItem(discos.get(i));
         }
     }
 
     /**
      * Ejecuta las acciones asociadas a los eventos
-     * @param evento es el evento del click sobre un botón
+     * @param evento es el evento del click sobre un botï¿½n
      */
-    public void actionPerformed( ActionEvent evento )
-    {
-        String comando = evento.getActionCommand( );
+    public void actionPerformed(ActionEvent evento) {
+        String comando = evento.getActionCommand();
 
-        if( AGREGAR_DISCO.equals( comando ) )
-        {
-            principal.mostrarDialogoAgregarDisco( );
+        if (AGREGAR_DISCO.equals(comando)) {
+            principal.mostrarDialogoAgregarDisco();
         }
-        else if( CAMBIAR_DISCO.equals( comando ) )
-        {
-            String nombreDisco = ( String )comboDiscos.getSelectedItem( );
-            principal.cambiarDiscoSeleccionado( nombreDisco );
+        else if (CAMBIAR_DISCO.equals(comando)) {
+            String nombreDisco = (String) comboDiscos.getSelectedItem();
+            principal.cambiarDiscoSeleccionado(nombreDisco);
         }
     }
 

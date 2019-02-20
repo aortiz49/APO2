@@ -46,7 +46,7 @@ public class PanelImagen extends JPanel
         setLayout( new BorderLayout( ) );
         setPreferredSize( new Dimension( 800, 165 ) );
 
-        ImageIcon icono = new ImageIcon( "data/imagenes/Encabezado.jpg" );
+        ImageIcon icono = new ImageIcon( "./data/images/Encabezado.jpg" );
         etiquetaImagen = new JLabel( "" );
         etiquetaImagen.setIcon( icono );
         etiquetaImagen.setHorizontalAlignment( JLabel.CENTER );

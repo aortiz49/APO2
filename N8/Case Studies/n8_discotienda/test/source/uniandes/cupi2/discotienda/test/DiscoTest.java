@@ -1,14 +1,14 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: DiscoTest.java,v 1.7 2006/08/10 20:04:56 da-romer Exp $ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
- * Autor: Mario Sánchez - 26/01/2005
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005 
+ * Autor: Mario Sï¿½nchez - 26/01/2005
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.test;
@@ -16,7 +16,8 @@ package uniandes.cupi2.discotienda.test;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-import uniandes.cupi2.discotienda.mundo.*;
+import uniandes.cupi2.discotienda.mundo.Disco;
+import uniandes.cupi2.discotienda.mundo.ElementoExisteException;
 
 /**
  * Esta es la clase que sirve para verificar la clase Disco
@@ -30,30 +31,33 @@ public class DiscoTest extends TestCase
     /**
      * Es el disco sobre el que se realizan las pruebas
      */
-    private Disco disco1;
+    private uniandes.cupi2.discotienda.mundo.Disco disco1;
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Construye un disco sin canciones
+     * Construye un disco sin mynicesonges
      */
     private void setupEscenario1( )
     {
-        disco1 = new Disco( "Mi disco1", "artistaPrueba", "Latino", "prueba.jpg" );
+        disco1 = new uniandes.cupi2.discotienda.mundo.Disco("Mi disco1", "artistaPrueba", "Latino", "prueba.jpg" );
     }
 
     /**
-     * Construye un disco con algunas unas canciones
+     * Construye un disco con algunas unas mynicesonges
      */
     private void setupEscenario2( )
     {
-        disco1 = new Disco( "Mi disco1", "artistaPrueba", "Latino", "./data/imagenes/prueba.jpg" );
+        disco1 = new Disco("Mi disco1", "artistaPrueba", "Latino", "./data/imagenes/prueba.jpg" );
 
-        Cancion c1 = new Cancion( "C1", 1, 20, 1.50, 2, 96, 2 );
-        Cancion c2 = new Cancion( "C2", 1, 20, 3.45, 2, 96, 2 );
-        Cancion c3 = new Cancion( "C3", 1, 20, 78.10, 2, 96, 2 );
+        uniandes.cupi2.discotienda.mundo.Cancion
+                c1 = new uniandes.cupi2.discotienda.mundo.Cancion("C1", 1, 20, 1.50, 2, 96, 2 );
+        uniandes.cupi2.discotienda.mundo.Cancion
+                c2 = new uniandes.cupi2.discotienda.mundo.Cancion("C2", 1, 20, 3.45, 2, 96, 2 );
+        uniandes.cupi2.discotienda.mundo.Cancion
+                c3 = new uniandes.cupi2.discotienda.mundo.Cancion("C3", 1, 20, 78.10, 2, 96, 2 );
         try
         {
             disco1.agregarCancion( c1 );
@@ -67,20 +71,22 @@ public class DiscoTest extends TestCase
     }
 
     /**
-     * Prueba que las canciones se agreguen correctamente. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Prueba que las mynicesonges se agreguen correctamente. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * agregarCancion. <br>
-     * <b> Objetivo: </b> Probar que el método agregarCancion() es capaz de agregar canciones de forma correcta a la tienda. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo agregarCancion() es capaz de agregar mynicesonges de forma correcta a la tienda. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al agregar una canción que no existe en un disco, esta debe ser adicionada al disco. <br>
-     * 2. Al agregar una canción que existe en un disco se debe arrojar una excepción indicándolo.
+     * 1. Al agregar una canciï¿½n que no existe en un disco, esta debe ser adicionada al disco. <br>
+     * 2. Al agregar una canciï¿½n que existe en un disco se debe arrojar una excepciï¿½n indicï¿½ndolo.
      */
     public void testAgregarCancion( )
     {
         setupEscenario1( );
 
-        Cancion c1 = new Cancion( "Cancion1", 1, 20, 1.50, 2, 96, 0 );
-        Cancion c2 = new Cancion( "Cancion1", 2, 40, 3.45, 2, 96, 0 );
+        uniandes.cupi2.discotienda.mundo.Cancion
+                c1 = new uniandes.cupi2.discotienda.mundo.Cancion("Cancion1", 1, 20, 1.50, 2, 96, 0 );
+        uniandes.cupi2.discotienda.mundo.Cancion
+                c2 = new uniandes.cupi2.discotienda.mundo.Cancion("Cancion1", 2, 40, 3.45, 2, 96, 0 );
         try
         {
             disco1.agregarCancion( c1 );
@@ -101,97 +107,97 @@ public class DiscoTest extends TestCase
     }
 
     /**
-     * Verifica los métodos que retornan datos del disco1. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica los mï¿½todos que retornan datos del disco1. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * darNombreDisco, darArtista, darGenero, darImagen. <br>
-     * <b> Objetivo: </b> Probar que los métodos que dan información de un disco retornan la información correcta. <br>
+     * <b> Objetivo: </b> Probar que los mï¿½todos que dan informaciï¿½n de un disco retornan la informaciï¿½n correcta. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Se sabe que el nombre de un disco es X. Al pedir el nombre del disco éste debe ser igual a X. <br>
-     * 2. Se sabe que el del artista de un disco es X. Al pedir el artista del disco éste debe ser igual a X. <br>
-     * 3. Se sabe que el nombre del género de un disco es X. Al pedir el género del disco éste debe ser igual a X. <br>
-     * 4. Se sabe que la imagen de un disco es X. Al pedir la imagen del disco éste debe ser igual a X.
+     * 1. Se sabe que el nombre de un disco es X. Al pedir el nombre del disco ï¿½ste debe ser igual a X. <br>
+     * 2. Se sabe que el del artista de un disco es X. Al pedir el artista del disco ï¿½ste debe ser igual a X. <br>
+     * 3. Se sabe que el nombre del gï¿½nero de un disco es X. Al pedir el gï¿½nero del disco ï¿½ste debe ser igual a X. <br>
+     * 4. Se sabe que la imagen de un disco es X. Al pedir la imagen del disco ï¿½ste debe ser igual a X.
      */
     public void testDatos( )
     {
         setupEscenario1( );
 
-        assertEquals( "El nombre del disco1 está mal", "Mi disco1", disco1.darNombreDisco( ) );
-        assertEquals( "El artista del disco1 está mal", "artistaPrueba", disco1.darArtista( ) );
-        assertEquals( "El género del disco1 está mal", "Latino", disco1.darGenero( ) );
-        assertEquals( "La imagen del disco1 está mal", "prueba.jpg", disco1.darImagen( ) );
+        assertEquals( "El nombre del disco1 estï¿½ mal", "Mi disco1", disco1.darNombreDisco( ) );
+        assertEquals( "El artista del disco1 estï¿½ mal", "artistaPrueba", disco1.darArtista( ) );
+        assertEquals( "El gï¿½nero del disco1 estï¿½ mal", "Latino", disco1.darGenero( ) );
+        assertEquals( "La imagen del disco1 estï¿½ mal", "prueba.jpg", disco1.darImagen( ) );
     }
 
     /**
-     * Verifica el método que calcula el precio de un disco. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo que calcula el precio de un disco. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * darPrecioDisco. <br>
-     * <b> Objetivo: </b> Probar que el método darPrecioDisco() calcula correctamente el valor del precio del disco de acuerdo a las canciones que este tiene. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo darPrecioDisco() calcula correctamente el valor del precio del disco de acuerdo a las mynicesonges que este tiene. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Se sabe que el precio de un disco es X. Al pedir el precio del disco éste debe ser igual a X.
+     * 1. Se sabe que el precio de un disco es X. Al pedir el precio del disco ï¿½ste debe ser igual a X.
      */
     public void testCalcularPrecio( )
     {
         setupEscenario2( );
 
-        assertEquals( "El cálculo del precio del disco1 está mal", "83.05", Double.toString( disco1.darPrecioDisco( ) ) );
+        assertEquals( "El cï¿½lculo del precio del disco1 estï¿½ mal", "83.05", Double.toString( disco1.darPrecioDisco( ) ) );
     }
 
     /**
-     * Verifica el método darCancion.<br>
-     * Se busca una canción que esté dentro del disco. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo darCancion.<br>
+     * Se busca una canciï¿½n que estï¿½ dentro del disco. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * darCancion. <br>
-     * <b> Objetivo: </b> Probar que el método darCancion() retorne una canción que existe en el disco. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo darCancion() retorne una canciï¿½n que existe en el disco. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al pedir una canción que existe en el disco, ésta debe ser retornada.
+     * 1. Al pedir una canciï¿½n que existe en el disco, ï¿½sta debe ser retornada.
      */
     public void testDarCancionOk( )
     {
         setupEscenario2( );
 
-        Cancion c = disco1.darCancion( "C2" );
-        assertNotNull( "La canción C2 se debería haber encontrado", c );
+        uniandes.cupi2.discotienda.mundo.Cancion c = disco1.darCancion("C2" );
+        assertNotNull( "La canciï¿½n C2 se deberï¿½a haber encontrado", c );
     }
 
     /**
-     * Verifica el método darCancion.<br>
-     * Se busca una canción que no esté dentro del disco, esperando que retorne null. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo darCancion.<br>
+     * Se busca una canciï¿½n que no estï¿½ dentro del disco, esperando que retorne null. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * darCancion. <br>
-     * <b> Objetivo: </b> Probar que el método darCancion() no retorne una canción que no existe en el disco. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo darCancion() no retorne una canciï¿½n que no existe en el disco. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al pedir una canción que no existe en el disco se debe obtener null.
+     * 1. Al pedir una canciï¿½n que no existe en el disco se debe obtener null.
      */
     public void testDarCancionError( )
     {
         setupEscenario2( );
 
-        Cancion c = disco1.darCancion( "C125" );
-        assertNull( "La canción C125 no se debería haber encontrado", c );
+        uniandes.cupi2.discotienda.mundo.Cancion c = disco1.darCancion("C125" );
+        assertNull( "La canciï¿½n C125 no se deberï¿½a haber encontrado", c );
     }
 
     /**
-     * Verifica el método darNombresCanciones, que debería retornar los nombres de las 3 canciones que están en el disco. Este método se verifica usando el escenario 2. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo darNombresCanciones, que deberï¿½a retornar los nombres de las 3 mynicesonges que estï¿½n en el disco. Este mï¿½todo se verifica usando el escenario 2. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * darNombresCanciones. <br>
-     * <b> Objetivo: </b> Probar que el método darNombresCanciones() retornen los nombres de todas las canciones que hay en el disco. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo darNombresCanciones() retornen los nombres de todas las mynicesonges que hay en el disco. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al pedir el arreglo con los nombres de las canciones de un disco, dicho arreglo debe contener todos los nombres de las canciones existentes.
+     * 1. Al pedir el arreglo con los nombres de las mynicesonges de un disco, dicho arreglo debe contener todos los nombres de las mynicesonges existentes.
      */
     public void testDarNombresCanciones( )
     {
         setupEscenario2( );
 
         ArrayList nombres = disco1.darNombresCanciones( );
-        assertEquals( "El número de nombres es incorrecto", 3, nombres.size( ) );
+        assertEquals( "El nï¿½mero de nombres es incorrecto", 3, nombres.size( ) );
 
         String nombre1 = ( String )nombres.get( 0 );
         String nombre2 = ( String )nombres.get( 1 );
         String nombre3 = ( String )nombres.get( 2 );
 
-        assertEquals( "El nombre de la canción no es el esperado", "C1", nombre1 );
-        assertEquals( "El nombre de la canción no es el esperado", "C2", nombre2 );
-        assertEquals( "El nombre de la canción no es el esperado", "C3", nombre3 );
+        assertEquals( "El nombre de la canciï¿½n no es el esperado", "C1", nombre1 );
+        assertEquals( "El nombre de la canciï¿½n no es el esperado", "C2", nombre2 );
+        assertEquals( "El nombre de la canciï¿½n no es el esperado", "C3", nombre3 );
     }
 
 }

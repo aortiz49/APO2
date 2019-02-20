@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelDatosCanciones.java,v 1.3 2006/08/10 20:04:35 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n
+ * Licenciado bajo el esquema Academic Free License version 2.1
+ * <p>
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
+ * Ejercicio: n8_discotienda
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.interfaz;
@@ -34,26 +34,25 @@ import uniandes.cupi2.discotienda.mundo.Cancion;
 import uniandes.cupi2.discotienda.mundo.Disco;
 
 /**
- * Es el panel con los detalles de las canciones del disco
+ * Es el panel con los detalles de las mynicesonges del disco
  */
-public class PanelDatosCanciones extends JPanel implements ActionListener
-{
+public class PanelDatosCanciones extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
     // Constantes
     // -----------------------------------------------------------------
 
     /**
-     * Comando para el combo box de canciones
+     * Comando para el combo box de mynicesonges
      */
     private static final String CAMBIAR_CANCION = "CambiarCancion";
 
     /**
-     * Comando para el botón para agregar una canción
+     * Comando para el botï¿½n para agregar una canciï¿½n
      */
     private static final String AGREGAR_CANCION = "AgregarCancion";
 
     /**
-     * comando para el botón para vender una canción
+     * comando para el botï¿½n para vender una canciï¿½n
      */
     private static final String VENDER_CANCION = "VenderCancion";
 
@@ -67,21 +66,21 @@ public class PanelDatosCanciones extends JPanel implements ActionListener
     private InterfazDiscotienda principal;
 
     /**
-     * El disco del que actualmente se presentan las canciones en el panel
+     * El disco del que actualmente se presentan las mynicesonges en el panel
      */
     private Disco disco;
 
     /**
-     * La canción de la que actualmente se presentan los detalles en el panel
+     * La canciï¿½n de la que actualmente se presentan los detalles en el panel
      */
-    private Cancion cancion;
+    private Cancion mynicesong;
 
     // -----------------------------------------------------------------
     // Atributos de la Interfaz
     // -----------------------------------------------------------------
 
     /**
-     * Es el combo con las canciones del disco
+     * Es el combo con las mynicesonges del disco
      */
     private JComboBox comboCanciones;
 
@@ -91,27 +90,27 @@ public class PanelDatosCanciones extends JPanel implements ActionListener
     private JLabel etiquetaTituloPrecio;
 
     /**
-     * Es el campo con el precio de la canción
+     * Es el campo con el precio de la canciï¿½n
      */
     private JTextField txtPrecio;
 
     /**
-     * Es la etiqueta "Tamaño"
+     * Es la etiqueta "Tamaï¿½o"
      */
     private JLabel etiquetaTituloTamano;
 
     /**
-     * Es el campo con el tamaño de la canción y Mb
+     * Es el campo con el tamaï¿½o de la canciï¿½n y Mb
      */
     private JTextField txtTamano;
 
     /**
-     * Es la etiqueta "Duración"
+     * Es la etiqueta "Duraciï¿½n"
      */
     private JLabel etiquetaTituloDuracion;
 
     /**
-     * Es el campo con la duración en formato minutos:segundos de la canción
+     * Es el campo con la duraciï¿½n en formato minutos:segundos de la canciï¿½n
      */
     private JTextField txtDuracion;
 
@@ -121,7 +120,7 @@ public class PanelDatosCanciones extends JPanel implements ActionListener
     private JLabel etiquetaTituloCalidad;
 
     /**
-     * Es el campo con la calidad de la canción y KBps
+     * Es el campo con la calidad de la canciï¿½n y KBps
      */
     private JTextField txtCalidad;
 
@@ -131,17 +130,17 @@ public class PanelDatosCanciones extends JPanel implements ActionListener
     private JLabel etiquetaTituloUnidades;
 
     /**
-     * Es el campo con el número de unidades vendidas
+     * Es el campo con el nï¿½mero de unidades vendidas
      */
     private JTextField txtUnidades;
 
     /**
-     * Es el botón para mostrar el diálogo para agregar una nueva canción
+     * Es el botï¿½n para mostrar el diï¿½logo para agregar una nueva canciï¿½n
      */
     private JButton botonAgregarCancion;
 
     /**
-     * Es el botón para vender una canción
+     * Es el botï¿½n para vender una canciï¿½n
      */
     private JButton botonVenderCancion;
 
@@ -150,184 +149,171 @@ public class PanelDatosCanciones extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Construye el panel sin mostrar ningún dato
+     * Construye el panel sin mostrar ningï¿½n dato
      * @param ventanaPrincipal es una referencia a la clase principal de la interfaz
      */
-    public PanelDatosCanciones( InterfazDiscotienda ventanaPrincipal )
-    {
+    public PanelDatosCanciones(InterfazDiscotienda ventanaPrincipal) {
         principal = ventanaPrincipal;
 
-        setLayout( new BorderLayout( ) );
+        setLayout(new BorderLayout());
 
-        setBorder( new CompoundBorder( new EmptyBorder( 5, 5, 5, 5 ), new TitledBorder( "Canciones" ) ) );
+        setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), new TitledBorder("Canciones")));
 
-        comboCanciones = new JComboBox( );
-        comboCanciones.setEditable( false );
-        comboCanciones.addActionListener( this );
-        comboCanciones.setActionCommand( CAMBIAR_CANCION );
-        add( comboCanciones, BorderLayout.NORTH );
+        comboCanciones = new JComboBox();
+        comboCanciones.setEditable(false);
+        comboCanciones.addActionListener(this);
+        comboCanciones.setActionCommand(CAMBIAR_CANCION);
+        add(comboCanciones, BorderLayout.NORTH);
 
-        JPanel panelDatos = new JPanel( new GridLayout( 5, 2 ) );
+        JPanel panelDatos = new JPanel(new GridLayout(5, 2));
 
-        etiquetaTituloPrecio = new JLabel( "Precio: " );
-        txtPrecio = new JTextField( 7 );
-        txtPrecio.setEditable( false );
-        txtPrecio.setFont( txtPrecio.getFont( ).deriveFont( Font.PLAIN ) );
-        Border borde = txtPrecio.getBorder( );
-        txtPrecio.setBorder( new CompoundBorder( new EmptyBorder( 2, 0, 2, 0 ), borde ) );
-        panelDatos.add( etiquetaTituloPrecio );
-        panelDatos.add( txtPrecio );
+        etiquetaTituloPrecio = new JLabel("Precio: ");
+        txtPrecio = new JTextField(7);
+        txtPrecio.setEditable(false);
+        txtPrecio.setFont(txtPrecio.getFont().deriveFont(Font.PLAIN));
+        Border borde = txtPrecio.getBorder();
+        txtPrecio.setBorder(new CompoundBorder(new EmptyBorder(2, 0, 2, 0), borde));
+        panelDatos.add(etiquetaTituloPrecio);
+        panelDatos.add(txtPrecio);
 
-        etiquetaTituloTamano = new JLabel( "Tamaño: " );
-        txtTamano = new JTextField( 7 );
-        txtTamano.setEditable( false );
-        txtTamano.setFont( txtTamano.getFont( ).deriveFont( Font.PLAIN ) );
-        borde = txtTamano.getBorder( );
-        txtTamano.setBorder( new CompoundBorder( new EmptyBorder( 2, 0, 2, 0 ), borde ) );
-        panelDatos.add( etiquetaTituloTamano );
-        panelDatos.add( txtTamano );
+        etiquetaTituloTamano = new JLabel("Tamaï¿½o: ");
+        txtTamano = new JTextField(7);
+        txtTamano.setEditable(false);
+        txtTamano.setFont(txtTamano.getFont().deriveFont(Font.PLAIN));
+        borde = txtTamano.getBorder();
+        txtTamano.setBorder(new CompoundBorder(new EmptyBorder(2, 0, 2, 0), borde));
+        panelDatos.add(etiquetaTituloTamano);
+        panelDatos.add(txtTamano);
 
-        etiquetaTituloDuracion = new JLabel( "Duración: " );
-        txtDuracion = new JTextField( 7 );
-        txtDuracion.setEditable( false );
-        txtDuracion.setFont( txtDuracion.getFont( ).deriveFont( Font.PLAIN ) );
-        borde = txtDuracion.getBorder( );
-        txtDuracion.setBorder( new CompoundBorder( new EmptyBorder( 2, 0, 2, 0 ), borde ) );
-        panelDatos.add( etiquetaTituloDuracion );
-        panelDatos.add( txtDuracion );
+        etiquetaTituloDuracion = new JLabel("Duraciï¿½n: ");
+        txtDuracion = new JTextField(7);
+        txtDuracion.setEditable(false);
+        txtDuracion.setFont(txtDuracion.getFont().deriveFont(Font.PLAIN));
+        borde = txtDuracion.getBorder();
+        txtDuracion.setBorder(new CompoundBorder(new EmptyBorder(2, 0, 2, 0), borde));
+        panelDatos.add(etiquetaTituloDuracion);
+        panelDatos.add(txtDuracion);
 
-        etiquetaTituloCalidad = new JLabel( "Calidad: " );
-        txtCalidad = new JTextField( 7 );
-        txtCalidad.setEditable( false );
-        txtCalidad.setFont( txtCalidad.getFont( ).deriveFont( Font.PLAIN ) );
-        borde = txtCalidad.getBorder( );
-        txtCalidad.setBorder( new CompoundBorder( new EmptyBorder( 2, 0, 2, 0 ), borde ) );
-        panelDatos.add( etiquetaTituloCalidad );
-        panelDatos.add( txtCalidad );
+        etiquetaTituloCalidad = new JLabel("Calidad: ");
+        txtCalidad = new JTextField(7);
+        txtCalidad.setEditable(false);
+        txtCalidad.setFont(txtCalidad.getFont().deriveFont(Font.PLAIN));
+        borde = txtCalidad.getBorder();
+        txtCalidad.setBorder(new CompoundBorder(new EmptyBorder(2, 0, 2, 0), borde));
+        panelDatos.add(etiquetaTituloCalidad);
+        panelDatos.add(txtCalidad);
 
-        etiquetaTituloUnidades = new JLabel( "Unidades Vendidas: " );
-        txtUnidades = new JTextField( 7 );
-        txtUnidades.setEditable( false );
-        txtUnidades.setFont( txtCalidad.getFont( ).deriveFont( Font.PLAIN ) );
-        borde = txtUnidades.getBorder( );
-        txtUnidades.setBorder( new CompoundBorder( new EmptyBorder( 2, 0, 2, 0 ), borde ) );
-        panelDatos.add( etiquetaTituloUnidades );
-        panelDatos.add( txtUnidades );
+        etiquetaTituloUnidades = new JLabel("Unidades Vendidas: ");
+        txtUnidades = new JTextField(7);
+        txtUnidades.setEditable(false);
+        txtUnidades.setFont(txtCalidad.getFont().deriveFont(Font.PLAIN));
+        borde = txtUnidades.getBorder();
+        txtUnidades.setBorder(new CompoundBorder(new EmptyBorder(2, 0, 2, 0), borde));
+        panelDatos.add(etiquetaTituloUnidades);
+        panelDatos.add(txtUnidades);
 
-        add( panelDatos, BorderLayout.CENTER );
+        add(panelDatos, BorderLayout.CENTER);
 
-        JPanel panelBotones = new JPanel( new BorderLayout( ) );
+        JPanel panelBotones = new JPanel(new BorderLayout());
 
-        botonAgregarCancion = new JButton( "Agregar Canción" );
-        botonAgregarCancion.setActionCommand( AGREGAR_CANCION );
-        botonAgregarCancion.addActionListener( this );
-        botonAgregarCancion.setEnabled( false );
-        panelBotones.add( botonAgregarCancion, BorderLayout.NORTH );
+        botonAgregarCancion = new JButton("Agregar Canciï¿½n");
+        botonAgregarCancion.setActionCommand(AGREGAR_CANCION);
+        botonAgregarCancion.addActionListener(this);
+        botonAgregarCancion.setEnabled(false);
+        panelBotones.add(botonAgregarCancion, BorderLayout.NORTH);
 
-        botonVenderCancion = new JButton( "Vender Canción" );
-        botonVenderCancion.setActionCommand( VENDER_CANCION );
-        botonVenderCancion.addActionListener( this );
-        botonVenderCancion.setEnabled( false );
-        panelBotones.add( botonVenderCancion, BorderLayout.SOUTH );
+        botonVenderCancion = new JButton("Vender Canciï¿½n");
+        botonVenderCancion.setActionCommand(VENDER_CANCION);
+        botonVenderCancion.addActionListener(this);
+        botonVenderCancion.setEnabled(false);
+        panelBotones.add(botonVenderCancion, BorderLayout.SOUTH);
 
-        add( panelBotones, BorderLayout.SOUTH );
+        add(panelBotones, BorderLayout.SOUTH);
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Cambia el disco que se muestran las canciones en el panel y actualiza la información mostrada
-     * @param d es el disco de el que se quieren mostrar las canciones
+     * Cambia el disco que se muestran las mynicesonges en el panel y actualiza la informaciï¿½n
+     * mostrada
+     * @param d es el disco de el que se quieren mostrar las mynicesonges
      */
-    public void cambiarDisco( Disco d )
-    {
-        if( d != null )
-        {
+    public void cambiarDisco(Disco d) {
+        if (d != null) {
             disco = d;
-            botonAgregarCancion.setEnabled( true );
+            botonAgregarCancion.setEnabled(true);
 
-            comboCanciones.removeAllItems( );
-            ArrayList canciones = disco.darNombresCanciones( );
-            for( int i = 0; i < canciones.size( ); i++ )
-            {
-                comboCanciones.addItem( canciones.get( i ) );
+            comboCanciones.removeAllItems();
+            ArrayList mynicesonges = disco.darNombresCanciones();
+            for (int i = 0; i < mynicesonges.size(); i++) {
+                comboCanciones.addItem(mynicesonges.get(i));
             }
 
-            if( canciones.size( ) > 0 )
-            {
-                botonVenderCancion.setEnabled( true );
+            if (mynicesonges.size() > 0) {
+                botonVenderCancion.setEnabled(true);
             }
-            else
-            {
-                botonVenderCancion.setEnabled( false );
+            else {
+                botonVenderCancion.setEnabled(false);
             }
         }
     }
 
     /**
-     * Refresca la lista de canciones
+     * Refresca la lista de mynicesonges
      */
-    private void refrescarCanciones( )
-    {
-        comboCanciones.removeAllItems( );
-        ArrayList canciones = disco.darNombresCanciones( );
-        for( int i = 0; i < canciones.size( ); i++ )
-        {
-            comboCanciones.addItem( canciones.get( i ) );
+    private void refrescarCanciones() {
+        comboCanciones.removeAllItems();
+        ArrayList mynicesonges = disco.darNombresCanciones();
+        for (int i = 0; i < mynicesonges.size(); i++) {
+            comboCanciones.addItem(mynicesonges.get(i));
         }
 
-        if( canciones.size( ) > 0 )
-        {
-            botonVenderCancion.setEnabled( true );
+        if (mynicesonges.size() > 0) {
+            botonVenderCancion.setEnabled(true);
         }
-        else
-        {
-            botonVenderCancion.setEnabled( false );
+        else {
+            botonVenderCancion.setEnabled(false);
         }
     }
 
     /**
      * Ejecuta las acciones asociadas a los eventos. <br>
-     * Actualiza la información de la canción en el panel de acuerdo a la canción seleccionada en el comboBox
-     * @param evento Es el evento del click sobre un botón o la selección en el combo box
+     * Actualiza la informaciï¿½n de la canciï¿½n en el panel de acuerdo a la canciï¿½n seleccionada en
+     * el comboBox
+     * @param evento Es el evento del click sobre un botï¿½n o la selecciï¿½n en el combo box
      */
-    public void actionPerformed( ActionEvent evento )
-    {
-        String comando = evento.getActionCommand( );
+    public void actionPerformed(ActionEvent evento) {
+        String comando = evento.getActionCommand();
 
-        if( CAMBIAR_CANCION.equals( comando ) )
-        {
-            String nombreCancion = ( String )comboCanciones.getSelectedItem( );
-            if( nombreCancion != null )
-            {
-                cancion = disco.darCancion( nombreCancion );
-                DecimalFormat df = new DecimalFormat( "0.##" );
-                txtPrecio.setText( "$" + Double.toString( cancion.darPrecio( ) ) );
-                txtTamano.setText( df.format( cancion.darTamano( ) ) + " Mb" );
-                txtCalidad.setText( Integer.toString( cancion.darCalidad( ) ) + " Kbps" );
-                txtDuracion.setText( Integer.toString( cancion.darMinutos( ) ) + ":" + Integer.toString( cancion.darSegundos( ) ) );
-                txtUnidades.setText( Integer.toString( cancion.darUnidadesVendidas( ) ) );
+        if (CAMBIAR_CANCION.equals(comando)) {
+            String nombreCancion = (String) comboCanciones.getSelectedItem();
+            if (nombreCancion != null) {
+                mynicesong = disco.darCancion(nombreCancion);
+                DecimalFormat df = new DecimalFormat("0.##");
+                txtPrecio.setText("$" + Double.toString(mynicesong.darPrecio()));
+                txtTamano.setText(df.format(mynicesong.darTamano()) + " Mb");
+                txtCalidad.setText(Integer.toString(mynicesong.darCalidad()) + " Kbps");
+                txtDuracion.setText(Integer.toString(mynicesong.darMinutos()) + ":" + Integer
+                        .toString(mynicesong.darSegundos()));
+                txtUnidades.setText(Integer.toString(mynicesong.darUnidadesVendidas()));
             }
-            else
-            {
-                txtPrecio.setText( "" );
-                txtTamano.setText( "" );
-                txtCalidad.setText( "" );
-                txtDuracion.setText( "" );
-                txtUnidades.setText( "" );
+            else {
+                txtPrecio.setText("");
+                txtTamano.setText("");
+                txtCalidad.setText("");
+                txtDuracion.setText("");
+                txtUnidades.setText("");
             }
         }
-        else if( AGREGAR_CANCION.equals( comando ) )
-        {
-            principal.mostrarDialogoAgregarCancion( );
-            refrescarCanciones( );
+        else if (AGREGAR_CANCION.equals(comando)) {
+            principal.mostrarDialogoAgregarCancion();
+            refrescarCanciones();
         }
-        else if( VENDER_CANCION.equals( comando ) )
-        {
-            principal.venderCancion( disco, cancion );
-            txtUnidades.setText( Integer.toString( cancion.darUnidadesVendidas( ) ) );
+        else if (VENDER_CANCION.equals(comando)) {
+            principal.venderCancion(disco, mynicesong);
+            txtUnidades.setText(Integer.toString(mynicesong.darUnidadesVendidas()));
         }
     }
 }

@@ -47,7 +47,7 @@ public class PanelExtension extends JPanel implements ActionListener
     /**
      * Ventana principal de la aplicaci�n.
      */
-    private InterfazCupiSports principal;
+    private CupiSportsInterface principal;
 
     // -----------------------------------------------------------------
     // Attributes de interfaz
@@ -71,7 +71,7 @@ public class PanelExtension extends JPanel implements ActionListener
      * Constructor del panel.
      * @param pPrincipal Ventana principal de la aplicaci�n. pPrincipal != null.
      */
-    public PanelExtension( InterfazCupiSports pPrincipal )
+    public PanelExtension( CupiSportsInterface pPrincipal )
     {
         principal = pPrincipal;
 

@@ -79,7 +79,7 @@ public class CupiSportsInterface extends JFrame {
     /**
      * Panel con la informaci�n of the athlete seleccionado.
      */
-    private PanelInfoAthlete panelInfoAthlete;
+    private AthleteInfoPanel panelInfoAthlete;
 
     // -----------------------------------------------------------------
     // Constructors
@@ -108,7 +108,7 @@ public class CupiSportsInterface extends JFrame {
             panelCentral.add(panelSports, BorderLayout.NORTH);
             panelInfoSport = new SportInfoPanel(this);
             panelCentral.add(panelInfoSport, BorderLayout.CENTER);
-            panelInfoAthlete = new PanelInfoAthlete();
+            panelInfoAthlete = new AthleteInfoPanel();
             panelCentral.add(panelInfoAthlete, BorderLayout.EAST);
             add(panelCentral, BorderLayout.CENTER);
 
@@ -174,16 +174,16 @@ public class CupiSportsInterface extends JFrame {
      * @param pImagePath Image path of the sport. pImagePath != null && pRutasImagen != "".
      * @throws ElementExistsException Si ya exists un deporte con el name dado.
      */
-    public void agregarSport(String pNameSport, String pRegulatoryEntity,
+    public void addSport(String pNameSport, String pRegulatoryEntity,
                              int pNumberOfRegisteredAthletes, String pImagePath)
             throws ElementExistsException {
-        cupiSports.agregarSport(pNameSport, pRegulatoryEntity, pNumberOfRegisteredAthletes,
+        cupiSports.addSport(pNameSport, pRegulatoryEntity, pNumberOfRegisteredAthletes,
                                 pImagePath);
         actualizarListaSports();
     }
 
     /**
-     * Muestra el dialogo para agregar un athlete sobresaliente.
+     * Muestra el dialogo para add un athlete sobresaliente.
      */
     public void mostrarAddAthleteDialog() {
         if (panelSports.getSportSeleccionado() == null) {
@@ -208,7 +208,7 @@ public class CupiSportsInterface extends JFrame {
      * @param pImagePathAthlete Image path of the athlete. pImagePathAthlete != null &&
      *                          pImagePathAthlete != "".
      * @throws ElementExistsException Si en el deporte ya exists un athlete con el name del que
-     * se quiere agregar.
+     * se quiere add.
      */
     public void addOutstandingAthlete(String pNameAthlete, int pAge, String pPlaceOfResidency,
                                       int pAmountOfTrophies, String pImagePathAthlete)
@@ -222,17 +222,17 @@ public class CupiSportsInterface extends JFrame {
     /**
      * Elimina el deporte seleccionado.
      */
-    public void eliminarSport() {
+    public void deleteSport() {
         if (panelSports.getSportSeleccionado() == null) {
             JOptionPane.showMessageDialog(this, "No ha seleccionado ning�n deporte.",
                                           "Eliminar deporte", JOptionPane.ERROR_MESSAGE);
         }
         else {
-            int confirmacion = JOptionPane.showConfirmDialog(this, "�Confirma que desea eliminar "
+            int confirmacion = JOptionPane.showConfirmDialog(this, "�Confirma que desea delete "
                                                                      + panelSports.getSportSeleccionado().toString() + "?", "Eliminar deporte",
                                                              JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
-                cupiSports.eliminarSport(panelSports.getSportSeleccionado().getName());
+                cupiSports.deleteSport(panelSports.getSportSeleccionado().getName());
                 actualizarListaSports();
             }
         }
@@ -242,7 +242,7 @@ public class CupiSportsInterface extends JFrame {
     /**
      * Elimina el athlete seleccionado.
      */
-    public void eliminarAthlete() {
+    public void deleteAthlete() {
         if (panelSports.getSportSeleccionado() == null) {
             JOptionPane.showMessageDialog(this, "No ha seleccionado ning�n deporte.",
                                           "Eliminar athlete", JOptionPane.ERROR_MESSAGE);
@@ -255,7 +255,7 @@ public class CupiSportsInterface extends JFrame {
         }
         else {
             int confirmacion = JOptionPane.showConfirmDialog(this,
-                                                             "�Confirma que desea eliminar el "
+                                                             "�Confirma que desea delete el "
                                                                      + "athlete "
                                                                      + panelInfoSport
                                                                      .getAthleteSeleccionado()
@@ -333,7 +333,22 @@ public class CupiSportsInterface extends JFrame {
      * m�todo debe informar al usuario que ha ocurrido un error y preguntarle si desea salir de la aplicaci�n sin salvar la informaci�n.
      */
     public void dispose() {
-        // TODO Parte 3 punto B: Implemente el m�todo seg�n la documentaci�n.
+        try {
+            cupiSports.saveState(DATA);
+            super.dispose();
+        } catch (Exception e) {
+            setVisible(true);
+            int respuesta = JOptionPane.showConfirmDialog(this,
+                                                          "Problemas salvando la informaci�n de "
+                                                                  + "la discotienda:\n"
+                                                                  + e.getMessage()
+                                                                  + "\n�Quiere cerrar el programa"
+                                                                  + " sin salvar?",
+                                                          "Error", JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                super.dispose();
+            }
+        }
     }
 
     // -----------------------------------------------------------------

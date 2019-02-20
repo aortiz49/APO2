@@ -1,14 +1,14 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *$Id: DiscotiendaTest.java,v 1.11 2007/04/10 12:21:44 p-marque Exp $ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005
- * Autor: Mario Sánchez - 26/01/2005
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005
+ * Autor: Mario Sï¿½nchez - 26/01/2005
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.test;
@@ -42,16 +42,16 @@ public class DiscotiendaTest extends TestCase
     private Discotienda discotienda1;
 
     /**
-     * Es la discotienda sobre la que se realizan las pruebas para saber si se salvó bien un archivo
+     * Es la discotienda sobre la que se realizan las pruebas para saber si se salvï¿½ bien un archivo
      */
     private Discotienda discotienda2;
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Construye una discotienda vacía
+     * Construye una discotienda vacï¿½a
      */
     private void setupEscenario1( )
     {
@@ -67,12 +67,12 @@ public class DiscotiendaTest extends TestCase
         }
         catch( Exception e )
         {
-            fail( "No debería haber problemas cargando el archivo:" + e.getMessage( ) );
+            fail( "No deberï¿½a haber problemas cargando el archivo:" + e.getMessage( ) );
         }
     }
 
     /**
-     * Construye una discotienda con tres discos (disco1, disco2 y disco3), cada uno con 3 canciones
+     * Construye una discotienda con tres discos (disco1, disco2 y disco3), cada uno con 3 mynicesonges
      */
     private void setupEscenario2( )
     {
@@ -86,33 +86,33 @@ public class DiscotiendaTest extends TestCase
 
             discotienda1 = new Discotienda( "./test/data/discotienda.dat" );
             discotienda1.agregarDisco( "disco1", "artista1", "genero1", "imagen1" );
-            discotienda1.agregarCancionADisco( "disco1", "cancion1", 1, 1, 1, 1, 1 );
-            discotienda1.agregarCancionADisco( "disco1", "cancion2", 2, 2, 2, 2, 2 );
-            discotienda1.agregarCancionADisco( "disco1", "cancion3", 3, 3, 3, 3, 3 );
+            discotienda1.agregarCancionADisco( "disco1", "mynicesong1", 1, 1, 1, 1, 1 );
+            discotienda1.agregarCancionADisco( "disco1", "mynicesong2", 2, 2, 2, 2, 2 );
+            discotienda1.agregarCancionADisco( "disco1", "mynicesong3", 3, 3, 3, 3, 3 );
 
             discotienda1.agregarDisco( "disco2", "artista2", "genero2", "imagen2" );
-            discotienda1.agregarCancionADisco( "disco2", "cancion1", 1, 1, 1, 1, 1 );
-            discotienda1.agregarCancionADisco( "disco2", "cancion2", 2, 2, 2, 2, 2 );
-            discotienda1.agregarCancionADisco( "disco2", "cancion3", 3, 3, 3, 3, 3 );
+            discotienda1.agregarCancionADisco( "disco2", "mynicesong1", 1, 1, 1, 1, 1 );
+            discotienda1.agregarCancionADisco( "disco2", "mynicesong2", 2, 2, 2, 2, 2 );
+            discotienda1.agregarCancionADisco( "disco2", "mynicesong3", 3, 3, 3, 3, 3 );
 
             discotienda1.agregarDisco( "disco3", "artista3", "genero3", "imagen3" );
-            discotienda1.agregarCancionADisco( "disco3", "cancion1", 1, 1, 1, 1, 1 );
-            discotienda1.agregarCancionADisco( "disco3", "cancion2", 2, 2, 2, 2, 2 );
-            discotienda1.agregarCancionADisco( "disco3", "cancion3", 3, 3, 3, 3, 3 );
+            discotienda1.agregarCancionADisco( "disco3", "mynicesong1", 1, 1, 1, 1, 1 );
+            discotienda1.agregarCancionADisco( "disco3", "mynicesong2", 2, 2, 2, 2, 2 );
+            discotienda1.agregarCancionADisco( "disco3", "mynicesong3", 3, 3, 3, 3, 3 );
 
         }
         catch( Exception e )
         {
-            fail( "No debería haber problemas cargando el archivo:" + e.getMessage( ) );
+            fail( "No deberï¿½a haber problemas cargando el archivo:" + e.getMessage( ) );
         }
     }
 
     /**
-     * Verifica el método de creación de la clase Discotienda.<br>
-     * Se espera que la discotienda esté vacía. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo de creaciï¿½n de la clase Discotienda.<br>
+     * Se espera que la discotienda estï¿½ vacï¿½a. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * Discotienda (constructor), darDiscos. <br>
-     * <b> Objetivo: </b> Probar que el método Discotienda() sea capaz de crear una tienda vacía (sin discos). <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo Discotienda() sea capaz de crear una tienda vacï¿½a (sin discos). <br>
      * <b> Resultados esperados: </b> <br>
      * 1. Al crear una discotienda esta debe quedar sin discos. <br>
      */
@@ -121,15 +121,15 @@ public class DiscotiendaTest extends TestCase
         setupEscenario1( );
 
         ArrayList discos = discotienda1.darDiscos( );
-        assertEquals( "El número de discos es incorrecto", 0, discos.size( ) );
+        assertEquals( "El nï¿½mero de discos es incorrecto", 0, discos.size( ) );
     }
 
     /**
-     * Verifica el método que retorna un disco de la discotienda.<br>
+     * Verifica el mï¿½todo que retorna un disco de la discotienda.<br>
      * Se verifica lo que sucede cuando se busca un disco que existe en la discotienda. <br>
-     * <b> Métodos a probar: </b> <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * darDisco. <br>
-     * <b> Objetivo: </b> Probar que el método darDisco() sea capaz de encontrar un disco existente. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo darDisco() sea capaz de encontrar un disco existente. <br>
      * <b> Resultados esperados: </b> <br>
      * 1. Al buscar un disco existente en la tienda, este debe ser retornado.
      */
@@ -138,16 +138,16 @@ public class DiscotiendaTest extends TestCase
         setupEscenario2( );
 
         Disco disco = discotienda1.darDisco( "disco1" );
-        assertNotNull( "No se encontró el disco", disco );
+        assertNotNull( "No se encontrï¿½ el disco", disco );
         assertEquals( "El nombre del disco retornado no es el esperado", "disco1", disco.darNombreDisco( ) );
     }
 
     /**
-     * Verifica el método que retorna un disco de la discotienda.<br>
+     * Verifica el mï¿½todo que retorna un disco de la discotienda.<br>
      * Se verifica lo que sucede cuando se busca un disco que NO existe en la discotienda. <br>
-     * <b> Métodos a probar: </b> <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * darDisco. <br>
-     * <b> Objetivo: </b> Probar que el método darDisco() no encuentre disco que no existe en la tienda. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo darDisco() no encuentre disco que no existe en la tienda. <br>
      * <b> Resultados esperados: </b> <br>
      * 1. Al buscar un disco que no existe en la tienda se debe obtener null.
      */
@@ -156,15 +156,15 @@ public class DiscotiendaTest extends TestCase
         setupEscenario2( );
 
         Disco disco = discotienda1.darDisco( "disco4" );
-        assertNull( "Se encontró un disco que no debería existir en la discotienda", disco );
+        assertNull( "Se encontrï¿½ un disco que no deberï¿½a existir en la discotienda", disco );
     }
 
     /**
-     * Verifica el método que agrega un disco a la discotienda para el caso en el que no hay error.<br>
+     * Verifica el mï¿½todo que agrega un disco a la discotienda para el caso en el que no hay error.<br>
      * En este caso los datos del disco que se agrega son correctos. <br>
-     * <b> Métodos a probar: </b> <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * agregarDisco. <br>
-     * <b> Objetivo: </b> Probar que el método agregarDisco() sea capaz de agregar un disco en la tienda. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo agregarDisco() sea capaz de agregar un disco en la tienda. <br>
      * <b> Resultados esperados: </b> <br>
      * 1. Al agregar un disco cuyo nombre no pertenece a otro disco existente en la tienda, este debe ser adicionado. <br>
      * 2. Al buscar un disco previamente agregado este debe ser encontrado.
@@ -181,25 +181,25 @@ public class DiscotiendaTest extends TestCase
 
             // Se verifica que el disco haya quedado agregado correctamente
             Disco disco = discotienda1.darDisco( "Mi disco de prueba" );
-            assertNotNull( "No se encontró el disco", disco );
+            assertNotNull( "No se encontrï¿½ el disco", disco );
             assertEquals( "El nombre del disco retornado no es el esperado", "Mi disco de prueba", disco.darNombreDisco( ) );
         }
         catch( ElementoExisteException e )
         {
-            fail( "El disco debería haberse agregado correctamente, sin generar una excepción: " + e.getMessage( ) );
+            fail( "El disco deberï¿½a haberse agregado correctamente, sin generar una excepciï¿½n: " + e.getMessage( ) );
         }
     }
 
     /**
-     * Verifica el método que agrega un disco a la discotienda para el caso en el que hay un error.<br>
+     * Verifica el mï¿½todo que agrega un disco a la discotienda para el caso en el que hay un error.<br>
      * En este caso se intenta agregar un disco con un nombre repetido. <br>
-     * <b> Métodos a probar: </b> <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * agregarDisco. <br>
-     * <b> Objetivo: </b> Probar que el método agregarDisco() arroje excepción cuando se intente registrar un disco con un nombre correspondiente a otro disco existente en la
+     * <b> Objetivo: </b> Probar que el mï¿½todo agregarDisco() arroje excepciï¿½n cuando se intente registrar un disco con un nombre correspondiente a otro disco existente en la
      * discotienda. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al tratar de agregar un disco cuyo nombre pertenece a otro disco existente en la tienda se debe arrojar excepción. <br>
-     * 2. Al tratar de agregar un disco cuyo nombre pertenece a otro disco existente en la tienda no deben cambiar el número de discos de la tienda.
+     * 1. Al tratar de agregar un disco cuyo nombre pertenece a otro disco existente en la tienda se debe arrojar excepciï¿½n. <br>
+     * 2. Al tratar de agregar un disco cuyo nombre pertenece a otro disco existente en la tienda no deben cambiar el nï¿½mero de discos de la tienda.
      */
     public void testAgregarDiscoError( )
     {
@@ -208,27 +208,27 @@ public class DiscotiendaTest extends TestCase
         int numeroDiscos = discotienda1.darDiscos( ).size( );
         try
         {
-            // Se agrega el disco y se espera que esto genere una excepción
+            // Se agrega el disco y se espera que esto genere una excepciï¿½n
             discotienda1.agregarDisco( "disco1", "artistaPrueba", "Rock", "./data/imagenes/prueba.jpg" );
-            fail( "El disco no debería haberse agregado porque ya hay otro disco con el mismo nombre" );
+            fail( "El disco no deberï¿½a haberse agregado porque ya hay otro disco con el mismo nombre" );
         }
         catch( ElementoExisteException e )
         {
             // Verificar que no haya cambiado la discotienda
             int numeroDiscos2 = discotienda1.darDiscos( ).size( );
-            assertEquals( "Cambió el número de discos en la discotienda", numeroDiscos, numeroDiscos2 );
+            assertEquals( "Cambiï¿½ el nï¿½mero de discos en la discotienda", numeroDiscos, numeroDiscos2 );
         }
     }
 
     /**
-     * Verifica el método que agrega una canción a un disco de la discotienda.<br>
-     * Este caso verifica que se pueda agregar una canción si los datos son correctos. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo que agrega una canciï¿½n a un disco de la discotienda.<br>
+     * Este caso verifica que se pueda agregar una canciï¿½n si los datos son correctos. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * agregarCancionADisco. <br>
-     * <b> Objetivo: </b> Probar que el método agregarCancionADisco() sea capaz de agregar una canción al disco. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo agregarCancionADisco() sea capaz de agregar una canciï¿½n al disco. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al agregar una canción al disco cuyo nombre no corresponde a otra canción esta debe ser adicionada.<br>
-     * 2. Al buscar una canción de un disco previamente agregada, esta debe ser encontrada.
+     * 1. Al agregar una canciï¿½n al disco cuyo nombre no corresponde a otra canciï¿½n esta debe ser adicionada.<br>
+     * 2. Al buscar una canciï¿½n de un disco previamente agregada, esta debe ser encontrada.
      */
     public void testAgregarCancionADiscoOk( )
     {
@@ -236,31 +236,31 @@ public class DiscotiendaTest extends TestCase
 
         try
         {
-            discotienda1.agregarCancionADisco( "disco1", "cancion4", 4, 4, 4, 4, 4 );
+            discotienda1.agregarCancionADisco( "disco1", "mynicesong4", 4, 4, 4, 4, 4 );
 
             Disco disco = discotienda1.darDisco( "disco1" );
-            assertNotNull( "No se encontró el disco", disco );
-            assertEquals( "La canción no fue agregada al disco", 4, disco.darNombresCanciones( ).size( ) );
+            assertNotNull( "No se encontrï¿½ el disco", disco );
+            assertEquals( "La canciï¿½n no fue agregada al disco", 4, disco.darNombresCanciones( ).size( ) );
 
-            Cancion c = disco.darCancion( "cancion4" );
-            assertNotNull( "No se encontró la cancion", c );
-            assertEquals( "La canción no fue agregada correctamente al disco", "cancion4", c.darNombre( ) );
+            Cancion c = disco.darCancion( "mynicesong4" );
+            assertNotNull( "No se encontrï¿½ la mynicesong", c );
+            assertEquals( "La canciï¿½n no fue agregada correctamente al disco", "mynicesong4", c.darNombre( ) );
         }
         catch( ElementoExisteException e )
         {
-            fail( "La canción debería haberse agregado correctamente: " + e.getMessage( ) );
+            fail( "La canciï¿½n deberï¿½a haberse agregado correctamente: " + e.getMessage( ) );
         }
     }
 
     /**
-     * Verifica el método que agrega una canción a un disco de la discotienda.<br>
-     * Este caso verifica que no se pueda agregar una canción si el nombre de la canción está repetido. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo que agrega una canciï¿½n a un disco de la discotienda.<br>
+     * Este caso verifica que no se pueda agregar una canciï¿½n si el nombre de la canciï¿½n estï¿½ repetido. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * agregarCancionADisco. <br>
-     * <b> Objetivo: </b> Probar que el método agregarCancionADisco() arroje excepción al agregar una canción al disco cuyo nombre está repetido. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo agregarCancionADisco() arroje excepciï¿½n al agregar una canciï¿½n al disco cuyo nombre estï¿½ repetido. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al tratar de agregar una canción al disco cuyo nombre está repetido, se debe arrojar excepción.<br>
-     * 2. Al tratar de agregar una canción al disco cuyo nombre está repetido, el número de canciones no debe cambiar.
+     * 1. Al tratar de agregar una canciï¿½n al disco cuyo nombre estï¿½ repetido, se debe arrojar excepciï¿½n.<br>
+     * 2. Al tratar de agregar una canciï¿½n al disco cuyo nombre estï¿½ repetido, el nï¿½mero de mynicesonges no debe cambiar.
      */
     public void testAgregarCancionADiscoError( )
     {
@@ -271,31 +271,31 @@ public class DiscotiendaTest extends TestCase
 
         try
         {
-            discotienda1.agregarCancionADisco( "disco1", "cancion2", 1, 20, 78.10, 2, 96 );
-            fail( "La canción no debería haberse agregado porque el nombre está repetido y se debería generar una excepción" );
+            discotienda1.agregarCancionADisco( "disco1", "mynicesong2", 1, 20, 78.10, 2, 96 );
+            fail( "La canciï¿½n no deberï¿½a haberse agregado porque el nombre estï¿½ repetido y se deberï¿½a generar una excepciï¿½n" );
         }
         catch( ElementoExisteException e )
         {
             // Verificar que no haya cambiado el disco
             int numCanciones2 = disco.darNombresCanciones( ).size( );
-            assertEquals( "Cambió el número de canciones en el disco", numCanciones, numCanciones2 );
+            assertEquals( "Cambiï¿½ el nï¿½mero de mynicesonges en el disco", numCanciones, numCanciones2 );
         }
     }
 
     /**
-     * Verifica el método salvarDiscotienda.<br>
-     * La prueba se realiza creando una nueva discotienda, agregando algunos discos y salvando la información.<br>
-     * A continuación se carga esta información en una nueva discotienda y se comparan ambas para verificar que la información se haya salvado correctamente.
-     * @throws Exception Se lanza esta excepción si hay un problema en la lectura o escritura de los archivos <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo salvarDiscotienda.<br>
+     * La prueba se realiza creando una nueva discotienda, agregando algunos discos y salvando la informaciï¿½n.<br>
+     * A continuaciï¿½n se carga esta informaciï¿½n en una nueva discotienda y se comparan ambas para verificar que la informaciï¿½n se haya salvado correctamente.
+     * @throws Exception Se lanza esta excepciï¿½n si hay un problema en la lectura o escritura de los archivos <b> Mï¿½todos a probar: </b> <br>
      *         salvarDiscotienda, Discotienda (constructor). <br>
-     *         <b> Objetivo: </b> Probar que el método salvarDiscotienda() sea capaz de guardar la información de la discotienda correctamente. <br>
+     *         <b> Objetivo: </b> Probar que el mï¿½todo salvarDiscotienda() sea capaz de guardar la informaciï¿½n de la discotienda correctamente. <br>
      *         <b> Resultados esperados: </b> <br>
      *         1. Al salvar una discotienda y crear otra discotienda a partir del archivo en el que se salvo la primera, ambas discotiendas deben ser iguales (tener la misma
-     *         información). <br>
+     *         informaciï¿½n). <br>
      */
     public void testSalvarDiscotienda( ) throws Exception
     {
-        // Generar un número aleatorio para el nombre del archivo
+        // Generar un nï¿½mero aleatorio para el nombre del archivo
         Date fecha = new Date( );
         long tiempo = fecha.getTime( );
         String archivo = "./test/data/discotienda" + tiempo + ".dat";
@@ -310,10 +310,10 @@ public class DiscotiendaTest extends TestCase
             fail( "no se pudo cargar el archivo de prueba" );
         }
 
-        // Meter información aleatoria en la discotienda
+        // Meter informaciï¿½n aleatoria en la discotienda
         generarInformacion( discotienda1 );
 
-        // Salvar la información de la discotienda
+        // Salvar la informaciï¿½n de la discotienda
         discotienda1.salvarDiscotienda( );
 
         // Construir una nueva discotienda con los mismos datos
@@ -328,10 +328,10 @@ public class DiscotiendaTest extends TestCase
     }
 
     /**
-     * Verifica que el método validarEmail reconozca como válidos varios emails sin errores. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica que el mï¿½todo validarEmail reconozca como vï¿½lidos varios emails sin errores. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * validarEmail. <br>
-     * <b> Objetivo: </b> Probar que el método validarEmail() sea capaz de validar correctamente los emails. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo validarEmail() sea capaz de validar correctamente los emails. <br>
      * <b> Resultados esperados: </b> <br>
      * 1. Al validar un email que es correcto se debe obtener True.<br>
      */
@@ -339,17 +339,17 @@ public class DiscotiendaTest extends TestCase
     {
         setupEscenario1( );
 
-        assertTrue( "El email indicado es válido", discotienda1.validarEmail( "pe-rojas@uniedu.edu.tx" ) );
-        assertTrue( "El email indicado es válido", discotienda1.validarEmail( "abc.def@cupi2.edu" ) );
-        assertTrue( "El email indicado es válido", discotienda1.validarEmail( "qwerty@freemail.com" ) );
-        assertTrue( "El email indicado es válido", discotienda1.validarEmail( "mail@correo.com.mm" ) );
+        assertTrue( "El email indicado es vï¿½lido", discotienda1.validarEmail( "pe-rojas@uniedu.edu.tx" ) );
+        assertTrue( "El email indicado es vï¿½lido", discotienda1.validarEmail( "abc.def@cupi2.edu" ) );
+        assertTrue( "El email indicado es vï¿½lido", discotienda1.validarEmail( "qwerty@freemail.com" ) );
+        assertTrue( "El email indicado es vï¿½lido", discotienda1.validarEmail( "mail@correo.com.mm" ) );
     }
 
     /**
-     * Verifica que el método validarEmail reconozca como inválidos varios emails con errores. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica que el mï¿½todo validarEmail reconozca como invï¿½lidos varios emails con errores. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * validarEmail. <br>
-     * <b> Objetivo: </b> Probar que el método validarEmail() sea capaz de validar correctamente los emails. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo validarEmail() sea capaz de validar correctamente los emails. <br>
      * <b> Resultados esperados: </b> <br>
      * 1. Al validar un email que no es correcto se debe obtener False.<br>
      */
@@ -357,32 +357,32 @@ public class DiscotiendaTest extends TestCase
     {
         setupEscenario1( );
 
-        assertFalse( "El email está incompleto", discotienda1.validarEmail( "pe-rojas" ) );
-        assertFalse( "El email está incompleto", discotienda1.validarEmail( "abc.def@" ) );
-        assertFalse( "El email está incompleto", discotienda1.validarEmail( "qwerty@freemail" ) );
-        assertFalse( "El email está incompleto y termina con un punto", discotienda1.validarEmail( "qwerty@freemail." ) );
+        assertFalse( "El email estï¿½ incompleto", discotienda1.validarEmail( "pe-rojas" ) );
+        assertFalse( "El email estï¿½ incompleto", discotienda1.validarEmail( "abc.def@" ) );
+        assertFalse( "El email estï¿½ incompleto", discotienda1.validarEmail( "qwerty@freemail" ) );
+        assertFalse( "El email estï¿½ incompleto y termina con un punto", discotienda1.validarEmail( "qwerty@freemail." ) );
     }
 
     /**
-     * Verifica el método venderCancion. <br>
-     * Se espera que el número de unidades vendidas de la canción se incremente y que se genere una factura con el formato correcto. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo venderCancion. <br>
+     * Se espera que el nï¿½mero de unidades vendidas de la canciï¿½n se incremente y que se genere una factura con el formato correcto. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * venderCancion. <br>
-     * <b> Objetivo: </b> Probar que el método venderCancion() sea capaz de generar la factura e incrementar el número de unidades vendidas de la canción. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo venderCancion() sea capaz de generar la factura e incrementar el nï¿½mero de unidades vendidas de la canciï¿½n. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al vender una canción se debe generar una factura con el formato e información correctos.<br>
-     * 2. Al vender una canción se debe incrementar en uno el número de unidades vendidas de la canción.
+     * 1. Al vender una canciï¿½n se debe generar una factura con el formato e informaciï¿½n correctos.<br>
+     * 2. Al vender una canciï¿½n se debe incrementar en uno el nï¿½mero de unidades vendidas de la canciï¿½n.
      */
     public void testVenderCancion( )
     {
         setupEscenario2( );
 
         Disco disco = discotienda1.darDisco( "disco2" );
-        Cancion cancion = disco.darCancion( "cancion2" );
-        int unidadesVendidas = cancion.darUnidadesVendidas( );
+        Cancion mynicesong = disco.darCancion( "mynicesong2" );
+        int unidadesVendidas = mynicesong.darUnidadesVendidas( );
         try
         {
-            String nombreArchivoFactura = discotienda1.venderCancion( disco, cancion, "prueba@prueba.com", "./test/data/factura/" );
+            String nombreArchivoFactura = discotienda1.venderCancion( disco, mynicesong, "prueba@prueba.com", "./test/data/factura/" );
             assertNotNull( "El nombre del archivo no debe ser null", nombreArchivoFactura );
 
             File archivoFactura = new File( "./test/data/factura/" + nombreArchivoFactura );
@@ -391,65 +391,65 @@ public class DiscotiendaTest extends TestCase
             // Revisar el contenido del archivo
             BufferedReader br = new BufferedReader( new FileReader( archivoFactura ) );
 
-            // Título
+            // Tï¿½tulo
             String titulo = br.readLine( );
-            assertNotNull( "La línea no es la esperada", titulo );
+            assertNotNull( "La lï¿½nea no es la esperada", titulo );
 
             // Fecha
             String fecha = br.readLine( );
-            assertNotNull( "La segunda línea debe tener la fecha", fecha );
-            assertTrue( "La línea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener la fecha", fecha );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
             Date fechaHoy = new Date( );
             String strFecha = fechaHoy.toString( ).substring( 0, 10 );
             assertTrue( "La fecha de la factura no es la fecha de hoy", fecha.indexOf( strFecha ) != -1 );
 
             // Email
             String email = br.readLine( );
-            assertNotNull( "La segunda línea debe tener el email", email );
-            assertTrue( "La línea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener el email", email );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
             assertTrue( "El email no es el esperado", email.indexOf( "prueba@prueba.com" ) != -1 );
 
-            // Canción, línea 1
-            String cancion1 = br.readLine( );
-            assertNotNull( "La tercera línea debe tener el nombre y el artista de la canción", cancion1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion1, cancion1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion1.indexOf( "cancion2 - artista2" ) != -1 );
+            // Canciï¿½n, lï¿½nea 1
+            String mynicesong1 = br.readLine( );
+            assertNotNull( "La tercera lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong1, mynicesong1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong1.indexOf( "mynicesong2 - artista2" ) != -1 );
 
-            // Canción, línea 2
-            String cancion2 = br.readLine( );
-            assertNotNull( "La cuarta línea debe tener el nombre del disco", cancion2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion2, cancion2.trim( ).indexOf( "disco2" ) == 0 );
+            // Canciï¿½n, lï¿½nea 2
+            String mynicesong2 = br.readLine( );
+            assertNotNull( "La cuarta lï¿½nea debe tener el nombre del disco", mynicesong2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong2, mynicesong2.trim( ).indexOf( "disco2" ) == 0 );
 
-            // Número de canciones
+            // Nï¿½mero de mynicesonges
             String numCanciones = br.readLine( );
-            assertNotNull( "La quinta línea debe tener el número de canciones", numCanciones );
-            assertTrue( "La línea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
-            assertTrue( "El número de canciones no es el esperado", numCanciones.indexOf( "1" ) != -1 );
+            assertNotNull( "La quinta lï¿½nea debe tener el nï¿½mero de mynicesonges", numCanciones );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
+            assertTrue( "El nï¿½mero de mynicesonges no es el esperado", numCanciones.indexOf( "1" ) != -1 );
 
             // Total
             String total = br.readLine( );
-            assertNotNull( "La sexta línea debe tener el valor total", total );
-            assertTrue( "La línea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
+            assertNotNull( "La sexta lï¿½nea debe tener el valor total", total );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
             assertTrue( "El valor total no es el esperado", total.indexOf( "2,00" ) != -1 );
 
-            int nuevasUnidadesVendidas = cancion.darUnidadesVendidas( );
-            assertEquals( "El número de unidades vendidas de la canción no aumentó correctamente", unidadesVendidas + 1, nuevasUnidadesVendidas );
+            int nuevasUnidadesVendidas = mynicesong.darUnidadesVendidas( );
+            assertEquals( "El nï¿½mero de unidades vendidas de la canciï¿½n no aumentï¿½ correctamente", unidadesVendidas + 1, nuevasUnidadesVendidas );
         }
         catch( IOException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
     }
 
     /**
-     * Verifica el método cargarPedido<br>
-     * Se espera que el número de unidades vendidas de las canciones se incremente y que se genere una factura con el formato correcto. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mï¿½todo cargarPedido<br>
+     * Se espera que el nï¿½mero de unidades vendidas de las mynicesonges se incremente y que se genere una factura con el formato correcto. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * venderListaCanciones. <br>
-     * <b> Objetivo: </b> Probar que el método venderListaCanciones() sea capaz de generar la factura e incrementar el número de unidades vendidas de la canciones. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo venderListaCanciones() sea capaz de generar la factura e incrementar el nï¿½mero de unidades vendidas de la mynicesonges. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al vender un grupo de canciones se debe generar una factura con el formato e información correctos.<br>
-     * 2. Al vender un grupo de canciones se debe incrementar en uno el número de unidades vendidas de cada canción del grupo.
+     * 1. Al vender un grupo de mynicesonges se debe generar una factura con el formato e informaciï¿½n correctos.<br>
+     * 2. Al vender un grupo de mynicesonges se debe incrementar en uno el nï¿½mero de unidades vendidas de cada canciï¿½n del grupo.
      */
     public void testCargarPedido( )
     {
@@ -466,100 +466,100 @@ public class DiscotiendaTest extends TestCase
             // Revisar el contenido del archivo
             BufferedReader br = new BufferedReader( new FileReader( archivoFactura ) );
 
-            // Título
+            // Tï¿½tulo
             String titulo = br.readLine( );
-            assertNotNull( "La línea no es la esperada", titulo );
+            assertNotNull( "La lï¿½nea no es la esperada", titulo );
 
             // Fecha
             String fecha = br.readLine( );
-            assertNotNull( "La segunda línea debe tener la fecha", fecha );
-            assertTrue( "La línea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener la fecha", fecha );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
             Date fechaHoy = new Date( );
             String strFecha = fechaHoy.toString( ).substring( 0, 10 );
             assertTrue( "La fecha de la factura no es la fecha de hoy", fecha.indexOf( strFecha ) != -1 );
 
             // Email
             String email = br.readLine( );
-            assertNotNull( "La segunda línea debe tener el email", email );
-            assertTrue( "La línea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener el email", email );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
             assertTrue( "El email no es el esperado", email.indexOf( "prueba@prueba.com" ) != -1 );
 
-            // Canción 1, línea 1
-            String cancion1_1 = br.readLine( );
-            assertNotNull( "La tercera línea debe tener el nombre y el artista de la canción", cancion1_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion1_1, cancion1_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion1_1.indexOf( "cancion2 - artista1" ) != -1 );
+            // Canciï¿½n 1, lï¿½nea 1
+            String mynicesong1_1 = br.readLine( );
+            assertNotNull( "La tercera lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong1_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong1_1, mynicesong1_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong1_1.indexOf( "mynicesong2 - artista1" ) != -1 );
 
-            // Canción 1, línea 2
-            String cancion1_2 = br.readLine( );
-            assertNotNull( "La cuarta línea debe tener el nombre del disco", cancion1_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion1_2, cancion1_2.trim( ).indexOf( "disco1" ) == 0 );
+            // Canciï¿½n 1, lï¿½nea 2
+            String mynicesong1_2 = br.readLine( );
+            assertNotNull( "La cuarta lï¿½nea debe tener el nombre del disco", mynicesong1_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong1_2, mynicesong1_2.trim( ).indexOf( "disco1" ) == 0 );
 
-            // Canción 2, línea 1
-            String cancion2_1 = br.readLine( );
-            assertNotNull( "La quinta línea debe tener el nombre y el artista de la canción", cancion2_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion2_1, cancion2_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion2_1.indexOf( "cancion3 - artista1" ) != -1 );
+            // Canciï¿½n 2, lï¿½nea 1
+            String mynicesong2_1 = br.readLine( );
+            assertNotNull( "La quinta lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong2_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong2_1, mynicesong2_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong2_1.indexOf( "mynicesong3 - artista1" ) != -1 );
 
-            // Canción 2, línea 2
-            String cancion2_2 = br.readLine( );
-            assertNotNull( "La sexta línea debe tener el nombre del disco", cancion2_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion2_2, cancion2_2.trim( ).indexOf( "disco1" ) == 0 );
+            // Canciï¿½n 2, lï¿½nea 2
+            String mynicesong2_2 = br.readLine( );
+            assertNotNull( "La sexta lï¿½nea debe tener el nombre del disco", mynicesong2_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong2_2, mynicesong2_2.trim( ).indexOf( "disco1" ) == 0 );
 
-            // Canción 3, línea 1
-            String cancion3_1 = br.readLine( );
-            assertNotNull( "La séptima línea debe tener el nombre y el artista de la canción", cancion3_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion3_1, cancion3_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion3_1.indexOf( "cancion2 - artista2" ) != -1 );
+            // Canciï¿½n 3, lï¿½nea 1
+            String mynicesong3_1 = br.readLine( );
+            assertNotNull( "La sï¿½ptima lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong3_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong3_1, mynicesong3_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong3_1.indexOf( "mynicesong2 - artista2" ) != -1 );
 
-            // Canción 3, línea 2
-            String cancion3_2 = br.readLine( );
-            assertNotNull( "La octava línea debe tener el nombre del disco", cancion3_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion3_2, cancion3_2.trim( ).indexOf( "disco2" ) == 0 );
+            // Canciï¿½n 3, lï¿½nea 2
+            String mynicesong3_2 = br.readLine( );
+            assertNotNull( "La octava lï¿½nea debe tener el nombre del disco", mynicesong3_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong3_2, mynicesong3_2.trim( ).indexOf( "disco2" ) == 0 );
 
-            // Número de canciones
+            // Nï¿½mero de mynicesonges
             String numCanciones = br.readLine( );
-            assertNotNull( "La novena línea debe tener el número de canciones", numCanciones );
-            assertTrue( "La línea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
-            assertTrue( "El número de canciones no es el esperado", numCanciones.indexOf( "3" ) != -1 );
+            assertNotNull( "La novena lï¿½nea debe tener el nï¿½mero de mynicesonges", numCanciones );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
+            assertTrue( "El nï¿½mero de mynicesonges no es el esperado", numCanciones.indexOf( "3" ) != -1 );
 
             // Total
             String total = br.readLine( );
-            assertNotNull( "La décima línea debe tener el valor total", total );
-            assertTrue( "La línea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
+            assertNotNull( "La dï¿½cima lï¿½nea debe tener el valor total", total );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
             assertTrue( "El valor total no es el esperado", total.indexOf( "7,00" ) != -1 );
 
             Disco disco1 = discotienda1.darDisco( "disco1" );
-            Cancion cancion1 = disco1.darCancion( "cancion2" );
-            assertEquals( "El número de unidades vendidas de la canción no aumentó correctamente", 1, cancion1.darUnidadesVendidas( ) );
+            Cancion mynicesong1 = disco1.darCancion( "mynicesong2" );
+            assertEquals( "El nï¿½mero de unidades vendidas de la canciï¿½n no aumentï¿½ correctamente", 1, mynicesong1.darUnidadesVendidas( ) );
 
-            Cancion cancion2 = disco1.darCancion( "cancion3" );
-            assertEquals( "El número de unidades vendidas de la canción no aumentó correctamente", 1, cancion2.darUnidadesVendidas( ) );
+            Cancion mynicesong2 = disco1.darCancion( "mynicesong3" );
+            assertEquals( "El nï¿½mero de unidades vendidas de la canciï¿½n no aumentï¿½ correctamente", 1, mynicesong2.darUnidadesVendidas( ) );
 
             Disco disco2 = discotienda1.darDisco( "disco2" );
-            Cancion cancion3 = disco2.darCancion( "cancion2" );
-            assertEquals( "El número de unidades vendidas de la canción no aumentó correctamente", 1, cancion3.darUnidadesVendidas( ) );
+            Cancion mynicesong3 = disco2.darCancion( "mynicesong2" );
+            assertEquals( "El nï¿½mero de unidades vendidas de la canciï¿½n no aumentï¿½ correctamente", 1, mynicesong3.darUnidadesVendidas( ) );
 
         }
         catch( IOException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
         catch( ArchivoVentaException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
     }
 
     /**
-     * Verifica que el método cargarPedido haga las verificaciones correctas para validar la información del pedido. <br>
-     * El archivo utilizado tiene un formato incorrecto para las canciones. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica que el mï¿½todo cargarPedido haga las verificaciones correctas para validar la informaciï¿½n del pedido. <br>
+     * El archivo utilizado tiene un formato incorrecto para las mynicesonges. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * venderListaCanciones. <br>
-     * <b> Objetivo: </b> Probar que el método venderListaCanciones() genere la factura discriminando correctamente las canciones que fueron vendidas y las que no por causas
-     * del formato incorrecto de las líneas del archivo. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo venderListaCanciones() genere la factura discriminando correctamente las mynicesonges que fueron vendidas y las que no por causas
+     * del formato incorrecto de las lï¿½neas del archivo. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al tratar de vender un grupo de canciones con un archivo de pedidos con un formato incorrecto se deben agregar en la lista de canciones no vendidas las canciones de
+     * 1. Al tratar de vender un grupo de mynicesonges con un archivo de pedidos con un formato incorrecto se deben agregar en la lista de mynicesonges no vendidas las mynicesonges de
      * la linea correspondiente.
      */
     public void testCargarPedidoError1( )
@@ -574,88 +574,88 @@ public class DiscotiendaTest extends TestCase
             // Revisar el contenido del archivo
             BufferedReader br = new BufferedReader( new FileReader( archivoFactura ) );
 
-            // Título
+            // Tï¿½tulo
             String titulo = br.readLine( );
-            assertNotNull( "La línea no es la esperada", titulo );
+            assertNotNull( "La lï¿½nea no es la esperada", titulo );
 
             // Fecha
             String fecha = br.readLine( );
-            assertNotNull( "La segunda línea debe tener la fecha", fecha );
-            assertTrue( "La línea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener la fecha", fecha );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
             Date fechaHoy = new Date( );
             String strFecha = fechaHoy.toString( ).substring( 0, 10 );
             assertTrue( "La fecha de la factura no es la fecha de hoy", fecha.indexOf( strFecha ) != -1 );
 
             // Email
             String email = br.readLine( );
-            assertNotNull( "La segunda línea debe tener el email", email );
-            assertTrue( "La línea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener el email", email );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
             assertTrue( "El email no es el esperado", email.indexOf( "prueba@prueba.com" ) != -1 );
 
-            // Canción 1, línea 1
-            String cancion1_1 = br.readLine( );
-            assertNotNull( "La tercera línea debe tener el nombre y el artista de la canción", cancion1_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion1_1, cancion1_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion1_1.indexOf( "cancion3 - artista1" ) != -1 );
+            // Canciï¿½n 1, lï¿½nea 1
+            String mynicesong1_1 = br.readLine( );
+            assertNotNull( "La tercera lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong1_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong1_1, mynicesong1_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong1_1.indexOf( "mynicesong3 - artista1" ) != -1 );
 
-            // Canción 1, línea 2
-            String cancion1_2 = br.readLine( );
-            assertNotNull( "La cuarta línea debe tener el nombre del disco", cancion1_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion1_2, cancion1_2.trim( ).indexOf( "disco1" ) == 0 );
+            // Canciï¿½n 1, lï¿½nea 2
+            String mynicesong1_2 = br.readLine( );
+            assertNotNull( "La cuarta lï¿½nea debe tener el nombre del disco", mynicesong1_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong1_2, mynicesong1_2.trim( ).indexOf( "disco1" ) == 0 );
 
-            // Canción 2, línea 1
-            String cancion2_1 = br.readLine( );
-            assertNotNull( "La quinta línea debe tener el nombre y el artista de la canción", cancion2_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion2_1, cancion2_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion2_1.indexOf( "cancion2 - artista2" ) != -1 );
+            // Canciï¿½n 2, lï¿½nea 1
+            String mynicesong2_1 = br.readLine( );
+            assertNotNull( "La quinta lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong2_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong2_1, mynicesong2_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong2_1.indexOf( "mynicesong2 - artista2" ) != -1 );
 
-            // Canción 2, línea 2
-            String cancion2_2 = br.readLine( );
-            assertNotNull( "La sexta línea debe tener el nombre del disco", cancion2_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion2_2, cancion2_2.trim( ).indexOf( "disco2" ) == 0 );
+            // Canciï¿½n 2, lï¿½nea 2
+            String mynicesong2_2 = br.readLine( );
+            assertNotNull( "La sexta lï¿½nea debe tener el nombre del disco", mynicesong2_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong2_2, mynicesong2_2.trim( ).indexOf( "disco2" ) == 0 );
 
-            // Número de canciones
+            // Nï¿½mero de mynicesonges
             String numCanciones = br.readLine( );
-            assertNotNull( "La novena línea debe tener el número de canciones", numCanciones );
-            assertTrue( "La línea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
-            assertTrue( "El número de canciones no es el esperado", numCanciones.indexOf( "2" ) != -1 );
+            assertNotNull( "La novena lï¿½nea debe tener el nï¿½mero de mynicesonges", numCanciones );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
+            assertTrue( "El nï¿½mero de mynicesonges no es el esperado", numCanciones.indexOf( "2" ) != -1 );
 
             // Total
             String total = br.readLine( );
-            assertNotNull( "La décima línea debe tener el valor total", total );
-            assertTrue( "La línea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
+            assertNotNull( "La dï¿½cima lï¿½nea debe tener el valor total", total );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
             assertTrue( "El valor total no es el esperado", total.indexOf( "5,00" ) != -1 );
 
             // Canciones no encontradas
             String lineaVacia = br.readLine( );
-            assertEquals( "La línea no tiene el formato esperado", "", lineaVacia );
+            assertEquals( "La lï¿½nea no tiene el formato esperado", "", lineaVacia );
 
             String tituloNoEncontradas = br.readLine( );
-            assertTrue( "La línea no tiene el formato esperado", tituloNoEncontradas.startsWith( "Canciones no encontradas" ) );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", tituloNoEncontradas.startsWith( "Canciones no encontradas" ) );
 
             String noEncontradas = br.readLine( );
-            assertTrue( "La línea no tiene el formato esperado", noEncontradas.startsWith( "disco1@artista1#cancion2" ) );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", noEncontradas.startsWith( "disco1@artista1#mynicesong2" ) );
 
         }
         catch( IOException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
         catch( ArchivoVentaException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
     }
 
     /**
-     * Verifica que el método cargarPedido haga las verificaciones correctas para validar la información del pedido<br>
-     * El archivo utilizado tiene canciones que no existen en la discotienda. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica que el mï¿½todo cargarPedido haga las verificaciones correctas para validar la informaciï¿½n del pedido<br>
+     * El archivo utilizado tiene mynicesonges que no existen en la discotienda. <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * venderListaCanciones. <br>
-     * <b> Objetivo: </b> Probar que el método venderListaCanciones() genere la factura discriminando correctamente las canciones que fueron vendidas y las que no por causa de
-     * no encontrar la canción. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo venderListaCanciones() genere la factura discriminando correctamente las mynicesonges que fueron vendidas y las que no por causa de
+     * no encontrar la canciï¿½n. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al vender un grupo de canciones, alguna de las cuales no existe en ningún disco de la discotienda, se debe generar una factura discrimimando las canciones vendidas y
+     * 1. Al vender un grupo de mynicesonges, alguna de las cuales no existe en ningï¿½n disco de la discotienda, se debe generar una factura discrimimando las mynicesonges vendidas y
      * las no vendidas.
      */
     public void testCargarPedidoError2( )
@@ -669,87 +669,87 @@ public class DiscotiendaTest extends TestCase
             // Revisar el contenido del archivo
             BufferedReader br = new BufferedReader( new FileReader( archivoFactura ) );
 
-            // Título
+            // Tï¿½tulo
             String titulo = br.readLine( );
-            assertNotNull( "La línea no es la esperada", titulo );
+            assertNotNull( "La lï¿½nea no es la esperada", titulo );
 
             // Fecha
             String fecha = br.readLine( );
-            assertNotNull( "La segunda línea debe tener la fecha", fecha );
-            assertTrue( "La línea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener la fecha", fecha );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
             Date fechaHoy = new Date( );
             String strFecha = fechaHoy.toString( ).substring( 0, 10 );
             assertTrue( "La fecha de la factura no es la fecha de hoy", fecha.indexOf( strFecha ) != -1 );
 
             // Email
             String email = br.readLine( );
-            assertNotNull( "La segunda línea debe tener el email", email );
-            assertTrue( "La línea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener el email", email );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
             assertTrue( "El email no es el esperado", email.indexOf( "prueba@prueba.com" ) != -1 );
 
-            // Canción 1, línea 1
-            String cancion1_1 = br.readLine( );
-            assertNotNull( "La tercera línea debe tener el nombre y el artista de la canción", cancion1_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion1_1, cancion1_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion1_1.indexOf( "cancion2 - artista1" ) != -1 );
+            // Canciï¿½n 1, lï¿½nea 1
+            String mynicesong1_1 = br.readLine( );
+            assertNotNull( "La tercera lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong1_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong1_1, mynicesong1_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong1_1.indexOf( "mynicesong2 - artista1" ) != -1 );
 
-            // Canción 1, línea 2
-            String cancion1_2 = br.readLine( );
-            assertNotNull( "La cuarta línea debe tener el nombre del disco", cancion1_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion1_2, cancion1_2.trim( ).indexOf( "disco1" ) == 0 );
+            // Canciï¿½n 1, lï¿½nea 2
+            String mynicesong1_2 = br.readLine( );
+            assertNotNull( "La cuarta lï¿½nea debe tener el nombre del disco", mynicesong1_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong1_2, mynicesong1_2.trim( ).indexOf( "disco1" ) == 0 );
 
-            // Canción 2, línea 1
-            String cancion2_1 = br.readLine( );
-            assertNotNull( "La quinta línea debe tener el nombre y el artista de la canción", cancion2_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion2_1, cancion2_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion2_1.indexOf( "cancion2 - artista2" ) != -1 );
+            // Canciï¿½n 2, lï¿½nea 1
+            String mynicesong2_1 = br.readLine( );
+            assertNotNull( "La quinta lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong2_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong2_1, mynicesong2_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong2_1.indexOf( "mynicesong2 - artista2" ) != -1 );
 
-            // Canción 2, línea 2
-            String cancion2_2 = br.readLine( );
-            assertNotNull( "La sexta línea debe tener el nombre del disco", cancion2_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion2_2, cancion2_2.trim( ).indexOf( "disco2" ) == 0 );
+            // Canciï¿½n 2, lï¿½nea 2
+            String mynicesong2_2 = br.readLine( );
+            assertNotNull( "La sexta lï¿½nea debe tener el nombre del disco", mynicesong2_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong2_2, mynicesong2_2.trim( ).indexOf( "disco2" ) == 0 );
 
-            // Número de canciones
+            // Nï¿½mero de mynicesonges
             String numCanciones = br.readLine( );
-            assertNotNull( "La novena línea debe tener el número de canciones", numCanciones );
-            assertTrue( "La línea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
-            assertTrue( "El número de canciones no es el esperado", numCanciones.indexOf( "2" ) != -1 );
+            assertNotNull( "La novena lï¿½nea debe tener el nï¿½mero de mynicesonges", numCanciones );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
+            assertTrue( "El nï¿½mero de mynicesonges no es el esperado", numCanciones.indexOf( "2" ) != -1 );
 
             // Total
             String total = br.readLine( );
-            assertNotNull( "La décima línea debe tener el valor total", total );
-            assertTrue( "La línea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
+            assertNotNull( "La dï¿½cima lï¿½nea debe tener el valor total", total );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
             assertTrue( "El valor total no es el esperado", total.indexOf( "4,00" ) != -1 );
 
             // Canciones no encontradas
             String lineaVacia = br.readLine( );
-            assertEquals( "La línea no tiene el formato esperado", "", lineaVacia );
+            assertEquals( "La lï¿½nea no tiene el formato esperado", "", lineaVacia );
 
             String tituloNoEncontradas = br.readLine( );
-            assertTrue( "La línea no tiene el formato esperado", tituloNoEncontradas.startsWith( "Canciones no encontradas" ) );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", tituloNoEncontradas.startsWith( "Canciones no encontradas" ) );
 
             String noEncontradas = br.readLine( );
-            assertTrue( "La línea no tiene el formato esperado", noEncontradas.startsWith( "disco1#artista1#cancion5" ) );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", noEncontradas.startsWith( "disco1#artista1#mynicesong5" ) );
         }
         catch( IOException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
         catch( ArchivoVentaException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
     }
 
     /**
-     * Verifica que el método cargarPedido haga las verificaciones correctas para validar la información del pedido. <br>
+     * Verifica que el mï¿½todo cargarPedido haga las verificaciones correctas para validar la informaciï¿½n del pedido. <br>
      * El archivo utilizado tiene discos que no existen en la discotienda. <br>
-     * <b> Métodos a probar: </b> <br>
+     * <b> Mï¿½todos a probar: </b> <br>
      * venderListaCanciones. <br>
-     * <b> Objetivo: </b> Probar que el método venderListaCanciones() genere la factura discriminando correctamente las canciones que fueron vendidas y las que no por causa de
-     * no encontrar el disco al que pertenece la canción. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo venderListaCanciones() genere la factura discriminando correctamente las mynicesonges que fueron vendidas y las que no por causa de
+     * no encontrar el disco al que pertenece la canciï¿½n. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al vender un grupo de canciones, alguna de las cuales no existe en ningún disco de la discotienda, se debe generar una factura discrimimando las canciones vendidas y
+     * 1. Al vender un grupo de mynicesonges, alguna de las cuales no existe en ningï¿½n disco de la discotienda, se debe generar una factura discrimimando las mynicesonges vendidas y
      * las no vendidas.
      */
     public void testCargarPedidoError3( )
@@ -763,130 +763,130 @@ public class DiscotiendaTest extends TestCase
             // Revisar el contenido del archivo
             BufferedReader br = new BufferedReader( new FileReader( archivoFactura ) );
 
-            // Título
+            // Tï¿½tulo
             String titulo = br.readLine( );
-            assertNotNull( "La línea no es la esperada", titulo );
+            assertNotNull( "La lï¿½nea no es la esperada", titulo );
 
             // Fecha
             String fecha = br.readLine( );
-            assertNotNull( "La segunda línea debe tener la fecha", fecha );
-            assertTrue( "La línea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener la fecha", fecha );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", fecha.startsWith( "Fecha:" ) );
             Date fechaHoy = new Date( );
             String strFecha = fechaHoy.toString( ).substring( 0, 10 );
             assertTrue( "La fecha de la factura no es la fecha de hoy", fecha.indexOf( strFecha ) != -1 );
 
             // Email
             String email = br.readLine( );
-            assertNotNull( "La segunda línea debe tener el email", email );
-            assertTrue( "La línea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
+            assertNotNull( "La segunda lï¿½nea debe tener el email", email );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + email, email.startsWith( "Email:" ) );
             assertTrue( "El email no es el esperado", email.indexOf( "prueba@prueba.com" ) != -1 );
 
-            // Canción 1, línea 1
-            String cancion1_1 = br.readLine( );
-            assertNotNull( "La tercera línea debe tener el nombre y el artista de la canción", cancion1_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion1_1, cancion1_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion1_1.indexOf( "cancion2 - artista1" ) != -1 );
+            // Canciï¿½n 1, lï¿½nea 1
+            String mynicesong1_1 = br.readLine( );
+            assertNotNull( "La tercera lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong1_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong1_1, mynicesong1_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong1_1.indexOf( "mynicesong2 - artista1" ) != -1 );
 
-            // Canción 1, línea 2
-            String cancion1_2 = br.readLine( );
-            assertNotNull( "La cuarta línea debe tener el nombre del disco", cancion1_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion1_2, cancion1_2.trim( ).indexOf( "disco1" ) == 0 );
+            // Canciï¿½n 1, lï¿½nea 2
+            String mynicesong1_2 = br.readLine( );
+            assertNotNull( "La cuarta lï¿½nea debe tener el nombre del disco", mynicesong1_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong1_2, mynicesong1_2.trim( ).indexOf( "disco1" ) == 0 );
 
-            // Canción 2, línea 1
-            String cancion2_1 = br.readLine( );
-            assertNotNull( "La quinta línea debe tener el nombre y el artista de la canción", cancion2_1 );
-            assertTrue( "La línea no tiene el formato esperado - " + cancion2_1, cancion2_1.startsWith( "Canción:" ) );
-            assertTrue( "El contenido de la línea no es el esperado", cancion2_1.indexOf( "cancion2 - artista2" ) != -1 );
+            // Canciï¿½n 2, lï¿½nea 1
+            String mynicesong2_1 = br.readLine( );
+            assertNotNull( "La quinta lï¿½nea debe tener el nombre y el artista de la canciï¿½n", mynicesong2_1 );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + mynicesong2_1, mynicesong2_1.startsWith( "Canciï¿½n:" ) );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado", mynicesong2_1.indexOf( "mynicesong2 - artista2" ) != -1 );
 
-            // Canción 2, línea 2
-            String cancion2_2 = br.readLine( );
-            assertNotNull( "La sexta línea debe tener el nombre del disco", cancion2_2 );
-            assertTrue( "El contenido de la línea no es el esperado - " + cancion2_2, cancion2_2.trim( ).indexOf( "disco2" ) == 0 );
+            // Canciï¿½n 2, lï¿½nea 2
+            String mynicesong2_2 = br.readLine( );
+            assertNotNull( "La sexta lï¿½nea debe tener el nombre del disco", mynicesong2_2 );
+            assertTrue( "El contenido de la lï¿½nea no es el esperado - " + mynicesong2_2, mynicesong2_2.trim( ).indexOf( "disco2" ) == 0 );
 
-            // Número de canciones
+            // Nï¿½mero de mynicesonges
             String numCanciones = br.readLine( );
-            assertNotNull( "La novena línea debe tener el número de canciones", numCanciones );
-            assertTrue( "La línea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
-            assertTrue( "El número de canciones no es el esperado", numCanciones.indexOf( "2" ) != -1 );
+            assertNotNull( "La novena lï¿½nea debe tener el nï¿½mero de mynicesonges", numCanciones );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + numCanciones, numCanciones.startsWith( "No de Canciones:" ) );
+            assertTrue( "El nï¿½mero de mynicesonges no es el esperado", numCanciones.indexOf( "2" ) != -1 );
 
             // Total
             String total = br.readLine( );
-            assertNotNull( "La décima línea debe tener el valor total", total );
-            assertTrue( "La línea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
+            assertNotNull( "La dï¿½cima lï¿½nea debe tener el valor total", total );
+            assertTrue( "La lï¿½nea no tiene el formato esperado - " + total, total.startsWith( "Valor Total:" ) );
             assertTrue( "El valor total no es el esperado", total.indexOf( "4,00" ) != -1 );
 
             // Canciones no encontradas
             String lineaVacia = br.readLine( );
-            assertEquals( "La línea no tiene el formato esperado", "", lineaVacia );
+            assertEquals( "La lï¿½nea no tiene el formato esperado", "", lineaVacia );
 
             String tituloNoEncontradas = br.readLine( );
-            assertTrue( "La línea no tiene el formato esperado", tituloNoEncontradas.startsWith( "Canciones no encontradas" ) );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", tituloNoEncontradas.startsWith( "Canciones no encontradas" ) );
 
             String noEncontradas = br.readLine( );
-            assertTrue( "La línea no tiene el formato esperado", noEncontradas.startsWith( "disco1#artista1#cancion5" ) );
+            assertTrue( "La lï¿½nea no tiene el formato esperado", noEncontradas.startsWith( "disco1#artista1#mynicesong5" ) );
 
         }
         catch( IOException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
         catch( ArchivoVentaException e )
         {
-            fail( "No debería producirse esta excepción: " + e.getMessage( ) );
+            fail( "No deberï¿½a producirse esta excepciï¿½n: " + e.getMessage( ) );
         }
     }
 
     // -----------------------------------------------------------------
-    // Métodos Auxiliares
+    // Mï¿½todos Auxiliares
     // -----------------------------------------------------------------
 
     /**
-     * Este método se encarga de verificar que dos discotiendas sean iguales.<br>
-     * El método revisa que las discotiendas tengan los mismos discos y que cada disco sea igual canción por canción al que hay en la otra discotienda.<br>
-     * No existe ninguna condición que indique que las discotiendas deben tener los discos ordenados de la misma manera.
+     * Este mï¿½todo se encarga de verificar que dos discotiendas sean iguales.<br>
+     * El mï¿½todo revisa que las discotiendas tengan los mismos discos y que cada disco sea igual canciï¿½n por canciï¿½n al que hay en la otra discotienda.<br>
+     * No existe ninguna condiciï¿½n que indique que las discotiendas deben tener los discos ordenados de la misma manera.
      * @param discotienda1 La primera discotienda para comparar
      * @param discotienda2 La segunda discotienda para comparar
      */
     private void compararDiscotiendas( Discotienda discotienda1, Discotienda discotienda2 )
     {
-        // Comparar que haya el mismo número de discos
+        // Comparar que haya el mismo nï¿½mero de discos
         ArrayList discos1 = discotienda1.darDiscos( );
         ArrayList discos2 = discotienda2.darDiscos( );
-        assertEquals( "El número de discos es diferente", discos1.size( ), discos2.size( ) );
+        assertEquals( "El nï¿½mero de discos es diferente", discos1.size( ), discos2.size( ) );
 
         for( int i = 0; i < discos1.size( ); i++ )
         {
-            // Verificar que los mismos discos estén en las dos discotiendas
+            // Verificar que los mismos discos estï¿½n en las dos discotiendas
             String nombre_disco = ( String )discos1.get( i );
             Disco d1 = discotienda1.darDisco( nombre_disco );
             Disco d2 = discotienda2.darDisco( nombre_disco );
-            assertNotNull( "La segunda discotienda no contenía al disco " + nombre_disco, d2 );
+            assertNotNull( "La segunda discotienda no contenï¿½a al disco " + nombre_disco, d2 );
 
-            // Comparar que haya el mismo número de canciones en los dos discos
-            ArrayList canciones_d1 = d1.darNombresCanciones( );
-            ArrayList canciones_d2 = d2.darNombresCanciones( );
-            assertEquals( "El número de canciones es diferente", canciones_d1.size( ), canciones_d2.size( ) );
-            for( int j = 0; j < canciones_d1.size( ); j++ )
+            // Comparar que haya el mismo nï¿½mero de mynicesonges en los dos discos
+            ArrayList mynicesonges_d1 = d1.darNombresCanciones( );
+            ArrayList mynicesonges_d2 = d2.darNombresCanciones( );
+            assertEquals( "El nï¿½mero de mynicesonges es diferente", mynicesonges_d1.size( ), mynicesonges_d2.size( ) );
+            for( int j = 0; j < mynicesonges_d1.size( ); j++ )
             {
-                // Verificar que las mismas canciones estén en los dos discos
-                String nombre_cancion = ( String )canciones_d1.get( j );
-                Cancion c1 = d1.darCancion( nombre_cancion );
-                Cancion c2 = d2.darCancion( nombre_cancion );
-                assertNotNull( "El disco " + nombre_disco + "de la segunda discotienda no contenía la canción " + nombre_cancion, d2 );
+                // Verificar que las mismas mynicesonges estï¿½n en los dos discos
+                String nombre_mynicesong = ( String )mynicesonges_d1.get( j );
+                Cancion c1 = d1.darCancion( nombre_mynicesong );
+                Cancion c2 = d2.darCancion( nombre_mynicesong );
+                assertNotNull( "El disco " + nombre_disco + "de la segunda discotienda no contenï¿½a la canciï¿½n " + nombre_mynicesong, d2 );
 
-                assertEquals( "Los atributos de las dos canciones no son idénticos", c1.darCalidad( ), c2.darCalidad( ), 0 );
-                assertEquals( "Los atributos de las dos canciones no son idénticos", c1.darMinutos( ), c2.darMinutos( ), 0 );
-                assertEquals( "Los atributos de las dos canciones no son idénticos", c1.darNombre( ), c2.darNombre( ) );
-                assertEquals( "Los atributos de las dos canciones no son idénticos", c1.darPrecio( ), c2.darPrecio( ), 0 );
-                assertEquals( "Los atributos de las dos canciones no son idénticos", c1.darSegundos( ), c2.darSegundos( ), 0 );
-                assertEquals( "Los atributos de las dos canciones no son idénticos", c1.darTamano( ), c2.darTamano( ), 0 );
+                assertEquals( "Los atributos de las dos mynicesonges no son idï¿½nticos", c1.darCalidad( ), c2.darCalidad( ), 0 );
+                assertEquals( "Los atributos de las dos mynicesonges no son idï¿½nticos", c1.darMinutos( ), c2.darMinutos( ), 0 );
+                assertEquals( "Los atributos de las dos mynicesonges no son idï¿½nticos", c1.darNombre( ), c2.darNombre( ) );
+                assertEquals( "Los atributos de las dos mynicesonges no son idï¿½nticos", c1.darPrecio( ), c2.darPrecio( ), 0 );
+                assertEquals( "Los atributos de las dos mynicesonges no son idï¿½nticos", c1.darSegundos( ), c2.darSegundos( ), 0 );
+                assertEquals( "Los atributos de las dos mynicesonges no son idï¿½nticos", c1.darTamano( ), c2.darTamano( ), 0 );
             }
         }
     }
 
     /**
-     * Este método genera información aleatoria para meter en la discotienda
-     * @param discotienda La discotienda donde se va a meter la información
+     * Este mï¿½todo genera informaciï¿½n aleatoria para meter en la discotienda
+     * @param discotienda La discotienda donde se va a meter la informaciï¿½n
      */
     private void generarInformacion( Discotienda discotienda )
     {
@@ -898,18 +898,18 @@ public class DiscotiendaTest extends TestCase
             for( int i = 0; i < numeroDiscos; i++ )
             {
                 String nombreDisco = "disco_" + i;
-                discotienda.agregarDisco( nombreDisco, "random", "música aleatoria", "random.jpg" );
+                discotienda.agregarDisco( nombreDisco, "random", "mï¿½sica aleatoria", "random.jpg" );
 
                 for( int j = 0; j < numeroCanciones; j++ )
                 {
-                    String nombreCancion = "cancion_" + j;
+                    String nombreCancion = "mynicesong_" + j;
                     discotienda.agregarCancionADisco( nombreDisco, nombreCancion, 1, 2, 3, 4, 5 );
                 }
             }
         }
         catch( ElementoExisteException e )
         {
-            fail( "Debería haberse podido agregar el disco o la canción: " + e.getMessage( ) );
+            fail( "Deberï¿½a haberse podido agregar el disco o la canciï¿½n: " + e.getMessage( ) );
         }
     }
 }

@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: CancionTest.java,v 1.4 2006/08/10 20:04:56 da-romer Exp $ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005 
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.test;
@@ -25,67 +25,67 @@ public class CancionTest extends TestCase
     // -----------------------------------------------------------------
 
     /**
-     * Es la canción sobre la que se realizan las pruebas
+     * Es la canciï¿½n sobre la que se realizan las pruebas
      */
-    private Cancion cancion1;
+    private Cancion mynicesong1;
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Construye una canción para hacer las pruebas
+     * Construye una canciï¿½n para hacer las pruebas
      */
     private void setupEscenario1( )
     {
-        cancion1 = new Cancion( "CancionPrueba", 1, 20, 1.5, 2.0, 96, 2 );
+        mynicesong1 = new Cancion( "CancionPrueba", 1, 20, 1.5, 2.0, 96, 2 );
     }
 
     /**
-     * Verifica los métodos que retornan datos de la canción <b> Métodos a probar: </b> <br>
+     * Verifica los mï¿½todos que retornan datos de la canciï¿½n <b> Mï¿½todos a probar: </b> <br>
      * darNombre, darMinutos, darSegundos, darPrecio,darTamano, darCalidad, darUnidadesVendidas . <br>
-     * <b> Objetivo: </b> Probar que los métodos que retornan datos de la canción retornan la información correcta. <br>
+     * <b> Objetivo: </b> Probar que los mï¿½todos que retornan datos de la canciï¿½n retornan la informaciï¿½n correcta. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Se sabe que el nombre de la canción es X. Al pedir el nombre de la canción debe ser igual a X. <br>
-     * 2. Se sabe que la duración en segundos de la canción es X. Al pedir la duración en segundos de la canción debe ser igual a X. <br>
-     * 3. Se sabe que la duración en minutos de la canción es X. Al pedir la duración en minutos de la canción debe ser igual a X. <br>
-     * 4. Se sabe que el precio de la canción es X. Al pedir el precio de la canción debe ser igual a X. <br>
-     * 5. Se sabe que el tamaño de la canción es X. Al pedir el tamaño de la canción debe ser igual a X. <br>
-     * 6. Se sabe que la calidad de la canción es X. Al pedir la calidad de la canción se debe ser igual a X. <br>
-     * 7. Se sabe que el número de unidades vendidas de una canción es X. Al pedir el número de unidades vendidas de la canción debe ser igual a X.
+     * 1. Se sabe que el nombre de la canciï¿½n es X. Al pedir el nombre de la canciï¿½n debe ser igual a X. <br>
+     * 2. Se sabe que la duraciï¿½n en segundos de la canciï¿½n es X. Al pedir la duraciï¿½n en segundos de la canciï¿½n debe ser igual a X. <br>
+     * 3. Se sabe que la duraciï¿½n en minutos de la canciï¿½n es X. Al pedir la duraciï¿½n en minutos de la canciï¿½n debe ser igual a X. <br>
+     * 4. Se sabe que el precio de la canciï¿½n es X. Al pedir el precio de la canciï¿½n debe ser igual a X. <br>
+     * 5. Se sabe que el tamaï¿½o de la canciï¿½n es X. Al pedir el tamaï¿½o de la canciï¿½n debe ser igual a X. <br>
+     * 6. Se sabe que la calidad de la canciï¿½n es X. Al pedir la calidad de la canciï¿½n se debe ser igual a X. <br>
+     * 7. Se sabe que el nï¿½mero de unidades vendidas de una canciï¿½n es X. Al pedir el nï¿½mero de unidades vendidas de la canciï¿½n debe ser igual a X.
      */
     public void testDatos( )
     {
         setupEscenario1( );
 
-        assertEquals( "El nombre de la canción está mal", "CancionPrueba", cancion1.darNombre( ) );
-        assertEquals( "Los minutos de la canción está mal", 1, cancion1.darMinutos( ) );
-        assertEquals( "Los segundos de la canción está mal", 20, cancion1.darSegundos( ) );
-        assertEquals( "El precio de la canción está mal", "1.5", Double.toString( cancion1.darPrecio( ) ) );
-        assertEquals( "El tamaño de la canción está mal", "2.0", Double.toString( cancion1.darTamano( ) ) );
-        assertEquals( "La calidad de la canción está mal", 96, cancion1.darCalidad( ) );
-        assertEquals( "El número de unidades vendidas de la canción está mal", 2, cancion1.darUnidadesVendidas( ) );
+        assertEquals( "El nombre de la canciï¿½n estï¿½ mal", "CancionPrueba", mynicesong1.darNombre( ) );
+        assertEquals( "Los minutos de la canciï¿½n estï¿½ mal", 1, mynicesong1.darMinutos( ) );
+        assertEquals( "Los segundos de la canciï¿½n estï¿½ mal", 20, mynicesong1.darSegundos( ) );
+        assertEquals( "El precio de la canciï¿½n estï¿½ mal", "1.5", Double.toString( mynicesong1.darPrecio( ) ) );
+        assertEquals( "El tamaï¿½o de la canciï¿½n estï¿½ mal", "2.0", Double.toString( mynicesong1.darTamano( ) ) );
+        assertEquals( "La calidad de la canciï¿½n estï¿½ mal", 96, mynicesong1.darCalidad( ) );
+        assertEquals( "El nï¿½mero de unidades vendidas de la canciï¿½n estï¿½ mal", 2, mynicesong1.darUnidadesVendidas( ) );
     }
 
     /**
-     * Verifica que el método incrementarUnidadesVendidas efectivamente afecte el valor retornado por el método darUnidadesVendidas <b> Métodos a probar: </b> <br>
+     * Verifica que el mï¿½todo incrementarUnidadesVendidas efectivamente afecte el valor retornado por el mï¿½todo darUnidadesVendidas <b> Mï¿½todos a probar: </b> <br>
      * vender. <br>
-     * <b> Objetivo: </b> Probar que el método vender() es capaz de incrementar correctamente el número de unidades vendidas de la canción. <br>
+     * <b> Objetivo: </b> Probar que el mï¿½todo vender() es capaz de incrementar correctamente el nï¿½mero de unidades vendidas de la canciï¿½n. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Se sabe que el número de unidades vendidas de la canción es X. Al vender la canción una vez y pedir el número de unidades vendidas de la canción éste debe ser igual
+     * 1. Se sabe que el nï¿½mero de unidades vendidas de la canciï¿½n es X. Al vender la canciï¿½n una vez y pedir el nï¿½mero de unidades vendidas de la canciï¿½n ï¿½ste debe ser igual
      * a X+1. <br>
      */
     public void testIncrementarUnidadesVendidas( )
     {
         setupEscenario1( );
 
-        int unidadesVendidas = cancion1.darUnidadesVendidas( );
+        int unidadesVendidas = mynicesong1.darUnidadesVendidas( );
         int numeroIteraciones = ( int )Math.random( ) * 10000;
         for( int i = 0; i < numeroIteraciones; i++ )
         {
             unidadesVendidas++;
-            cancion1.vender( );
-            assertEquals( "El número de unidades vendidas no es correcto", unidadesVendidas, cancion1.darUnidadesVendidas( ) );
+            mynicesong1.vender( );
+            assertEquals( "El nï¿½mero de unidades vendidas no es correcto", unidadesVendidas, mynicesong1.darUnidadesVendidas( ) );
         }
     }
 

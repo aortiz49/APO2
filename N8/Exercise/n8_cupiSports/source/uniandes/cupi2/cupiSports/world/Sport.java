@@ -154,7 +154,7 @@ public class Sport {
         // Checks to see if the athlete already exists in the list.
         if (outstandingAthleteExists(pAthlete.getName()))
             throw new ElementExistsException(
-                    "The outstanding athlete " + pAthlete.getName() + "is already in the list");
+                    ElementExistsException.REPEATED_SPORT, pAthlete.getName());
         else {
             // If the athlete isn't in the list, add him.
             outstandingAthletes.add(pAthlete);
@@ -255,12 +255,12 @@ public class Sport {
      */
     private void verifyInvariants() {
         assert name != null : "The name is null";
-        assert name.equals("") : "The name is empty";
+        assert !name.equals("") : "The name is empty";
         assert regulatoryEntity != null : "The regulatory entity is null";
-        assert regulatoryEntity.equals("") : "The regulatory entity is empty";
-        assert numberOfRegisteredAthletes < 0 : "The number of registered athletes is negative";
+        assert !regulatoryEntity.equals("") : "The regulatory entity is empty";
+        assert numberOfRegisteredAthletes > 0 : "The number of registered athletes is negative";
         assert imagePath != null : "The name is null";
-        assert imagePath.equals("") : "The name is empty";
+        assert !imagePath.equals("") : "The name is empty";
 
     }
 

@@ -34,7 +34,7 @@ import javax.swing.border.TitledBorder;
 import uniandes.cupi2.cupiSports.world.ElementExistsException;
 
 /**
- * Dialogo para agregar un deporte.
+ * Dialogo para add un deporte.
  */
 public class AddSportDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
@@ -42,7 +42,7 @@ public class AddSportDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
 
     /**
-     * Constante agregar deporte.
+     * Constante add deporte.
      */
     private final static String AGREGAR = "Agregar deporte";
 
@@ -101,7 +101,7 @@ public class AddSportDialog extends JDialog implements ActionListener {
     private JPanel panelInfo;
 
     /**
-     * Bot�n para agregar el deporte.
+     * Bot�n para add el deporte.
      */
     private JButton btnAgregar;
 
@@ -113,7 +113,7 @@ public class AddSportDialog extends JDialog implements ActionListener {
     /**
      * Ventana principal de la aplicaci�n.
      */
-    private InterfazCupiSports principal;
+    private CupiSportsInterface principal;
 
     // -----------------------------------------------
     // Methods
@@ -121,9 +121,10 @@ public class AddSportDialog extends JDialog implements ActionListener {
 
     /**
      * Crea el dialogo para ingresar un deporte.
+     *
      * @param pPrincipal Ventana principal de la aplicaci�n. pPrincipal != null.
      */
-    public AddSportDialog(InterfazCupiSports pPrincipal) {
+    public AddSportDialog(CupiSportsInterface pPrincipal) {
         super(pPrincipal, true);
 
         principal = pPrincipal;
@@ -185,6 +186,7 @@ public class AddSportDialog extends JDialog implements ActionListener {
 
     /**
      * M�todo que recoge las acciones sobre los objetos que est� escuchando.
+     *
      * @param e Evento que se realiz�.
      */
     public void actionPerformed(ActionEvent e) {
@@ -205,13 +207,11 @@ public class AddSportDialog extends JDialog implements ActionListener {
             try {
                 int athletesRegistrados = Integer.parseInt(athletesRegistradosStr);
                 if (athletesRegistrados <= 0) {
-                    JOptionPane.showMessageDialog(this,
-                                                  "Athletes registrados deber ser un n�mero "
-                                                          + "positivo.",
-                                                  "Agregar deporte", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Athletes registrados deber ser un n�mero "
+                            + "positivo.", "Agregar deporte", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    principal.agregarSport(name, regulatoryEntity, athletesRegistrados, imagen);
+                    principal.addSport(name, regulatoryEntity, athletesRegistrados, imagen);
                     dispose();
                 }
             } catch (ElementExistsException e1) {
@@ -222,10 +222,10 @@ public class AddSportDialog extends JDialog implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Athletes registrados deber ser un n�mero.",
                                               "Agregar deporte", JOptionPane.ERROR_MESSAGE);
             }
-
         }
+
         if (e.getActionCommand().equals(EXAMINAR)) {
-            JFileChooser fc = new JFileChooser("./data/imagenes");
+            JFileChooser fc = new JFileChooser("./data/images");
             fc.setDialogTitle("Buscar imagen...");
             fc.setMultiSelectionEnabled(false);
 
@@ -233,16 +233,16 @@ public class AddSportDialog extends JDialog implements ActionListener {
             if (resultado == JFileChooser.APPROVE_OPTION) {
                 String imagen = fc.getSelectedFile().getName();
                 try {
-                    Image variableImagen = (ImageIO.read(new File("./data/imagenes/" + imagen)));
+                    Image variableImagen = (ImageIO.read(new File("./data/images/" + imagen)));
 
                     if (variableImagen != null) {
-                        txtImagen.setText("./data/imagenes/" + imagen);
+                        txtImagen.setText("./data/images/" + imagen);
                     }
                     else {
                         JOptionPane.showMessageDialog(this,
                                                       "El archivo seleccionado no es una imagen "
-                                                              + "v�lida.",
-                                                      "Agregar deporte", JOptionPane.ERROR_MESSAGE);
+                                                              + "v�lida.", "Agregar deporte",
+                                                      JOptionPane.ERROR_MESSAGE);
                     }
 
                 } catch (IOException e1) {
@@ -254,5 +254,4 @@ public class AddSportDialog extends JDialog implements ActionListener {
         }
 
     }
-
 }

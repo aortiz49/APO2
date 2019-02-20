@@ -34,7 +34,7 @@ import javax.swing.border.TitledBorder;
 import uniandes.cupi2.cupiSports.world.ElementExistsException;
 
 /**
- * Dialogo para agregar un athlete.
+ * Dialogo para add un athlete.
  */
 public class AddAthleteDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
@@ -42,7 +42,7 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
 
     /**
-     * Constante agregar athlete.
+     * Constante add athlete.
      */
     private final static String AGREGAR = "Agregar athlete";
 
@@ -111,7 +111,7 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
     private JPanel panelInfo;
 
     /**
-     * Bot�n para agregar athlete.
+     * Bot�n para add athlete.
      */
     private JButton btnAgregar;
 
@@ -130,7 +130,7 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
 
     /**
-     * Crea el dialogo para agregar un athlete.
+     * Crea el dialogo para add un athlete.
      * @param pPrincipal Ventana principal de la aplicaci�n. pPrincipal != null.
      */
     public AddAthleteDialog(CupiSportsInterface pPrincipal) {
@@ -242,7 +242,7 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
             }
         }
         if (e.getActionCommand().equals(EXAMINAR)) {
-            JFileChooser fc = new JFileChooser("./data/imagenes");
+            JFileChooser fc = new JFileChooser("./data/images");
             fc.setDialogTitle("Buscar Imagen...");
             fc.setMultiSelectionEnabled(false);
 
@@ -250,10 +250,10 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
             if (resultado == JFileChooser.APPROVE_OPTION) {
                 String imagen = fc.getSelectedFile().getName();
                 try {
-                    Image variableImagen = (ImageIO.read(new File("./data/imagenes/" + imagen)));
+                    Image variableImagen = (ImageIO.read(new File("./data/images/" + imagen)));
 
                     if (variableImagen != null) {
-                        txtImagen.setText("./data/imagenes/" + imagen);
+                        txtImagen.setText("./data/images/" + imagen);
                     }
                     else {
                         JOptionPane.showMessageDialog(this,

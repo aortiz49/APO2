@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelCrearDisco.java,v 1.5 2006/08/10 20:08:30 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005 
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.interfaz;
@@ -36,7 +36,7 @@ public class PanelCrearDisco extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * El comando para el botón Explorar
+     * El comando para el botï¿½n Explorar
      */
     private static final String EXPLORAR = "Explorar";
 
@@ -44,12 +44,12 @@ public class PanelCrearDisco extends JPanel implements ActionListener
     // Atributos de la Interfaz
     // -----------------------------------------------------------------
     /**
-     * Es la etiqueta "Título"
+     * Es la etiqueta "Tï¿½tulo"
      */
     private JLabel etiquetaTitulo;
 
     /**
-     * Es el campo de texto para ingresar el título del nuevo disco
+     * Es el campo de texto para ingresar el tï¿½tulo del nuevo disco
      */
     private JTextField txtTitulo;
 
@@ -64,12 +64,12 @@ public class PanelCrearDisco extends JPanel implements ActionListener
     private JTextField txtArtista;
 
     /**
-     * Es la etiqueta "Género"
+     * Es la etiqueta "Gï¿½nero"
      */
     private JLabel etiquetaGenero;
 
     /**
-     * Es el campo de texto para ingresar el género del nuevo disco
+     * Es el campo de texto para ingresar el gï¿½nero del nuevo disco
      */
     private JTextField txtGenero;
 
@@ -84,7 +84,7 @@ public class PanelCrearDisco extends JPanel implements ActionListener
     private JTextField txtImagen;
 
     /**
-     * Es el botón usado para buscar la imagen
+     * Es el botï¿½n usado para buscar la imagen
      */
     private JButton btnExplorar;
 
@@ -99,7 +99,7 @@ public class PanelCrearDisco extends JPanel implements ActionListener
     {
         setLayout( new GridLayout( 5, 2, 5, 5 ) );
 
-        etiquetaTitulo = new JLabel( "Título: " );
+        etiquetaTitulo = new JLabel( "Tï¿½tulo: " );
         etiquetaTitulo.setFont( etiquetaTitulo.getFont( ).deriveFont( Font.PLAIN ) );
         add( etiquetaTitulo );
 
@@ -113,7 +113,7 @@ public class PanelCrearDisco extends JPanel implements ActionListener
         txtArtista = new JTextField( 2 );
         add( txtArtista );
 
-        etiquetaGenero = new JLabel( "Género: " );
+        etiquetaGenero = new JLabel( "Gï¿½nero: " );
         etiquetaGenero.setFont( etiquetaGenero.getFont( ).deriveFont( Font.PLAIN ) );
         add( etiquetaGenero );
 
@@ -138,12 +138,12 @@ public class PanelCrearDisco extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Da el valor del campo de texto con el título del disco
-     * @return El texto con el título
+     * Da el valor del campo de texto con el tï¿½tulo del disco
+     * @return El texto con el tï¿½tulo
      */
     public String darTitulo( )
     {
@@ -160,8 +160,8 @@ public class PanelCrearDisco extends JPanel implements ActionListener
     }
 
     /**
-     * Da el valor del campo de texto con el género del disco
-     * @return El texto con el género
+     * Da el valor del campo de texto con el gï¿½nero del disco
+     * @return El texto con el gï¿½nero
      */
     public String darGenero( )
     {
@@ -179,8 +179,8 @@ public class PanelCrearDisco extends JPanel implements ActionListener
     }
 
     /**
-     * Ejecuta una acción cuando se hace click sobre un botón
-     * @param evento el evento del click sobre un botón
+     * Ejecuta una acciï¿½n cuando se hace click sobre un botï¿½n
+     * @param evento el evento del click sobre un botï¿½n
      */
     public void actionPerformed( ActionEvent evento )
     {
@@ -188,18 +188,18 @@ public class PanelCrearDisco extends JPanel implements ActionListener
 
         if( EXPLORAR.equals( comando ) )
         {
-            JFileChooser fc = new JFileChooser( "./data/imagenes" );
+            JFileChooser fc = new JFileChooser( "./data/images/" );
             fc.setDialogTitle( "Imagen del Disco" );
             int resultado = fc.showOpenDialog( this );
             if( resultado == JFileChooser.APPROVE_OPTION )
             {
                 File archivo = fc.getSelectedFile( );
                 String strArchivo = archivo.getAbsolutePath( );
-                String strCarpetaImagenes = new File( "data/imagenes" ).getAbsolutePath( );
+                String strCarpetaImagenes = new File( "data/images/" ).getAbsolutePath( );
 
                 if( strArchivo.startsWith( strCarpetaImagenes ) )
                 {
-                    txtImagen.setText( "data/imagenes/" + archivo.getName( ) );
+                    txtImagen.setText( "data/images/" + archivo.getName( ) );
                 }
                 else
                 {

@@ -23,31 +23,31 @@ public class ArchivoVentaException extends Exception
     // -----------------------------------------------------------------
 
     /**
-     * N�mero de canciones que se pudieron vender a pesar del error
+     * N�mero de mynicesonges que se pudieron vender a pesar del error
      */
-    private int cancionesVendidas;
+    private int mynicesongesVendidas;
 
     // -----------------------------------------------------------------
     // Constructor
     // -----------------------------------------------------------------
 
     /**
-     * Construye la excepci�n con una causa del error y la cantidad de canciones vendidas a pesar del error
+     * Construye la excepci�n con una causa del error y la cantidad de mynicesonges vendidas a pesar del error
      * @param causa El mensaje que describe el problema que se present�
-     * @param ventas La cantidad de canciones vendidas a pesar del error
+     * @param ventas La cantidad de mynicesonges vendidas a pesar del error
      */
     public ArchivoVentaException( String causa, int ventas )
     {
         super( causa );
-        cancionesVendidas = ventas;
+        mynicesongesVendidas = ventas;
     }
 
     /**
-     * Retorna la cantidad de canciones vendidas a pesar del error
-     * @return La cantidad de canciones vendidas a pesar del error
+     * Retorna la cantidad de mynicesonges vendidas a pesar del error
+     * @return La cantidad de mynicesonges vendidas a pesar del error
      */
     public int darCancionesVendidas( )
     {
-        return cancionesVendidas;
+        return mynicesongesVendidas;
     }
 }

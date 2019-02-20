@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: DialogoCrearDisco.java,v 1.4 2006/08/10 20:08:30 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005 
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.interfaz;
@@ -18,7 +18,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
- * Es el diálogo para crear un nuevo disco
+ * Es el diï¿½logo para crear un nuevo disco
  */
 public class DialogoCrearDisco extends JDialog
 {
@@ -50,7 +50,7 @@ public class DialogoCrearDisco extends JDialog
     // -----------------------------------------------------------------
 
     /**
-     * Construye el diálogo
+     * Construye el diï¿½logo
      * @param id es una referencia a la clase principal de la interfaz
      */
     public DialogoCrearDisco( InterfazDiscotienda id )
@@ -70,7 +70,7 @@ public class DialogoCrearDisco extends JDialog
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**

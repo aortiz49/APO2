@@ -16,6 +16,6 @@ REM Ejecucion del programa
 REM ---------------------------------------------------------
 
 cd../..
-java -classpath ./lib/cupiSports.jar uniandes.cupi2.cupiSports.interfaz.InterfazCupiSports
+java -classpath ./lib/cupiSports.jar uniandes.cupi2.cupiSports.interfaz.CupiSportsInterface
 cd bin
 pause

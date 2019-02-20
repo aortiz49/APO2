@@ -56,7 +56,7 @@ public class Discotienda {
      * Construye una nueva discotienda. <br>
      * Si el archivo indicado no existe, entonces la discotienda se crea vac�a y su estado se
      * guardar� en el archivo indicado.<br>
-     * Si el archivo existe, entonces de �l se saca la informaci�n de los discos y canciones.
+     * Si el archivo existe, entonces de �l se saca la informaci�n de los discos y mynicesonges.
      *
      * @param nombreArchivoDiscotienda es el nombre del archivo que contiene los datos de la
      *                                 discotienda - nombreArchivoDiscotienda != null
@@ -64,8 +64,7 @@ public class Discotienda {
      *                               los datos del archivo
      */
     public Discotienda(String nombreArchivoDiscotienda) throws PersistenciaException {
-        archivoDiscotienda = nombreArchivoDiscotienda;
-        File archivo = new File(archivoDiscotienda);
+        File archivo = new File(nombreArchivoDiscotienda);
         if (archivo.exists()) {
             // El archivo existe: se debe recuperar de all� el estado del modelo del mundo
             try {
@@ -172,7 +171,7 @@ public class Discotienda {
      * Registra la venta de una canci�n y genera la factura en un archivo nuevo.
      *
      * @param disco       el disco al cual pertenece la canci�n que se va a vender - disco != null
-     * @param cancion     la canci�n de la cual se va a vender una unidad - cancion != null
+     * @param mynicesong     la canci�n de la cual se va a vender una unidad - mynicesong != null
      * @param email       el email de la persona a la cual se le vendi� la canci�n - email != null,
      *                    email es un email v�lido (usuario@dominio.ext)
      * @param rutaFactura el directorio donde debe generarse la factura - rutaFactura != null
@@ -180,10 +179,10 @@ public class Discotienda {
      * @throws IOException Se genera esta excepci�n si hay problemas salvando el archivo con la
      *                     factura
      */
-    public String venderCancion(Disco disco, Cancion cancion, String email, String rutaFactura)
+    public String venderCancion(Disco disco, Cancion mynicesong, String email, String rutaFactura)
             throws IOException {
         // Aumenta el n�mero de unidades vendidas de la canci�n
-        cancion.vender();
+        mynicesong.vender();
 
         // Genera el nombre para la factura
         int posArroba1 = email.indexOf("@");
@@ -203,11 +202,11 @@ public class Discotienda {
         out.println("Fecha:            " + fecha.toString());
         out.println("Email:            " + email);
 
-        out.println("Canci�n:          " + cancion.darNombre() + " - " + disco.darArtista());
+        out.println("Canci�n:          " + mynicesong.darNombre() + " - " + disco.darArtista());
         out.println("                  " + disco.darNombreDisco());
         out.println("No de Canciones:  1");
         DecimalFormat df = new DecimalFormat("$0.00");
-        out.println("Valor Total:      " + df.format(cancion.darPrecio()));
+        out.println("Valor Total:      " + df.format(mynicesong.darPrecio()));
         out.close();
 
         return nombreArchivo;
@@ -228,7 +227,7 @@ public class Discotienda {
     }
 
     /**
-     * Actualiza la informaci�n sobre las canciones vendidas a partir de la informaci�n sobre un
+     * Actualiza la informaci�n sobre las mynicesonges vendidas a partir de la informaci�n sobre un
      * pedido y genera una factura.<br>
      * El archivo debe tener una l�nea en la cual se encuentra el email de la persona que hizo el
      * pedido y luego debe haber una l�nea por cada canci�n solicitada. <br>
@@ -280,9 +279,9 @@ public class Discotienda {
 
         // Inicializa las estructuras de datos necesarias para generar luego la factura
         ArrayList discosFactura = new ArrayList();
-        ArrayList cancionesFactura = new ArrayList();
-        ArrayList cancionesNoEncontradas = new ArrayList();
-        int cancionesVendidas = 0;
+        ArrayList mynicesongesFactura = new ArrayList();
+        ArrayList mynicesongesNoEncontradas = new ArrayList();
+        int mynicesongesVendidas = 0;
 
         // Utiliza el patr�n de recorrido de archivos secuenciales
         while (pedido != null) {
@@ -301,32 +300,32 @@ public class Discotienda {
 
                     Disco discoBuscado = darDisco(nombreDisco, nombreArtista, nombreCancion);
                     if (discoBuscado != null) {
-                        Cancion cancionPedida = discoBuscado.darCancion(nombreCancion);
-                        cancionPedida.vender();
+                        Cancion mynicesongPedida = discoBuscado.darCancion(nombreCancion);
+                        mynicesongPedida.vender();
                         discosFactura.add(discoBuscado);
-                        cancionesFactura.add(cancionPedida);
-                        cancionesVendidas++;
+                        mynicesongesFactura.add(mynicesongPedida);
+                        mynicesongesVendidas++;
                     }
                     else
                         // La canci�n no existe en la discotienda
-                        cancionesNoEncontradas.add(pedido);
+                        mynicesongesNoEncontradas.add(pedido);
                 }
                 else
                     // El formato es inv�lido: no aparece el primer separador
-                    cancionesNoEncontradas.add(pedido);
+                    mynicesongesNoEncontradas.add(pedido);
             }
             else
                 // El formato es inv�lido: no aparece el segundo separador
-                cancionesNoEncontradas.add(pedido);
+                mynicesongesNoEncontradas.add(pedido);
 
             try {
                 // Lee la siguiente l�nea del archivo
                 pedido = lector.readLine();
             } catch (IOException e) {
                 // Hubo un error tratando de leer la siguiente canci�n del pedido
-                generarFactura(discosFactura, cancionesFactura, cancionesNoEncontradas, email,
+                generarFactura(discosFactura, mynicesongesFactura, mynicesongesNoEncontradas, email,
                                rutaFactura);
-                throw new ArchivoVentaException(e.getMessage(), cancionesVendidas);
+                throw new ArchivoVentaException(e.getMessage(), mynicesongesVendidas);
             }
         }
 
@@ -334,30 +333,30 @@ public class Discotienda {
         lector.close();
 
         // Genera la factura
-        return generarFactura(discosFactura, cancionesFactura, cancionesNoEncontradas, email,
+        return generarFactura(discosFactura, mynicesongesFactura, mynicesongesNoEncontradas, email,
                               rutaFactura);
     }
 
     /**
      * Genera la factura de la venta de un conjunto de discos, en un archivo nuevo.
      *
-     * @param discos        los discos a los que pertenecen las canciones que se van a vender -
+     * @param discos        los discos a los que pertenecen las mynicesonges que se van a vender -
      *                      discos
      *                      != null
-     * @param canciones     las canciones que se van a vender - canciones != null, por cada cancion,
+     * @param mynicesonges     las mynicesonges que se van a vender - mynicesonges != null, por cada mynicesong,
      *                      en el par�metro 'discos' se encuentra el disco correspondiente en la
      *                      misma
      *                      posici�n
      * @param noEncontradas vector con las l�neas del pedido que no pudieron ser procesadas
      *                      porque la canci�n no existe
-     * @param email         el email de la persona a la cual se le vendieron las canciones -
+     * @param email         el email de la persona a la cual se le vendieron las mynicesonges -
      *                      email !=
      *                      null, email es un email v�lido (usuario@dominio.ext)
      * @param rutaFactura   el directorio donde debe generarse la factura - rutaFactura != null
      * @return Retorna el nombre del archivo en el que se gener� la factura
      * @throws IOException Se genera esta excepci�n si hay problemas salvando el archivo
      */
-    private String generarFactura(ArrayList discos, ArrayList canciones, ArrayList noEncontradas,
+    private String generarFactura(ArrayList discos, ArrayList mynicesonges, ArrayList noEncontradas,
                                   String email, String rutaFactura) throws IOException {
         // Genera el nombre para la factura
         int posArroba1 = email.indexOf("@");
@@ -380,16 +379,16 @@ public class Discotienda {
         double valorTotal = 0;
         for (int i = 0; i < discos.size(); i++) {
             Disco disco = (Disco) discos.get(i);
-            Cancion cancion = (Cancion) canciones.get(i);
-            out.println("Canci�n:          " + cancion.darNombre() + " - " + disco.darArtista());
+            Cancion mynicesong = (Cancion) mynicesonges.get(i);
+            out.println("Canci�n:          " + mynicesong.darNombre() + " - " + disco.darArtista());
             out.println("                  " + disco.darNombreDisco());
-            valorTotal += cancion.darPrecio();
+            valorTotal += mynicesong.darPrecio();
         }
         DecimalFormat df = new DecimalFormat("$0.00");
-        out.println("No de Canciones:  " + canciones.size());
+        out.println("No de Canciones:  " + mynicesonges.size());
         out.println("Valor Total:      " + df.format(valorTotal));
 
-        // Incluye en la factura las canciones que no se encontraron
+        // Incluye en la factura las mynicesonges que no se encontraron
         if (noEncontradas.size() > 0) {
             out.println("\nCanciones no encontradas:");
             for (int i = 0; i < noEncontradas.size(); i++) {
@@ -609,7 +608,7 @@ darNumeroCancionesCompradasPor("andyortiz93@gmail.com");
                         }
                     }
 
-                    else if (linea.toLowerCase().startsWith("no de canciones")) {
+                    else if (linea.toLowerCase().startsWith("no de mynicesonges")) {
                         String[] parteNumCanciones = linea.split("\\s+");
                         int num = Integer.parseInt(parteNumCanciones[3]);
 

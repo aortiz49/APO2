@@ -16,11 +16,12 @@ import org.junit.Before;
 import org.junit.Test;
 import uniandes.cupi2.cupiSports.world.Athlete;
 
+
 import static org.junit.Assert.assertEquals;
 
 
 /**
- * Clase usada para verificar que los m�todos de la clase Athlete est�n correctamente implementados.
+ * Class used to verifie that the methods in the Athlete class are correctly implemented.
  */
 public class AthleteTest {
     // -----------------------------------------------------------------
@@ -28,113 +29,111 @@ public class AthleteTest {
     // -----------------------------------------------------------------
 
     /**
-     * Clase donde se har�n las pruebas.
+     * Class in which the tests will be performed.
      */
-    private Athlete deportista;
+    private Athlete athlete;
 
     // -----------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------
 
     /**
-     * Construye un nuevo deportista.s
+     * Constructs a new athlete.
      */
     @Before
-    public void setupEscenario1() {
+    public void setupScenario1() {
 
-        deportista = new Athlete("James", 23, "Madrid", 39, "imagen");
+        athlete = new Athlete("James", 23, "Munich", 39, "image");
 
     }
 
     /**
-     * Prueba 1: Verifica el m�todo constructor.<br>
-     * <b> Methods a probar: </b> <br>
-     * constructor<br>
-     * getName<br>
-     * getPlaceOfResidency<br>
-     * getAmountOfTrophies<br>
-     * getImagePath<br>
-     * getAge<br>
-     * <b> Objetivo: </b> Probar inicializaci�n correcta del objeto Athlete<br>
-     * <b> Resultados esperados: </b> <br>
-     * 1. Inicializaci�n correcta de Athlete<br>
+     * Test 1: Verifies the constructor method.<br>
+     * <b> Methods to test: </b> <br>
+     * constructor <br>
+     * getName() <br>
+     * getPlaceOfResidency() <br>
+     * getAmountOfTrophies() <br>
+     * getImagePath() <br>
+     * getAge() <br>
+     * <b> Objective: </b> Test the correct initialization of an athlete. <br>
+     * <b> Expected results: </b> <br>
+     * 1. Athlete correctly initialized.<br>
      */
     @Test
     public void testConstructor() {
-        assertEquals("El name of the athlete es incorrecto.", "James", deportista.getName());
-        assertEquals("La age of the athlete es incorrecta.", 23, deportista.getAge());
-        assertEquals("El lugar de residencia of the athlete es incorrecto.", "Madrid",
-                     deportista.getPlaceOfResidency());
-        assertEquals("La ruta a la imagen of the athlete es incorrecta.", "imagen",
-                     deportista.getImagePath());
-        assertEquals("La cantidad de trofeos of the athlete es incorrecta.", 39,
-                     deportista.getAmountOfTrophies());
+        assertEquals("Athlete's name is incorrect.", "James", athlete.getName());
+        assertEquals("Athlete's age is incorrect.", 23, athlete.getAge());
+        assertEquals("Athlete's place of residence is incorrect.", "Madrid",
+                     athlete.getPlaceOfResidency());
+        assertEquals("Athlete's image path is incorrect", "image", athlete.getImagePath());
+        assertEquals("Athlete's trophy count is incorrect.", 39, athlete.getAmountOfTrophies());
     }
 
     /**
-     * Prueba 2: Verifica el m�todo modifyAge.<br>
-     * <b> Methods a probar: </b> <br>
-     * modifyAge<br>
-     * getAge <b><br>
-     * Objetivo: </b> Probar funcionamiento correcta del m�todo modifyAge<br>
-     * <b> Resultados esperados: </b> <br>
-     * 1. La age fue cambiada correctamente.<br>
+     * Test 2: Verifies the modifyAge() method.<br>
+     * <b> Methods to test: </b> <br>
+     * modifyAge() <br>
+     * getAge() <b><br>
+     * Objective: </b> Test the implementation of modifyAge()<br>
+     * <b> Expected results: </b> <br>
+     * 1. The age fue cambiada correctamente.<br>
      */
     @Test
-    public void testCambiarAge() {
-        deportista.modifyAge(30);
-        assertEquals("La age of the athlete es incorrecta.", 30, deportista.getAge());
 
+    public void testCambiarAge() {
+        athlete.modifyAge(30);
+        assertEquals("La age of the athlete es incorrecta.", 30, athlete.getAge());
     }
 
     /**
-     * Prueba 3: Verifica el m�todo modifyPlaceOfResidency.<br>
-     * <b> Methods a probar: </b> <br>
+     * Test 3: Verifica el m�todo modifyPlaceOfResidency.<br>
+     * <b> Methods to test: </b> <br>
      * modifyPlaceOfResidency<br>
      * getPlaceOfResidency<br>
-     * <b> Objetivo: </b> Probar funcionamiento correcta del m�todo modifyPlaceOfResidency<br>
-     * <b> Resultados esperados: </b> <br>
+     * <b> Objective: </b> Probar funcionamiento correcta del m�todo modifyPlaceOfResidency<br>
+     * <b> Expected results: </b> <br>
      * 1. El lugar de residencia fue cambiado correctamente.<br>
      */
     @Test
     public void testCambiarPlaceOfResidency() {
-        deportista.modifyPlaceOfResidency("Bogot�");
+        athlete.modifyPlaceOfResidency("Bogot�");
         assertEquals("El lugar de residencia of the athlete es incorrecto.", "Bogot�",
-                     deportista.getPlaceOfResidency());
+                     athlete.getPlaceOfResidency());
 
     }
 
     /**
-     * Prueba 4: Verifica el m�todo modifyAmountOfTrophies.<br>
-     * <b> Methods a probar: </b> <br>
+     * Test 4: Verifica el m�todo modifyAmountOfTrophies.<br>
+     * <b> Methods to test: </b> <br>
      * modifyAmountOfTrophies<br>
      * getAmountOfTrophies <br>
-     * <b> Objetivo: </b> Probar funcionamiento correcta del m�todo modifyAmountOfTrophies<br>
-     * <b> Resultados esperados: </b> <br>
+     * <b> Objective: </b> Probar funcionamiento correcta del m�todo modifyAmountOfTrophies<br>
+     * <b> Expected results: </b> <br>
      * 1. La cantidad de trofeos fue cambiada correctamente.<br>
      */
     @Test
     public void testCambiarAmountOfTrophies() {
-        deportista.modifyAmountOfTrophies(10);
+        athlete.modifyAmountOfTrophies(10);
         assertEquals("La cantidad detrofeos of the athlete es incorrecta.", 10,
-                     deportista.getAmountOfTrophies());
+                     athlete.getAmountOfTrophies());
 
     }
 
     /**
-     * Prueba 5: Verifica el m�todo modifyImagePath.<br>
-     * <b> Methods a probar: </b> <br>
+     * Test 5: Verifica el m�todo modifyImagePath.<br>
+     * <b> Methods to test: </b> <br>
      * modifyImagePath<br>
      * getImagePath<br>
-     * <b> Objetivo: </b> Probar funcionamiento correcta del m�todo modifyImagePath<br>
-     * <b> Resultados esperados: </b> <br>
+     * <b> Objective: </b> Probar funcionamiento correcta del m�todo modifyImagePath<br>
+     * <b> Expected results: </b> <br>
      * 1. La ruta de la imagen fue cambiada correctamente.<br>
      */
     @Test
     public void testCambiarImagePath() {
-        deportista.modifyImagePath("imagen2");
+        athlete.modifyImagePath("imagen2");
         assertEquals("La ruta de la imagen of the athlete es incorrecta.", "imagen2",
-                     deportista.getImagePath());
+                     athlete.getImagePath());
 
     }
 

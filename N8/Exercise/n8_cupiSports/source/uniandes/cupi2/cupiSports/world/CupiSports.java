@@ -12,16 +12,15 @@
 
 package uniandes.cupi2.cupiSports.world;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
- * Class in charge of administrating Clase que se encarga de administrar el sistema de CupiSports
- * .<br>
+ * Class in charge of administrating the CupiSports system. <br>
  * <b>inv:</b><br>
- * deportes != null. <br>
- * No existsn dos o m�s deportes con el mismo name.<br>
+ * sports != null. <br>
+ * No two teams can exist with the same name. <br>
  */
 public class CupiSports {
 
@@ -30,28 +29,46 @@ public class CupiSports {
     // -----------------------------------------------------------------
 
     /**
-     * Lista con los deportes.
+     * List of sports.
      */
-    private ArrayList<Sport> deportes;
+    private ArrayList sports;
 
     // -----------------------------------------------------------------
     // Constructors
     // -----------------------------------------------------------------
 
     /**
-     * Construye una nuevo sistema de deportes. <br>
-     * Si el archivo indicado no exists, se crea una lista de deportes vac�a.<br>
-     * Si el archivo exists, se carga la informaci�n de los deportes y su deportistas.
+     * Constructs a new sports system. <br>
+     * If the indicated file doesn't exist, it will create an empty sports list. <br>
+     * If the file exists, it will load the sports information and its athletes.
      *
-     * @param pNameArchivo Name del archivo que contiene los datos serializados.
-     *                       pNameArchivo != null && pNameArchivo != "".
-     * @throws PersistenciaException Se lanza una excepci�n si hay alg�n error cargando los datos
-     *                               del archivo.
+     * @param pFileName Name of the file containing the serialized data.
+     *                  pFileName != null && pFileName != "".
+     * @throws PersistenceException An exception is thrown if there is an error loading the data
+     *                              from the file.
      */
-    public CupiSports(String pNameArchivo) throws PersistenciaException {
-        // TODO Parte 3 punto C: Implemente el m�todo seg�n la documentaci�n.
+    public CupiSports(String pFileName) throws PersistenceException {
 
-        verificarInvariants();
+        File archivo = new File(pFileName);
+        if (archivo.exists()) {
+            // El archivo existe: se debe recuperar de all� el estado del modelo del mundo
+            try {
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo));
+                sports = (ArrayList) ois.readObject();
+                ois.close();
+            } catch (Exception e) {
+                // Se atrapan en este bloque todos los tipos de excepci�n
+                e.printStackTrace();
+                throw new PersistenceException(
+                        "Error fatal: imposible restaurar el estado del programa (" + e.getMessage()
+                                + ")");
+            }
+        }
+        else {
+            // El archivo no existe: es la primera vez que se ejecuta el programa
+            sports = new ArrayList();
+        }
+        verifyInvariants();
     }
 
     // -----------------------------------------------------------------
@@ -59,110 +76,119 @@ public class CupiSports {
     // -----------------------------------------------------------------
 
     /**
-     * Returns la lista con todos los deportes.
+     * Returns la lista con todos los sports.
      *
-     * @return Lista con los deportes.
+     * @return Lista con los sports.
      */
     public ArrayList<Sport> getSports() {
-        return deportes;
+        return sports;
     }
 
     /**
-     * Agrega un deporte con la informaci�n dada a la lista de deportes. <br>
+     * Agrega un deporte con la informaci�n dada a la lista de sports. <br>
      * <b>post: </b> Se agreg� el deporte a la lista.
      *
      * @param pNameSport                  Name of the sport. pNameSport != null &&
-     *                                        pNameSport != "".
-     * @param pRegulatoryEntity                  Regulatory entity of the sport. pRegulatoryEntity != null
-     *                                        && pRegulatoryEntity
-     *                                        != "".
-     * @param pNumberOfRegisteredAthletes Cantidad de deportistas registrados.
-     *                                        pNumberOfRegisteredAthletes > 0.
-     * @param pImagePath                     Image path of the sport. pImagePath != null
-     *                                        && pRutasImagen != "".
+     *                                    pNameSport != "".
+     * @param pRegulatoryEntity           Regulatory entity of the sport. pRegulatoryEntity != null
+     *                                    && pRegulatoryEntity
+     *                                    != "".
+     * @param pNumberOfRegisteredAthletes Cantidad de athletes registrados.
+     *                                    pNumberOfRegisteredAthletes > 0.
+     * @param pImagePath                  Image path of the sport. pImagePath != null
+     *                                    && pRutasImagen != "".
      * @throws ElementExistsException Lanza una excepci�n si ya exists un deporte con el name
-     *                                 dado.
+     *                                dado.
      */
-    public void agregarSport(String pNameSport, String pRegulatoryEntity,
-                               int pNumberOfRegisteredAthletes, String pImagePath)
+    public void addSport(String pNameSport, String pRegulatoryEntity,
+                         int pNumberOfRegisteredAthletes, String pImagePath)
             throws ElementExistsException {
         if (existsSport(pNameSport)) {
-            throw new ElementExistsException(ElementExistsException.DEPORTE_REPETIDO,
-                                              pNameSport);
+            throw new ElementExistsException(ElementExistsException.REPEATED_SPORT, pNameSport);
         }
         else {
             Sport deporteNuevo =
                     new Sport(pNameSport, pRegulatoryEntity, pNumberOfRegisteredAthletes,
-                                pImagePath);
-            deportes.add(deporteNuevo);
-            verificarInvariants();
+                              pImagePath);
+            sports.add(deporteNuevo);
+            verifyInvariants();
         }
     }
 
     /**
-     * Elimina el deporte con name dado de la lista de deportes. <b>post: </b> Se elimin� el
+     * Elimina el deporte con name dado de la lista de sports. <b>post: </b> Se elimin� el
      * deporte de la lista.
      *
-     * @param pNameSport Name of the sport a eliminar. pNameSport != null &&
-     *                       pNameSport != "".
+     * @param pNameSport Name of the sport a delete. pNameSport != null &&
+     *                   pNameSport != "".
      */
-    public void eliminarSport(String pNameSport) {
+    public void deleteSport(String pNameSport) {
         boolean encontro = false;
-        for (int i = 0; i < deportes.size() && !encontro; i++) {
-            Sport deporteActual = deportes.get(i);
+        for (int i = 0; i < sports.size() && !encontro; i++) {
+            Sport deporteActual = (Sport) sports.get(i);
             if (deporteActual.getName().equals(pNameSport)) {
-                deportes.remove(i);
+                sports.remove(i);
                 encontro = true;
             }
         }
-        verificarInvariants();
+        verifyInvariants();
     }
 
     /**
-     * Agrega un deportista sobresaliente a un deporte con la informaci�n dada por par�metro. <br>
-     * <b>post: </b> Se agreg� el deportista sobresaliente al deporte correspondiente.
+     * Agrega un athlete sobresaliente a un deporte con la informaci�n dada por par�metro. <br>
+     * <b>post: </b> Se agreg� el athlete sobresaliente al deporte correspondiente.
      *
      * @param pNameSport        Name of the sport. pNameSport != null && pNameSport
-     *                              != "".
-     * @param pNameAthlete     Name of the athlete sobresaliente. pNameAthlete !=
-     *                              null &&
-     *                              pNameAthlete != "".
-     * @param pAge                 Age of the athlete. pAge > 0.
-     * @param pPlaceOfResidency      Athlete's place of residence.  pPlaceOfResidency != null &&
-     *                              pPlaceOfResidency != "".
-     * @param pAmountOfTrophies      Amount of trophies won by the athlete.
-     *                              pAmountOfTrophies >= 0.
+     *                          != "".
+     * @param pNameAthlete      Name of the athlete sobresaliente. pNameAthlete !=
+     *                          null &&
+     *                          pNameAthlete != "".
+     * @param pAge              Age of the athlete. pAge > 0.
+     * @param pPlaceOfResidency Athlete's place of residence.  pPlaceOfResidency != null &&
+     *                          pPlaceOfResidency != "".
+     * @param pAmountOfTrophies Amount of trophies won by the athlete.
+     *                          pAmountOfTrophies >= 0.
      * @param pImagePathAthlete Image path of the athlete. pImagePathAthlete !=
-     *                              null && pImagePathAthlete != "".
+     *                          null && pImagePathAthlete != "".
      * @throws ElementExistsException Lanza una excepci�n si en el deporte ya exists un
-     *                                 deportista con el name dado.
+     *                                athlete con el name dado.
      */
-    public void addOutstandingAthlete(String pNameSport, String pNameAthlete,
-                                               int pAge, String pPlaceOfResidency,
-                                               int pAmountOfTrophies, String pImagePathAthlete)
-            throws ElementExistsException {
-        //TODO Parte 4 punto D: Implemente el m�todo seg�n la documentaci�n.   
+    public void addOutstandingAthlete(String pNameSport, String pNameAthlete, int pAge,
+                                      String pPlaceOfResidency, int pAmountOfTrophies,
+                                      String pImagePathAthlete) throws ElementExistsException {
+
+
+            if (exists(pNameSport)) {
+                throw new ElementExistsException(ElementExistsException.REPEATED_SPORT, pNameSport);
+            }
+            else {
+                Sport deporteNuevo =
+                        new Sport(pNameSport, pRegulatoryEntity, pNumberOfRegisteredAthletes,
+                                  pImagePath);
+                sports.add(deporteNuevo);
+                verifyInvariants();
+            }
     }
 
     /**
-     * Elimina el deportista sobresaliente con el name especificado del deporte que tiene el
+     * Elimina el athlete sobresaliente con el name especificado del deporte que tiene el
      * name dado por par�metro. <br>
-     * <b>post: </b> Se elimin� el deportista sobresaliente del deporte correspondiente.
+     * <b>post: </b> Se elimin� el athlete sobresaliente del deporte correspondiente.
      *
-     * @param pNameSport    Name of the sport. pNameSport != null && pNameSport != "".
-     * @param pNameAthlete Name of the athlete a eliminar. pNameAthlete != null &&
-     *                          pNameAthlete != "".
+     * @param pNameSport   Name of the sport. pNameSport != null && pNameSport != "".
+     * @param pNameAthlete Name of the athlete a delete. pNameAthlete != null &&
+     *                     pNameAthlete != "".
      */
     public void eliminateOutstandingAthlete(String pNameSport, String pNameAthlete) {
         boolean encontro = false;
-        for (int i = 0; i < deportes.size() && !encontro; i++) {
-            Sport deporteActual = deportes.get(i);
+        for (int i = 0; i < sports.size() && !encontro; i++) {
+            Sport deporteActual = (Sport) sports.get(i);
             if (deporteActual.getName().equals(pNameSport)) {
                 deporteActual.eliminateOutstandingAthlete(pNameAthlete);
                 encontro = true;
             }
         }
-        verificarInvariants();
+        verifyInvariants();
     }
 
     /**
@@ -174,8 +200,8 @@ public class CupiSports {
     public boolean existsSport(String pNameSport) {
         boolean exists = false;
 
-        for (int i = 0; i < deportes.size() && !exists; i++) {
-            Sport deporteActual = deportes.get(i);
+        for (int i = 0; i < sports.size() && !exists; i++) {
+            Sport deporteActual = (Sport) sports.get(i);
             if (deporteActual.getName().equals(pNameSport)) {
                 exists = true;
             }
@@ -184,18 +210,18 @@ public class CupiSports {
     }
 
     /**
-     * Returns el deportista sobresaliente que tiene el mayor n�mero de trofeos. <br>
-     * Si hay dos o m�s deportistas con el mismo n�mero de trofeos y ambos son m�ximos, retorna
+     * Returns el athlete sobresaliente que tiene el mayor n�mero de trofeos. <br>
+     * Si hay dos o m�s athletes con el mismo n�mero de trofeos y ambos son m�ximos, retorna
      * cualquiera.
      *
-     * @return Returns el deportista que m�s tiene trofeos. Si no hay deportistas retorna null.
+     * @return Returns el athlete que m�s tiene trofeos. Si no hay athletes retorna null.
      */
     public Athlete getAthleteMostTrophies() {
         Athlete mostTrophies = null;
         int cantidadMax = 0;
-        if (deportes.size() != 0) {
-            for (int i = 0; i < deportes.size(); i++) {
-                Sport deporteActual = deportes.get(i);
+        if (sports.size() != 0) {
+            for (int i = 0; i < sports.size(); i++) {
+                Sport deporteActual = (Sport) sports.get(i);
                 Athlete currentAthleteMas = deporteActual.getAthleteMostTrophies();
                 if (currentAthleteMas.getAmountOfTrophies() > cantidadMax) {
                     mostTrophies = currentAthleteMas;
@@ -214,8 +240,8 @@ public class CupiSports {
     public int getTotalTrophies() {
         int total = 0;
 
-        for (int i = 0; i < deportes.size(); i++) {
-            Sport deporteActual = deportes.get(i);
+        for (int i = 0; i < sports.size(); i++) {
+            Sport deporteActual = (Sport) sports.get(i);
             total += deporteActual.getTotalTrophies();
         }
 
@@ -223,47 +249,57 @@ public class CupiSports {
     }
 
     /**
-     * Serializa el ArrayList de deportes en el archivo cuya ruta entra como par�metro.
+     * Serializa el ArrayList de sports en el archivo cuya ruta entra como par�metro.
      *
      * @param pRutaArchivo Ruta del archivo donde se va gua.get. pRutaArchivo != null &&
      *                     pRutaArchivo != "".
-     * @throws PersistenciaException Lanza una excepci�n si se presenta un problema al momento de
-     *                               gua.get el archivo.
+     * @throws PersistenceException Lanza una excepci�n si se presenta un problema al momento de
+     *                              gua.get el archivo.
      */
-    public void gua.get(String pRutaArchivo) throws PersistenciaException {
-        // TODO Parte 3 punto A: Implemente el m�todo seg�n la documentaci�n.
+    public void saveState(String pRutaArchivo) throws PersistenceException {
+        File archivo = new File(pRutaArchivo);
+        if (archivo.exists()) {
+            try {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(pRutaArchivo));
+                oos.writeObject(sports);
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new PersistenceException("Error al salvar: " + e.getMessage());
+            }
+        }
     }
 
     /**
-     * Actualiza la informaci�n de un deportista.
+     * Actualiza la informaci�n de un athlete.
      *
-     * @param pLinea L�nea de texto con la informaci�n para actualizar un deportista. pLinea !=
+     * @param pLinea L�nea de texto con la informaci�n para actualizar un athlete. pLinea !=
      *               null && pLinea != "".
-     * @throws FormatoArchivoException Lanza excepci�n si la l�nea de texto no cumple con el
-     *                                 formato definido para actualizar la informaci�n de un
-     *                                 deportista.
+     * @throws FileFormatException Lanza excepci�n si la l�nea de texto no cumple con el
+     *                             formato definido para actualizar la informaci�n de un
+     *                             athlete.
      */
-    private void actualizarAthlete(String pLinea) throws FormatoArchivoException {
+    private void actualizarAthlete(String pLinea) throws FileFormatException {
         // TODO Parte 5 punto B: Implemente el m�todo seg�n la documentaci�n.
     }
 
 
     /**
-     * Actualiza la informaci�n de los deportistas a partir de un archivo de texto.
+     * Actualiza la informaci�n de los athletes a partir de un archivo de texto.
      *
      * @param pArchivo Archivo del cual se cargar� la informaci�n. pArchivo != null.
-     * @throws FormatoArchivoException Si el archivo no cumple con el formato definido para
-     *                                 actualizar la informaci�n.
-     * @throws IOException             Si hay problemas de lectura del archivo para actualizar la
-     * informaci�n.
+     * @throws FileFormatException Si el archivo no cumple con el formato definido para
+     *                             actualizar la informaci�n.
+     * @throws IOException         Si hay problemas de lectura del archivo para actualizar la
+     *                             informaci�n.
      */
     public void actualizarInformacionAthletes(File pArchivo)
-            throws FormatoArchivoException, IOException {
+            throws FileFormatException, IOException {
         // TODO Parte 5 punto C: Implemente el m�todo seg�n la documentaci�n.
     }
 
     /**
-     * Genera el informe de los trofeos de los deportistas.
+     * Genera el informe de los trofeos de los athletes.
      *
      * @param pRutaArchivo Ruta donde se desea gua.get el archivo con el reporte. pRutaArchivo !=
      *                     null && pRutaArchivo != "".
@@ -279,33 +315,33 @@ public class CupiSports {
 
     /**
      * Verifica el invariante de la clase: <br>
-     * deportes != null <br>
-     * No existsn dos o m�s deportes con el mismo name.<br>
+     * sports != null <br>
+     * No existsn dos o m�s sports con el mismo name.<br>
      */
-    private void verificarInvariants() {
-        assert deportes != null : "La lista de deportes es nula.";
-        assert buscarSportsConElMismoName() == false : "Hay deportes con el mismo name.";
+    private void verifyInvariants() {
+        assert sports != null : "La lista de sports es nula.";
+        assert !buscarSportsConElMismoName() : "Hay sports con el mismo name.";
     }
 
     /**
-     * Revisa si hay dos deportes con el mismo name.
+     * Revisa si hay dos sports con el mismo name.
      *
-     * @return Returns true si hay dos deportes con el mismo name. Returns false en caso
+     * @return Returns true si hay dos sports con el mismo name. Returns false en caso
      * contrario.
      */
     private boolean buscarSportsConElMismoName() {
-        for (int i = 0; i < deportes.size(); i++) {
-            Sport deporte1 = deportes.get(i);
+        for (int i = 0; i < sports.size(); i++) {
+            Sport deporte1 = (Sport) sports.get(i);
 
-            for (int j = i + 1; j < deportes.size(); j++) {
-                Sport deporte2 = deportes.get(j);
+            for (int j = i + 1; j < sports.size(); j++) {
+                Sport deporte2 = (Sport) sports.get(j);
                 if (deporte1.equals(deporte2))
                     return true;
             }
         }
-
         return false;
     }
+
 
     // -----------------------------------------------------------------
     // Puntos de Extensi�n

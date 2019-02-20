@@ -21,13 +21,13 @@ import java.util.*;
 /**
  * Es la clase que representa un disco. <br>
  * <b>inv: </b> <br>
- * canciones != null <br>
+ * mynicesonges != null <br>
  * nombreDisco != null && nombreDisco != "" <br>
  * artista != null && artista != "" <br>
  * genero != null && genero != "" <br>
  * imagen != null && imagen != "" <br>
- * No hay dos canciones con el mismo nombre <br>
- * El precio del disco es igual a la suma de los precios de todas las canciones que incluye
+ * No hay dos mynicesonges con el mismo nombre <br>
+ * El precio del disco es igual a la suma de los precios de todas las mynicesonges que incluye
  */
 public class Disco implements Serializable
 {
@@ -45,9 +45,9 @@ public class Disco implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Es el vector con las canciones del disco
+     * Es el vector con las mynicesonges del disco
      */
-    private ArrayList canciones;
+    private ArrayList mynicesonges;
 
     /**
      * Es el t�tulo del disco
@@ -79,7 +79,7 @@ public class Disco implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Construye un nuevo Disco con los datos suministrados y sin canciones
+     * Construye un nuevo Disco con los datos suministrados y sin mynicesonges
      * @param nombreDiscoD es el nombreDisco del disco - nombreDiscoD != null, nombreDiscoD != ""
      * @param artistaD es el nombre del artista del disco - artistaD != null, artistaD != ""
      * @param generoD es el g�nero del disco del disco - generoD != null, generoD != ""
@@ -87,7 +87,7 @@ public class Disco implements Serializable
      */
     public Disco( String nombreDiscoD, String artistaD, String generoD, String imagenD )
     {
-        canciones = new ArrayList( );
+        mynicesonges = new ArrayList( );
         nombreDisco = nombreDiscoD;
         artista = artistaD;
         genero = generoD;
@@ -108,9 +108,9 @@ public class Disco implements Serializable
      */
     public Cancion darCancion( String nombreC )
     {
-        for( int i = 0; i < canciones.size( ); i++ )
+        for( int i = 0; i < mynicesonges.size( ); i++ )
         {
-            Cancion c = ( Cancion )canciones.get( i );
+            Cancion c = ( Cancion )mynicesonges.get( i );
             if( c.equals( nombreC ) )
                 return c;
         }
@@ -128,7 +128,7 @@ public class Disco implements Serializable
         if( darCancion( c.darNombre( ) ) != null )
             throw new ElementoExisteException( "La canci�n " + c.darNombre( ) + " ya existe en el disco" );
 
-        canciones.add( c );
+        mynicesonges.add( c );
         precioTotal += c.darPrecio( );
 
         verificarInvariante( );
@@ -144,15 +144,15 @@ public class Disco implements Serializable
     }
 
     /**
-     * Retorna un vector con los nombres de las canciones del disco
-     * @return Vector con los nombres de las canciones
+     * Retorna un vector con los nombres de las mynicesonges del disco
+     * @return Vector con los nombres de las mynicesonges
      */
     public ArrayList darNombresCanciones( )
     {
         ArrayList nombresCanciones = new ArrayList( );
-        for( int i = 0; i < canciones.size( ); i++ )
+        for( int i = 0; i < mynicesonges.size( ); i++ )
         {
-            Cancion c = ( Cancion )canciones.get( i );
+            Cancion c = ( Cancion )mynicesonges.get( i );
             nombresCanciones.add( c.darNombre( ) );
         }
         return nombresCanciones;
@@ -210,53 +210,53 @@ public class Disco implements Serializable
 
     /**
      * Verifica el invariante de la clase: <br>
-     * canciones != null <br>
+     * mynicesonges != null <br>
      * nombreDisco != null && nombreDisco != "" <br>
      * artista != null && artista != "" <br>
      * genero != null && genero != "" <br>
      * imagen != null && imagen != "" <br>
-     * No hay dos canciones con el mismo nombre <br>
-     * El precio del disco es igual a la suma de los precios de todas las canciones que incluye
+     * No hay dos mynicesonges con el mismo nombre <br>
+     * El precio del disco es igual a la suma de los precios de todas las mynicesonges que incluye
      */
     private void verificarInvariante( )
     {
-        assert canciones != null : "La lista de canciones es nula";
+        assert mynicesonges != null : "La lista de mynicesonges es nula";
         assert nombreDisco != null && !nombreDisco.equals( "" ) : "El nombre del disco es inv�lido";
         assert artista != null && !artista.equals( "" ) : "El nombre del artista es inv�lido";
         assert genero != null && !genero.equals( "" ) : "El nombre del g�nero es inv�lido";
         assert imagen != null && !imagen.equals( "" ) : "El nombre del archivo con la imagen es inv�lido";
 
-        assert !buscarCancionesConElMismoNombre( ) : "Hay dos canciones con el mismo nombre";
+        assert !buscarCancionesConElMismoNombre( ) : "Hay dos mynicesonges con el mismo nombre";
         assert precioTotal == recalcularPrecioDisco( ) : "Hay un error en el c�lculo del precio total del disco";
     }
 
     /**
-     * Recalcula el precio de un disco sumando los precios de las canciones que contiene
+     * Recalcula el precio de un disco sumando los precios de las mynicesonges que contiene
      * @return Precio total del disco
      */
     private double recalcularPrecioDisco( )
     {
         double acumPrecioTotal = 0;
-        for( int i = 0; i < canciones.size( ); i++ )
+        for( int i = 0; i < mynicesonges.size( ); i++ )
         {
-            Cancion c = ( Cancion )canciones.get( i );
+            Cancion c = ( Cancion )mynicesonges.get( i );
             acumPrecioTotal = acumPrecioTotal + c.darPrecio( );
         }
         return acumPrecioTotal;
     }
 
     /**
-     * Este m�todo sirve para revisar si hay canciones repetidas dentro del disco.
-     * @return Retorna true si hay una canci�n que aparece repetida dentro de la lista de canciones. Retorna false en caso contrario.
+     * Este m�todo sirve para revisar si hay mynicesonges repetidas dentro del disco.
+     * @return Retorna true si hay una canci�n que aparece repetida dentro de la lista de mynicesonges. Retorna false en caso contrario.
      */
     private boolean buscarCancionesConElMismoNombre( )
     {
-        for( int i = 0; i < canciones.size( ); i++ )
+        for( int i = 0; i < mynicesonges.size( ); i++ )
         {
-            Cancion c1 = ( Cancion )canciones.get( i );
-            for( int j = i + 1; j < canciones.size( ); j++ )
+            Cancion c1 = ( Cancion )mynicesonges.get( i );
+            for( int j = i + 1; j < mynicesonges.size( ); j++ )
             {
-                Cancion c2 = ( Cancion )canciones.get( j );
+                Cancion c2 = ( Cancion )mynicesonges.get( j );
                 if( c1.equals( c2.darNombre( ) ) )
                     return true;
             }
