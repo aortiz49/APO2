@@ -23,18 +23,18 @@ import javax.swing.border.TitledBorder;
 import uniandes.cupi2.cupiSports.world.Sport;
 
 /**
- * Panel para el manejo de los deportes.
+ * Panel para el manejo de los sports.
  */
-public class PanelSports extends JPanel implements ActionListener
+public class SportsPanel extends JPanel implements ActionListener
 {
     // -----------------------------------------------------------------
     // Constants
     // -----------------------------------------------------------------
 
     /**
-     * Constante para definir el action command del combo de los deportes.
+     * Constante para definir el action command del combo de los sports.
      */
-    private static final String COMBO_DEPORTES = "Combo deportes";
+    private static final String COMBO_DEPORTES = "Combo sports";
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
@@ -42,14 +42,14 @@ public class PanelSports extends JPanel implements ActionListener
     /**
      * Interfaz principal de la aplicaci�n.
      */
-    private InterfazCupiSports principal;
+    private CupiSportsInterface principal;
 
     // -----------------------------------------------------------------
     // Attributes de la interfaz
     // -----------------------------------------------------------------
 
     /**
-     * Combo Box donde est�n los deportes.
+     * Combo Box donde est�n los sports.
      */
     // TODO Parte 6 punto A: Declare el atributo comboSports.
 
@@ -57,10 +57,10 @@ public class PanelSports extends JPanel implements ActionListener
     // Constructor
     // -----------------------------------------------------------------
     /**
-     * Constructor del panel donde se encuentra un combo con los deportes.
+     * Constructor del panel donde se encuentra un combo con los sports.
      * @param pPrincipal Interfaz principal de la aplicaci�n. pPrincipal != null.
      */
-    public PanelSports( InterfazCupiSports pPrincipal )
+    public SportsPanel( CupiSportsInterface pPrincipal )
     {
         principal = pPrincipal;
         setBorder( new TitledBorder( "Sports" ) );
@@ -78,8 +78,8 @@ public class PanelSports extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Actualiza el combo box con la lista de deportes.
-     * @param pSports Lista de deportes que estar�n en el comboBox. pSports != null.
+     * Actualiza el combo box con la lista de sports.
+     * @param pSports Lista de sports que estar�n en el comboBox. pSports != null.
      */
     public void actualizarSports( ArrayList<Sport> pSports )
     {
@@ -110,7 +110,7 @@ public class PanelSports extends JPanel implements ActionListener
 
     /**
      * M�todo en el que se tratan los eventos del di�logo. <br>
-     * <b>post:</b> Cambia la informaci�n of the athlete que se est� mostrando de acuerdo al nuevo deportista seleccionado.
+     * <b>post:</b> Cambia la informaci�n of the athlete que se est� mostrando de acuerdo al nuevo athlete seleccionado.
      * @param e Par�metro que tiene encapsulado las caracter�sticas del elemento.
      */
     public void actionPerformed( ActionEvent e )

@@ -31,7 +31,7 @@ import uniandes.cupi2.cupiSports.world.Athlete;
 /**
  * Panel para para visualizar la informaci�n de un deporte.
  */
-public class PanelInfoSport extends JPanel implements ActionListener
+public class SportInfoPanel extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
@@ -39,9 +39,9 @@ public class PanelInfoSport extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Constante para definir el action command del combo de las deportistas.
+     * Constante para definir el action command del combo de las athletes.
      */
-    private static final String COMBO_DEPORTISTAS = "Combo deportistas";
+    private static final String COMBO_DEPORTISTAS = "Combo athletes";
 
     // -----------------------------------------------------------------
     // Attributes de interfaz
@@ -58,7 +58,7 @@ public class PanelInfoSport extends JPanel implements ActionListener
     private JLabel lblRegulatoryEntity;
 
     /**
-     * Label con el n�mero de deportistas registrados.
+     * Label con el n�mero de athletes registrados.
      */
     private JLabel lblAthletesRegistrados;
 
@@ -73,17 +73,17 @@ public class PanelInfoSport extends JPanel implements ActionListener
     private JTextField txtRegulatoryEntity;
 
     /**
-     * Campo de texto con el n�mero de deportistas registrados.
+     * Campo de texto con el n�mero de athletes registrados.
      */
     private JTextField txtAthletesRegistrados;
 
     /**
-     * Label deportistas.
+     * Label athletes.
      */
     private JLabel lblAthletes;
 
     /**
-     * Combo con los deportistas sobresalientes.
+     * Combo con los athletes sobresalientes.
      */
     private JComboBox comboOutstandingAthletes;
 
@@ -100,7 +100,7 @@ public class PanelInfoSport extends JPanel implements ActionListener
     /**
      * Ventana principal de la aplicaci�n.
      */
-    private InterfazCupiSports principal;
+    private CupiSportsInterface principal;
 
     // -----------------------------------------------------------------
     // Constructors
@@ -109,7 +109,7 @@ public class PanelInfoSport extends JPanel implements ActionListener
      * Constructor del panel.
      * @param pPrincipal Ventana principal de la aplicaci�n. pPrincipal != null.
      */
-    public PanelInfoSport( InterfazCupiSports pPrincipal )
+    public SportInfoPanel( CupiSportsInterface pPrincipal )
     {
         principal = pPrincipal;
         setLayout( new java.awt.BorderLayout( ) );
@@ -198,7 +198,7 @@ public class PanelInfoSport extends JPanel implements ActionListener
     }
 
     /**
-     * Devuelve El deportista seleccionado.
+     * Devuelve El athlete seleccionado.
      * @return Athlete seleccionado.
      */
     public Athlete getAthleteSeleccionado( )

@@ -23,7 +23,6 @@ import java.util.*;
  * <b>inv: </b> <br>
  * discos != null <br>
  * No hay dos discos con el mismo nombre
- *
  */
 public class Discotienda {
     // -----------------------------------------------------------------
@@ -58,10 +57,11 @@ public class Discotienda {
      * Si el archivo indicado no existe, entonces la discotienda se crea vac�a y su estado se
      * guardar� en el archivo indicado.<br>
      * Si el archivo existe, entonces de �l se saca la informaci�n de los discos y canciones.
+     *
      * @param nombreArchivoDiscotienda es el nombre del archivo que contiene los datos de la
      *                                 discotienda - nombreArchivoDiscotienda != null
      * @throws PersistenciaException Se lanza esta excepci�n si se encuentran problemas cargando
-     * los datos del archivo
+     *                               los datos del archivo
      */
     public Discotienda(String nombreArchivoDiscotienda) throws PersistenciaException {
         archivoDiscotienda = nombreArchivoDiscotienda;
@@ -93,6 +93,7 @@ public class Discotienda {
 
     /**
      * Retorna un disco de la discotienda dado su nombre.
+     *
      * @param nombreDisco el nombre del disco a buscar - nombreDisco != null
      * @return El Disco cuyo nombre es igual al nombre dado. Si no se encontr� retorna null.
      */
@@ -107,7 +108,8 @@ public class Discotienda {
 
     /**
      * Retorna un disco de la discotienda dado un nombre, un artista y una canci�n
-     * @param nombreDisco El nombre del disco donde deber�a estar la canci�n - nombreDisco != null
+     *
+     * @param nombreDisco   El nombre del disco donde deber�a estar la canci�n - nombreDisco != null
      * @param nombreArtista El nombre del artista del disco - nombreArtista != null
      * @param nombreCancion El nombre de la canci�n buscada - nombreCancion != null
      * @return Retorna el disco en el que se encuentra la canci�n buscada. Si no se encuentra
@@ -123,13 +125,15 @@ public class Discotienda {
 
     /**
      * Agrega un nuevo disco a la discotienda <br>
+     *
      * @param nombreDiscoD el nombre del disco - nombreDiscoC != null
-     * @param artistaD el artista del nuevo disco - artistaD != null
-     * @param generoD el genero del nuevo disco - generoD != null
-     * @param imagenD el nombre del archivo imagen del disco que debe estar en ./data/imagenes -
-     *                imagenD != null
+     * @param artistaD     el artista del nuevo disco - artistaD != null
+     * @param generoD      el genero del nuevo disco - generoD != null
+     * @param imagenD      el nombre del archivo imagen del disco que debe estar en
+     *                     ./data/imagenes -
+     *                     imagenD != null
      * @throws ElementoExisteException Esta excepci�n se lanza si ya existe un disco con el mismo
-     * nombre
+     *                                 nombre
      */
     public void agregarDisco(String nombreDiscoD, String artistaD, String generoD, String imagenD)
             throws ElementoExisteException {
@@ -143,17 +147,18 @@ public class Discotienda {
 
     /**
      * Agrega una nueva canci�n al disco
+     *
      * @param nombreDisco el nombre del disco para adicionar la canci�n - hay un disco con ese
      *                    nombre en la discotienda
-     * @param nombreC el nombre de la canci�n a crear - nombreC != null, nombreC != ""
-     * @param minutosC el n�mero de minutos de duraci�n de la canci�n - minutosC >= 0
-     * @param segundosC el n�mero de segundos de duraci�n de la canci�n - 0 <= segundosC < 60,
-     *                  minutosC + segundosC > 0
-     * @param precioC el precio de la canci�n - precioC > 0
-     * @param tamanoC el tama�o en Mb de la canci�n - tamanoC > 0
-     * @param calidadC la calidad de la canci�n en Kbps - calidadC > 0
+     * @param nombreC     el nombre de la canci�n a crear - nombreC != null, nombreC != ""
+     * @param minutosC    el n�mero de minutos de duraci�n de la canci�n - minutosC >= 0
+     * @param segundosC   el n�mero de segundos de duraci�n de la canci�n - 0 <= segundosC < 60,
+     *                    minutosC + segundosC > 0
+     * @param precioC     el precio de la canci�n - precioC > 0
+     * @param tamanoC     el tama�o en Mb de la canci�n - tamanoC > 0
+     * @param calidadC    la calidad de la canci�n en Kbps - calidadC > 0
      * @throws ElementoExisteException Esta excepci�n se lanza si el ya existe otra canci�n en el
-     * disco con el mismo nombre
+     *                                 disco con el mismo nombre
      */
     public void agregarCancionADisco(String nombreDisco, String nombreC, int minutosC,
                                      int segundosC, double precioC, double tamanoC, int calidadC)
@@ -165,14 +170,15 @@ public class Discotienda {
 
     /**
      * Registra la venta de una canci�n y genera la factura en un archivo nuevo.
-     * @param disco el disco al cual pertenece la canci�n que se va a vender - disco != null
-     * @param cancion la canci�n de la cual se va a vender una unidad - cancion != null
-     * @param email el email de la persona a la cual se le vendi� la canci�n - email != null,
-     *              email es un email v�lido (usuario@dominio.ext)
+     *
+     * @param disco       el disco al cual pertenece la canci�n que se va a vender - disco != null
+     * @param cancion     la canci�n de la cual se va a vender una unidad - cancion != null
+     * @param email       el email de la persona a la cual se le vendi� la canci�n - email != null,
+     *                    email es un email v�lido (usuario@dominio.ext)
      * @param rutaFactura el directorio donde debe generarse la factura - rutaFactura != null
      * @return Retorna el nombre del archivo en el que se gener� la factura
      * @throws IOException Se genera esta excepci�n si hay problemas salvando el archivo con la
-     * factura
+     *                     factura
      */
     public String venderCancion(Disco disco, Cancion cancion, String email, String rutaFactura)
             throws IOException {
@@ -209,6 +215,7 @@ public class Discotienda {
 
     /**
      * Retorna un vector con los nombres de los discos
+     *
      * @return Vector con los nombres de los discos
      */
     public ArrayList darDiscos() {
@@ -226,14 +233,16 @@ public class Discotienda {
      * El archivo debe tener una l�nea en la cual se encuentra el email de la persona que hizo el
      * pedido y luego debe haber una l�nea por cada canci�n solicitada. <br>
      * Cada l�nea tiene el siguiente formato: <nombre disco>#<nombre artista>#<nombre canci�n>
+     *
      * @param archivoPedido el archivo que tiene la informaci�n del pedido - archivoPedido != null
-     * @param rutaFactura el directorio donde debe generarse la factura - rutaFactura != null
+     * @param rutaFactura   el directorio donde debe generarse la factura - rutaFactura != null
      * @return El archivo en el que se guard� la factura
      * @throws FileNotFoundException Se lanza esta excepci�n si el archivo del pedido no existe
-     * @throws IOException Se lanza esta excepci�n si hay problemas escribiendo el archivo de la
-     * factura
+     * @throws IOException           Se lanza esta excepci�n si hay problemas escribiendo el
+     *                               archivo de la
+     *                               factura
      * @throws ArchivoVentaException Se lanza esta excepci�n si el archivo no cumple con el
-     * formato esperado
+     *                               formato esperado
      */
     public String venderListaCanciones(File archivoPedido, String rutaFactura)
             throws FileNotFoundException, IOException, ArchivoVentaException {
@@ -244,7 +253,7 @@ public class Discotienda {
         String email = null;
         try {
             // Lee la primera l�nea del archivo (la direcci�n electr�nica) y le suprime los
-            // posibles espacios
+            // posibles espacios.
             email = lector.readLine();
         } catch (IOException e) {
             // Hubo un error tratando de leer la primera l�nea del archivo
@@ -331,16 +340,20 @@ public class Discotienda {
 
     /**
      * Genera la factura de la venta de un conjunto de discos, en un archivo nuevo.
-     * @param discos los discos a los que pertenecen las canciones que se van a vender - discos
-     *               != null
-     * @param canciones las canciones que se van a vender - canciones != null, por cada cancion,
-     *                  en el par�metro 'discos' se encuentra el disco correspondiente en la misma
-     *        posici�n
+     *
+     * @param discos        los discos a los que pertenecen las canciones que se van a vender -
+     *                      discos
+     *                      != null
+     * @param canciones     las canciones que se van a vender - canciones != null, por cada cancion,
+     *                      en el par�metro 'discos' se encuentra el disco correspondiente en la
+     *                      misma
+     *                      posici�n
      * @param noEncontradas vector con las l�neas del pedido que no pudieron ser procesadas
      *                      porque la canci�n no existe
-     * @param email el email de la persona a la cual se le vendieron las canciones - email !=
-     *              null, email es un email v�lido (usuario@dominio.ext)
-     * @param rutaFactura el directorio donde debe generarse la factura - rutaFactura != null
+     * @param email         el email de la persona a la cual se le vendieron las canciones -
+     *                      email !=
+     *                      null, email es un email v�lido (usuario@dominio.ext)
+     * @param rutaFactura   el directorio donde debe generarse la factura - rutaFactura != null
      * @return Retorna el nombre del archivo en el que se gener� la factura
      * @throws IOException Se genera esta excepci�n si hay problemas salvando el archivo
      */
@@ -393,6 +406,7 @@ public class Discotienda {
      * El formato esperado es <login>@<dominio>.<br>
      * El dominio tiene que estar compuesto de por lo menos dos partes separadas por un punto:
      * <parte1>.<parte2>
+     *
      * @param email la direcci�n de email que se quiere verificar - email != null
      * @return Retorna true si el email cumple con el formato especificado
      */
@@ -404,8 +418,11 @@ public class Discotienda {
         }
         else {
             String dominio = email.substring(posArroba1 + 1);
-            resultado = dominio.indexOf(".") != -1 && !(dominio.substring(dominio.indexOf(".") + 1)
-                                                               .equals(""));
+            resultado =
+                    !email.startsWith(" ", posArroba1 - 1) && dominio.indexOf(".") != -1 && !dominio
+                            .startsWith(" ") && !dominio.substring(dominio.indexOf(".") - 1)
+                                                        .startsWith(" ") && !(dominio
+                            .substring(dominio.indexOf(".") + 1).startsWith(" "));
         }
         return resultado;
     }
@@ -416,6 +433,7 @@ public class Discotienda {
 
     /**
      * Salva la discotienda en un archivo binario
+     *
      * @throws PersistenciaException Se lanza esta excepci�n si hay problemas guardando los archivos
      */
     public void salvarDiscotienda() throws PersistenciaException {
@@ -433,6 +451,7 @@ public class Discotienda {
     /**
      * Registra en el archivo de log del programa toda la informaci�n referente a una excepci�n,
      * ocurrida durante el proceso de persistencia
+     *
      * @param excepcion es la excepci�n que contiene la informaci�n del error
      */
     public void registrarError(Exception excepcion) {
@@ -467,6 +486,7 @@ public class Discotienda {
 
     /**
      * Este m�todo sirve para revisar si hay dos discos con el mismo nombre dentro de la tienda.
+     *
      * @return Retorna true si hay un disco que aparece repetido dentro de la lista de discos.
      * Retorna false en caso contrario.
      */
@@ -488,6 +508,7 @@ public class Discotienda {
 
     /**
      * Es el punto de extensi�n 1
+     *
      * @return respuesta 1
      */
     public String metodo1() {
@@ -496,6 +517,7 @@ public class Discotienda {
 
     /**
      * Es el punto de extensi�n 2
+     *
      * @return respuesta 2
      */
     public String metodo2() {
@@ -504,6 +526,7 @@ public class Discotienda {
 
     /**
      * Es el punto de extensi�n 3
+     *
      * @return respuesta 3
      */
     public String metodo3() {
@@ -512,6 +535,7 @@ public class Discotienda {
 
     /**
      * Es el punto de extensi�n 4
+     *
      * @return respuesta 4
      */
     public String metodo4() {
@@ -520,6 +544,7 @@ public class Discotienda {
 
     /**
      * Es el punto de extensi�n 5
+     *
      * @return respuesta 5
      */
     public String metodo5() {
@@ -528,9 +553,86 @@ public class Discotienda {
 
     /**
      * Es el punto de extensi�n 6
+     *
      * @return respuesta 6
      */
     public String metodo6() {
         return "respuesta 6";
     }
+
+
+    public ArrayList venderGrupo(String nomDisco, String nomCancion, String nombreArchivo)
+            throws IOException {
+
+        ArrayList<String> facturas = new ArrayList<>();
+
+        BufferedReader br = new BufferedReader(new FileReader(new File(nombreArchivo)));
+
+        String mailActual;
+
+        while ((mailActual = br.readLine()) != null) {
+            Disco d = darDisco(nomDisco);
+            Cancion c = d.darCancion(nomCancion);
+            String facturaActual = venderCancion(d, c, mailActual, "./data/facturas/");
+            facturas.add(facturaActual);
+        }
+darNumeroCancionesCompradasPor("andyortiz93@gmail.com");
+        return facturas;
+    }
+
+    public int darNumeroCancionesCompradasPor(String email) throws IOException {
+        int cant = 0;
+
+        File directorioFacturas = new File("./data/facturas/");
+
+        if (directorioFacturas.exists()) {
+            File[] facturas = directorioFacturas.listFiles();
+
+            for (int i = 0; i < facturas.length; i++) {
+                System.out.println(facturas[i]);
+            }
+            for (File archivoFacturas : facturas) {
+
+                BufferedReader br = new BufferedReader(new FileReader(archivoFacturas));
+
+                String linea;
+                boolean contieneCliente = true;
+                boolean leiNumCanciones = false;
+
+                while ((linea = br.readLine()) != null && contieneCliente && !leiNumCanciones) {
+                    if (linea.toLowerCase().startsWith("email")) {
+                        String[] partesMail = linea.split(("\\s+"));
+                        String mailActual = partesMail[1];
+
+                        if (!mailActual.equals(email)) {
+                            contieneCliente = false;
+                        }
+                    }
+
+                    else if (linea.toLowerCase().startsWith("no de canciones")) {
+                        String[] parteNumCanciones = linea.split("\\s+");
+                        int num = Integer.parseInt(parteNumCanciones[3]);
+
+                        cant += num;
+                        leiNumCanciones = true;
+                    }
+
+                }
+                br.close();
+            }
+
+        }
+        return cant;
+    }
+
+
+    public String infoToString(ArrayList<String> pClients) {
+
+        String foo = null;
+        for (int i = 0; i < pClients.size(); i++) {
+            foo = pClients.get(i) + "\n";
+        }
+        return foo;
+    }
+
 }

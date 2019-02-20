@@ -1,28 +1,28 @@
-/**
+/*
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiSports
- * Autor: Equipo Cupi2
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: n8_Sports
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
 package uniandes.cupi2.cupiSports.test;
 
-import uniandes.cupi2.cupiSports.world.Athlete;
 
 import org.junit.Before;
-import static org.junit.Assert.*;
 import org.junit.Test;
+import uniandes.cupi2.cupiSports.world.Athlete;
+
+import static org.junit.Assert.assertEquals;
+
 
 /**
  * Clase usada para verificar que los m�todos de la clase Athlete est�n correctamente implementados.
  */
-public class AthleteTest
-{
+public class AthleteTest {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
@@ -40,10 +40,9 @@ public class AthleteTest
      * Construye un nuevo deportista.s
      */
     @Before
-    public void setupEscenario1( )
-    {
+    public void setupEscenario1() {
 
-        deportista = new Athlete( "James", 23, "Madrid", 39, "imagen" );
+        deportista = new Athlete("James", 23, "Madrid", 39, "imagen");
 
     }
 
@@ -61,13 +60,15 @@ public class AthleteTest
      * 1. Inicializaci�n correcta de Athlete<br>
      */
     @Test
-    public void testConstructor( )
-    {
-        assertEquals( "El name of the athlete es incorrecto.", "James", deportista.getName( ) );
-        assertEquals( "La age of the athlete es incorrecta.", 23, deportista.getAge( ) );
-        assertEquals( "El lugar de residencia of the athlete es incorrecto.", "Madrid", deportista.getPlaceOfResidency( ) );
-        assertEquals( "La ruta a la imagen of the athlete es incorrecta.", "imagen", deportista.getImagePath( ) );
-        assertEquals( "La cantidad de trofeos of the athlete es incorrecta.", 39, deportista.getAmountOfTrophies( ) );
+    public void testConstructor() {
+        assertEquals("El name of the athlete es incorrecto.", "James", deportista.getName());
+        assertEquals("La age of the athlete es incorrecta.", 23, deportista.getAge());
+        assertEquals("El lugar de residencia of the athlete es incorrecto.", "Madrid",
+                     deportista.getPlaceOfResidency());
+        assertEquals("La ruta a la imagen of the athlete es incorrecta.", "imagen",
+                     deportista.getImagePath());
+        assertEquals("La cantidad de trofeos of the athlete es incorrecta.", 39,
+                     deportista.getAmountOfTrophies());
     }
 
     /**
@@ -80,10 +81,9 @@ public class AthleteTest
      * 1. La age fue cambiada correctamente.<br>
      */
     @Test
-    public void testCambiarAge( )
-    {
-        deportista.modifyAge( 30 );
-        assertEquals( "La age of the athlete es incorrecta.", 30, deportista.getAge( ) );
+    public void testCambiarAge() {
+        deportista.modifyAge(30);
+        assertEquals("La age of the athlete es incorrecta.", 30, deportista.getAge());
 
     }
 
@@ -97,10 +97,10 @@ public class AthleteTest
      * 1. El lugar de residencia fue cambiado correctamente.<br>
      */
     @Test
-    public void testCambiarPlaceOfResidency( )
-    {
-        deportista.modifyPlaceOfResidency( "Bogot�" );
-        assertEquals( "El lugar de residencia of the athlete es incorrecto.", "Bogot�", deportista.getPlaceOfResidency( ) );
+    public void testCambiarPlaceOfResidency() {
+        deportista.modifyPlaceOfResidency("Bogot�");
+        assertEquals("El lugar de residencia of the athlete es incorrecto.", "Bogot�",
+                     deportista.getPlaceOfResidency());
 
     }
 
@@ -114,10 +114,10 @@ public class AthleteTest
      * 1. La cantidad de trofeos fue cambiada correctamente.<br>
      */
     @Test
-    public void testCambiarAmountOfTrophies( )
-    {
-        deportista.modifyAmountOfTrophies( 10 );
-        assertEquals( "La cantidad detrofeos of the athlete es incorrecta.", 10, deportista.getAmountOfTrophies( ) );
+    public void testCambiarAmountOfTrophies() {
+        deportista.modifyAmountOfTrophies(10);
+        assertEquals("La cantidad detrofeos of the athlete es incorrecta.", 10,
+                     deportista.getAmountOfTrophies());
 
     }
 
@@ -131,10 +131,10 @@ public class AthleteTest
      * 1. La ruta de la imagen fue cambiada correctamente.<br>
      */
     @Test
-    public void testCambiarImagePath( )
-    {
-        deportista.modifyImagePath( "imagen2" );
-        assertEquals( "La ruta de la imagen of the athlete es incorrecta.", "imagen2", deportista.getImagePath( ) );
+    public void testCambiarImagePath() {
+        deportista.modifyImagePath("imagen2");
+        assertEquals("La ruta de la imagen of the athlete es incorrecta.", "imagen2",
+                     deportista.getImagePath());
 
     }
 

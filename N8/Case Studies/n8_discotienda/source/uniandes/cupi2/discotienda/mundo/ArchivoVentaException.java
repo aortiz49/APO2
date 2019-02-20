@@ -1,12 +1,12 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: ArchivoVentaException.java,v 1.2 2006/08/10 20:04:47 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
- * Licenciado bajo el esquema Academic Free License versión 2.1
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
+ * Licenciado bajo el esquema Academic Free License versiï¿½n 2.1
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda
- * Autor: Mario Sánchez - 7/07/2006
+ * Autor: Mario Sï¿½nchez - 7/07/2006
  * Autor: Jorge Villalobos - 30/07/2006
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
@@ -14,7 +14,7 @@
 package uniandes.cupi2.discotienda.mundo;
 
 /**
- * Esta excepción sirve para indicar que hubo un problema procesando el archivo de ventas
+ * Esta excepciï¿½n sirve para indicar que hubo un problema procesando el archivo de ventas
  */
 public class ArchivoVentaException extends Exception
 {
@@ -23,7 +23,7 @@ public class ArchivoVentaException extends Exception
     // -----------------------------------------------------------------
 
     /**
-     * Número de canciones que se pudieron vender a pesar del error
+     * Nï¿½mero de canciones que se pudieron vender a pesar del error
      */
     private int cancionesVendidas;
 
@@ -32,8 +32,8 @@ public class ArchivoVentaException extends Exception
     // -----------------------------------------------------------------
 
     /**
-     * Construye la excepción con una causa del error y la cantidad de canciones vendidas a pesar del error
-     * @param causa El mensaje que describe el problema que se presentó
+     * Construye la excepciï¿½n con una causa del error y la cantidad de canciones vendidas a pesar del error
+     * @param causa El mensaje que describe el problema que se presentï¿½
      * @param ventas La cantidad de canciones vendidas a pesar del error
      */
     public ArchivoVentaException( String causa, int ventas )

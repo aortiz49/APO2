@@ -1,20 +1,20 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PersistenciaException.java,v 1.3 2006/08/10 20:04:47 da-romer Exp $ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n7_discotienda 
- * Autor: Mario Sánchez - 26/01/2006 
+ * Autor: Mario Sï¿½nchez - 26/01/2006 
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
 
 package uniandes.cupi2.discotienda.mundo;
 
 /**
- * Esta excepción se lanza cuando se presenta un error al leer o escribir el archivo con la información del estado del modelo del mundo. <br>
- * El mensaje asociado con la excepción debe describir el problema que se presentó.
+ * Esta excepciï¿½n se lanza cuando se presenta un error al leer o escribir el archivo con la informaciï¿½n del estado del modelo del mundo. <br>
+ * El mensaje asociado con la excepciï¿½n debe describir el problema que se presentï¿½.
  */
 public class PersistenciaException extends Exception
 {
@@ -23,7 +23,7 @@ public class PersistenciaException extends Exception
     // -----------------------------------------------------------------
 
     /**
-     * Construye la excepción con el mensaje que se pasa como parámetro y que describe la causa del problema
+     * Construye la excepciï¿½n con el mensaje que se pasa como parï¿½metro y que describe la causa del problema
      * @param causa el mensaje que describe el problema
      */
     public PersistenciaException( String causa )

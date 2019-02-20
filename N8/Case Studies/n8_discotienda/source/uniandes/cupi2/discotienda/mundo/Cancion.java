@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: Cancion.java,v 1.9 2006/08/10 20:04:47 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005 
  * Autor: Jorge Villalobos - 29/07/2006
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
@@ -17,7 +17,7 @@ package uniandes.cupi2.discotienda.mundo;
 import java.io.Serializable;
 
 /**
- * Es la clase que representa a una canción en MP3 que hace parte de un disco. <br>
+ * Es la clase que representa a una canciï¿½n en MP3 que hace parte de un disco. <br>
  * <b>inv: </b> <br>
  * nombre != null, nombre != "" <br>
  * minutos >= 0 <br>
@@ -35,7 +35,7 @@ public class Cancion implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Indicador de versión para la serialización
+     * Indicador de versiï¿½n para la serializaciï¿½n
      */
     private static final long serialVersionUID = 200L;
 
@@ -44,22 +44,22 @@ public class Cancion implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Es el nombre de la canción
+     * Es el nombre de la canciï¿½n
      */
     private String nombre;
 
     /**
-     * Es la duración en minutos de la canción
+     * Es la duraciï¿½n en minutos de la canciï¿½n
      */
     private int minutos;
 
     /**
-     * Es la duración en segundos de la canción
+     * Es la duraciï¿½n en segundos de la canciï¿½n
      */
     private int segundos;
 
     /**
-     * El tamaño en megabytes de la canción
+     * El tamaï¿½o en megabytes de la canciï¿½n
      */
     private double tamano;
 
@@ -69,12 +69,12 @@ public class Cancion implements Serializable
     private int calidad;
 
     /**
-     * Es el precio de la canción;
+     * Es el precio de la canciï¿½n;
      */
     private double precio;
 
     /**
-     * El número de veces que se ha vendido esta canción
+     * El nï¿½mero de veces que se ha vendido esta canciï¿½n
      */
     private int unidadesVendidas;
 
@@ -83,14 +83,14 @@ public class Cancion implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Construye una nueva canción con los datos suministrados
-     * @param nombreC el nombre de la canción - nombreC != null, nombreC != ""
-     * @param minutosC el número de minutos de duración de la canción - minutosC >= 0
-     * @param segundosC el número de segundos de duración de la canción - segundosC >= 0 && segundosC < 60, minutos + segundos > 0
-     * @param precioC es el precio de la canción - precioC > 0
-     * @param tamanoC es el tamaño de la canción en MB - tamanoC > 0
-     * @param calidadC es la calidad de la canción en Kbps - calidadC > 0
-     * @param cantidad es el número de veces que se ha vendido esta canción - cantidad >= 0
+     * Construye una nueva canciï¿½n con los datos suministrados
+     * @param nombreC el nombre de la canciï¿½n - nombreC != null, nombreC != ""
+     * @param minutosC el nï¿½mero de minutos de duraciï¿½n de la canciï¿½n - minutosC >= 0
+     * @param segundosC el nï¿½mero de segundos de duraciï¿½n de la canciï¿½n - segundosC >= 0 && segundosC < 60, minutos + segundos > 0
+     * @param precioC es el precio de la canciï¿½n - precioC > 0
+     * @param tamanoC es el tamaï¿½o de la canciï¿½n en MB - tamanoC > 0
+     * @param calidadC es la calidad de la canciï¿½n en Kbps - calidadC > 0
+     * @param cantidad es el nï¿½mero de veces que se ha vendido esta canciï¿½n - cantidad >= 0
      */
     public Cancion( String nombreC, int minutosC, int segundosC, double precioC, double tamanoC, int calidadC, int cantidad )
     {
@@ -106,12 +106,12 @@ public class Cancion implements Serializable
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Retorna el nombre de la canción
-     * @return Nombre de la canción
+     * Retorna el nombre de la canciï¿½n
+     * @return Nombre de la canciï¿½n
      */
     public String darNombre( )
     {
@@ -119,8 +119,8 @@ public class Cancion implements Serializable
     }
 
     /**
-     * Retorna la duración en minutos de la canción
-     * @return Duración en minutos de la canción
+     * Retorna la duraciï¿½n en minutos de la canciï¿½n
+     * @return Duraciï¿½n en minutos de la canciï¿½n
      */
     public int darMinutos( )
     {
@@ -128,8 +128,8 @@ public class Cancion implements Serializable
     }
 
     /**
-     * Retorna la duración en segundos de la canción
-     * @return Duración en segundos de la canción
+     * Retorna la duraciï¿½n en segundos de la canciï¿½n
+     * @return Duraciï¿½n en segundos de la canciï¿½n
      */
     public int darSegundos( )
     {
@@ -137,8 +137,8 @@ public class Cancion implements Serializable
     }
 
     /**
-     * Retorna el precio de la canción
-     * @return Precio de la canción
+     * Retorna el precio de la canciï¿½n
+     * @return Precio de la canciï¿½n
      */
     public double darPrecio( )
     {
@@ -146,8 +146,8 @@ public class Cancion implements Serializable
     }
 
     /**
-     * Retorna el tamaño de la canción
-     * @return Tamaño de la canción
+     * Retorna el tamaï¿½o de la canciï¿½n
+     * @return Tamaï¿½o de la canciï¿½n
      */
     public double darTamano( )
     {
@@ -155,8 +155,8 @@ public class Cancion implements Serializable
     }
 
     /**
-     * Retorna la calidad de la canción
-     * @return Calidad de la canción
+     * Retorna la calidad de la canciï¿½n
+     * @return Calidad de la canciï¿½n
      */
     public int darCalidad( )
     {
@@ -164,8 +164,8 @@ public class Cancion implements Serializable
     }
 
     /**
-     * Retorna el número de unidades vendidas
-     * @return Número de unidades vendidas
+     * Retorna el nï¿½mero de unidades vendidas
+     * @return Nï¿½mero de unidades vendidas
      */
     public int darUnidadesVendidas( )
     {
@@ -181,9 +181,9 @@ public class Cancion implements Serializable
     }
 
     /**
-     * Indica si la canción tiene el nombre que llega como parámetro
-     * @param nombreCancion nombre de una canción - nombreCancion != null
-     * @return True si la canción tiene el nombre que llega como parámetro
+     * Indica si la canciï¿½n tiene el nombre que llega como parï¿½metro
+     * @param nombreCancion nombre de una canciï¿½n - nombreCancion != null
+     * @return True si la canciï¿½n tiene el nombre que llega como parï¿½metro
      */
     public boolean equals( String nombreCancion )
     {
@@ -207,13 +207,13 @@ public class Cancion implements Serializable
      */
     private void verificarInvariante( )
     {
-        assert nombre != null && !nombre.equals( "" ) : "El nombre es inválido";
+        assert nombre != null && !nombre.equals( "" ) : "El nombre es invï¿½lido";
         assert minutos >= 0 : "Los minutos deben ser un valor positivo";
         assert 0 <= segundos && segundos < 60 : "Los segundos deben ser un valor entre 0 y 60";
-        assert minutos + segundos > 0 : "La canción debe tener una duración positiva";
-        assert tamano > 0 : "El tamaño debe ser un valor positivo";
+        assert minutos + segundos > 0 : "La canciï¿½n debe tener una duraciï¿½n positiva";
+        assert tamano > 0 : "El tamaï¿½o debe ser un valor positivo";
         assert calidad > 0 : "La calidad debe ser un valor positivo";
         assert precio > 0 : "El precio debe ser un valor positivo";
-        assert unidadesVendidas >= 0 : "El número de unidades vendidas debe ser un entero positivo";
+        assert unidadesVendidas >= 0 : "El nï¿½mero de unidades vendidas debe ser un entero positivo";
     }
 }

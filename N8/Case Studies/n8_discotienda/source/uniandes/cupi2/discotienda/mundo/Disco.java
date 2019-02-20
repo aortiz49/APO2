@@ -1,14 +1,14 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: Disco.java,v 1.10 2006/08/10 20:04:47 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005
- * Autor: Mario Sánchez - 26/01/2005
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005
+ * Autor: Mario Sï¿½nchez - 26/01/2005
  * Autor: Jorge Villalobos - 29/07/2006
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
@@ -36,7 +36,7 @@ public class Disco implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Indicador de versión para la serialización
+     * Indicador de versiï¿½n para la serializaciï¿½n
      */
     private static final long serialVersionUID = 100L;
 
@@ -50,7 +50,7 @@ public class Disco implements Serializable
     private ArrayList canciones;
 
     /**
-     * Es el título del disco
+     * Es el tï¿½tulo del disco
      */
     private String nombreDisco;
 
@@ -60,7 +60,7 @@ public class Disco implements Serializable
     private String artista;
 
     /**
-     * Es el género del disco
+     * Es el gï¿½nero del disco
      */
     private String genero;
 
@@ -82,7 +82,7 @@ public class Disco implements Serializable
      * Construye un nuevo Disco con los datos suministrados y sin canciones
      * @param nombreDiscoD es el nombreDisco del disco - nombreDiscoD != null, nombreDiscoD != ""
      * @param artistaD es el nombre del artista del disco - artistaD != null, artistaD != ""
-     * @param generoD es el género del disco del disco - generoD != null, generoD != ""
+     * @param generoD es el gï¿½nero del disco del disco - generoD != null, generoD != ""
      * @param imagenD es la imagen del disco - imagenD != null, imagenD != ""
      */
     public Disco( String nombreDiscoD, String artistaD, String generoD, String imagenD )
@@ -98,13 +98,13 @@ public class Disco implements Serializable
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Retorna una canción del disco dado su nombre.
-     * @param nombreC el nombre de la canción a buscar - nombreC != null
-     * @return la canción cuyo nombre es igual al nombre dado. Si no se encontró retorna null.
+     * Retorna una canciï¿½n del disco dado su nombre.
+     * @param nombreC el nombre de la canciï¿½n a buscar - nombreC != null
+     * @return la canciï¿½n cuyo nombre es igual al nombre dado. Si no se encontrï¿½ retorna null.
      */
     public Cancion darCancion( String nombreC )
     {
@@ -118,15 +118,15 @@ public class Disco implements Serializable
     }
 
     /**
-     * Agrega una canción al disco. <br>
-     * <b>post: </b> La canción c ha sido agregada al disco
-     * @param c la nueva canción que se va a agregar al disco
-     * @throws ElementoExisteException si ya existía una canción con el mismo nombre
+     * Agrega una canciï¿½n al disco. <br>
+     * <b>post: </b> La canciï¿½n c ha sido agregada al disco
+     * @param c la nueva canciï¿½n que se va a agregar al disco
+     * @throws ElementoExisteException si ya existï¿½a una canciï¿½n con el mismo nombre
      */
     public void agregarCancion( Cancion c ) throws ElementoExisteException
     {
         if( darCancion( c.darNombre( ) ) != null )
-            throw new ElementoExisteException( "La canción " + c.darNombre( ) + " ya existe en el disco" );
+            throw new ElementoExisteException( "La canciï¿½n " + c.darNombre( ) + " ya existe en el disco" );
 
         canciones.add( c );
         precioTotal += c.darPrecio( );
@@ -159,8 +159,8 @@ public class Disco implements Serializable
     }
 
     /**
-     * Retorna el género del disco
-     * @return Género del disco
+     * Retorna el gï¿½nero del disco
+     * @return Gï¿½nero del disco
      */
     public String darGenero( )
     {
@@ -195,9 +195,9 @@ public class Disco implements Serializable
     }
 
     /**
-     * Indica si el disco tiene el nombre que llega como parámetro
+     * Indica si el disco tiene el nombre que llega como parï¿½metro
      * @param nombre es el nombre de un disco - nombre != null
-     * @return True si el disco tiene el nombre que llega como parámetro
+     * @return True si el disco tiene el nombre que llega como parï¿½metro
      */
     public boolean equals( String nombre )
     {
@@ -221,13 +221,13 @@ public class Disco implements Serializable
     private void verificarInvariante( )
     {
         assert canciones != null : "La lista de canciones es nula";
-        assert nombreDisco != null && !nombreDisco.equals( "" ) : "El nombre del disco es inválido";
-        assert artista != null && !artista.equals( "" ) : "El nombre del artista es inválido";
-        assert genero != null && !genero.equals( "" ) : "El nombre del género es inválido";
-        assert imagen != null && !imagen.equals( "" ) : "El nombre del archivo con la imagen es inválido";
+        assert nombreDisco != null && !nombreDisco.equals( "" ) : "El nombre del disco es invï¿½lido";
+        assert artista != null && !artista.equals( "" ) : "El nombre del artista es invï¿½lido";
+        assert genero != null && !genero.equals( "" ) : "El nombre del gï¿½nero es invï¿½lido";
+        assert imagen != null && !imagen.equals( "" ) : "El nombre del archivo con la imagen es invï¿½lido";
 
         assert !buscarCancionesConElMismoNombre( ) : "Hay dos canciones con el mismo nombre";
-        assert precioTotal == recalcularPrecioDisco( ) : "Hay un error en el cálculo del precio total del disco";
+        assert precioTotal == recalcularPrecioDisco( ) : "Hay un error en el cï¿½lculo del precio total del disco";
     }
 
     /**
@@ -246,8 +246,8 @@ public class Disco implements Serializable
     }
 
     /**
-     * Este método sirve para revisar si hay canciones repetidas dentro del disco.
-     * @return Retorna true si hay una canción que aparece repetida dentro de la lista de canciones. Retorna false en caso contrario.
+     * Este mï¿½todo sirve para revisar si hay canciones repetidas dentro del disco.
+     * @return Retorna true si hay una canciï¿½n que aparece repetida dentro de la lista de canciones. Retorna false en caso contrario.
      */
     private boolean buscarCancionesConElMismoNombre( )
     {
