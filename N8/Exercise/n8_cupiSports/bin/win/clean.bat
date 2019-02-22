@@ -12,7 +12,7 @@ REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SET CLASSPATH=
 
 REM ---------------------------------------------------------
-REM Borra todos los archivos generados por el build
+REM Borra todos los files generados por el build
 REM ---------------------------------------------------------
 
 cd ../..

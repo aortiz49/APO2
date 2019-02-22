@@ -27,7 +27,7 @@ javac -nowarn -classpath -d ../classes/ uniandes/cupi2/cupiSports/mundo/*.java
 javac -nowarn -classpath -d ../classes/ uniandes/cupi2/cupiSports/interfaz/*.java
 
 REM ---------------------------------------------------------
-REM Crea el archivo jar a partir de los archivos compilados
+REM Crea el file jar a partir de los files compilados
 REM ---------------------------------------------------------
 
 cd ..

@@ -28,7 +28,7 @@ cd source
 javac -classpath ../../lib/cupiSports.jar;../lib/junit.jar -d ../classes/ uniandes/cupi2/cupiSports/test/*.java
 
 REM ---------------------------------------------------------
-REM Crea el archivo jar a partir de los archivos compilados
+REM Crea el file jar a partir de los files compilados
 REM ---------------------------------------------------------
 
 cd ../classes

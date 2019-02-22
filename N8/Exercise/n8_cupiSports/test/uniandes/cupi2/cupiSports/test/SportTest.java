@@ -143,7 +143,7 @@ public class SportTest {
      * 1. Agrega correctamente un athlete.<br>
      */
     @Test
-    public void testAgregarAthleteSobresalienteOK() {
+    public void testAddAthleteSobresalienteOK() {
         //TODO Parte 4 punto B: Implemente la prueba
 
     }
@@ -159,7 +159,7 @@ public class SportTest {
      * 2. No agrega un athlete porque lanza excepci�n.<br>
      */
     @Test
-    public void testAgregarAthleteSobresalienteError() {
+    public void testAddAthleteSobresalienteError() {
         //TODO Parte 4 punto C: Implemente la prueba
     }
 

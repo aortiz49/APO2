@@ -12,6 +12,7 @@
 
 package uniandes.cupi2.cupiSports.world;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +23,7 @@ import java.util.ArrayList;
  * numberOfRegisteredAthletes >= 0 <br>
  * imagePath != null && imagePath != "" <br>
  */
-public class Sport {
+public class Sport implements Serializable {
 
     // -----------------------------------------------------------------
     // Constants

@@ -84,7 +84,7 @@ public class SportsPanel extends JPanel implements ActionListener {
      * Actualiza el combo box con la lista de sports.
      * @param pSports Lista de sports que estar�n en el comboBox. pSports != null.
      */
-    public void actualizarSports(ArrayList<Sport> pSports) {
+    public void updateSports(ArrayList<Sport> pSports) {
         comboSports.removeAllItems();
         for (int i = 0; i < pSports.size(); i++) {
             comboSports.addItem(pSports.get(i));
@@ -114,16 +114,13 @@ public class SportsPanel extends JPanel implements ActionListener {
      * @param e Par�metro que tiene encapsulado las caracter�sticas del elemento.
      */
     public void actionPerformed(ActionEvent e) {
-        // TODO Parte 6 punto C: Implemente el manejo del evento con comando COMBO_DEPORTES
-        // proveniente de comboSports.
-
 
 
         String command = e.getActionCommand();
 
         if(COMBO_DEPORTES.equals(command)) {
             Sport sportName = (Sport) comboSports.getSelectedItem();
-           principal.actualizarInfoSport(sportName);
+           principal.updateInfoSport(sportName);
 
         }
     }

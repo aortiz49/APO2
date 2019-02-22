@@ -4,13 +4,12 @@
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
- * Exercise: n7_Hurricane
+ * Exercise: n8_Hurricane
  * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
 package uniandes.cupi2.cupiSports.world;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,39 +42,50 @@ public class ElementExistsException extends Exception {
     private static final String LOG_FILE = "./data/error.log";
 
     // -----------------------------------------------------------------
+    // Attributes
+    // -----------------------------------------------------------------
+
+    /**
+     * This is the type of element which is repeated.
+     */
+    private String repeatedElementType;
+
+    /**
+     * This is the name of the element which is repeated.
+     */
+    private String nameOfRepeatedElement;
+
+
+    // -----------------------------------------------------------------
     // Constructor
     // -----------------------------------------------------------------
 
     /**
      * Constructs the exception indicating the player or sport that caused the error.
      *
-     * @param pType    Type of the repeated element.
-     * @param elemName Name of the repeated element.
+     * @param pRepeatedElementType Type of the repeated element.
+     * @param pNameOfRepeatedName  Name of the repeated element.
      */
-    public ElementExistsException(String pType, String elemName) {
-        super(elemName);
-        registrarError(pType, elemName);
+    public ElementExistsException(String pRepeatedElementType, String pNameOfRepeatedName) {
+        super(pNameOfRepeatedName);
+        repeatedElementType = pRepeatedElementType;
+        nameOfRepeatedElement = pNameOfRepeatedName;
+        registrarError();
     }
 
     /**
-     * Registra en el archivo de log del programa toda la informaci�n referente a una excepci�n,
-     * ocurrida durante el proceso de persistencia
+     * Registers the errors related to persistence in a log file. <br>
      *
-     * @param pType    Type of the repeated element.
-     * @param elemName Name of the repeated element.
-     */
-    public void registrarError(String pType, String elemName) {
+     **/
+    public void registrarError() {
         try {
-            FileWriter out = new FileWriter(LOG_FILE, true);
-            PrintWriter log = new PrintWriter(out);
+            PrintWriter log = new PrintWriter(new FileWriter(LOG_FILE, true));
 
-            Date currentDate= new Date();
-            log.println("Fecha:            " + currentDate.toString());
-            log.println("---------------------------------------");
-            log.println("Discotienda.java :" + new Date().toString());
-            log.println("---------------------------------------");
+            Date currentDate = new Date();
+            log.println("-----------------------------------------------------------------");
+            log.println(currentDate.toString() + ":" + repeatedElementType + ":"
+                                + nameOfRepeatedElement);
             log.close();
-            out.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

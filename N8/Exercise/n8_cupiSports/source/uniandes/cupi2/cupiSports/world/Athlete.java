@@ -10,6 +10,8 @@
  */
 package uniandes.cupi2.cupiSports.world;
 
+import java.io.Serializable;
+
 /**
  * Class that represents an athlete. <br>
  * <b>inv: </b> <br>
@@ -19,7 +21,7 @@ package uniandes.cupi2.cupiSports.world;
  * amountOfTrophies >= 0 <br>
  * imagePath != null && imagePath != "". <br>
  */
-public class Athlete {
+public class Athlete implements Serializable {
     // -----------------------------------------------------------------
     // Constants
     // -----------------------------------------------------------------
@@ -85,6 +87,7 @@ public class Athlete {
         placeOfResidence = pPlaceOfResidency;
         amountOfTrophies = pAmountOfTrophies;
         imagePath = pImagePath;
+        verifyInvariants();
     }
 
     // -----------------------------------------------------------------

@@ -27,7 +27,7 @@ cd source
 javac -nowarn -classpath ../../lib/cupiSports.jar:../lib/junit.jar -d ../classes/ uniandes/cupi2/cupiSports/test/*.java
 
 # ---------------------------------------------------------
-# Crea el archivo jar a partir de los archivos compilados
+# Crea el file jar a partir de los files compilados
 # ---------------------------------------------------------
 
 cd ../classes

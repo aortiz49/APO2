@@ -1,12 +1,11 @@
-/**
+/*
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n
- * Licenciado bajo el esquema Academic Free License version 2.1
- * <p>
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiSports
- * Autor: Equipo Cupi2
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: n8_Sports
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -34,7 +33,7 @@ import javax.swing.border.TitledBorder;
 import uniandes.cupi2.cupiSports.world.ElementExistsException;
 
 /**
- * Dialogo para add un deporte.
+ * Dialog to add a sport.
  */
 public class AddSportDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
@@ -42,76 +41,76 @@ public class AddSportDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
 
     /**
-     * Constante add deporte.
+     * Constant to add a sport.
      */
-    private final static String AGREGAR = "Agregar deporte";
+    private final static String ADD = "Add a sport";
 
     /**
-     * Constante examinar.
+     * Constant to browse files.
      */
-    private final static String EXAMINAR = "Examinar";
+    private final static String BROWSE = "Browse";
 
     // -----------------------------------------------
     // Attributes
     // -----------------------------------------------
 
     /**
-     * Etiqueta name.
+     * Label for the sport name.
      */
     private JLabel lblName;
 
     /**
-     * Etiqueta ente regulaor.
+     * Label for regulatory entity.
      */
     private JLabel lblRegulatoryEntity;
 
     /**
-     * Etiqueta athletes registrados.
+     * Label for the registered athletes.
      */
-    private JLabel lblAthletesRegistrados;
+    private JLabel lblRegisteredAthletes;
 
     /**
-     * Etiqueta Imagen.
+     * Label for the sport image.
      */
-    private JLabel lblImagen;
+    private JLabel lblImage;
 
     /**
-     * Campo de texto Name.
+     * Text field for sport name.
      */
     private JTextField txtName;
 
     /**
-     * Campo de texto ente regulador.
+     * Text field for regulatory entity.
      */
     private JTextField txtRegulatoryEntity;
 
     /**
-     * Campo de texto athletes registrados.
+     * Text field for registered athletes.
      */
-    private JTextField txtAthletesRegistrados;
+    private JTextField txtRegisteredAthletes;
 
     /**
-     * Texto con la ruta de la imagen.
+     * Text field for sport image.
      */
-    private JTextField txtImagen;
+    private JTextField txtImage;
 
     /**
-     * Panel con la informaci�n del deporte.
+     * Panel containing the sport information.
      */
     private JPanel panelInfo;
 
     /**
-     * Bot�n para add el deporte.
+     * Button to add the sport.
      */
-    private JButton btnAgregar;
+    private JButton btnAdd;
 
     /**
-     * Bot�n para ingresar la ruta de la imagen.
+     * Button to enter the sport image path.
      */
-    private JButton btnExaminar;
+    private JButton btnBrowse;
 
     /**
-     * Ventana principal de la aplicaci�n.
+     * Principal window of the application.
      */
     private CupiSportsInterface principal;
 
@@ -120,21 +119,21 @@ public class AddSportDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
 
     /**
-     * Crea el dialogo para ingresar un deporte.
+     * Creates the dialog to add a new sport to the system.
      *
-     * @param pPrincipal Ventana principal de la aplicaci�n. pPrincipal != null.
+     * @param pPrincipal Principal window of the application. pPrincipal != null.
      */
     public AddSportDialog(CupiSportsInterface pPrincipal) {
         super(pPrincipal, true);
 
         principal = pPrincipal;
-        setTitle("Agregar deporte");
+        setTitle("Add a sport");
         setLayout(new java.awt.BorderLayout());
 
         panelInfo = new JPanel();
         panelInfo.setPreferredSize(new Dimension(500, 180));
 
-        panelInfo.setBorder(new TitledBorder("Informaci�n"));
+        panelInfo.setBorder(new TitledBorder("Information"));
         GridLayout layout = new GridLayout(4, 2, -175, 30);
         layout.setVgap(10);
         panelInfo.setLayout(layout);
@@ -144,111 +143,114 @@ public class AddSportDialog extends JDialog implements ActionListener {
         txtName = new JTextField();
         panelInfo.add(txtName);
 
-        lblRegulatoryEntity = new JLabel("Ente regulador: ");
+        lblRegulatoryEntity = new JLabel("Regulatory entity: ");
         panelInfo.add(lblRegulatoryEntity);
         txtRegulatoryEntity = new JTextField();
         panelInfo.add(txtRegulatoryEntity);
 
-        lblAthletesRegistrados = new JLabel("Athletes registrados: ");
-        panelInfo.add(lblAthletesRegistrados);
-        txtAthletesRegistrados = new JTextField();
-        panelInfo.add(txtAthletesRegistrados);
+        lblRegisteredAthletes = new JLabel("Registered athletes: ");
+        panelInfo.add(lblRegisteredAthletes);
+        txtRegisteredAthletes = new JTextField();
+        panelInfo.add(txtRegisteredAthletes);
 
-        lblImagen = new JLabel("Imagen: ");
-        panelInfo.add(lblImagen);
+        lblImage = new JLabel("Image: ");
+        panelInfo.add(lblImage);
 
         BorderLayout border = new BorderLayout();
         border.setHgap(5);
         border.setVgap(5);
 
         JPanel panelImagePath = new JPanel(border);
-        txtImagen = new JTextField();
-        panelImagePath.add(txtImagen, BorderLayout.CENTER);
+        txtImage = new JTextField();
+        panelImagePath.add(txtImage, BorderLayout.CENTER);
 
-        btnExaminar = new JButton(EXAMINAR);
-        btnExaminar.setActionCommand(EXAMINAR);
-        btnExaminar.addActionListener(this);
-        panelImagePath.add(btnExaminar, BorderLayout.EAST);
+        btnBrowse = new JButton(BROWSE);
+        btnBrowse.setActionCommand(BROWSE);
+        btnBrowse.addActionListener(this);
+        panelImagePath.add(btnBrowse, BorderLayout.EAST);
 
         panelInfo.add(panelImagePath);
 
         add(panelInfo, BorderLayout.NORTH);
 
-        btnAgregar = new JButton(AGREGAR);
-        btnAgregar.setActionCommand(AGREGAR);
-        btnAgregar.addActionListener(this);
-        add(btnAgregar, BorderLayout.SOUTH);
+        btnAdd = new JButton(ADD);
+        btnAdd.setActionCommand(ADD);
+        btnAdd.addActionListener(this);
+        add(btnAdd, BorderLayout.SOUTH);
 
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
+
     /**
-     * M�todo que recoge las acciones sobre los objetos que est� escuchando.
+     * Method that collects the actions of the objects it is listening to.
      *
-     * @param e Evento que se realiz�.
+     * @param e Event realized.
      */
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getActionCommand().equals(AGREGAR)) {
+        if (e.getActionCommand().equals(ADD)) {
             String name = txtName.getText();
             String regulatoryEntity = txtRegulatoryEntity.getText();
-            String imagen = txtImagen.getText();
-            String athletesRegistradosStr = txtAthletesRegistrados.getText();
+            String image = txtImage.getText();
+            String registeredAthletesStr = txtRegisteredAthletes.getText();
 
-            if (name.equals("") || regulatoryEntity.equals("") || athletesRegistradosStr.equals("")
-                    || imagen.equals("")) {
-                JOptionPane.showMessageDialog(this, "Datos incompletos.", "Agregar deporte",
+            if (name.equals("") || regulatoryEntity.equals("") || registeredAthletesStr.equals("")
+                    || image.equals("")) {
+                JOptionPane.showMessageDialog(this, "Incomplete data fields!", "Add a sport",
                                               JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
             try {
-                int athletesRegistrados = Integer.parseInt(athletesRegistradosStr);
-                if (athletesRegistrados <= 0) {
-                    JOptionPane.showMessageDialog(this, "Athletes registrados deber ser un n�mero "
-                            + "positivo.", "Agregar deporte", JOptionPane.ERROR_MESSAGE);
+                int registeredAthletes = Integer.parseInt(registeredAthletesStr);
+                if (registeredAthletes <= 0) {
+                    JOptionPane.showMessageDialog(this, "Registered athletes must be a "
+                            + "positive whole number! ", "Add a sport", JOptionPane.ERROR_MESSAGE);
                 }
+
                 else {
-                    principal.addSport(name, regulatoryEntity, athletesRegistrados, imagen);
+                    // If the number of registered athletes is correct, add the sport.
+                    principal.addSport(name, regulatoryEntity, registeredAthletes, image);
                     dispose();
                 }
             } catch (ElementExistsException e1) {
-                JOptionPane.showMessageDialog(this, "Ya exists un deporte con el name " + name,
-                                              "Agregar deporte", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,
+                                              "A sport already exists with the name " + name + "!",
+                                              "Add a sport", JOptionPane.ERROR_MESSAGE);
 
             } catch (NumberFormatException e2) {
-                JOptionPane.showMessageDialog(this, "Athletes registrados deber ser un n�mero.",
-                                              "Agregar deporte", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Registered athletes must be a number! ",
+                                              "Add a sport", JOptionPane.ERROR_MESSAGE);
             }
         }
 
-        if (e.getActionCommand().equals(EXAMINAR)) {
+        if (e.getActionCommand().equals(BROWSE)) {
             JFileChooser fc = new JFileChooser("./data/images");
-            fc.setDialogTitle("Buscar imagen...");
+            fc.setDialogTitle("Apply image...");
             fc.setMultiSelectionEnabled(false);
 
-            int resultado = fc.showOpenDialog(this);
-            if (resultado == JFileChooser.APPROVE_OPTION) {
-                String imagen = fc.getSelectedFile().getName();
+            int result = fc.showOpenDialog(this);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                String image = fc.getSelectedFile().getName();
                 try {
-                    Image variableImagen = (ImageIO.read(new File("./data/images/" + imagen)));
+                    Image variableImage = (ImageIO.read(new File("./data/images/" + image)));
 
-                    if (variableImagen != null) {
-                        txtImagen.setText("./data/images/" + imagen);
+                    if (variableImage != null) {
+                        txtImage.setText("./data/images/" + image);
                     }
                     else {
-                        JOptionPane.showMessageDialog(this,
-                                                      "El archivo seleccionado no es una imagen "
-                                                              + "v�lida.", "Agregar deporte",
-                                                      JOptionPane.ERROR_MESSAGE);
+                        JOptionPane
+                                .showMessageDialog(this, "The selected file is not a valid image!",
+                                                   "Add a sport", JOptionPane.ERROR_MESSAGE);
                     }
 
                 } catch (IOException e1) {
-                    JOptionPane
-                            .showMessageDialog(this, "Error al leer la imagen.", "Agregar deporte",
-                                               JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Error when reading the image.", "Add a "
+                                                          + "sport",
+                                                  JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

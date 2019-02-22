@@ -60,7 +60,7 @@ public class SportInfoPanel extends JPanel implements ActionListener
     /**
      * Label con el n�mero de athletes registrados.
      */
-    private JLabel lblAthletesRegistrados;
+    private JLabel lblRegisteredAthletes;
 
     /**
      * Campo de texto con el name del deporte.
@@ -75,7 +75,7 @@ public class SportInfoPanel extends JPanel implements ActionListener
     /**
      * Campo de texto con el n�mero de athletes registrados.
      */
-    private JTextField txtAthletesRegistrados;
+    private JTextField txtRegisteredAthletes;
 
     /**
      * Label athletes.
@@ -90,15 +90,15 @@ public class SportInfoPanel extends JPanel implements ActionListener
     /**
      * Panel con la imagen del deporte.
      */
-    private JPanel panelImagen;
+    private JPanel panelImage;
 
     /**
      * Label con la imagen del deporte.
      */
-    private JLabel lblImagen;
+    private JLabel lblImage;
 
     /**
-     * Ventana principal de la aplicaci�n.
+     * Principal window of the application.
      */
     private CupiSportsInterface principal;
 
@@ -107,7 +107,7 @@ public class SportInfoPanel extends JPanel implements ActionListener
     // -----------------------------------------------------------------
     /**
      * Constructor del panel.
-     * @param pPrincipal Ventana principal de la aplicaci�n. pPrincipal != null.
+     * @param pPrincipal Principal window of the application. pPrincipal != null.
      */
     public SportInfoPanel( CupiSportsInterface pPrincipal )
     {
@@ -116,16 +116,16 @@ public class SportInfoPanel extends JPanel implements ActionListener
         setBorder( new TitledBorder( "Sport" ) );
 
         setPreferredSize( new Dimension( 320, 150 ) );
-        // Panel Imagen
-        panelImagen = new JPanel( );
-        panelImagen.setPreferredSize( new Dimension( 110, 195 ) );
-        panelImagen.setLayout( new BorderLayout( ) );
-        add( panelImagen, java.awt.BorderLayout.NORTH );
+        // Panel Image
+        panelImage = new JPanel( );
+        panelImage.setPreferredSize( new Dimension( 110, 195 ) );
+        panelImage.setLayout( new BorderLayout( ) );
+        add( panelImage, java.awt.BorderLayout.NORTH );
 
-        lblImagen = new JLabel( );
-        lblImagen.setHorizontalAlignment( JLabel.CENTER );
-        lblImagen.setVerticalAlignment( JLabel.CENTER );
-        panelImagen.add( lblImagen, BorderLayout.CENTER );
+        lblImage = new JLabel( );
+        lblImage.setHorizontalAlignment( JLabel.CENTER );
+        lblImage.setVerticalAlignment( JLabel.CENTER );
+        panelImage.add( lblImage, BorderLayout.CENTER );
 
         JPanel granPanel = new JPanel( );
         granPanel.setPreferredSize( new Dimension( 400, 195 ) );
@@ -151,12 +151,12 @@ public class SportInfoPanel extends JPanel implements ActionListener
         txtRegulatoryEntity.setEditable( false );
         panelInformacion.add( txtRegulatoryEntity );
 
-        lblAthletesRegistrados = new JLabel( "Athletes registrados:" );
-        panelInformacion.add( lblAthletesRegistrados );
+        lblRegisteredAthletes = new JLabel( "Athletes registrados:" );
+        panelInformacion.add( lblRegisteredAthletes );
 
-        txtAthletesRegistrados = new JTextField( );
-        txtAthletesRegistrados.setEditable( false );
-        panelInformacion.add( txtAthletesRegistrados );
+        txtRegisteredAthletes = new JTextField( );
+        txtRegisteredAthletes.setEditable( false );
+        panelInformacion.add( txtRegisteredAthletes );
 
         lblAthletes = new JLabel( "Athletes sobresalientes:" );
         panelInformacion.add( lblAthletes );
@@ -173,14 +173,14 @@ public class SportInfoPanel extends JPanel implements ActionListener
      * Actualiza la informaci�n presentada por el panel.
      * @param pSport Sport del cual se va a obtener la informaci�n. pSport != null.
      */
-    public void actualizarInfo( Sport pSport )
+    public void updateInfo( Sport pSport )
     {
         if( pSport != null )
         {
-            lblImagen.setIcon( new ImageIcon( pSport.getImagePath( ) ) );
+            lblImage.setIcon( new ImageIcon( pSport.getImagePath( ) ) );
             txtNameSport.setText( pSport.getName( ) );
             txtRegulatoryEntity.setText( pSport.getRegulatoryEntity( ) );
-            txtAthletesRegistrados.setText( pSport.getNumberOfRegisteredAthletes( ) + "" );
+            txtRegisteredAthletes.setText( pSport.getNumberOfRegisteredAthletes( ) + "" );
             comboOutstandingAthletes.removeAllItems( );
             for( int i = 0; i < pSport.getOutstandingAthletes( ).size( ); i++ )
             {
@@ -189,10 +189,10 @@ public class SportInfoPanel extends JPanel implements ActionListener
         }
         else
         {
-            lblImagen.setIcon( new ImageIcon( "" ) );
+            lblImage.setIcon( new ImageIcon( "" ) );
             txtNameSport.setText( "" );
             txtRegulatoryEntity.setText( "" );
-            txtAthletesRegistrados.setText( "" );
+            txtRegisteredAthletes.setText( "" );
             comboOutstandingAthletes.removeAllItems( );
         }
     }
@@ -214,7 +214,7 @@ public class SportInfoPanel extends JPanel implements ActionListener
     {
         if( e.getActionCommand( ).equals( COMBO_DEPORTISTAS ) )
         {
-            principal.actualizarInfoAthlete( getAthleteSeleccionado( ) );
+            principal.updateInfoAthlete( getAthleteSeleccionado( ) );
         }
     }
 

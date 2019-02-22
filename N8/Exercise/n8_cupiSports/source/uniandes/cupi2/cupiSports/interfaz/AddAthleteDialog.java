@@ -1,12 +1,11 @@
-/**
+/*
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n
- * Licenciado bajo el esquema Academic Free License version 2.1
- * <p>
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiSports
- * Autor: Equipo Cupi2
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: n8_Sports
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -34,7 +33,7 @@ import javax.swing.border.TitledBorder;
 import uniandes.cupi2.cupiSports.world.ElementExistsException;
 
 /**
- * Dialogo para add un athlete.
+ * Dialog to add an athlete.
  */
 public class AddAthleteDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
@@ -42,86 +41,86 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
 
     /**
-     * Constante add athlete.
+     * Constant to add an athlete.
      */
-    private final static String AGREGAR = "Agregar athlete";
+    private final static String ADD = "Add athlete";
 
     /**
-     * Constante examinar.
+     * Constant to browse files.
      */
-    private final static String EXAMINAR = "Examinar";
+    private final static String BROWSE = "Browse";
 
     // -----------------------------------------------
     // Attributes
     // -----------------------------------------------
 
     /**
-     * Etiqueta name.
+     * Label for the athlete's name.
      */
     private JLabel lblName;
 
     /**
-     * Etiqueta age.
+     * Label for the athlete's age.
      */
     private JLabel lblAge;
 
     /**
-     * Etiqueta lugar de residencia.
+     * Label for the athlete's place of residency.
      */
     private JLabel lblPlaceOfResidency;
 
     /**
-     * Etiqueta trofeos ganados.
+     * Label for the number of trophies won by the athlete.
      */
-    private JLabel lblTrophiesGanados;
+    private JLabel lblTrophiesWon;
 
     /**
-     * Etiqueta Imagen.
+     * Label for the athlete's image.
      */
-    private JLabel labelImagen;
+    private JLabel labelImage;
 
     /**
-     * Campo de texto name.
+     * Text field for the athlete's name.
      */
     private JTextField txtName;
 
     /**
-     * Campo de texto age.
+     * Text field for the athlete's age.
      */
     private JTextField txtAge;
 
     /**
-     * Campo de texto lugar de residencia.
+     * Text field for the athlete's place of residency.
      */
     private JTextField txtPlaceOfResidency;
 
     /**
-     * Campo de texto trofeos ganados.
+     * Text field for the number of trophies won by the athlete.
      */
-    private JTextField txtTrophiesGanados;
+    private JTextField txtTrophiesWon;
 
     /**
-     * Texto con la ruta de la imagen.
+     * Text field for the athlete's image.
      */
-    private JTextField txtImagen;
+    private JTextField txtImage;
 
     /**
-     * Panel con la informaci�n of the athlete.
+     * Panel containing the athlete's information.
      */
     private JPanel panelInfo;
 
     /**
-     * Bot�n para add athlete.
+     * Button to add an athlete.
      */
-    private JButton btnAgregar;
+    private JButton btnAdd;
 
     /**
-     * Bot�n para ingresar la ruta de la imagen.
+     * Button to browse files.
      */
-    private JButton btnExaminar;
+    private JButton btnBrowse;
 
     /**
-     * Ventana principal de la aplicaci�n.
+     * Principal window of the application.
      */
     private CupiSportsInterface principal;
 
@@ -130,20 +129,21 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
     // -----------------------------------------------
 
     /**
-     * Crea el dialogo para add un athlete.
-     * @param pPrincipal Ventana principal de la aplicaci�n. pPrincipal != null.
+     * Creates the dialog to add an athlete.
+     *
+     * @param pPrincipal Principal window of the application. pPrincipal != null.
      */
     public AddAthleteDialog(CupiSportsInterface pPrincipal) {
         super(pPrincipal, true);
 
         principal = pPrincipal;
-        setTitle("Agregar athlete");
+        setTitle("Add athlete");
         setLayout(new java.awt.BorderLayout());
 
         panelInfo = new JPanel();
         panelInfo.setPreferredSize(new Dimension(450, 200));
 
-        panelInfo.setBorder(new TitledBorder("Informaci�n"));
+        panelInfo.setBorder(new TitledBorder("Information"));
         GridLayout layout = new GridLayout(5, 2, -175, 30);
         layout.setVgap(10);
         panelInfo.setLayout(layout);
@@ -158,40 +158,40 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
         txtAge = new JTextField();
         panelInfo.add(txtAge);
 
-        lblPlaceOfResidency = new JLabel("Lugar de residencia: ");
+        lblPlaceOfResidency = new JLabel("Place of residence: ");
         panelInfo.add(lblPlaceOfResidency);
         txtPlaceOfResidency = new JTextField();
         panelInfo.add(txtPlaceOfResidency);
 
-        lblTrophiesGanados = new JLabel("Trophies ganados: ");
-        panelInfo.add(lblTrophiesGanados);
-        txtTrophiesGanados = new JTextField();
-        panelInfo.add(txtTrophiesGanados);
+        lblTrophiesWon = new JLabel("Trophies won: ");
+        panelInfo.add(lblTrophiesWon);
+        txtTrophiesWon = new JTextField();
+        panelInfo.add(txtTrophiesWon);
 
-        labelImagen = new JLabel("Imagen: ");
-        panelInfo.add(labelImagen);
+        labelImage = new JLabel("Image: ");
+        panelInfo.add(labelImage);
 
         BorderLayout border = new BorderLayout();
         border.setHgap(5);
         border.setVgap(5);
 
         JPanel panelImagePath = new JPanel(border);
-        txtImagen = new JTextField();
-        panelImagePath.add(txtImagen, BorderLayout.CENTER);
+        txtImage = new JTextField();
+        panelImagePath.add(txtImage, BorderLayout.CENTER);
 
-        btnExaminar = new JButton(EXAMINAR);
-        btnExaminar.setActionCommand(EXAMINAR);
-        btnExaminar.addActionListener(this);
-        panelImagePath.add(btnExaminar, BorderLayout.EAST);
+        btnBrowse = new JButton(BROWSE);
+        btnBrowse.setActionCommand(BROWSE);
+        btnBrowse.addActionListener(this);
+        panelImagePath.add(btnBrowse, BorderLayout.EAST);
 
         panelInfo.add(panelImagePath);
 
         add(panelInfo, BorderLayout.NORTH);
 
-        btnAgregar = new JButton(AGREGAR);
-        btnAgregar.setActionCommand(AGREGAR);
-        btnAgregar.addActionListener(this);
-        add(btnAgregar, BorderLayout.SOUTH);
+        btnAdd = new JButton(ADD);
+        btnAdd.setActionCommand(ADD);
+        btnAdd.addActionListener(this);
+        add(btnAdd, BorderLayout.SOUTH);
 
         pack();
         setLocationRelativeTo(null);
@@ -199,72 +199,70 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
     }
 
     /**
-     * M�todo que recoge las acciones sobre los objetos que est� escuchando.
-     * @param e Evento que se realiz�.
+     * Method that collects the actions of the objects it is listening to.
+     *
+     * @param e Event realized.
      */
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals(AGREGAR)) {
+        if (e.getActionCommand().equals(ADD)) {
             String name = txtName.getText();
-            String ageSt = txtAge.getText();
-            String imagen = txtImagen.getText();
+            String ageStr = txtAge.getText();
+            String image = txtImage.getText();
             String placeOfResidence = txtPlaceOfResidency.getText();
-            String trofeosSt = txtTrophiesGanados.getText();
+            String trophiesStr = txtTrophiesWon.getText();
 
-            if (name.equals("") || ageSt.equals("") || placeOfResidence.equals("") || imagen
-                    .equals("") || trofeosSt.equals("")) {
-                JOptionPane.showMessageDialog(this, "Datos incompletos", "Agregar athlete",
+            if (name.equals("") || ageStr.equals("") || placeOfResidence.equals("") || image
+                    .equals("") || trophiesStr.equals("")) {
+                JOptionPane.showMessageDialog(this, "Incomplete data fields!", "Add athlete",
                                               JOptionPane.ERROR_MESSAGE);
             }
             else {
                 try {
-                    int age = Integer.parseInt(ageSt);
-                    int trofeos = Integer.parseInt(trofeosSt);
+                    int age = Integer.parseInt(ageStr);
+                    int trofeos = Integer.parseInt(trophiesStr);
                     if (age <= 0 || trofeos < 0) {
-                        JOptionPane.showMessageDialog(this,
-                                                      "Age y trofeos ganados deben ser n�meros "
-                                                              + "positivos.",
-                                                      "Agregar athlete", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Age and trophies won must be positive "
+                                + "whole numbers!", "Add athlete", JOptionPane.ERROR_MESSAGE);
                     }
                     else {
-                        principal.addOutstandingAthlete(name, age, placeOfResidence, trofeos,
-                                                        imagen);
+                        principal
+                                .addOutstandingAthlete(name, age, placeOfResidence, trofeos, image);
                         dispose();
                     }
 
                 } catch (NumberFormatException e2) {
-                    JOptionPane.showMessageDialog(this, "Age y trofeos ganados deben ser n�meros.",
-                                                  "Agregar athlete", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Age and trophies won must be numbers.",
+                                                  "Add athlete", JOptionPane.ERROR_MESSAGE);
                 } catch (ElementExistsException e3) {
-                    JOptionPane.showMessageDialog(this, "El athlete " + name + " ya exists.",
-                                                  "Agregar athlete", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "The athlete " + name + " already exists.",
+                                                  "Add athlete", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
         }
-        if (e.getActionCommand().equals(EXAMINAR)) {
+        if (e.getActionCommand().equals(BROWSE)) {
             JFileChooser fc = new JFileChooser("./data/images");
-            fc.setDialogTitle("Buscar Imagen...");
+            fc.setDialogTitle("Apply Image...");
             fc.setMultiSelectionEnabled(false);
 
             int resultado = fc.showOpenDialog(this);
             if (resultado == JFileChooser.APPROVE_OPTION) {
-                String imagen = fc.getSelectedFile().getName();
+                String image = fc.getSelectedFile().getName();
                 try {
-                    Image variableImagen = (ImageIO.read(new File("./data/images/" + imagen)));
+                    Image variableImage = (ImageIO.read(new File("./data/images/" + image)));
 
-                    if (variableImagen != null) {
-                        txtImagen.setText("./data/images/" + imagen);
+                    if (variableImage != null) {
+                        txtImage.setText("./data/images/" + image);
                     }
                     else {
-                        JOptionPane.showMessageDialog(this,
-                                                      "El archivo seleccionado no es una imagen "
-                                                              + "v�lida.",
-                                                      "Agregar athlete", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane
+                                .showMessageDialog(this, "The selected file is not a valid image!",
+                                                   "Add athlete", JOptionPane.ERROR_MESSAGE);
                     }
 
                 } catch (IOException e1) {
                     JOptionPane
-                            .showMessageDialog(this, "Error al leer la imagen.", "Agregar athlete",
+                            .showMessageDialog(this, "Error when reading the image.", "Add athlete",
                                                JOptionPane.ERROR_MESSAGE);
                 }
             }

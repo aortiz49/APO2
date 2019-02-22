@@ -12,7 +12,7 @@
 stty -echo
 
 # ---------------------------------------------------------
-# Borra todos los archivos generados por el build
+# Borra todos los files generados por el build
 # ---------------------------------------------------------
 
 cd ../..

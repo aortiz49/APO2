@@ -65,22 +65,22 @@ public class AthleteInfoPanel extends JPanel {
     /**
      * Label Para la cantidad de trofeos ganados.
      */
-    private JLabel lblTrophiesGanados;
+    private JLabel lblTrophiesWon;
 
     /**
      * Campo de texto con los trofeos ganados.
      */
-    private JTextField txtTrophiesGanados;
+    private JTextField txtTrophiesWon;
 
     /**
      * Panel con la imagen of the athlete.
      */
-    private JPanel panelImagen;
+    private JPanel panelImage;
 
     /**
      * Label con la imagen of the athlete.
      */
-    private JLabel lblImagen;
+    private JLabel lblImage;
 
     // -----------------------------------------------------------------
     // Constructors
@@ -94,16 +94,16 @@ public class AthleteInfoPanel extends JPanel {
         setBorder(new TitledBorder("Athlete"));
 
         setPreferredSize(new Dimension(350, 150));
-        // Panel Imagen
-        panelImagen = new JPanel();
-        panelImagen.setPreferredSize(new Dimension(110, 195));
-        panelImagen.setLayout(new BorderLayout());
-        add(panelImagen, java.awt.BorderLayout.NORTH);
+        // Panel Image
+        panelImage = new JPanel();
+        panelImage.setPreferredSize(new Dimension(110, 195));
+        panelImage.setLayout(new BorderLayout());
+        add(panelImage, java.awt.BorderLayout.NORTH);
 
-        lblImagen = new JLabel();
-        lblImagen.setHorizontalAlignment(JLabel.CENTER);
-        lblImagen.setVerticalAlignment(JLabel.CENTER);
-        panelImagen.add(lblImagen, BorderLayout.CENTER);
+        lblImage = new JLabel();
+        lblImage.setHorizontalAlignment(JLabel.CENTER);
+        lblImage.setVerticalAlignment(JLabel.CENTER);
+        panelImage.add(lblImage, BorderLayout.CENTER);
 
         JPanel granPanel = new JPanel();
         granPanel.setPreferredSize(new Dimension(400, 195));
@@ -136,12 +136,12 @@ public class AthleteInfoPanel extends JPanel {
         txtPlaceOfResidency.setEditable(false);
         panelInformacion.add(txtPlaceOfResidency);
 
-        lblTrophiesGanados = new JLabel("Trophies ganados:");
-        panelInformacion.add(lblTrophiesGanados);
+        lblTrophiesWon = new JLabel("Trophies ganados:");
+        panelInformacion.add(lblTrophiesWon);
 
-        txtTrophiesGanados = new JTextField();
-        txtTrophiesGanados.setEditable(false);
-        panelInformacion.add(txtTrophiesGanados);
+        txtTrophiesWon = new JTextField();
+        txtTrophiesWon.setEditable(false);
+        panelInformacion.add(txtTrophiesWon);
 
         granPanel.add(panelInformacion, BorderLayout.NORTH);
 
@@ -151,20 +151,20 @@ public class AthleteInfoPanel extends JPanel {
      * Actualiza la informaci�n presentada por el panel.
      * @param pAthlete Athlete del cual se va a obtener la informaci�n. pAthlete != null.
      */
-    public void actualizarInfo(Athlete pAthlete) {
+    public void updateInfo(Athlete pAthlete) {
         if (pAthlete != null) {
-            lblImagen.setIcon(new ImageIcon(pAthlete.getImagePath()));
+            lblImage.setIcon(new ImageIcon(pAthlete.getImagePath()));
             txtNameAthlete.setText(pAthlete.getName());
             txtAge.setText(String.valueOf(pAthlete.getAge()));
-            txtTrophiesGanados.setText(String.valueOf(pAthlete.getAmountOfTrophies()));
+            txtTrophiesWon.setText(String.valueOf(pAthlete.getAmountOfTrophies()));
             txtPlaceOfResidency.setText(pAthlete.getPlaceOfResidency());
 
         }
         else {
-            lblImagen.setIcon(new ImageIcon(""));
+            lblImage.setIcon(new ImageIcon(""));
             txtNameAthlete.setText("");
             txtAge.setText("");
-            txtTrophiesGanados.setText("");
+            txtTrophiesWon.setText("");
             txtPlaceOfResidency.setText("");
         }
 

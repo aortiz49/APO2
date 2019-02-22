@@ -33,7 +33,7 @@ public class PanelOpciones extends JPanel implements ActionListener {
     /**
      * Constante para add un deporte.
      */
-    public static final String NUEVO_DEPORTE = "Agregar deporte";
+    public static final String NUEVO_DEPORTE = "Add a sport";
 
     /**
      * Constante para delete un deporte.
@@ -43,7 +43,7 @@ public class PanelOpciones extends JPanel implements ActionListener {
     /**
      * Constante para add un athlete.
      */
-    public static final String NUEVO_DEPORTISTA = "Agregar athlete";
+    public static final String NUEVO_DEPORTISTA = "Add athlete";
 
     /**
      * Constante para el bot�n de delete athlete.
@@ -103,7 +103,7 @@ public class PanelOpciones extends JPanel implements ActionListener {
     private JButton btnGenerarReporte;
 
     /**
-     * Bot�n para leer un archivo.
+     * Bot�n para leer un file.
      */
     private JButton btnLeerArchivo;
 
@@ -185,10 +185,10 @@ public class PanelOpciones extends JPanel implements ActionListener {
             principal.deleteAthlete();
         }
         else if (event.getActionCommand().equals(GENERAR_REPORTE)) {
-            principal.generarReporteTrophies("./data/reporte.txt");
+            principal.generateTrophyReport("./data/TrophyReport.txt");
         }
         else if (event.getActionCommand().equals(IMPORTAR_DATOS)) {
-            principal.actualizarInformacionAthletes();
+            principal.updateAthletesInformation();
         }
     }
 }

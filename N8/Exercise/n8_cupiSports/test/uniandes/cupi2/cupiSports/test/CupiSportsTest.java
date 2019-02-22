@@ -17,6 +17,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import uniandes.cupi2.cupiSports.world.ElementExistsException;
+import uniandes.cupi2.cupiSports.world.FileFormatException;
+import uniandes.cupi2.cupiSports.world.PersistenceException;
 import uniandes.cupi2.cupiSports.world.*;
 
 import org.junit.Before;
@@ -35,7 +38,7 @@ public class CupiSportsTest {
     // -----------------------------------------------------------------
 
     /**
-     * Ruta para cargar el archivo de prueba.
+     * Ruta para cargar el file de prueba.
      */
     private final static String RUTA_PRUEBA = "./test/data/cupiSports.data";
 
@@ -64,7 +67,7 @@ public class CupiSportsTest {
         try {
             cupiSports = new CupiSports(RUTA_PRUEBA);
         } catch (PersistenceException e) {
-            fail("Hay errores al cargar el archivo de CupiSports.");
+            fail("Hay errores al cargar el file de CupiSports.");
         }
     }
 
@@ -75,7 +78,7 @@ public class CupiSportsTest {
         try {
             cupiSports = new CupiSports("");
         } catch (PersistenceException e) {
-            fail("Hay errores al cargar el archivo de CupiSports.");
+            fail("Hay errores al cargar el file de CupiSports.");
         }
     }
 
@@ -95,17 +98,17 @@ public class CupiSportsTest {
         assertEquals("El tama�o de la lista no corresponde.", 2, listaSports.size());
 
         // El primer deporte
-        Sport primero = (Sport) listaSports.get(0);
+        Sport primero = listaSports.get(0);
         assertEquals("El primer deporte no corresponde.", "F�tbol", primero.getName());
         ArrayList<Athlete> athletesPrimero = primero.getOutstandingAthletes();
-        Athlete primerAthlete = (Athlete) athletesPrimero.get(0);
+        Athlete primerAthlete = athletesPrimero.get(0);
         assertEquals("El primer athlete no corresponde.", "James", primerAthlete.getName());
 
         // El segundo deporte
-        Sport segundo = (Sport) listaSports.get(1);
+        Sport segundo = listaSports.get(1);
         assertEquals("El segundo deporte no corresponde.", "Tenis", segundo.getName());
         ArrayList<Athlete> athletesSegundo = segundo.getOutstandingAthletes();
-        Athlete segundoAthlete = (Athlete) athletesSegundo.get(0);
+        Athlete segundoAthlete = athletesSegundo.get(0);
         assertEquals("El segundo athlete no corresponde.", "Alejandro", segundoAthlete.getName());
 
     }
@@ -140,7 +143,7 @@ public class CupiSportsTest {
      * 1. Agrega un deporte nuevo.<br>
      */
     @Test
-    public void testAgregarSportOK() {
+    public void testAddSportOK() {
         //TODO Parte 4 punto E: Implemente el m�todo seg�n la documentaci�n.
     }
 
@@ -154,7 +157,7 @@ public class CupiSportsTest {
      * 1. No agrega, dado que ya exist�a un deporte con el name dado.<br>
      */
     @Test
-    public void testAgregarSportError() {
+    public void testAddSportError() {
         //TODO Parte 4 punto F: Implemente el m�todo seg�n la documentaci�n.
     }
 
@@ -186,7 +189,7 @@ public class CupiSportsTest {
      * 1. Agrega el athlete.<br>
      */
     @Test
-    public void testAgregarAthleteOK() {
+    public void testAddAthleteOK() {
         // 1
         try {
             cupiSports
@@ -194,7 +197,7 @@ public class CupiSportsTest {
             Sport primero = (Sport) cupiSports.getSports().get(0);
             assertEquals("El tama�o de los athletes no coincide.", 2,
                          primero.getOutstandingAthletes().size());
-            Athlete nuevo = (Athlete) primero.getOutstandingAthletes().get(1);
+            Athlete nuevo = primero.getOutstandingAthletes().get(1);
             assertEquals("El name of the athlete nuevo no coincide.", "Falcao", nuevo.getName());
         } catch (ElementExistsException e) {
             fail("No deber�a lanzar una excepci�n al add el athlete.");
@@ -222,7 +225,7 @@ public class CupiSportsTest {
      * 1. No agrega el athlete porque lanza excepci�n.<br>
      */
     @Test
-    public void testAgregarAthleteError() {
+    public void testAddAthleteError() {
 
         // 2
         try {
@@ -349,11 +352,11 @@ public class CupiSportsTest {
     }
 
     /**
-     * Test 13: Verifica el m�todo actualizarInformacionAthletes.<br>
+     * Test 13: Verifica el m�todo updateAthletesInformation.<br>
      * <b> Methods to test: </b> <br>
-     * actualizarInformacionAthletes <br>
+     * updateAthletesInformation <br>
      * getSports <br>
-     * <b> Objective: </b> Probar funcionamiento correcto actualizarInformacionAthletes<br>
+     * <b> Objective: </b> Probar funcionamiento correcto updateAthletesInformation<br>
      * <b> Expected results: </b> <br>
      * 1. Cuando actualiza correctamente.<br>
      * 2. Cuando hay errores de formato. Cantidad de athletes mal.<br>
@@ -362,16 +365,16 @@ public class CupiSportsTest {
      * 5. Cuando hay errores de formato. N�meros negativos.<br>
      */
     @Test
-    public void testActualizarInformacionAthletes() {
+    public void testActualizarAthletesInformation() {
         // 1
 
-        File pArchivo = new File("./test/data/datosTestOK.txt");
+        File pFile = new File("./test/data/datosTestOK.txt");
         try {
-            cupiSports.actualizarInformacionAthletes(pArchivo);
+            cupiSports.updateAthletesInformation(pFile);
             Sport primero = (Sport) cupiSports.getSports().get(0);
             Sport segundo = (Sport) cupiSports.getSports().get(1);
-            Athlete deport1 = (Athlete) primero.getOutstandingAthletes().get(0);
-            Athlete deport2 = (Athlete) segundo.getOutstandingAthletes().get(0);
+            Athlete deport1 = primero.getOutstandingAthletes().get(0);
+            Athlete deport2 = segundo.getOutstandingAthletes().get(0);
 
             assertEquals("El name del primer athlete no corresponde.", "James", deport1.getName());
             assertEquals("La age del primer athlete no corresponde.", 24, deport1.getAge());
@@ -401,9 +404,9 @@ public class CupiSportsTest {
 
         // 2
 
-        File pArchivo2 = new File("./test/data/datosTestError.txt");
+        File pFile2 = new File("./test/data/datosTestError.txt");
         try {
-            cupiSports.actualizarInformacionAthletes(pArchivo2);
+            cupiSports.updateAthletesInformation(pFile2);
             fail("Deber�a lanzar excepci�n.");
         } catch (FileNotFoundException e) {
             fail("No deber�a lanzar esta excepci�n.");
@@ -415,9 +418,9 @@ public class CupiSportsTest {
 
         // 3
 
-        File pArchivo3 = new File("./test/data/datosTestError2.txt");
+        File pFile3 = new File("./test/data/datosTestError2.txt");
         try {
-            cupiSports.actualizarInformacionAthletes(pArchivo3);
+            cupiSports.updateAthletesInformation(pFile3);
             fail("Deber�a lanzar excepci�n.");
         } catch (FileNotFoundException e) {
             fail("No deber�a lanzar esta excepci�n.");
@@ -429,9 +432,9 @@ public class CupiSportsTest {
 
         // 4
 
-        File pArchivo4 = new File("./test/data/datosTestError3.txt");
+        File pFile4 = new File("./test/data/datosTestError3.txt");
         try {
-            cupiSports.actualizarInformacionAthletes(pArchivo4);
+            cupiSports.updateAthletesInformation(pFile4);
             fail("Deber�a lanzar excepci�n.");
         } catch (FileNotFoundException e) {
             fail("No deber�a lanzar esta excepci�n.");
@@ -443,9 +446,9 @@ public class CupiSportsTest {
 
         // 5
 
-        File pArchivo5 = new File("./test/data/datosTestError4.txt");
+        File pFile5 = new File("./test/data/datosTestError4.txt");
         try {
-            cupiSports.actualizarInformacionAthletes(pArchivo5);
+            cupiSports.updateAthletesInformation(pFile5);
             fail("Deber�a lanzar excepci�n.");
         } catch (FileNotFoundException e) {
             fail("No deber�a lanzar esta excepci�n.");

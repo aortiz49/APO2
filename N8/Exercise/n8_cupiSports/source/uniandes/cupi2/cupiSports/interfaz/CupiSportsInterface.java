@@ -22,11 +22,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import uniandes.cupi2.cupiSports.world.ElementExistsException;
+import uniandes.cupi2.cupiSports.world.FileFormatException;
+import uniandes.cupi2.cupiSports.world.PersistenceException;
 import uniandes.cupi2.cupiSports.world.*;
 
 
 /**
- * Ventana principal de la aplicaci�n.
+ * Principal window of the application.
  */
 public class CupiSportsInterface extends JFrame {
     // -----------------------------------------------------------------
@@ -34,7 +37,7 @@ public class CupiSportsInterface extends JFrame {
     // -----------------------------------------------------------------
 
     /**
-     * Ruta al archivo donde se guarda la informaci�n.
+     * Ruta al file donde se guarda la informaci�n.
      */
     private final static String DATA = "./data/cupiSports.data";
 
@@ -59,7 +62,7 @@ public class CupiSportsInterface extends JFrame {
     /**
      * Panel con la imagen del banner.
      */
-    private PanelImagen panelImagen;
+    private ImagePanel panelImage;
 
     /**
      * Panel con los sports.
@@ -99,8 +102,8 @@ public class CupiSportsInterface extends JFrame {
 
             // Creaci�n de los paneles aqu�
             JPanel panelNorte = new JPanel(new BorderLayout());
-            panelImagen = new PanelImagen();
-            panelNorte.add(panelImagen, BorderLayout.NORTH);
+            panelImage = new ImagePanel();
+            panelNorte.add(panelImage, BorderLayout.NORTH);
             add(panelNorte, BorderLayout.NORTH);
 
             JPanel panelCentral = new JPanel(new BorderLayout());
@@ -120,7 +123,7 @@ public class CupiSportsInterface extends JFrame {
 
             setLocationRelativeTo(null);
 
-            actualizarListaSports();
+            updateListaSports();
         } catch (PersistenceException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "CupiSports",
                                           JOptionPane.ERROR_MESSAGE);
@@ -135,24 +138,24 @@ public class CupiSportsInterface extends JFrame {
     /**
      * Actualiza el panel panelSports con los sports disponibles.
      */
-    public void actualizarListaSports() {
-        panelSports.actualizarSports(cupiSports.getSports());
+    public void updateListaSports() {
+        panelSports.updateSports(cupiSports.getSports());
     }
 
     /**
      * Actualiza la informaci�n que se visualiza de un deporte.
      * @param pSport Sport del cual se va a mostrar la informaci�n.pSport != null.
      */
-    public void actualizarInfoSport(Sport pSport) {
-        panelInfoSport.actualizarInfo(pSport);
+    public void updateInfoSport(Sport pSport) {
+        panelInfoSport.updateInfo(pSport);
     }
 
     /**
      * Actualiza la informaci�n que se visualiza of the athlete.
      * @param pAthlete Athlete del cual se va a mostrar la informaci�n. pAthlete != null.
      */
-    public void actualizarInfoAthlete(Athlete pAthlete) {
-        panelInfoAthlete.actualizarInfo(pAthlete);
+    public void updateInfoAthlete(Athlete pAthlete) {
+        panelInfoAthlete.updateInfo(pAthlete);
     }
 
     /**
@@ -171,7 +174,7 @@ public class CupiSportsInterface extends JFrame {
      *                          pRegulatoryEntity != "".
      * @param pNumberOfRegisteredAthletes Cantidad de athletes registrados.
      *                                    pNumberOfRegisteredAthletes > 0.
-     * @param pImagePath Image path of the sport. pImagePath != null && pRutasImagen != "".
+     * @param pImagePath Image path of the sport. pImagePath != null && pRutasImage != "".
      * @throws ElementExistsException Si ya exists un deporte con el name dado.
      */
     public void addSport(String pNameSport, String pRegulatoryEntity,
@@ -179,16 +182,16 @@ public class CupiSportsInterface extends JFrame {
             throws ElementExistsException {
         cupiSports.addSport(pNameSport, pRegulatoryEntity, pNumberOfRegisteredAthletes,
                                 pImagePath);
-        actualizarListaSports();
+        updateListaSports();
     }
 
     /**
-     * Muestra el dialogo para add un athlete sobresaliente.
+     * Muestra el dialogo para add un outstanding athlete.
      */
     public void mostrarAddAthleteDialog() {
         if (panelSports.getSportSeleccionado() == null) {
             JOptionPane.showMessageDialog(this, "No ha seleccionado ning�n deporte.",
-                                          "Agregar athlete", JOptionPane.ERROR_MESSAGE);
+                                          "Add athlete", JOptionPane.ERROR_MESSAGE);
         }
         else {
             AddAthleteDialog dialogo = new AddAthleteDialog(this);
@@ -199,7 +202,7 @@ public class CupiSportsInterface extends JFrame {
 
     /**
      * Agrega un athlete al deporte seleccionado.
-     * @param pNameAthlete Name of the athlete sobresaliente. pNameAthlete != null &&
+     * @param pNameAthlete Name of the outstanding athlete. pNameAthlete != null &&
      *                     pNameAthlete != "".
      * @param pAge Age of the athlete. pAge > 0.
      * @param pPlaceOfResidency Athlete's place of residence.  pPlaceOfResidency != null &&
@@ -216,7 +219,7 @@ public class CupiSportsInterface extends JFrame {
         String nameSport = panelSports.getSportSeleccionado().getName();
         cupiSports.addOutstandingAthlete(nameSport, pNameAthlete, pAge, pPlaceOfResidency,
                                          pAmountOfTrophies, pImagePathAthlete);
-        actualizarInfoSport(panelSports.getSportSeleccionado());
+        updateInfoSport(panelSports.getSportSeleccionado());
     }
 
     /**
@@ -233,7 +236,7 @@ public class CupiSportsInterface extends JFrame {
                                                              JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 cupiSports.deleteSport(panelSports.getSportSeleccionado().getName());
-                actualizarListaSports();
+                updateListaSports();
             }
         }
 
@@ -249,7 +252,7 @@ public class CupiSportsInterface extends JFrame {
         }
         else if (panelInfoSport.getAthleteSeleccionado() == null) {
             JOptionPane.showMessageDialog(this,
-                                          "No ha seleccionado ning�n athlete sobresaliente del "
+                                          "No ha seleccionado ning�n outstanding athlete del "
                                                   + "deporte.",
                                           "Eliminar athlete", JOptionPane.ERROR_MESSAGE);
         }
@@ -266,42 +269,42 @@ public class CupiSportsInterface extends JFrame {
                 cupiSports.eliminateOutstandingAthlete(panelSports.getSportSeleccionado().getName(),
                                                        panelInfoSport.getAthleteSeleccionado()
                                                                      .getName());
-                actualizarInfoSport(panelSports.getSportSeleccionado());
+                updateInfoSport(panelSports.getSportSeleccionado());
             }
         }
 
     }
 
     /**
-     * Actualiza la informaci�n de los athletes a partir de un archivo.
+     * Actualiza la informaci�n de los athletes a partir de un file.
      */
-    public void actualizarInformacionAthletes() {
-        JFileChooser fc = new JFileChooser("./data/actualizacionInformacion");
+    public void updateAthletesInformation() {
+        JFileChooser fc = new JFileChooser("./data/updatePlayerInformation");
         fc.setDialogTitle("Actualizar informaci�n athletes");
         int resultado = fc.showOpenDialog(this);
         if (resultado == JFileChooser.APPROVE_OPTION) {
-            File archivo = fc.getSelectedFile();
-            if (archivo != null) {
+            File file = fc.getSelectedFile();
+            if (file != null) {
                 try {
-                    cupiSports.actualizarInformacionAthletes(archivo);
+                    cupiSports.updateAthletesInformation(file);
                     JOptionPane.showMessageDialog(this,
                                                   "La informaci�n de los athletes fue actualizada.",
                                                   "Actualizar informaci�n",
                                                   JOptionPane.INFORMATION_MESSAGE);
                 } catch (FileNotFoundException e) {
                     JOptionPane.showMessageDialog(this,
-                                                  "Se present� un problema leyendo el archivo:\n"
+                                                  "Se present� un problema leyendo el file:\n"
                                                           + e.getMessage() + ".", "Error",
                                                   JOptionPane.ERROR_MESSAGE);
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(this,
-                                                  "Se present� un problema leyendo el archivo:\n"
+                                                  "Se present� un problema leyendo el file:\n"
                                                           + e.getMessage() + ".", "Error",
                                                   JOptionPane.ERROR_MESSAGE);
                 } catch (FileFormatException e) {
                     JOptionPane.showMessageDialog(this,
                                                   "Se present� un problema debido al formato del "
-                                                          + "archivo:\n"
+                                                          + "file:\n"
                                                           + e.getMessage(), "Error",
                                                   JOptionPane.ERROR_MESSAGE);
                 }
@@ -313,11 +316,11 @@ public class CupiSportsInterface extends JFrame {
 
     /**
      * Escribe el reporte de los trofeos de los athletes detscados.
-     * @param pRutaArchivo Ruta al archivo. pRutaArchivo != null && pRutaArchivo != "".
+     * @param pFilePath Ruta al file. pFilePath != null && pFilePath != "".
      */
-    public void generarReporteTrophies(String pRutaArchivo) {
+    public void generateTrophyReport(String pFilePath) {
         try {
-            cupiSports.generarReporteTrophies(pRutaArchivo);
+            cupiSports.generateTrophyReport(pFilePath);
             JOptionPane.showMessageDialog(this, "El reporte se gener� correctamente.",
                                           "Generar reporte", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException e) {
@@ -338,37 +341,37 @@ public class CupiSportsInterface extends JFrame {
             super.dispose();
         } catch (Exception e) {
             setVisible(true);
-            int respuesta = JOptionPane.showConfirmDialog(this,
+            int response = JOptionPane.showConfirmDialog(this,
                                                           "Problemas salvando la informaci�n de "
                                                                   + "la discotienda:\n"
                                                                   + e.getMessage()
                                                                   + "\n�Quiere cerrar el programa"
                                                                   + " sin salvar?",
                                                           "Error", JOptionPane.YES_NO_OPTION);
-            if (respuesta == JOptionPane.YES_OPTION) {
+            if (response == JOptionPane.YES_OPTION) {
                 super.dispose();
             }
         }
     }
 
     // -----------------------------------------------------------------
-    // Puntos de Extensi�n
+    // Extension points
     // -----------------------------------------------------------------
 
     /**
-     * M�todo para la extensi�n 1.
+     * Method for extension  1.
      */
     public void reqFuncOpcion1() {
-        String resultado = cupiSports.metodo1();
+        String resultado = cupiSports.method1();
         JOptionPane
                 .showMessageDialog(this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
-     * M�todo para la extensi�n 2.
+     * Method for extension  2.
      */
     public void reqFuncOpcion2() {
-        String resultado = cupiSports.metodo2();
+        String resultado = cupiSports.method2();
         JOptionPane
                 .showMessageDialog(this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE);
     }
