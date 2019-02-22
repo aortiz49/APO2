@@ -201,12 +201,12 @@ public class Athlete implements Serializable {
      */
     private void verifyInvariants() {
         assert name != null : "The name is null";
-        assert name.equals("") : "The name is empty";
-        assert age < 0 : "The age is negative";
+        assert !name.equals("") : "The name is empty";
+        assert !(age < 0) : "The age is negative";
         assert placeOfResidence != null : "The place of residence is null";
-        assert placeOfResidence.equals("") : "The place of residence is empty";
+        assert !placeOfResidence.equals("") : "The place of residence is empty";
         assert imagePath != null : "The name is null";
-        assert imagePath.equals("") : "The name is empty";
+        assert !imagePath.equals("") : "The name is empty";
 
     }
 

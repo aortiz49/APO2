@@ -259,7 +259,7 @@ public class Sport implements Serializable {
         assert !name.equals("") : "The name is empty";
         assert regulatoryEntity != null : "The regulatory entity is null";
         assert !regulatoryEntity.equals("") : "The regulatory entity is empty";
-        assert numberOfRegisteredAthletes > 0 : "The number of registered athletes is negative";
+        assert !(numberOfRegisteredAthletes < 0) : "The number of registered athletes is negative";
         assert imagePath != null : "The name is null";
         assert !imagePath.equals("") : "The name is empty";
 

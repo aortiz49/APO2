@@ -43,7 +43,7 @@ public class AthleteTest {
     @Before
     public void setupScenario1() {
 
-        athlete = new Athlete("James", 23, "Munich", 39, "image");
+        athlete = new Athlete("James", 23, "Madrid", 39, "image");
 
     }
 
@@ -81,7 +81,7 @@ public class AthleteTest {
      */
     @Test
 
-    public void testCambiarAge() {
+    public void testModifyAge() {
         athlete.modifyAge(30);
         assertEquals("La age of the athlete es incorrecta.", 30, athlete.getAge());
     }
@@ -96,7 +96,7 @@ public class AthleteTest {
      * 1. El lugar de residencia fue cambiado correctamente.<br>
      */
     @Test
-    public void testCambiarPlaceOfResidency() {
+    public void testModifyPlaceOfResidency() {
         athlete.modifyPlaceOfResidency("Bogot�");
         assertEquals("El lugar de residencia of the athlete es incorrecto.", "Bogot�",
                      athlete.getPlaceOfResidency());
@@ -113,7 +113,7 @@ public class AthleteTest {
      * 1. La cantidad de trofeos fue cambiada correctamente.<br>
      */
     @Test
-    public void testCambiarAmountOfTrophies() {
+    public void testModifyAmountOfTrophies() {
         athlete.modifyAmountOfTrophies(10);
         assertEquals("La cantidad detrofeos of the athlete es incorrecta.", 10,
                      athlete.getAmountOfTrophies());
@@ -130,7 +130,7 @@ public class AthleteTest {
      * 1. La ruta de la imagen fue cambiada correctamente.<br>
      */
     @Test
-    public void testCambiarImagePath() {
+    public void testModifyImagePath() {
         athlete.modifyImagePath("imagen2");
         assertEquals("La ruta de la imagen of the athlete es incorrecta.", "imagen2",
                      athlete.getImagePath());

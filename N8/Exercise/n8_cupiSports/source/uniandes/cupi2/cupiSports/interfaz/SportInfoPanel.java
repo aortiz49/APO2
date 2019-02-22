@@ -29,7 +29,7 @@ import uniandes.cupi2.cupiSports.world.Sport;
 import uniandes.cupi2.cupiSports.world.Athlete;
 
 /**
- * Panel para para visualizar la informaci�n de un deporte.
+ * Panel to to visualizar la informaci�n de a sport.
  */
 public class SportInfoPanel extends JPanel implements ActionListener
 {
@@ -39,16 +39,16 @@ public class SportInfoPanel extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Constante para definir el action command del combo de las athletes.
+     * Constant to definir el action command del combo de las athletes.
      */
     private static final String COMBO_DEPORTISTAS = "Combo athletes";
 
     // -----------------------------------------------------------------
-    // Attributes de interfaz
+    // Attributes of the interface
     // -----------------------------------------------------------------
 
     /**
-     * Label con el name del deporte.
+     * Label con el name del sport.
      */
     private JLabel lblNameSport;
 
@@ -63,7 +63,7 @@ public class SportInfoPanel extends JPanel implements ActionListener
     private JLabel lblRegisteredAthletes;
 
     /**
-     * Campo de texto con el name del deporte.
+     * Campo de texto con el name del sport.
      */
     private JTextField txtNameSport;
 
@@ -88,12 +88,12 @@ public class SportInfoPanel extends JPanel implements ActionListener
     private JComboBox comboOutstandingAthletes;
 
     /**
-     * Panel con la imagen del deporte.
+     * Panel con la imagen del sport.
      */
     private JPanel panelImage;
 
     /**
-     * Label con la imagen del deporte.
+     * Label con la imagen del sport.
      */
     private JLabel lblImage;
 
@@ -144,21 +144,21 @@ public class SportInfoPanel extends JPanel implements ActionListener
         txtNameSport.setEditable( false );
         panelInformacion.add( txtNameSport );
 
-        lblRegulatoryEntity = new JLabel( "Ente regulador:" );
+        lblRegulatoryEntity = new JLabel( "Regulatory entity:" );
         panelInformacion.add( lblRegulatoryEntity );
 
         txtRegulatoryEntity = new JTextField( );
         txtRegulatoryEntity.setEditable( false );
         panelInformacion.add( txtRegulatoryEntity );
 
-        lblRegisteredAthletes = new JLabel( "Athletes registrados:" );
+        lblRegisteredAthletes = new JLabel( "Registered athletes:" );
         panelInformacion.add( lblRegisteredAthletes );
 
         txtRegisteredAthletes = new JTextField( );
         txtRegisteredAthletes.setEditable( false );
         panelInformacion.add( txtRegisteredAthletes );
 
-        lblAthletes = new JLabel( "Athletes sobresalientes:" );
+        lblAthletes = new JLabel( "Outstanding athletes:" );
         panelInformacion.add( lblAthletes );
         comboOutstandingAthletes = new JComboBox( );
         comboOutstandingAthletes.addActionListener( this );

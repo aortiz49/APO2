@@ -31,14 +31,14 @@ public class PanelExtension extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Comando Opci�n 1.
+     * Comando Option 1.
      */
-    private static final String OPCION_1 = "OPCION_1";
+    private static final String OPTION_1 = "OPTION_1";
 
     /**
-     * Comando Opci�n 2.
+     * Comando Option 2.
      */
-    private static final String OPCION_2 = "OPCION_2";
+    private static final String OPTION_2 = "OPTION_2";
 
     // -----------------------------------------------------------------
     // Attributes
@@ -50,18 +50,18 @@ public class PanelExtension extends JPanel implements ActionListener
     private CupiSportsInterface principal;
 
     // -----------------------------------------------------------------
-    // Attributes de interfaz
+    // Attributes of the interface
     // -----------------------------------------------------------------
 
     /**
-     * Bot�n Opci�n 1.
+     * Button Option 1.
      */
-    private JButton btnOpcion1;
+    private JButton btnOption1;
 
     /**
-     * Bot�n Opci�n 2.
+     * Button Option 2.
      */
-    private JButton btnOpcion2;
+    private JButton btnOption2;
 
     // -----------------------------------------------------------------
     // Constructors
@@ -75,20 +75,20 @@ public class PanelExtension extends JPanel implements ActionListener
     {
         principal = pPrincipal;
 
-        setBorder( new TitledBorder( "Opciones" ) );
+        setBorder( new TitledBorder( "Optiones" ) );
         setLayout( new GridLayout( 1, 2 ) );
 
-        // Bot�n opci�n 1
-        btnOpcion1 = new JButton( "Opci�n 1" );
-        btnOpcion1.setActionCommand( OPCION_1 );
-        btnOpcion1.addActionListener( this );
-        add( btnOpcion1 );
+        // Button opci�n 1
+        btnOption1 = new JButton( "Option 1" );
+        btnOption1.setActionCommand( OPTION_1 );
+        btnOption1.addActionListener( this );
+        add( btnOption1 );
 
-        // Bot�n opci�n 2
-        btnOpcion2 = new JButton( "Opci�n 2" );
-        btnOpcion2.setActionCommand( OPCION_2 );
-        btnOpcion2.addActionListener( this );
-        add( btnOpcion2 );
+        // Button opci�n 2
+        btnOption2 = new JButton( "Option 2" );
+        btnOption2.setActionCommand( OPTION_2 );
+        btnOption2.addActionListener( this );
+        add( btnOption2 );
     }
 
     // -----------------------------------------------------------------
@@ -101,13 +101,13 @@ public class PanelExtension extends JPanel implements ActionListener
      */
     public void actionPerformed( ActionEvent e )
     {
-        if( OPCION_1.equals( e.getActionCommand( ) ) )
+        if( OPTION_1.equals( e.getActionCommand( ) ) )
         {
-            principal.reqFuncOpcion1( );
+            principal.reqFuncOption1( );
         }
-        else if( OPCION_2.equals( e.getActionCommand( ) ) )
+        else if( OPTION_2.equals( e.getActionCommand( ) ) )
         {
-            principal.reqFuncOpcion2( );
+            principal.reqFuncOption2( );
         }
     }
 

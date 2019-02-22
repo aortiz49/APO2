@@ -219,14 +219,14 @@ public class AddAthleteDialog extends JDialog implements ActionListener {
             else {
                 try {
                     int age = Integer.parseInt(ageStr);
-                    int trofeos = Integer.parseInt(trophiesStr);
-                    if (age <= 0 || trofeos < 0) {
+                    int trophies = Integer.parseInt(trophiesStr);
+                    if (age <= 0 || trophies < 0) {
                         JOptionPane.showMessageDialog(this, "Age and trophies won must be positive "
                                 + "whole numbers!", "Add athlete", JOptionPane.ERROR_MESSAGE);
                     }
                     else {
                         principal
-                                .addOutstandingAthlete(name, age, placeOfResidence, trofeos, image);
+                                .addOutstandingAthlete(name, age, placeOfResidence, trophies, image);
                         dispose();
                     }
 

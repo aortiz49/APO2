@@ -1,0 +1,3 @@
+2
+Football;James;24;Madrid, Spain;45;./data/images/jamesRodriguez.jpg
+Tennis;Alejandro;32;Cali, Colombia;12;./data/images/alejandroFalla.jpg

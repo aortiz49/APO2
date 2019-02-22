@@ -1,12 +1,11 @@
-/**
+/*
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n
- * Licenciado bajo el esquema Academic Free License version 2.1
- * <p>
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiSports
- * Autor: Equipo Cupi2
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: n8_Sports
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -25,20 +24,20 @@ import javax.swing.border.TitledBorder;
 import uniandes.cupi2.cupiSports.world.Athlete;
 
 /**
- * Panel para para visualizar la informaci�n de un athlete.
+ * Panel to visualize an athlete's information.
  */
 public class AthleteInfoPanel extends JPanel {
     // -----------------------------------------------------------------
-    // Attributes de interfaz
+    // Attributes of the interface
     // -----------------------------------------------------------------
 
     /**
-     * Label con el name of the athlete.
+     * Label with the name of the athlete.
      */
     private JLabel lblNameAthlete;
 
     /**
-     * Campo de texto para el name of the athlete.
+     * Campo de texto to el name of the athlete.
      */
     private JTextField txtNameAthlete;
 
@@ -58,7 +57,7 @@ public class AthleteInfoPanel extends JPanel {
     private JLabel lblPlaceOfResidency;
 
     /**
-     * Campo de texto para el lugar de residencia of the athlete.
+     * Campo de texto to el lugar de residencia of the athlete.
      */
     private JTextField txtPlaceOfResidency;
 
@@ -129,14 +128,14 @@ public class AthleteInfoPanel extends JPanel {
         txtAge.setEditable(false);
         panelInformacion.add(txtAge);
 
-        lblPlaceOfResidency = new JLabel("Lugar de residencia:");
+        lblPlaceOfResidency = new JLabel("Place of residency:");
         panelInformacion.add(lblPlaceOfResidency);
 
         txtPlaceOfResidency = new JTextField();
         txtPlaceOfResidency.setEditable(false);
         panelInformacion.add(txtPlaceOfResidency);
 
-        lblTrophiesWon = new JLabel("Trophies ganados:");
+        lblTrophiesWon = new JLabel("Trophies won:");
         panelInformacion.add(lblTrophiesWon);
 
         txtTrophiesWon = new JTextField();
@@ -149,6 +148,7 @@ public class AthleteInfoPanel extends JPanel {
 
     /**
      * Actualiza la informaci�n presentada por el panel.
+     *
      * @param pAthlete Athlete del cual se va a obtener la informaci�n. pAthlete != null.
      */
     public void updateInfo(Athlete pAthlete) {

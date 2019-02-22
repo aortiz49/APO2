@@ -428,7 +428,10 @@ public class CupiSports {
             else {
                 for (int i = 0; i < Integer.parseInt(firstLine); i++) {
                     line = reader.readLine();
-                    updateAthlete(line);
+                    if (line != null)
+                        updateAthlete(line);
+                    else
+                        throw new FileFormatException("There is no information to read!");
 
                 }
             }

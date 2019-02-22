@@ -13,7 +13,6 @@
 package uniandes.cupi2.cupiSports.test;
 
 
-
 import org.junit.Before;
 
 import static org.junit.Assert.*;
@@ -35,15 +34,15 @@ public class SportTest {
     /**
      * Clase donde se har�n las pruebas.
      */
-    private Sport deporte;
+    private Sport sport;
 
     /**
-     * Athlete del deporte.
+     * Athlete del sport.
      */
     private Athlete athlete1;
 
     /**
-     * Deprtista del deporte.
+     * Deprtista del sport.
      */
     private Athlete athlete2;
 
@@ -56,33 +55,33 @@ public class SportTest {
      */
     @Before
     public void setupScenario1() {
-        deporte = new Sport("Futbol", "FCF", 2300, "imagen");
+        sport = new Sport("Futbol", "FCF", 2300, "imagen");
     }
 
     /**
-     * Construye un nuevo deporte, dos athletes y se agrega uno.
+     * Construye un nuevo sport, dos athletes y se agrega uno.
      */
     private void setupScenario2() {
         try {
-            deporte = new Sport("F�tbol", "FCF", 2300, "imagen");
+            sport = new Sport("F�tbol", "FCF", 2300, "imagen");
             athlete1 = new Athlete("James", 23, "Madrid", 39, "imagen2");
             athlete2 = new Athlete("Falcao", 29, "Manchester", 35, "imagen3");
-            deporte.addOutstandingAthlete(athlete1);
+            sport.addOutstandingAthlete(athlete1);
         } catch (ElementExistsException e) {
             fail("No deber�a generar una excepci�n");
         }
     }
 
     /**
-     * Construye un nuevo deporte, dos athletes y se agregan ambos.
+     * Construye un nuevo sport, dos athletes y se agregan ambos.
      */
     private void setupScenario3() {
         try {
-            deporte = new Sport("Futbol", "FCF", 2300, "imagen");
+            sport = new Sport("Futbol", "FCF", 2300, "imagen");
             athlete1 = new Athlete("James", 23, "Madrid", 39, "imagen2");
             athlete2 = new Athlete("Falcao", 29, "Manchester", 35, "imagen3");
-            deporte.addOutstandingAthlete(athlete1);
-            deporte.addOutstandingAthlete(athlete2);
+            sport.addOutstandingAthlete(athlete1);
+            sport.addOutstandingAthlete(athlete2);
         } catch (ElementExistsException e) {
             fail("No deber�a generar una excepci�n");
         }
@@ -103,16 +102,14 @@ public class SportTest {
     @Test
     public void testConstructor() {
 
-        assertEquals("El name del deporte es incorrecto.", "Futbol", deporte.getName());
-        assertEquals("El ente regulador del deporte es incorrecto.", "FCF",
-                     deporte.getRegulatoryEntity());
-        assertEquals("La fecha cantidad de athletes registrados del deporte es incorrecta.",
-                     2300, deporte.getNumberOfRegisteredAthletes());
-        assertEquals("La ruta de imagen del deporte es incorrecta.", "imagen",
-                     deporte.getImagePath());
-        assertNotNull("La lista de athletes es nula.", deporte.getOutstandingAthletes());
-        assertEquals("La lista de athletes no es vac�a.", 0,
-                     deporte.getOutstandingAthletes().size());
+        assertEquals("El name del sport es incorrecto.", "Futbol", sport.getName());
+        assertEquals("El ente regulador del sport es incorrecto.", "FCF",
+                     sport.getRegulatoryEntity());
+        assertEquals("La fecha cantidad de athletes registrados del sport es incorrecta.", 2300,
+                     sport.getNumberOfRegisteredAthletes());
+        assertEquals("La ruta de imagen del sport es incorrecta.", "imagen", sport.getImagePath());
+        assertNotNull("La lista de athletes es nula.", sport.getOutstandingAthletes());
+        assertEquals("La lista de athletes no es vac�a.", 0, sport.getOutstandingAthletes().size());
     }
 
     /**
@@ -127,9 +124,9 @@ public class SportTest {
     public void testExisteAthleteSobresaliente() {
         setupScenario2();
         assertTrue("El athlete deber�a existir.",
-                   deporte.outstandingAthleteExists(athlete1.getName()));
+                   sport.outstandingAthleteExists(athlete1.getName()));
         assertFalse("El athlete no deber�a existir.",
-                    deporte.outstandingAthleteExists(athlete2.getName()));
+                    sport.outstandingAthleteExists(athlete2.getName()));
     }
 
     /**
@@ -144,8 +141,13 @@ public class SportTest {
      */
     @Test
     public void testAddAthleteSobresalienteOK() {
-        //TODO Parte 4 punto B: Implemente la prueba
-
+        Athlete test = new Athlete("Lebron", 32, "Cleveland", 40, "./data/images/lebron.png");
+        try {
+            sport.addOutstandingAthlete(test);
+        } catch (ElementExistsException e) {
+            // e.printStackTrace();
+        }
+        assertTrue("Athlete should be added",sport.outstandingAthleteExists("Lebron"));
     }
 
     /**
@@ -160,8 +162,17 @@ public class SportTest {
      */
     @Test
     public void testAddAthleteSobresalienteError() {
-        //TODO Parte 4 punto C: Implemente la prueba
+        boolean added = false;
+        Athlete test = new Athlete("Michael", 32, "Cleveland", 40, "./data/images/lebron.png");
+        try {
+            sport.addOutstandingAthlete(test);
+            added = true;
+        } catch (ElementExistsException e) {
+            // e.printStackTrace();
+        }
+        assertTrue("Athlete shouldn't be added",added);
     }
+
 
     /**
      * Test 5: Verifica el m�todo eliminateOutstandingAthlete.<br>
@@ -176,16 +187,16 @@ public class SportTest {
     @Test
     public void testEliminarAthleteSobresaliente() {
         setupScenario3();
-        deporte.eliminateOutstandingAthlete("James");
+        sport.eliminateOutstandingAthlete("James");
         assertEquals("El tama�o de los athletes deber�a ser 1.", 1,
-                     deporte.getOutstandingAthletes().size());
+                     sport.getOutstandingAthletes().size());
         assertFalse("No deber�a existir el athlete eliminado.",
-                    deporte.outstandingAthleteExists("James"));
-        deporte.eliminateOutstandingAthlete("Falcao");
+                    sport.outstandingAthleteExists("James"));
+        sport.eliminateOutstandingAthlete("Falcao");
         assertEquals("El tama�o de los athletes deber�a ser 0.", 0,
-                     deporte.getOutstandingAthletes().size());
+                     sport.getOutstandingAthletes().size());
         assertFalse("No deber�a existir el athlete eliminado.",
-                    deporte.outstandingAthleteExists("Falcao"));
+                    sport.outstandingAthleteExists("Falcao"));
     }
 
     /**
@@ -200,19 +211,19 @@ public class SportTest {
     @Test
     public void testDarAthleteMasTrophies() {
         // 1
-        assertNull("Deber�a ser nulo.", deporte.getAthleteMostTrophies());
+        assertNull("Deber�a ser nulo.", sport.getAthleteMostTrophies());
 
         // 2
         setupScenario2();
-        assertNotNull("No deber�a ser nulo.", deporte.getAthleteMostTrophies());
+        assertNotNull("No deber�a ser nulo.", sport.getAthleteMostTrophies());
         assertEquals("El athlete con m�s trofeos no corresponde.", "James",
-                     deporte.getAthleteMostTrophies().getName());
+                     sport.getAthleteMostTrophies().getName());
 
         // 3
         setupScenario2();
-        assertNotNull("No deber�a ser nulo.", deporte.getAthleteMostTrophies());
+        assertNotNull("No deber�a ser nulo.", sport.getAthleteMostTrophies());
         assertEquals("El athlete con m�s trofeos no corresponde.", "James",
-                     deporte.getAthleteMostTrophies().getName());
+                     sport.getAthleteMostTrophies().getName());
 
     }
 
@@ -228,15 +239,15 @@ public class SportTest {
     @Test
     public void testDarTotalTrophies() {
         // 1
-        assertEquals("El n�mero total de trofeos no corresponde.", 0, deporte.getTotalTrophies());
+        assertEquals("El n�mero total de trofeos no corresponde.", 0, sport.getTotalTrophies());
 
         // 2
         setupScenario2();
-        assertEquals("El n�mero total de trofeos no corresponde.", 39, deporte.getTotalTrophies());
+        assertEquals("El n�mero total de trofeos no corresponde.", 39, sport.getTotalTrophies());
 
         // 3
         setupScenario3();
-        assertEquals("El n�mero total de trofeos no corresponde.", 74, deporte.getTotalTrophies());
+        assertEquals("El n�mero total de trofeos no corresponde.", 74, sport.getTotalTrophies());
 
     }
 

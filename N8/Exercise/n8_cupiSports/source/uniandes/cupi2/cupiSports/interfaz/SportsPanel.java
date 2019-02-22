@@ -1,12 +1,11 @@
-/**
+/*/*
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n
- * Licenciado bajo el esquema Academic Free License version 2.1
- * <p>
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n8_cupiSports
- * Autor: Equipo Cupi2
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: n8_Sports
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -23,7 +22,7 @@ import javax.swing.border.TitledBorder;
 import uniandes.cupi2.cupiSports.world.Sport;
 
 /**
- * Panel para el manejo de los sports.
+ * Panel to manage the sports.
  */
 public class SportsPanel extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
@@ -31,24 +30,24 @@ public class SportsPanel extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Constante para definir el action command del combo de los sports.
+     * Constant to define the action command of the sports.
      */
-    private static final String COMBO_DEPORTES = "Combo sports";
+    private static final String COMBO_SPORTS = "Combo sports";
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Interfaz principal de la aplicaci�n.
+     * Principal interface of the application
      */
     private CupiSportsInterface principal;
 
     // -----------------------------------------------------------------
-    // Attributes de la interfaz
+    // Attributes of the interface
     // -----------------------------------------------------------------
 
     /**
-     * Combo Box donde est�n los sports.
+     * Combo Box where the sports are located.
      */
     private JComboBox comboSports;
 
@@ -58,8 +57,8 @@ public class SportsPanel extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Constructor del panel donde se encuentra un combo con los sports.
-     * @param pPrincipal Interfaz principal de la aplicaci�n. pPrincipal != null.
+     * Constructor of the panel where teh sports are located.
+     * @param pPrincipal Principal interface of the application pPrincipal != null.
      */
     public SportsPanel(CupiSportsInterface pPrincipal) {
         principal = pPrincipal;
@@ -72,7 +71,7 @@ public class SportsPanel extends JPanel implements ActionListener {
         comboSports = new JComboBox();
         comboSports.setEditable(false);
         comboSports.addActionListener(this);
-        comboSports.setActionCommand(COMBO_DEPORTES);
+        comboSports.setActionCommand(COMBO_SPORTS);
         add(comboSports, BorderLayout.NORTH);
     }
 
@@ -81,8 +80,9 @@ public class SportsPanel extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Actualiza el combo box con la lista de sports.
-     * @param pSports Lista de sports que estar�n en el comboBox. pSports != null.
+     * Updates the combo box with the list of sports.
+     * @param pSports List of sports in the combo box.
+     *                pSports != null.
      */
     public void updateSports(ArrayList<Sport> pSports) {
         comboSports.removeAllItems();
@@ -92,33 +92,33 @@ public class SportsPanel extends JPanel implements ActionListener {
     }
 
     /**
-     * Devuelve el deporte seleccionado.
-     * @return Sport seleccionado.
+     * Returns the selected sport.
+     * @return Selected sport.
      */
     public Sport getSportSeleccionado() {
         return (Sport) comboSports.getSelectedItem();
     }
 
     /**
-     * Selecciona el deporte.
-     * @param pIndice �ndice del deporte a seleccionar.
+     * Selects the sport.
+     * @param pIndex Index of sport to select.
      */
-    public void seleccionarSport(int pIndice) {
-        comboSports.setSelectedIndex(pIndice);
+    public void selectSport(int pIndex) {
+        comboSports.setSelectedIndex(pIndex);
     }
 
     /**
-     * M�todo en el que se tratan los eventos del di�logo. <br>
-     * <b>post:</b> Cambia la informaci�n of the athlete que se est� mostrando de acuerdo al
-     * nuevo athlete seleccionado.
-     * @param e Par�metro que tiene encapsulado las caracter�sticas del elemento.
+     * Method that takes care of the actions <br>
+     * <b>post:</b> Changes the athlete information that is being shown according to the
+     * selected athlete.
+     * @param e Parameter that encapsulates the information.
      */
     public void actionPerformed(ActionEvent e) {
 
 
         String command = e.getActionCommand();
 
-        if(COMBO_DEPORTES.equals(command)) {
+        if(COMBO_SPORTS.equals(command)) {
             Sport sportName = (Sport) comboSports.getSelectedItem();
            principal.updateInfoSport(sportName);
 
