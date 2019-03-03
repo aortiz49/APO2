@@ -149,7 +149,7 @@ public class OptionsPanel extends JPanel implements ActionListener {
         btnEliminateAthlete.setToolTipText(ELIMINATE_ATHLETE);
         btnEliminateAthlete.setPreferredSize(new Dimension(60, 60));
 
-        btnGenerateReport = new JButton(new ImageIcon(DIRECTORY + "Report.png"));
+        btnGenerateReport = new JButton(new ImageIcon(DIRECTORY + "Reporte.png"));
         add(btnGenerateReport);
         btnGenerateReport.addActionListener(this);
         btnGenerateReport.setActionCommand(GENERATE_REPORT);

@@ -133,7 +133,7 @@ public class HurricaneSystem {
                     minHurricane = hurrPosition;
                 }
             }
-
+            
             if (min_index != i) {
                 Hurricane temp = (Hurricane) hurricanes.get(i);
                 hurricanes.set(i, minHurricane);

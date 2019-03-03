@@ -12,8 +12,9 @@
 
 package uniandes.cupi2.cupiSports.world;
 
-
 import java.io.*;
+import uniandes.cupi2.entrenadorArchivos.mundo.BufferedReader;
+import uniandes.cupi2.entrenadorArchivos.mundo.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -399,6 +400,7 @@ public class CupiSports {
      *                             file.
      */
     public void updateAthletesInformation(File pFile) throws FileFormatException, IOException {
+        long startTime = System.currentTimeMillis();
         if (sports.size() == 0)
             throw new FileFormatException(
                     "There are no sports in the system! Athletes weren't updated.");
@@ -439,6 +441,8 @@ public class CupiSports {
         else {
             throw new FileNotFoundException();
         }
+        long endTime = System.currentTimeMillis();
+        System.out.println(String.format("Total time with BufferedInputStream: %d ms", endTime - startTime));
     }
 
     /**
@@ -449,6 +453,14 @@ public class CupiSports {
      * @throws IOException If an error occurs when generating the report.
      */
     public void generateTrophyReport(String pFilePath) throws IOException {
+
+        String x = "test";
+        try {
+            addSportNew();
+        } catch (FileFormatException e) {
+            e.printStackTrace();
+        }
+
         try {
             PrintWriter log = new PrintWriter(new FileWriter(pFilePath, true));
             Date current = new Date();
@@ -523,5 +535,35 @@ public class CupiSports {
     public String method2() {
         return "Response 2";
     }
+
+
+    public void addSportNew() throws FileFormatException, IOException {
+        BufferedReader br = new BufferedReader(
+                new FileReader("./data/updatePlayerInformation" + "/testData.txt"));
+        String line = null;
+        String num = null;
+        try {
+            line = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (line == null)
+            throw new FileFormatException("The file is empty");
+        else{
+            while((line = br.readLine()) != null){
+                if(line.startsWith("SPORT:")){
+                    String[] tokens = line.split(";");
+                    System.out.println(tokens[0]);
+                }
+            }
+        }
+
+
+    }
+
+
+
+
 
 }

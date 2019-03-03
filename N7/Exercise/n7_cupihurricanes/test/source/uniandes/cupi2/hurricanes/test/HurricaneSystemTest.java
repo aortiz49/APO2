@@ -51,7 +51,7 @@ public class HurricaneSystemTest {
     public void setupScenario1() {
         hurricaneSystem = new HurricaneSystem();
         loadHurricanes(
-                "/Users/renegade/Uniandes/Sem 2/APO2/N7/Exercise/n7_cupihurricanes/data/hurricanes"
+                "./data/hurricanes"
                         + ".txt");
     }
 

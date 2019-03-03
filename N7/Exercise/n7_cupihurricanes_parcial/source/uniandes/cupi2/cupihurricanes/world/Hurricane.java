@@ -254,7 +254,7 @@ public class Hurricane {
         assert estimatedDamageCost >= 0 :
                 "The estimated damage cost in invalid, must be " + "positive value";
         assert image != null && !image.equals("") : "The image path's name is invalid";
-        assert !(duration >30) && !(duration < 1) : "Invalid duration.";
+        assert !(duration >=30) && !(duration <= 1) : "Invalid duration.";
 
     }
 }

@@ -10,9 +10,12 @@
  */
 
 package uniandes.cupi2.cupiSports.world;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+
+import uniandes.cupi2.entrenadorArchivos.mundo.PrintWriter;
+
 import java.util.Date;
 
 /**
@@ -70,14 +73,14 @@ public class ElementExistsException extends Exception {
         super(pNameOfRepeatedName);
         repeatedElementType = pRepeatedElementType;
         nameOfRepeatedElement = pNameOfRepeatedName;
-        registrarError();
+        registrarErrorgggg();
+
     }
 
     /**
      * Registers the errors related to persistence in a log file. <br>
-     *
      **/
-    public void registrarError() {
+    public void registrarErrorgggg() {
         try {
             PrintWriter log = new PrintWriter(new FileWriter(LOG_FILE, true));
 

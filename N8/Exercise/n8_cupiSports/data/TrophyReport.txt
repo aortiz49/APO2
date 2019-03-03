@@ -14,3 +14,19 @@ Total trophies: 201.
 Date:            Thu Feb 21 22:35:35 COT 2019.
 Athlete with most trophies:     Michael Phelps
 Total trophies: 451.
+****************************************************************************************
+                             CupiSports - Trophy Report
+****************************************************************************************
+                                           **
+
+Date:            Mon Feb 25 09:47:15 COT 2019.
+Athlete with most trophies:     James
+Total trophies: 50.
+****************************************************************************************
+                             CupiSports - Trophy Report
+****************************************************************************************
+                                           **
+
+Date:            Mon Feb 25 09:49:42 COT 2019.
+Athlete with most trophies:     Alejandro
+Total trophies: 199.
