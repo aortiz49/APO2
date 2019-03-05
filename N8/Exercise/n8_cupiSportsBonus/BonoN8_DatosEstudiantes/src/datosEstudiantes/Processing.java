@@ -59,7 +59,6 @@ public class Processing {
             }
             events.add(new Event(id, activity, date));
 
-
         }
 
     }
