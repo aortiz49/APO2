@@ -1,0 +1,19 @@
+Miami:A114
+	-781227&Juan-1
+	-976933&Lisa-1
+Texas:B345
+	-123343&Jason-2
+	-656453&Kyle-2
+	-887657&Mike-1
+	-765876&Sarah-3
+	-658548&Jim-4
+Houston:J871
+	-876901&Ellen-4
+	-146220&Jordan-1
+	-163223&Andy-3
+	-861982&Diana-2
+San Fransisco:K343
+	-363836&Johnny-1
+	-637896&Susan-2
+	-658202&Bill-4
+	-109301&Jenny-2=

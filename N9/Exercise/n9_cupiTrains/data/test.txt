@@ -1,0 +1,24 @@
+------- TRAIN REPORT -------- 
+
+Generated on: 11 Mar 2019 00:39:54 
+Total amount collected: 62.08
+Available seats: 31
+
+---- Detailed report ----
+
+______________________
+
+Train Id:  15
+First train stop: Miami - 01:30
+Last train stop: Orlando - 05:25
+Amount of train stops: 2
+Money collected: 62.08
+Amount of available seats: 31
+______________________
+
+Train Id:  200
+First train stop: Lyon - 03:20
+Last train stop: Stuttgart - 07:00
+Amount of train stops: 4
+Money collected: 0.0
+Amount of available seats: 0

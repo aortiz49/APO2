@@ -53,9 +53,11 @@ public class Processing {
             try {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
                 date = dateFormat.parse(time);
+                System.out.println();
             } catch (ParseException e) {
                 SimpleDateFormat otherFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 date = otherFormat.parse(time);
+                System.out.println(date.toString());
             }
             events.add(new Event(id, activity, date));
 

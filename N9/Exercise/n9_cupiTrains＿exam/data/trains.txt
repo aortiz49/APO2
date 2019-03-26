@@ -1,0 +1,96 @@
+------- TRAIN REPORT -------- 
+
+Generated on: 11 Mar 2019 14:29:56 
+Total amount collected: 949.7200000000001
+Available seats: 315
+
+---- Detailed report ----
+
+______________________
+
+Train Id:  100
+First train stop: A - 00:00
+Last train stop: F - 05:00
+Amount of train stops: 6
+Money collected: 0.0
+Amount of available seats: 3
+______________________
+
+Train Id:  1000
+First train stop: Miami - 00:25
+Last train stop: Tampa - 07:00
+Amount of train stops: 2
+Money collected: 0.0
+Amount of available seats: 5
+______________________
+
+Train Id:  121231
+First train stop: fffdsq - 01:50
+Last train stop: asdaf - 06:00
+Amount of train stops: 2
+Money collected: 0.0
+Amount of available seats: 0
+______________________
+
+Train Id:  777
+First train stop: San Fransisco - 01:55
+Last train stop: San Jose - 19:20
+Amount of train stops: 3
+Money collected: 699.7200000000001
+Amount of available seats: 186
+______________________
+
+Train Id:  35
+First train stop: Lyon - 03:30
+Last train stop: Stuttgart - 20:50
+Amount of train stops: 5
+Money collected: 250.0
+Amount of available seats: 121
+______________________
+
+Train Id:  700
+First train stop: Madrid - 04:00
+Last train stop: Miami - 08:00
+Amount of train stops: 2
+Money collected: 0.0
+Amount of available seats: 0
+______________________
+
+Train Id:  30
+First train stop: A - 04:00
+Last train stop: B - 21:00
+Amount of train stops: 2
+Money collected: 0.0
+Amount of available seats: 0
+______________________
+
+Train Id:  888
+First train stop: Miami - 05:00
+Last train stop: Barcelona - 20:00
+Amount of train stops: 3
+Money collected: 0.0
+Amount of available seats: 0
+______________________
+
+Train Id:  51
+First train stop: Rome - 05:55
+Last train stop: Turin - 13:00
+Amount of train stops: 2
+Money collected: 0.0
+Amount of available seats: 0
+______________________
+
+Train Id:  50
+First train stop: Barcelona - 06:00
+Last train stop: Madrid - 12:35
+Amount of train stops: 2
+Money collected: 0.0
+Amount of available seats: 0
+______________________
+
+Train Id:  101
+First train stop: Atlanta - 06:00
+Last train stop: Boston - 09:25
+Amount of train stops: 2
+Money collected: 0.0
+Amount of available seats: 0
