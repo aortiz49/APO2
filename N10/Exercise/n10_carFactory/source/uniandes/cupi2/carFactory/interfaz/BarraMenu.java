@@ -134,7 +134,7 @@ public class BarraMenu extends JMenuBar implements ActionListener {
 
         // Add "save" menu item.
         saveItem = new JMenuItem("Save");
-        saveItem.setActionCommand(OPEN);
+        saveItem.setActionCommand(SAVE);
         saveItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
         saveItem.setMnemonic(KeyEvent.VK_S);
         saveItem.addActionListener(this);
@@ -142,7 +142,7 @@ public class BarraMenu extends JMenuBar implements ActionListener {
 
         // Add "save as" menu item.
         saveAsItem = new JMenuItem("Save As");
-        saveAsItem.setActionCommand(OPEN);
+        saveAsItem.setActionCommand(SAVE_AS);
         saveAsItem.addActionListener(this);
         menuArchivo.add(saveAsItem);
 
@@ -169,14 +169,20 @@ public class BarraMenu extends JMenuBar implements ActionListener {
     public void actionPerformed(ActionEvent pEvento) {
         String command = pEvento.getActionCommand();
 
-        if(NEW.equals(command)){
+        if (NEW.equals(command)) {
             principal.restart();
-            principal.saveComo();
         }
         else if (OPEN.equals(command)) {
             principal.openFile();
         }
-        //TODO Parte10 PuntoI. Agregue las modificaciones para hacer funcionar los items que cre�.
+        else if (SAVE.equals(command)) {
+            principal.save();
+        }
+        else if (SAVE_AS.equals(command)) {
+            principal.saveComo();
+        }
+        else
+            principal.dispose();
     }
 
 }

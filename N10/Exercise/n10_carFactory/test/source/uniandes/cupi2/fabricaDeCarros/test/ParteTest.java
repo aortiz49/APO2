@@ -21,11 +21,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
-import uniandes.cupi2.carFactory.world.TruckHood;
-import uniandes.cupi2.carFactory.world.IPart;
-import uniandes.cupi2.carFactory.world.Part;
-import uniandes.cupi2.carFactory.world.Rayo;
-import uniandes.cupi2.carFactory.world.RinesDeLujo;
+
+import uniandes.cupi2.carFactory.world.*;
+
 
 /**
  * Clase usada para verificar que los m�todos de la clase Part est�n correctamente implementados.
@@ -61,7 +59,7 @@ public class ParteTest
      */
     public void setupEscenario2( )
     {
-        parte = new Rayo( 350, 221, Color.orange );
+        parte = new LightningRod( 350, 221, Color.orange );
     }
 
     /**
@@ -69,7 +67,7 @@ public class ParteTest
      */
     public void setupEscenario3( )
     {
-        parte = new RinesDeLujo( 30, 452, Color.yellow );
+        parte = new LuxuryRims( 30, 452, Color.yellow );
     }
 
     /**
@@ -173,7 +171,7 @@ public class ParteTest
 
             br.readLine( ); // Tipo
 
-            parte = new Rayo( br );
+            parte = new LightningRod( br );
             // Prueba de constructor en atributo tipo.
             assertEquals( "La parte se carg� incorrectamente, el tipo de la parte no es el esperado", "Rayo", parte.getType( ) );
             // Prueba de constructor en atributo x.
@@ -252,7 +250,7 @@ public class ParteTest
 
             br.readLine( ); // Tipo
 
-            parte = new RinesDeLujo( br );
+            parte = new LuxuryRims( br );
             // Prueba de constructor en atributo tipo.
             assertEquals( "La parte se cre� incorrectamente, el tipo de la parte no es el esperado.", "RinesDeLujo", parte.getType( ) );
             // Prueba de constructor en atributo x.
@@ -296,7 +294,8 @@ public class ParteTest
     {
         setupEscenario3( );
         // Prueba de constructor en atributo tipo.
-        assertEquals( "La parte se cre� incorrectamente, el tipo de la parte no es el esperado.", "RinesDeLujo", parte.getType( ) );
+        assertEquals( "La parte se cre� incorrectamente, el tipo de la parte no es el esperado.",
+                      "LuxuryRims", parte.getType( ) );
         // Prueba de constructor en atributo x.
         assertEquals( "La parte se cre� incorrectamente, la coordenada 'x' de la parte no es la esperada.", 30, parte.getX( ) );
         // Prueba de constructor en atributo y.
@@ -507,7 +506,7 @@ public class ParteTest
             br = new BufferedReader( new FileReader( "./test/data/testStencil2.dat" ) );
             br.readLine( );
 
-            Part p = new Rayo(br );
+            Part p = new LightningRod(br );
 
             // Prueba de constructor de Rayo
             assertEquals( "La parte se carg� incorrectamente, el tipo de la parte no corresponde al esperado.", parte.getType( ), p.getType( ) );
@@ -564,7 +563,7 @@ public class ParteTest
             br = new BufferedReader( new FileReader( "./test/data/testWheel2.dat" ) );
             br.readLine( );
 
-            Part p = new RinesDeLujo(br );
+            Part p = new LuxuryRims(br );
 
             // Prueba de constructor de RinesDeLujo
             assertEquals( "La parte se carg� incorrectamente, el tipo de la parte no corresponde al esperado.", parte.getType( ), p.getType( ) );

@@ -33,9 +33,17 @@ public abstract class Wheel extends Part {
 
     @Override
     public void paint(Graphics2D pG) {
+        pG.setColor(new Color(14, 14, 14));
+        pG.fillOval(x, y, DIAMETER, DIAMETER);
 
+        pG.setColor(Color.DARK_GRAY);
+        pG.fillOval(x + DIAMETER / 5, y + DIAMETER / 5, 3 * DIAMETER / 5, 3 * DIAMETER / 5);
+
+
+        pintarRines(pG);
     }
 
+    public abstract void pintarRines(Graphics2D pG);
 
 
 }

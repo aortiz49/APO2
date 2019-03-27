@@ -17,7 +17,7 @@ import java.awt.Graphics2D;
 import java.io.BufferedReader;
 
 /**
- * Clase que representa la llanta con rines econ�micos.
+ * Clase que representa la lxlanta con rines econ�micos.
  */
 public class EconomyRims extends Wheel {
     /**
@@ -68,7 +68,7 @@ public class EconomyRims extends Wheel {
      *
      * @param pG Superficie donde se debe paint. pG!=null.
      */
-    public void paintRines(Graphics2D pG) {
+    public void pintarRines(Graphics2D pG) {
         pG.setColor(new Color(14, 14, 14));
         pG.fillOval(x + 3 * DIAMETER / 10, y + 3 * DIAMETER / 10, +4 * DIAMETER / 10,
                     +4 * DIAMETER / 10);

@@ -45,6 +45,7 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
      * Construye el panel.<br>
      * <b> post: </b> Se inicializa el panel con la interfaz de f�brica de carros dada por
      * par�metro.
+     *
      * @param pInterfazPrincipal Ventana principal de la aplicaci�n. pInterfazPrincipal != null.
      */
     public PanelFabrica(InterfazFabricaDeCarros pInterfazPrincipal) {
@@ -70,6 +71,7 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
 
     /**
      * Este es el m�todo que se encarga de actualizar la visualizaci�n de la f�brica.
+     *
      * @param pG Superficie del panel. pG!=null.
      */
     public void update(Graphics2D pG) {
@@ -95,6 +97,7 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
     /**
      * Este es el m�todo llamado por la m�quina virtual cuando hay que repaint el panel. <br>
      * super.paintComponent( pG ) no sabe paint las figuras, as� que hay que sobrecargar el m�todo.
+     *
      * @param pG Superficie del panel. pG !=null.
      */
     public void paintComponent(Graphics pG) {
@@ -106,19 +109,20 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
      * Este m�todo se llama cuando se hace clic sobre la superficie del panel f�brica. <br>
      * Dependiendo de la opci�n seleccionada se debe agregar una figura a la f�brica o se debe
      * seleccionar una de las figuras existentes. <br>
+     *
      * @param pEvento Evento del clic sobre el panel mapa. pEvento!= null.
      */
     public void mouseClicked(MouseEvent pEvento) {
         if (pEvento.getButton() == MouseEvent.BUTTON1) {
             String opcion = principal.darOpcionSeleccionada();
+
+
             if (!opcion.equals(PanelBotones.NINGUNA) && !opcion.equals(PanelBotones.BORRAR)) {
                 int x = pEvento.getX();
                 int y = pEvento.getY();
 
                 if (opcion.equals(PanelBotones.SELECCIONAR)) {
-                    //TODO Parte11 PuntoA. Complete el m�todo.
-                    //En este punto el m�todo se encarga de indicarle a l ventana principal que
-                    // debe seleccionar la parte con las coordenadas del evento.
+                    principal.seleccionar(x, y);
                 }
                 else {
                     int xReal = x;
@@ -133,6 +137,7 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
 
     /**
      * Este m�todo no se implementa.
+     *
      * @param pEvento El evento. pEvento!= null.
      */
     public void mousePressed(MouseEvent pEvento) {
@@ -141,6 +146,7 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
 
     /**
      * Este m�todo no se implementa.
+     *
      * @param pEvento El evento. pEvento!= null.
      */
     public void mouseReleased(MouseEvent pEvento) {
@@ -149,14 +155,16 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
 
     /**
      * Este m�todo no se implementa.
+     *
      * @param pEvento El evento. pEvento!= null.
      */
     public void mouseEntered(MouseEvent pEvento) {
-        // No se requiere
+
     }
 
     /**
      * Este m�todo se llama cuando el mouse sale del �rea del panel.
+     *
      * @param pEvento El evento. pEvento!= null.
      */
     public void mouseExited(MouseEvent pEvento) {
@@ -166,20 +174,20 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
 
     /**
      * Este m�todo no se implementa.
+     *
      * @param pEvento El evento. pEvento!= null.
      */
     public void mouseDragged(MouseEvent pEvento) {
-        // No se requiere
-    }
+
+        }
 
     /**
      * Este m�todo se llama cuando se mueve el mouse sobre la superficie del panel. <br>
+     *
      * @param pEvento Evento de movimiento sobre el panel. pEvento!= null.
      */
     public void mouseMoved(MouseEvent pEvento) {
-        int x = pEvento.getX();
-        int y = pEvento.getY();
-        principal.calcularSombra(x, y);
+
         actualizar();
     }
 }

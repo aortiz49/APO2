@@ -59,6 +59,7 @@ public class MediumRims extends Wheel {
         tipo = TYPE;
     }
 
+
     // -----------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------
@@ -68,44 +69,57 @@ public class MediumRims extends Wheel {
      *
      * @param pG Superficie donde se debe paint pG!=null.
      */
-    public void paintRines(Graphics2D pG) {
 
-        pG.setColor(new Color(14, 14, 14));
-        pG.fillOval(x + 3 * DIAMETER / 10, y + 3 * DIAMETER / 10, +4 * DIAMETER / 10,
-                    +4 * DIAMETER / 10);
+        public void pintarRines(Graphics2D pG) {
 
-        double cos = 0.829;
-        double sin = 0.559;
-        int d1 = DIAMETER / 5;
-        int d2 = d1 / 3;
-        int radio = DIAMETER / 2;
-        int radio2 = DIAMETER / 2 - d2 - d1;
-        pG.setColor(Color.DARK_GRAY);
 
-        BasicStroke stroke = new BasicStroke(DIAMETER / 15);
-        pG.setStroke(stroke);
-        int a = (int) (radio2 * sin);
-        int b = (int) (radio2 * cos);
+            double cos = 0.829;
+            double sin = 0.559;
+            int radius = DIAMETER / 2;
+            int diameter1 = 2 * DIAMETER / 5;
+            int diameter2 = DIAMETER / 5;
+            int diameter3 = DIAMETER / 10;
+            int delta0 = DIAMETER / 5;
+            int delta1 = radius - diameter1 / 2;
+            int delta2 = radius - diameter2 / 2;
+            int delta3 = radius - diameter3 / 2;
+            int d2 = (int) (diameter1 * cos / 2);
+            int d1 = (int) (diameter1 * sin / 2);
 
-        int puntox1 = x + radio;
-        int puntox2 = x + radio + b;
-        int puntox3 = x + radio - b;
-        int puntoy1 = y + d1 + d2;
-        int puntoy2 = y + radio - a;
-        int puntoy3 = y + radio + a;
-        int puntoy4 = y + ancho - d2 - d1;
+            // Points
+            int x1 = x + radius - d2; // Represents the x value in QII and QIII
+            int y1 = y + radius - d1; // Represents the y value in QI and QII
+            int x2 = x + radius + d2; // Represents the x value in QI and QIV
+            int y2 = y + radius + d1; // Represents the y value in QIII and QIV
+            int vertX = x+ radius;
+            int topY = y + radius - diameter1/2;
+            int bottomY = y + radius+diameter1/2;
 
-        pG.drawLine(puntox1, puntoy1, puntox1, puntoy4);
-        pG.drawLine(puntox2, puntoy2, puntox3, puntoy3);
-        pG.drawLine(puntox3, puntoy2, puntox2, puntoy3);
+            // Paints circle with diameter1
+            pG.setColor(new Color(14, 14, 14));
+            pG.fillOval(x + delta1, y + delta1, diameter1, diameter1);
 
-        pG.fillOval(x + radio - d1 / 2, y + radio - d1 / 2, d1, d1);
 
-        pG.setColor(Color.gray);
-        stroke = new BasicStroke(DIAMETER / 50);
-        pG.setStroke(stroke);
-        pG.drawOval(x + radio - d1 / 4, y + radio - d1 / 4, d1 / 2, d1 / 2);
+            pG.setColor(Color.DARK_GRAY);
 
-    }
+            BasicStroke stroke = new BasicStroke(DIAMETER / 15);
+            pG.setStroke(stroke);
+            pG.drawLine(x1, y1, x2, y2);
+            pG.drawLine(x1,y2,x2,y1);
+            pG.drawLine(vertX, topY, vertX, bottomY);
+
+            // Paint circle with diamater 2
+            pG.setColor(Color.DARK_GRAY);
+            pG.fillOval(x + delta2, y + delta2, diameter2, diameter2);
+
+
+            // Draw center donut shape
+            pG.setColor(Color.GRAY);
+            BasicStroke stroke1 = new BasicStroke(DIAMETER / 50);
+            pG.setStroke(stroke1);
+            pG.drawOval(x + delta3, y + delta3, diameter3, diameter3);
+
+
+        }
 
 }

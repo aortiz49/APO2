@@ -11,9 +11,7 @@
 
 package uniandes.cupi2.carFactory.world;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.io.BufferedReader;
 
 /**
@@ -68,45 +66,48 @@ public class LuxuryRims extends Wheel {
      *
      * @param pG Superficie donde se debe paint. pG!=null.
      */
-    public void paintRines(Graphics2D pG) {
-        pG.setColor(new Color(14, 14, 14));
-        pG.fillOval(x + 3 * DIAMETER / 10, y + 3 * DIAMETER / 10, +4 * DIAMETER / 10,
-                    +4 * DIAMETER / 10);
+    public void pintarRines(Graphics2D pG) {
 
-        double cos = 0.829;
-        double sin = 0.559;
-        int d1 = DIAMETER / 5;
-        int d2 = d1 / 3;
-        int radio = DIAMETER / 2;
-        int radio2 = DIAMETER / 2 - d2 - d1;
+        double yConst = 0.829;
+        double xConst = 0.559;
 
-        pG.setColor(Color.DARK_GRAY);
 
-        BasicStroke stroke = new BasicStroke((float) (DIAMETER / 8.6));
-        pG.setStroke(stroke);
-        int a = (int) (radio2 * sin);
-        int b = (int) (radio2 * cos);
+        int diameter1 = 3 * DIAMETER / 5;
+        int radius = DIAMETER / 2;
+        int diameter2 = 4;
+        int delta0 = DIAMETER / 5;
+        int delta2 = radius - diameter2 / 2;
+        int d1 = (int) (diameter1 * yConst / 2);
+        int d2 = (int) (diameter1 * xConst / 2);
+        int stroke = DIAMETER / 15;
 
-        int puntox1 = x + radio;
-        int puntox2 = x + radio + b;
-        int puntox3 = x + radio - b;
-        int puntoy1 = y + d1 + d2;
-        int puntoy2 = y + radio - a;
-        int puntoy3 = y + radio + a;
-        int puntoy4 = y + ancho - d2 - d1;
 
-        pG.drawLine(puntox1, puntoy1, puntox1, puntoy4);
-        pG.drawLine(puntox2, puntoy2, puntox3, puntoy3);
-        pG.drawLine(puntox3, puntoy2, puntox2, puntoy3);
+        // Points
+        int x1 = x + radius - d2; // Represents the x value in QII and QIII
+        int y1 = y + radius - d1; // Represents the y value in QI and QII
+        int x2 = x + radius + d2; // Represents the x value in QI and QIV
+        int y2 = y + radius + d1; // Represents the y value in QIII and QIV
+        int horizY = y + radius;
+        int leftX = x + delta0;
+        int rightX = x + delta0 + diameter1;
 
-        pG.setStroke(stroke);
-        pG.setColor(Color.gray);
-        pG.drawOval(x + radio - d1 / 5, y + radio - d1 / 5, d1 * 2 / 5, d1 * 2 / 5);
+        // Set stroke conditions
+        pG.setColor(new Color(220, 181, 22));
+        BasicStroke wheelStroke = new BasicStroke(stroke);
+        pG.setStroke(wheelStroke);
 
-        stroke = new BasicStroke(DIAMETER / 15);
-        pG.setStroke(stroke);
-        pG.setColor(new Color(25, 25, 25));
-        pG.drawOval(x + radio - d1 / 8, y + radio - d1 / 8, d1 / 4, d1 / 4);
-        pG.setColor(null);
+        // Paint inner yellow border
+        pG.drawOval(x + delta0, y + delta0, diameter1, diameter1);
+
+        // Paint the rim bars
+        pG.setStroke(wheelStroke);
+        pG.drawLine(x1, y1, x2, y2);
+        pG.drawLine(x1, y2, x2, y1);
+        pG.drawLine(leftX, horizY, rightX, horizY);
+
+
+        // Paint inner black circle
+        pG.setColor(Color.BLACK);
+        pG.drawOval(x + delta2, y + delta2, diameter2, diameter2);
     }
 }
