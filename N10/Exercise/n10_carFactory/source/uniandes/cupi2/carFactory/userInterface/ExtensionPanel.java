@@ -8,7 +8,7 @@
  * Autor: Equipo Cupi2 2019
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
-package uniandes.cupi2.carFactory.interfaz;
+package uniandes.cupi2.carFactory.userInterface;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -20,7 +20,7 @@ import javax.swing.border.TitledBorder;
 /**
  * Panel de manejo de extensiones.
  */
-public class PanelExtension extends JPanel implements ActionListener
+public class ExtensionPanel extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
@@ -30,24 +30,24 @@ public class PanelExtension extends JPanel implements ActionListener
     /**
      * Constante para la Opci�n 1.
      */
-    private static final String OPCION_1 = "OPCION_1";
+    private static final String OPTION_1 = "OPTION_1";
 
     /**
      * Constante para la Opci�n 2.
      */
-    private static final String OPCION_2 = "OPCION_2";
+    private static final String OPTION_2 = "OPTION_2";
 
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicaci�n.
+     * Principal window of the application.
      */
-    private InterfazFabricaDeCarros principal;
+    private CarFactoryInterface principal;
 
     // -----------------------------------------------------------------
-    // Attributes de interfaz
+    // Attributes de userInterface
     // -----------------------------------------------------------------
 
     /**
@@ -66,25 +66,25 @@ public class PanelExtension extends JPanel implements ActionListener
 
     /**
      * Constructor del panel.<br>
-     * <b> post: </b> Se inicializa el panel con la interfaz de f�brica de carros dada por par�metro.
-     * @param pInterfazPrincipal Ventana principal. pInterfazPrincipal !=null.
+     * <b> post: </b> Se inicializa el panel con la userInterface de f�brica de carros dada por par�metro.
+     * @param pPrincipalInterface Ventana principal. pPrincipalInterface !=null.
      */
-    public PanelExtension( InterfazFabricaDeCarros pInterfazPrincipal )
+    public ExtensionPanel(CarFactoryInterface pPrincipalInterface )
     {
-        principal = pInterfazPrincipal;
+        principal = pPrincipalInterface;
 
-        setBorder( new TitledBorder( "Opciones" ) );
+        setBorder( new TitledBorder( "Options" ) );
         setLayout( new GridLayout( 1, 2 ) );
 
         // Bot�n opci�n 1
-        btnOpcion1 = new JButton( "Opci�n 1" );
-        btnOpcion1.setActionCommand( OPCION_1 );
+        btnOpcion1 = new JButton( "Option 1" );
+        btnOpcion1.setActionCommand( OPTION_1 );
         btnOpcion1.addActionListener( this );
         add( btnOpcion1 );
 
         // Bot�n opci�n 2
-        btnOpcion2 = new JButton( "Opci�n 2" );
-        btnOpcion2.setActionCommand( OPCION_2 );
+        btnOpcion2 = new JButton( "Option 2" );
+        btnOpcion2.setActionCommand( OPTION_2 );
         btnOpcion2.addActionListener( this );
         add( btnOpcion2 );
     }
@@ -95,15 +95,15 @@ public class PanelExtension extends JPanel implements ActionListener
 
     /**
      * Ejecuta la acci�n que corresponde al bot�n oprimido
-     * @param pEvento Acci�n que gener� el evento. pEvento != null.
+     * @param pEvent Acci�n que gener� el evento. pEvent != null.
      */
-    public void actionPerformed( ActionEvent pEvento )
+    public void actionPerformed( ActionEvent pEvent )
     {
-        if( OPCION_1.equals( pEvento.getActionCommand( ) ) )
+        if( OPTION_1.equals( pEvent.getActionCommand( ) ) )
         {
             principal.reqFuncOpcion1( );
         }
-        else if( OPCION_2.equals( pEvento.getActionCommand( ) ) )
+        else if( OPTION_2.equals( pEvent.getActionCommand( ) ) )
         {
             principal.reqFuncOpcion2( );
         }

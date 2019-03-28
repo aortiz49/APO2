@@ -100,18 +100,17 @@ public class MediumRims extends Wheel {
             pG.fillOval(x + delta1, y + delta1, diameter1, diameter1);
 
 
+            // Paint circle with diamater 2
             pG.setColor(Color.DARK_GRAY);
+            pG.fillOval(x + delta2, y + delta2, diameter2, diameter2);
 
+
+            pG.setColor(Color.DARK_GRAY);
             BasicStroke stroke = new BasicStroke(DIAMETER / 15);
             pG.setStroke(stroke);
             pG.drawLine(x1, y1, x2, y2);
             pG.drawLine(x1,y2,x2,y1);
             pG.drawLine(vertX, topY, vertX, bottomY);
-
-            // Paint circle with diamater 2
-            pG.setColor(Color.DARK_GRAY);
-            pG.fillOval(x + delta2, y + delta2, diameter2, diameter2);
-
 
             // Draw center donut shape
             pG.setColor(Color.GRAY);

@@ -9,7 +9,7 @@
  * Autor: Equipo Cupi2 2019
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
-package uniandes.cupi2.carFactory.interfaz;
+package uniandes.cupi2.carFactory.userInterface;
 
 import java.awt.Color;
 
@@ -21,12 +21,12 @@ import javax.swing.border.LineBorder;
 /**
  * Clase donde se coloca la imagen encabezado.
  */
-public class PanelImagen extends JPanel {
+public class ImagePanel extends JPanel {
 
     /**
      * Crea el panel de encabezado agregando la imagen.
      */
-    public PanelImagen() {
+    public ImagePanel() {
         JLabel imagen;
         ImageIcon icono = new ImageIcon("data/images/titulo.jpg");
 

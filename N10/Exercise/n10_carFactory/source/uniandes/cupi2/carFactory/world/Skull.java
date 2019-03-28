@@ -142,6 +142,10 @@ public class Skull extends Stencil {
         pG.fillOval(x + ANCHO - anchoHueso / 2, py2 - anchoHueso / 2, anchoHueso * 2,
                     anchoHueso * 2);
 
+
+
+
+
     }
 
 }

@@ -33,7 +33,7 @@ public class TruckHood extends Body {
     public final static String IMAGE = "TruckHood.gif";
 
     /**
-     * Constante que representa el tipo DelanteraCompacto.
+     * Constante que representa el tipo CompactHood.
      */
     public final static String TYPE = "TruckHood";
 

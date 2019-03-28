@@ -382,6 +382,8 @@ public class CarFactory {
         // Create an iterator for all car parts.
         Iterator iter = parts.iterator();
 
+        output.println(parts.size());
+
         while (iter.hasNext()) {
 
             // Save each part as type IPart.

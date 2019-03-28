@@ -1,15 +1,14 @@
-/**
+/*
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n
- * Licenciado bajo el esquema Academic Free License version 2.1
- * <p>
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: carFactory
- * Autor: Equipo Cupi2 2019
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: n10_carFactory
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
-package uniandes.cupi2.carFactory.interfaz;
+package uniandes.cupi2.carFactory.userInterface;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,79 +20,78 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 /**
- * Barra que contiene los men�s de la aplicaci�n.
+ * Bar containing the menus of the application.
  */
-public class BarraMenu extends JMenuBar implements ActionListener {
+public class MenuBar extends JMenuBar implements ActionListener {
 
     // -----------------------------------------------------------------
     // Constants
     // -----------------------------------------------------------------
 
     /**
-     * Constante que representa Guardar.
+     * Constant that represents the Save option.
      */
     private static final String SAVE = "Save";
 
     /**
-     * Constante que representa Guardar.
+     * Constant that represents the Save As option.
      */
     private static final String SAVE_AS = "Save As";
 
     /**
-     * Constante que representa Abrir.
+     * Constant that represents the Open option.
      */
     private static final String OPEN = "Open";
 
     /**
-     * Constante que representa Abrir.
+     * Constant that represents the New option.
      */
     private static final String NEW = "New";
 
     /**
-     * Constante que representa Abrir.
+     * Constant that represents the Exit option.
      */
     private static final String EXIT = "Exit";
-
 
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicaci�n.
+     * Principal window of the application.
      */
-    private InterfazFabricaDeCarros principal;
+    private CarFactoryInterface principal;
 
     // -----------------------------------------------------------------
-    // Attributes de la Interfaz
+    // Interface attributes
     // -----------------------------------------------------------------
 
     /**
-     * Men� Archivo.
+     * File menu.
      */
-    private JMenu menuArchivo;
+    private JMenu fileMenu;
 
     /**
-     * Opci�n Nuevo del men� Archivo.
+     * New option in the File menu.
      */
     private JMenuItem newItem;
     /**
-     * Opci�n Abrir del men� Archivo.
+     * Option option in the File menu.
      */
     private JMenuItem openItem;
 
     /**
-     * Opci�n Guardar del men� Archivo.
+     * Save option in the File menu.
      */
     private JMenuItem saveItem;
 
     /**
-     * Opci�n Guardar Como del men� Archivo.
+     * Save As option in the File menu.
      */
     private JMenuItem saveAsItem;
 
     /**
-     * Opci�n Salir del men� Archivo.
+     * Exit option in the File menu.
      */
     private JMenuItem exitItem;
 
@@ -102,19 +100,19 @@ public class BarraMenu extends JMenuBar implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Construye la barra de men�.<br>
-     * <b> post: </b> Se inicializ� la barra de men� con la interfaz de fabrica de carros dada
-     * por pat�metro.
+     * Constructs the menu bar.<br>
+     * <b> post: </b> The menu bar was initialized along with the car factory interface given by
+     * the parameter.
      *
-     * @param pInterfazPrincipal Es una referencia a la clase principal de la interfaz.
-     *                           pInterfazPrincipal !=null.
+     * @param pPrincipalInterface A reference to the principal class of the user interface.
+     *                            pPrincipalInterface !=null.
      */
-    public BarraMenu(InterfazFabricaDeCarros pInterfazPrincipal) {
-        principal = pInterfazPrincipal;
+    public MenuBar(CarFactoryInterface pPrincipalInterface) {
+        principal = pPrincipalInterface;
 
-        menuArchivo = new JMenu("File");
-        menuArchivo.setMnemonic(KeyEvent.VK_A);
-        add(menuArchivo);
+        fileMenu = new JMenu("File");
+        fileMenu.setMnemonic(KeyEvent.VK_A);
+        add(fileMenu);
 
         // Add "new" menu item.
         newItem = new JMenuItem("New");
@@ -122,7 +120,7 @@ public class BarraMenu extends JMenuBar implements ActionListener {
         newItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
         newItem.setMnemonic(KeyEvent.VK_N);
         newItem.addActionListener(this);
-        menuArchivo.add(newItem);
+        fileMenu.add(newItem);
 
         // Add "open" menu item.
         openItem = new JMenuItem("Open");
@@ -130,7 +128,7 @@ public class BarraMenu extends JMenuBar implements ActionListener {
         openItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
         openItem.setMnemonic(KeyEvent.VK_A);
         openItem.addActionListener(this);
-        menuArchivo.add(openItem);
+        fileMenu.add(openItem);
 
         // Add "save" menu item.
         saveItem = new JMenuItem("Save");
@@ -138,22 +136,22 @@ public class BarraMenu extends JMenuBar implements ActionListener {
         saveItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
         saveItem.setMnemonic(KeyEvent.VK_S);
         saveItem.addActionListener(this);
-        menuArchivo.add(saveItem);
+        fileMenu.add(saveItem);
 
         // Add "save as" menu item.
         saveAsItem = new JMenuItem("Save As");
         saveAsItem.setActionCommand(SAVE_AS);
         saveAsItem.addActionListener(this);
-        menuArchivo.add(saveAsItem);
+        fileMenu.add(saveAsItem);
 
         // Separate the "exit" item
-        menuArchivo.addSeparator();
+        fileMenu.addSeparator();
 
         // Add "exit" menu item.
         exitItem = new JMenuItem("Exit");
         exitItem.setActionCommand(EXIT);
         exitItem.addActionListener(this);
-        menuArchivo.add(exitItem);
+        fileMenu.add(exitItem);
 
     }
 
@@ -162,12 +160,13 @@ public class BarraMenu extends JMenuBar implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Ejecuta la acci�n que corresponde a la opci�n del men� que fue seleccionada.
+     * Executes the action that corresponds to the option selected in the menu.
      *
-     * @param pEvento Es el evento de seleccionar una opci�n del men�. pEvento !=null.
+     * @param pEvent The event that is selected as a menu option.
+     *               pEvent !=null.
      */
-    public void actionPerformed(ActionEvent pEvento) {
-        String command = pEvento.getActionCommand();
+    public void actionPerformed(ActionEvent pEvent) {
+        String command = pEvent.getActionCommand();
 
         if (NEW.equals(command)) {
             principal.restart();

@@ -26,7 +26,7 @@ public class CompactTrunk extends Body {
     /**
      * Constante que representa el ancho de la imagen.
      */
-    public final static int ANCHO = 374;
+    public final static int ANCHO = 215;
 
     /**
      * Constante que representa la imagen de la delantera de un sed�n.

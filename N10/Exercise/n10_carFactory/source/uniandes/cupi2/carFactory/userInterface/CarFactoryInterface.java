@@ -1,16 +1,15 @@
-/**
+/*
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n
- * Licenciado bajo el esquema Academic Free License version 2.1
- * <p>
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: carFactory
- * Autor: Equipo Cupi2 2019
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: n10_carFactory
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.carFactory.interfaz;
+package uniandes.cupi2.carFactory.userInterface;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -33,7 +32,7 @@ import uniandes.cupi2.carFactory.world.Part;
 /**
  * Esta es la ventana principal de la aplicaci�n.
  */
-public class InterfazFabricaDeCarros extends JFrame {
+public class CarFactoryInterface extends JFrame {
 
     // -----------------------------------------------------------------
     // Attributes
@@ -65,43 +64,43 @@ public class InterfazFabricaDeCarros extends JFrame {
     private ArrayList opcionesSeleccion;
 
     // -----------------------------------------------------------------
-    // Attributes de la interfaz
+    // Attributes de la userInterface
     // -----------------------------------------------------------------
 
     /**
      * Panel que contiene la imagen del encabezado.
      */
-    private PanelImagen panelImagen;
+    private ImagePanel panelImagen;
 
     /**
      * Panel con las extensiones.
      */
-    private PanelExtension panelExtension;
+    private ExtensionPanel panelExtension;
 
     /**
-     * Panel donde se muestran los botones para controlar la aplicaci�n.
+     * Panel donde se muestran los buttons para controlar la aplicaci�n.
      */
-    private PanelBotones panelBotones;
+    private ButtonPanel panelBotones;
 
     /**
      * Panel en el que se muestra y edita la f�brica.
      */
-    private PanelFabrica panelFabrica;
+    private FactoryPanel panelFabrica;
 
     /**
      * Barra del men�.
      */
-    private BarraMenu barraMenu;
+    private MenuBar barraMenu;
 
     // -----------------------------------------------------------------
     // Constructors
     // -----------------------------------------------------------------
 
     /**
-     * Crea una nueva interfaz con sus diferentes p�neles. <br>
+     * Crea una nueva userInterface con sus diferentes p�neles. <br>
      * <b> post: </b> Se inicializaron los atributos de la f�brica de carros.
      */
-    public InterfazFabricaDeCarros() {
+    public CarFactoryInterface() {
         // Crea la clase principal
         fabricaDeCarros = new CarFactory();
         inicializarOpcionesSeleccion();
@@ -110,8 +109,8 @@ public class InterfazFabricaDeCarros extends JFrame {
 
         // Construye la forma
         setLayout(new BorderLayout());
-        setTitle("F�brica de Carros");
-        barraMenu = new BarraMenu(this);
+        setTitle("Car factory");
+        barraMenu = new MenuBar(this);
         setJMenuBar(barraMenu);
         setSize(900, 750);
         setLocationRelativeTo(null);
@@ -119,19 +118,19 @@ public class InterfazFabricaDeCarros extends JFrame {
         setResizable(false);
 
         // Creaci�n de los paneles aqu�
-        panelImagen = new PanelImagen();
+        panelImagen = new ImagePanel();
         add(panelImagen, BorderLayout.NORTH);
 
-        panelExtension = new PanelExtension(this);
+        panelExtension = new ExtensionPanel(this);
         add(panelExtension, BorderLayout.SOUTH);
 
         JPanel auxPanelInformacion = new JPanel();
         auxPanelInformacion.setLayout(new BorderLayout());
 
-        panelBotones = new PanelBotones(this);
+        panelBotones = new ButtonPanel(this);
         auxPanelInformacion.add(panelBotones, BorderLayout.WEST);
 
-        panelFabrica = new PanelFabrica(this);
+        panelFabrica = new FactoryPanel(this);
         auxPanelInformacion.add(panelFabrica, BorderLayout.CENTER);
 
         add(auxPanelInformacion, BorderLayout.CENTER);
@@ -143,24 +142,24 @@ public class InterfazFabricaDeCarros extends JFrame {
     // -----------------------------------------------------------------
 
     /**
-     * Abre un dise�o por medio de un archivo seleccionado por el usuario. <br>
+     * Abre un dise�o por medio de un archivo selected por el usuario. <br>
      * <b>post: </b>Se carg� la f�brica que estaba guardada.
      */
     public void openFile() {
         boolean openFile = pedirConfirmacion();
         if (openFile) {
             JFileChooser fc = new JFileChooser(ultimoDirectorio);
-            fc.setDialogTitle("Abrir f�brica");
+            fc.setDialogTitle("Open factory");
             fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
             fc.setMultiSelectionEnabled(false);
 
             int resultado = fc.showOpenDialog(this);
 
             if (resultado == JFileChooser.APPROVE_OPTION) {
-                File seleccionado = fc.getSelectedFile();
-                ultimoDirectorio = seleccionado.getParentFile().getAbsolutePath();
+                File selected = fc.getSelectedFile();
+                ultimoDirectorio = selected.getParentFile().getAbsolutePath();
                 try {
-                    fabricaDeCarros.openFile(seleccionado.getAbsolutePath());
+                    fabricaDeCarros.openFile(selected.getAbsolutePath());
                     panelFabrica.actualizar();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, e.getMessage(), "Error",
@@ -172,15 +171,15 @@ public class InterfazFabricaDeCarros extends JFrame {
 
 
     /**
-     * Agrega una parte del tipo seleccionado en el panel de botones. <br>
+     * Agrega una parte del tipo selected en el panel de buttons. <br>
      * <b>post:</b> Se agreg� la parte y se redibuj� la f�brica.
      *
      * @param pX La coordenada x del punto superior izquierdo de la parte. pX >= 0.
      * @param pY La coordenada y del punto superior izquierdo de la parte. pY >= 0.
      */
     public void addPart(int pX, int pY) {
-        String opcion = darOpcionSeleccionada();
-        Color color = panelBotones.getColorFondo();
+        String opcion = getSelectedOption();
+        Color color = panelBotones.getColorBackground();
         Part newPart = null;
         newPart = fabricaDeCarros.createPart(opcion, pX, pY, color);
 
@@ -195,17 +194,18 @@ public class InterfazFabricaDeCarros extends JFrame {
      * @param pX La coordenada x del punto. pX >= 0.
      * @param pY La coordenada y del punto. pY >= 0.
      */
-    public void calcularSombra(int pX, int pY) {
-        String opcion = darOpcionSeleccionada();
+    public void calculateShadow(int pX, int pY) {
+        String opcion = getSelectedOption();
 
-        if (PanelBotones.SELECCIONAR.equals(opcion)) {
+        if (ButtonPanel.SELECT.equals(opcion)) {
             if (seleccionada != null) {
                 sombreada = fabricaDeCarros
                         .createPart(seleccionada.getType(), pX, pY, seleccionada.getColor());
             }
         }
         else {
-            sombreada = fabricaDeCarros.createPart(opcion, pX, pY, panelBotones.getColorFondo());
+            sombreada =
+                    fabricaDeCarros.createPart(opcion, pX, pY, panelBotones.getColorBackground());
         }
         cambiarSombreada(sombreada);
     }
@@ -256,13 +256,13 @@ public class InterfazFabricaDeCarros extends JFrame {
     }
 
     /**
-     * Retorna la opci�n seleccionada en el panel de botones.
+     * Retorna la opci�n seleccionada en el panel de buttons.
      *
-     * @return Opci�n seleccionada. Puede ser alguno de los tipos de parts, Ninguna, Seleccionar
+     * @return Opci�n seleccionada. Puede ser alguno de los types de parts, Ninguna, Seleccionar
      * o Borrar.
      */
-    public String darOpcionSeleccionada() {
-        return panelBotones.darOpcionSeleccionada();
+    public String getSelectedOption() {
+        return panelBotones.getSelectedOption();
     }
 
     /**
@@ -292,9 +292,11 @@ public class InterfazFabricaDeCarros extends JFrame {
     @Override
     public void dispose() {
 
-        int seleccion = JOptionPane.showConfirmDialog(this, "Est� cerrando la f�brica de carros.\n "
-                                                              + "�Desea save el dise�o actual?",
-                                                      "Cerrar", JOptionPane.YES_NO_OPTION,
+        int seleccion = JOptionPane.showConfirmDialog(this,
+                                                      "You're closing the car factory. " + ".\n "
+                                                              + "Would you like to save the "
+                                                              + "current factory?", "Close",
+                                                      JOptionPane.YES_NO_OPTION,
                                                       JOptionPane.QUESTION_MESSAGE);
         if (seleccion == JOptionPane.YES_OPTION) {
             save();
@@ -330,8 +332,9 @@ public class InterfazFabricaDeCarros extends JFrame {
             try {
                 fabricaDeCarros.save();
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(this, "Hubo problemas guardando el archivo:\n" + e
-                        .getMessage(), "Guardar", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,
+                                              "There were problems saving the file: \n" + e
+                        .getMessage(), "Save", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -342,7 +345,7 @@ public class InterfazFabricaDeCarros extends JFrame {
      */
     public void saveComo() {
         JFileChooser fc = new JFileChooser(ultimoDirectorio);
-        fc.setDialogTitle("Guardar como");
+        fc.setDialogTitle("Save as");
         fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
         fc.setMultiSelectionEnabled(false);
 
@@ -352,16 +355,17 @@ public class InterfazFabricaDeCarros extends JFrame {
 
         while (!termine) {
             if (resultado == JFileChooser.APPROVE_OPTION) {
-                File seleccionado = fc.getSelectedFile();
-                ultimoDirectorio = seleccionado.getParentFile().getAbsolutePath();
+                File selected = fc.getSelectedFile();
+                ultimoDirectorio = selected.getParentFile().getAbsolutePath();
 
                 int respuesta = JOptionPane.YES_OPTION;
 
                 // Si el archivo ya existe hay que pedir confirmaci�n para sobrescribirlo
-                if (seleccionado.exists()) {
+                if (selected.exists()) {
                     respuesta = JOptionPane
-                            .showConfirmDialog(this, "�Desea sobrescribir el archivo seleccionado?",
-                                               "Guardar Como", JOptionPane.YES_NO_OPTION,
+                            .showConfirmDialog(this, "Would you like to overwrite the "
+                                                       + "selected file?�",
+                                               "Save as", JOptionPane.YES_NO_OPTION,
                                                JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -369,12 +373,12 @@ public class InterfazFabricaDeCarros extends JFrame {
                 // graba el archivo
                 if (respuesta == JOptionPane.YES_OPTION) {
                     try {
-                        fabricaDeCarros.save(seleccionado.getAbsolutePath());
+                        fabricaDeCarros.save(selected.getAbsolutePath());
                         termine = true;
                     } catch (IOException e) {
                         JOptionPane.showMessageDialog(this,
-                                                      "Hubo problemas guardando el archivo:\n" + e
-                                                              .getMessage(), "Guardar Como",
+                                                      "There were problems saving the file:\n" + e
+                                                              .getMessage(), "Save as",
                                                       JOptionPane.ERROR_MESSAGE);
                     }
                 }
@@ -410,8 +414,9 @@ public class InterfazFabricaDeCarros extends JFrame {
         boolean cerrar = true;
 
         int respuesta = JOptionPane
-                .showConfirmDialog(this, "Desea save el archivo actual antes de continuar?",
-                                   "Guardar", JOptionPane.YES_NO_CANCEL_OPTION,
+                .showConfirmDialog(this, "Would you like to save the current file before "
+                                           + "continuing?",
+                                   "Save", JOptionPane.YES_NO_CANCEL_OPTION,
                                    JOptionPane.INFORMATION_MESSAGE);
 
         if (respuesta == JOptionPane.YES_OPTION) {
@@ -452,7 +457,7 @@ public class InterfazFabricaDeCarros extends JFrame {
     // -----------------------------------------------------------------
 
     /**
-     * Realiza las acciones posibles cuando est� seleccionada la opci�n de SELECCIONAR. <br>
+     * Realiza las acciones posibles cuando est� seleccionada la opci�n de SELECT. <br>
      * Si no hab�a una parte seleccionada, busca la parte que contiene los puntos dados y la
      * selecciona. <br>
      * Si hab�a una parte seleccionada y los puntos dados se encuentran dentro de la misma parte,
@@ -501,19 +506,19 @@ public class InterfazFabricaDeCarros extends JFrame {
     // -----------------------------------------------------------------
 
     /**
-     * Ejecuta la aplicaci�n, creando una nueva interfaz.
+     * Ejecuta la aplicaci�n, creando una nueva userInterface.
      *
      * @param pArgs Argumentos de iniciaci�n de la aplicaci�n pArgs !=null.
      */
     public static void main(String[] pArgs) {
-        // Unifica la interfaz para Mac y para Windows.
+        // Unifica la userInterface para Mac y para Windows.
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        InterfazFabricaDeCarros interfaz = new InterfazFabricaDeCarros();
+        CarFactoryInterface interfaz = new CarFactoryInterface();
         interfaz.setVisible(true);
     }
 }

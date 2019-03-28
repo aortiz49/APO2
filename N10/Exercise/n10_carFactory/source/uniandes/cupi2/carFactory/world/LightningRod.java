@@ -40,7 +40,7 @@ public class LightningRod extends Stencil {
     /**
      * Constante que representa el ancho de la imagen.
      */
-    public final static int ANCHO = 25;
+    public final static int ANCHO = 100;
 
     /**
      * Constante que representa el tipo LightningRodl.
@@ -90,67 +90,22 @@ public class LightningRod extends Stencil {
      * @param pG La superficie donde se debe paint g!=null.
      */
     public void paint(Graphics2D pG) {
-        pG.setStroke(new BasicStroke(1));
 
-        // Pintar el cr�neo
+        int dx = ANCHO/21;
+        int dy = ALTO/13;
+
+        int x2[] = {x,x+dx,x+6*dx,x+7*dx,x+11*dx,x+12*dx,x+21*dx,x+11*dx,x+10*dx,x+6*dx,x+5*dx};
+        int y2[] = {y+6*dy,y,y+4*dy,y+2*dy,y+6*dy,y+4*dy,y+13*dy,y+8*dy,y+10*dy,y+7*dy,y+9*dy};
         pG.setColor(color);
+        pG.fillPolygon (x2, y2, 11);
+
         pG.setStroke(new BasicStroke(1));
-
-        pG.fillOval(x, y, ANCHO, ALTO / 2);
-
-        pG.fillOval(x + ANCHO / 7, y + ALTO / 4, ANCHO * 5 / 7, ANCHO * 5 / 7);
-
-        // Pintar los ojos
         pG.setColor(Color.black);
-        pG.fillOval(x + ANCHO / 5, y + ALTO / 4, ANCHO / 5, ANCHO / 5);
-        pG.fillOval(x + ANCHO * 3 / 5, y + ALTO / 4, ANCHO / 5, ANCHO / 5);
+        pG.setStroke(new BasicStroke(1));
+        pG.drawPolygon(x2,y2,11);
 
-        // Pintar las fosas
-        int tamFosas = ANCHO / 18;
-        pG.fillOval(x + ANCHO / 2 - tamFosas * 3 / 2, y + ALTO * 3 / 8 - tamFosas, tamFosas,
-                    tamFosas * 2);
-        pG.fillOval(x + ANCHO / 2 + tamFosas / 2, y + ALTO * 3 / 8 - tamFosas, tamFosas,
-                    tamFosas * 2);
 
-        // Pintar los dientes
-        int tamDiente = ANCHO / 12;
-        pG.setColor(Color.white);
-        for (int i = 1; i <= 5; i++) {
-            pG.fillRect(x + ANCHO / 5 + tamDiente * i, y + ALTO / 2 - tamDiente / 2, tamDiente,
-                        tamDiente);
-            pG.fillRect(x + ANCHO / 5 + tamDiente * i, y + ALTO / 2 - tamDiente * 3 / 2, tamDiente,
-                        tamDiente);
 
-        }
-        pG.setColor(Color.black);
-        for (int i = 1; i <= 5; i++) {
-            pG.drawRect(x + ANCHO / 5 + tamDiente * i, y + ALTO / 2 - tamDiente / 2, tamDiente,
-                        tamDiente);
-            pG.drawRect(x + ANCHO / 5 + tamDiente * i, y + ALTO / 2 - tamDiente * 3 / 2, tamDiente,
-                        tamDiente);
-
-        }
-
-        // Pintar los huesos
-        pG.setColor(color);
-        int anchoHueso = ANCHO / 6;
-        int[] pxHueso =
-                {x - anchoHueso, x + ANCHO + anchoHueso, x + ANCHO + anchoHueso, x - anchoHueso};
-        int py1 = y + ALTO * 5 / 9;
-        int py2 = y + ALTO * 4 / 5;
-        int[] pyHueso1 = {py1, py2, py2 + anchoHueso, py1 + anchoHueso};
-        int[] pyHueso2 = {py2 + anchoHueso, py1 + anchoHueso, py1, py2};
-
-        pG.fillPolygon(pxHueso, pyHueso1, 4);
-        pG.fillPolygon(pxHueso, pyHueso2, 4);
-
-        pG.fillOval(x - anchoHueso * 3 / 2, py1 - anchoHueso / 2, anchoHueso * 2, anchoHueso * 2);
-        pG.fillOval(x - anchoHueso * 3 / 2, py2 - anchoHueso / 2, anchoHueso * 2, anchoHueso * 2);
-        pG.fillOval(x + ANCHO - anchoHueso / 2, py1 - anchoHueso / 2, anchoHueso * 2,
-                    anchoHueso * 2);
-        pG.fillOval(x + ANCHO - anchoHueso / 2, py2 - anchoHueso / 2, anchoHueso * 2,
-                    anchoHueso * 2);
 
     }
-
 }

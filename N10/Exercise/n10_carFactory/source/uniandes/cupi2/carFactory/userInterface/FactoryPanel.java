@@ -9,7 +9,7 @@
  * Autor: Equipo Cupi2 2019
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
-package uniandes.cupi2.carFactory.interfaz;
+package uniandes.cupi2.carFactory.userInterface;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics;
@@ -27,15 +27,15 @@ import uniandes.cupi2.carFactory.world.IPart;
 /**
  * Panel en el que se despliega el lienzo de dibujo.
  */
-public class PanelFabrica extends JPanel implements MouseListener, MouseMotionListener {
+public class FactoryPanel extends JPanel implements MouseListener, MouseMotionListener {
     // -----------------------------------------------------------------
-    // Attributes de la Interfaz
+    // Interface attributes
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicaci�n.
+     * Principal window of the application.
      */
-    private InterfazFabricaDeCarros principal;
+    private CarFactoryInterface principal;
 
     // -----------------------------------------------------------------
     // Constructors
@@ -43,13 +43,13 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
 
     /**
      * Construye el panel.<br>
-     * <b> post: </b> Se inicializa el panel con la interfaz de f�brica de carros dada por
+     * <b> post: </b> Se inicializa el panel con la userInterface de f�brica de carros dada por
      * par�metro.
      *
-     * @param pInterfazPrincipal Ventana principal de la aplicaci�n. pInterfazPrincipal != null.
+     * @param pPrincipalInterface Principal window of the application. pPrincipalInterface != null.
      */
-    public PanelFabrica(InterfazFabricaDeCarros pInterfazPrincipal) {
-        principal = pInterfazPrincipal;
+    public FactoryPanel(CarFactoryInterface pPrincipalInterface) {
+        principal = pPrincipalInterface;
 
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -110,18 +110,18 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
      * Dependiendo de la opci�n seleccionada se debe agregar una figura a la f�brica o se debe
      * seleccionar una de las figuras existentes. <br>
      *
-     * @param pEvento Evento del clic sobre el panel mapa. pEvento!= null.
+     * @param pEvent Event del clic sobre el panel mapa. pEvent!= null.
      */
-    public void mouseClicked(MouseEvent pEvento) {
-        if (pEvento.getButton() == MouseEvent.BUTTON1) {
-            String opcion = principal.darOpcionSeleccionada();
+    public void mouseClicked(MouseEvent pEvent) {
+        if (pEvent.getButton() == MouseEvent.BUTTON1) {
+            String opcion = principal.getSelectedOption();
 
 
-            if (!opcion.equals(PanelBotones.NINGUNA) && !opcion.equals(PanelBotones.BORRAR)) {
-                int x = pEvento.getX();
-                int y = pEvento.getY();
+            if (!opcion.equals(ButtonPanel.NONE) && !opcion.equals(ButtonPanel.ERASE)) {
+                int x = pEvent.getX();
+                int y = pEvent.getY();
 
-                if (opcion.equals(PanelBotones.SELECCIONAR)) {
+                if (opcion.equals(ButtonPanel.SELECT)) {
                     principal.seleccionar(x, y);
                 }
                 else {
@@ -138,36 +138,36 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
     /**
      * Este m�todo no se implementa.
      *
-     * @param pEvento El evento. pEvento!= null.
+     * @param pEvent El evento. pEvent!= null.
      */
-    public void mousePressed(MouseEvent pEvento) {
+    public void mousePressed(MouseEvent pEvent) {
         // No se requiere
     }
 
     /**
      * Este m�todo no se implementa.
      *
-     * @param pEvento El evento. pEvento!= null.
+     * @param pEvent El evento. pEvent!= null.
      */
-    public void mouseReleased(MouseEvent pEvento) {
+    public void mouseReleased(MouseEvent pEvent) {
         // No se requiere
     }
 
     /**
      * Este m�todo no se implementa.
      *
-     * @param pEvento El evento. pEvento!= null.
+     * @param pEvent El evento. pEvent!= null.
      */
-    public void mouseEntered(MouseEvent pEvento) {
+    public void mouseEntered(MouseEvent pEvent) {
 
     }
 
     /**
      * Este m�todo se llama cuando el mouse sale del �rea del panel.
      *
-     * @param pEvento El evento. pEvento!= null.
+     * @param pEvent El evento. pEvent!= null.
      */
-    public void mouseExited(MouseEvent pEvento) {
+    public void mouseExited(MouseEvent pEvent) {
         principal.cambiarSombreada(null);
         actualizar();
     }
@@ -175,18 +175,18 @@ public class PanelFabrica extends JPanel implements MouseListener, MouseMotionLi
     /**
      * Este m�todo no se implementa.
      *
-     * @param pEvento El evento. pEvento!= null.
+     * @param pEvent El evento. pEvent!= null.
      */
-    public void mouseDragged(MouseEvent pEvento) {
+    public void mouseDragged(MouseEvent pEvent) {
 
         }
 
     /**
      * Este m�todo se llama cuando se mueve el mouse sobre la superficie del panel. <br>
      *
-     * @param pEvento Evento de movimiento sobre el panel. pEvento!= null.
+     * @param pEvent Event de movimiento sobre el panel. pEvent!= null.
      */
-    public void mouseMoved(MouseEvent pEvento) {
+    public void mouseMoved(MouseEvent pEvent) {
 
         actualizar();
     }

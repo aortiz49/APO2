@@ -66,6 +66,7 @@ public class LuxuryRims extends Wheel {
      *
      * @param pG Superficie donde se debe paint. pG!=null.
      */
+
     public void pintarRines(Graphics2D pG) {
 
         double yConst = 0.829;
@@ -110,4 +111,6 @@ public class LuxuryRims extends Wheel {
         pG.setColor(Color.BLACK);
         pG.drawOval(x + delta2, y + delta2, diameter2, diameter2);
     }
+
 }
+

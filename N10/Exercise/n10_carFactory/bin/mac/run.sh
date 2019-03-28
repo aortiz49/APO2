@@ -16,7 +16,7 @@ stty -echo
 # ---------------------------------------------------------
 
 cd ../..
-java -ea -classpath ./lib/fabricaDeCarros.jar uniandes.cupi2.carFactory.interfaz.InterfazFabricaDeCarros
+java -ea -classpath ./lib/fabricaDeCarros.jar uniandes.cupi2.carFactory.userInterface.CarFactoryInterface
 cd bin/mac
 
 stty echo
