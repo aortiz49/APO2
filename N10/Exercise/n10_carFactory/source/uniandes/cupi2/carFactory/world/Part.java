@@ -289,6 +289,8 @@ public abstract class Part implements IPart {
         pG.drawRect(x, y, ancho, alto);
         pG.setStroke(new BasicStroke(1));
         pG.setColor(color);
+
+
     }
 
     /**

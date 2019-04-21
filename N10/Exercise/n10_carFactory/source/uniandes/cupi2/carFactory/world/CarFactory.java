@@ -335,8 +335,19 @@ public class CarFactory {
      */
     public void eliminatePart(int pX, int pY) {
 
-        IPart found = findPart(pX, pY);
-        parts.remove(found);
+        //  IPart found = findPart(pX, pY);
+        //parts.remove(found);
+
+        // Create an iterator for all car parts.
+        Iterator iter = parts.iterator();
+
+        while (iter.hasNext()) {
+
+            // Save each part as type IPart.
+            IPart part = (IPart) iter.next();
+            if (part.pointIsInside(pX, pY))
+                iter.remove();
+        }
     }
 
     /**
@@ -416,6 +427,7 @@ public class CarFactory {
      */
     private void verifyInvariants() {
         assert (parts != null) : "Parts list must be initialized.";
+
 
     }
 
