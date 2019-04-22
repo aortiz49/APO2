@@ -1,7 +1,7 @@
 #!/bin/sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Universidad de los Andes (Bogotá - Colombia)
-# Departamento de Ingeniería de Sistemas y Computación
+# Universidad of los Andes (Bogotá - Colombia)
+# Departamento of Ingeniería of Sistemas y Computación
 # Licenciado bajo el esquema Academic Free License version 2.1
 #
 # Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -12,11 +12,11 @@
 stty -echo
 
 # ---------------------------------------------------------
-# Ejecución del programa
+# Ejecución of the programa
 # ---------------------------------------------------------
 
 cd ../..
-java -ea -classpath ./lib/cupiTaxonomia.jar uniandes.cupi2.cupiTaxonomia.interfaz.InterfazCupiTaxonomia
+java -ea -classpath ./lib/cupiTaxonomia.jar uniandes.cupi2.cupiTaxonomy.userInterface.TaxonomicTreeInterface
 cd bin/mac
 
 stty echo

@@ -1,7 +1,7 @@
 #!/bin/sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Universidad de los Andes (Bogotá - Colombia)
-# Departamento de Ingeniería de Sistemas y Computación
+# Universidad of los Andes (Bogotá - Colombia)
+# Departamento of Ingeniería of Sistemas y Computación
 # Licenciado bajo el esquema Academic Free License version 2.1
 #
 # Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -12,7 +12,7 @@
 stty -echo
 
 # ---------------------------------------------------------
-# Asegura la creación del directorio docs/api
+# Asegura la creación of the directorio docs/api
 # ---------------------------------------------------------
 
 cd ../../docs
@@ -23,6 +23,6 @@ cd ../bin/mac
 # Genera la documentación
 # ---------------------------------------------------------
 
-javadoc -encoding ISO-8859-1 -sourcepath ../../source -d ../../docs/api -subpackages uniandes.cupi2.cupiTaxonomia
+javadoc -encoding ISO-8859-1 -sourcepath ../../source -d ../../docs/api -subpackages uniandes.cupi2.cupiTaxonomy
 
 stty echo

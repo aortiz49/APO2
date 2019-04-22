@@ -1,7 +1,7 @@
 #!/bin/sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Universidad de los Andes (Bogotá - Colombia)
-# Departamento de Ingeniería de Sistemas y Computación
+# Universidad of los Andes (Bogotá - Colombia)
+# Departamento of Ingeniería of Sistemas y Computación
 # Licenciado bajo el esquema Academic Free License version 2.1
 #
 # Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -12,7 +12,7 @@
 stty -echo
 
 cd ../../test
-rm -rf classes/* 
-rm -rf lib/cupiTaxonomiaTest.jar 
+rm -rf classes/*
+rm -rf lib/cupiTaxonomiaTest.jar
 
 cd ../bin/mac

@@ -1,8 +1,8 @@
 @echo off
 REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-REM Universidad de los Andes (Bogotá - Colombia)
-REM Departamento de Ingeniería de Sistemas y Computación 
-REM Licenciado bajo el esquema Academic Free License version 2.1 
+REM Universidad of los Andes (Bogotá - Colombia)
+REM Departamento of Ingeniería of Sistemas y Computación
+REM Licenciado bajo el esquema Academic Free License version 2.1
 REM
 REM Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
 REM Ejercicio: n11_cupiTaxonomia
@@ -12,7 +12,7 @@ REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SET CLASSPATH=
 
 REM ---------------------------------------------------------
-REM Asegura la creación de los directorios classes y lib
+REM Asegura la creación of los directorios classes y lib
 REM ---------------------------------------------------------
 
 cd ../../
@@ -20,7 +20,7 @@ mkdir classes
 mkdir lib
 
 REM ---------------------------------------------------------
-REM Compila las clases del directorio source
+REM Compila las clases of the directorio source
 REM ---------------------------------------------------------
 
 
@@ -29,7 +29,7 @@ javac -source 1.5 -nowarn -d ../classes/ uniandes/cupi2/cupiTaxonomia/mundo/*.ja
 javac -source 1.5 -nowarn -d ../classes/ uniandes/cupi2/cupiTaxonomia/interfaz/*.java
 
 REM ---------------------------------------------------------
-REM Crea el archivo jar a partir de los archivos compilados
+REM Crea el archivo jar a partir of los archivos compilados
 REM ---------------------------------------------------------
 
 cd ../classes

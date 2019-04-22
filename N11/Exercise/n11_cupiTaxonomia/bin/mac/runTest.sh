@@ -1,7 +1,7 @@
 #!/bin/sh
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Universidad de los Andes (Bogotá - Colombia)
-# Departamento de Ingeniería de Sistemas y Computación
+# Universidad of los Andes (Bogotá - Colombia)
+# Departamento of Ingeniería of Sistemas y Computación
 # Licenciado bajo el esquema Academic Free License version 2.1
 #
 # Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -12,16 +12,16 @@
 stty -echo
 
 # ---------------------------------------------------------
-# Ejecución de las pruebas
+# Ejecución of las pruebas
 # ---------------------------------------------------------
 
 cd ../..
-	
-java -ea -classpath lib/cupiTaxonomia.jar:test/lib/junit.jar:test/lib/cupiTaxonomiaTest.jar junit.swingui.TestRunner uniandes.cupi2.cupiTaxonomia.test.ArbolTaxonomicoTest
-	
-java -ea -classpath lib/cupiTaxonomia.jar:test/lib/junit.jar:test/lib/cupiTaxonomiaTest.jar junit.swingui.TestRunner uniandes.cupi2.cupiTaxonomia.test.TaxonTest
-	
-java -ea -classpath lib/cupiTaxonomia.jar:test/lib/junit.jar:test/lib/cupiTaxonomiaTest.jar junit.swingui.TestRunner uniandes.cupi2.cupiTaxonomia.test.SerVivoTest
+
+java -ea -classpath lib/cupiTaxonomia.jar:test/lib/junit.jar:test/lib/cupiTaxonomiaTest.jar junit.swingui.TestRunner uniandes.cupi2.cupiTaxonomy.test.TaxonomicTreeTest
+
+java -ea -classpath lib/cupiTaxonomia.jar:test/lib/junit.jar:test/lib/cupiTaxonomiaTest.jar junit.swingui.TestRunner uniandes.cupi2.cupiTaxonomy.test.TaxonTest
+
+java -ea -classpath lib/cupiTaxonomia.jar:test/lib/junit.jar:test/lib/cupiTaxonomiaTest.jar junit.swingui.TestRunner uniandes.cupi2.cupiTaxonomy.test.LivingBeingTest
 cd bin/mac
 
 stty echo
