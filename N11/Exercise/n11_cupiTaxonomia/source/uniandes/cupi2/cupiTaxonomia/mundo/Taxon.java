@@ -341,6 +341,8 @@ public class Taxon implements Serializable {
         for (int i = 0; i < subTaxones.size(); i++) {
             Taxon child = subTaxones.get(i);
             child.buscarTaxonesPreorden(pListaTaxones);
+
+
         }
     }
 
@@ -365,7 +367,7 @@ public class Taxon implements Serializable {
     }
 
     /**
-     * Retorna una lista con los nombres de los taxones del tipo dado por par�metro. <br>
+     * Agrega a una lista con los nombres de los taxones del tipo dado por par�metro. <br>
      *
      * @param pTipo         Tipo del tax�n que se quiere buscar. pTipo pertenece a {LUCA,
      *                      DOMINIO, REINO,
@@ -426,6 +428,33 @@ public class Taxon implements Serializable {
      *                     != "".
      */
     public void eliminarTaxon(int pTipo, String pNombreTaxon) {
+
+        boolean eliminated = false;
+        for (int i = 0; i < subTaxones.size() && !eliminated; i++) {
+            Taxon child = subTaxones.get(i);
+            if (child.tipo == pTipo && child.nombre.equalsIgnoreCase(pNombreTaxon)) {
+                subTaxones.remove(i);
+                eliminated = true;
+            }
+            else
+                child.eliminarTaxon(pTipo, pNombreTaxon);
+        }
+
+/*
+        Taxon found = buscarTaxonNivel(pTipo, pNombreTaxon);
+
+        ArrayList<String> buscados = new ArrayList<>();
+
+        // This adds al; the possible fathers of the found child to an array list since for a
+        // child in level n, the fathers can only belong to level n-1.
+        buscarTaxonesNivel(pTipo - 1, buscados);
+        for (int i = 0; i < buscados.size(); i++) {
+            if(buscados.get(i)){
+
+            }
+        }
+*/
+
 
     }
 

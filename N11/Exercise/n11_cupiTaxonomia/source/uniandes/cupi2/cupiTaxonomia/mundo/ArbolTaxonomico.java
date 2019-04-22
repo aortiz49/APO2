@@ -240,6 +240,7 @@ public class ArbolTaxonomico {
      */
     public void eliminarTaxon(int pTipoTaxon, String pNombreTaxon) {
         // TODO Parte2 PuntoB Complete el m�todo seg�n la documentaci�n dada.
+        taxonRaiz.eliminarTaxon(pTipoTaxon,pNombreTaxon);
     }
 
     /**
